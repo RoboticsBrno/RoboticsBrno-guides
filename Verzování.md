@@ -5,5 +5,8 @@ Soupis informací k verzování projektů.
 - Honza Mrázek: [yaqwsx@github](https://github.com/yaqwsx/)
 - Jarek Páral: [jarekparal@github](https://github.com/JarekParal/), [jarekp@bitbucket](https://bitbucket.org/jarekp/)
 - Bedřich Said: [bsaid@github](https://github.com/bsaid)
-- Jakub Streit: [cednik@github](https://github.com/cednik)
+- Jakub Streit: [cednik@github](https://github.com/cednik), [cednik@bitbucket](https://bitbucket.org/cednik/)
 - Jirka Vácha: [vakrij@github](https://github.com/vakrij)
+
+## Starší Robotární projekty
+[trac](http://technika.tasemnice.eu/trac/browser)
