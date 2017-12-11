@@ -21,3 +21,19 @@ Verzovací server pro HG repozitáře [trac](http://technika.tasemnice.eu/trac/b
   * První věc, pokud chcete aby si někdo mohl váš repozitář prohlédnout, je nutné jej nastavit jako veřejný (public) ne soukromý (private). Potom již stačí dotyčnému poslat odkaz a on si může vše prohlédnout.
   * Když chcete na tvorbě daného projektu s někým spolupracovat, je potřeba mu přidat oprávnění k repozitáři: `Settings -> Collaborators -> Add collaborator`. Učiňte tak u všech projektů, na kterých se mají podílet lidi z Robotárny - přidejte kokrétní účty, uvedené výše.
   
+
+## Git
+
+### Pro pokročilé
+
+**Používejte jen, když víte co a proč to děláte.**
+
+- Odstranění posledního commitu
+  ```
+  git reset --hard HEAD~1
+  ```
+  Odstranění commitu i ze serveru, pokud tam byl předtím nahrán
+  ```
+  git push --force
+  ```
+  
