@@ -1,0 +1,155 @@
+\chap Programovací jazyk C++
+
+\sec Základy syntaxe v~jazyce C
+
+\secc Základní pojmy
+
+Upozornìní: V~jazyce C++ se {\bf rozlišují velká a~malá písmena}.  
+
+\begitems \style o
+
+* {\bf pøíkaz} \ii{pøíkaz} -- povel pro procesor, øíká procesoru, co má dìlat.
+Pøíkazy probíhají postupnì, nejprve se udìlá jeden a~pak další, který je na øadì
+Za pøíkazy dáváme støedník (;).
+
+* {\bf syntaxe} \ii{syntaxe} -- \uv{pravopis} programovacího jazyka, øíká, jak psát pøíkazy programovacího jazyka tak, aby nám poèítaè rozumìl 
+
+* {\bf preprocesor} \ii{preprocesor} -- pøed samotným pøekladem programu do {\it  \char`\*.hex} souboru probìhnou tzv. direktivy preprocesoru.\fnote{nìco jako pøíkazy, podrobnì viz napø. Kadlec: Programování v~jazyce C, str. 18 } \ii direktiva~preprocesoru \nl 
+Pøíklady: 
+
+ { \tt \#include $<>$ } -- \ii include pro vkládání hlavièkových souborù neboli {\bf knihoven} \ii knihovna \ii hlavièkový/soubor,@
+
+ { \tt \#include "" } -- pro vkládání vlastních hlavièkových souborù  
+ 
+ {\tt \#define KONSTANTA HODNOTA\_KONSTANTY} -- \ii define pro definici konstanty, všude kde se v~kódu vyskytne text {\tt KONSTANTA} bude tento text nahrazen  {\tt HODNOTA\_KONSTANTY}
+
+* {\bf promìnná} \ii{promìnná}  -- je místo v~pamìti, kde jsou uložena nìjaké data
+
+* {\bf datový typ} \dest[ref:datovy_typ]
+ \ii datový/typ,@ -- øíká nám, v~jaké podobì jsou data v~promìnné uložena. V~promìnné jsou pouze jednièky a~nuly, Pomocí datového typu mikrokontrolér pozná, jestli ta data jsou èísla, nebo znak, v~jakém rozsahu jsou èísla, atd...
+používané datové typy:   \nl
+{\tt uint8\_t} -- celá èísla od 0 do 255  \rfc{zkontrolovat typy dat} \nl
+{\tt int8\_t} -- celá èísla od -127 do 127 \nl
+{\tt uint16\_t} --  celá èísla od 0 do 65535  \nl
+{\tt int16\_t} -- celá èísla od -32767 do 32767 \nl
+{\tt uint32\_t} -- celá èísla od 0 do 4294967296 \nl
+{\tt int32\_t} -- celá èísla od -2147483647 do 2147483647 \nl
+
+* {\bf operandy} \ii operand -- jsou èísla nebo výrazy, které \uv{vstupují do operace} 
+* {\bf operátory} \ii operátor -- nám øíkají, jaké operace provedeme s~operandy (co s~nimi udìláme) 
+
+Pøíklad: {\tt 5 + 2}, pøitom {\tt 5} a~{\tt 2} jsou operandy a~znaménko plus je operátor, který nám øíká, že èísla chceme seèíst (provést operaci seèítání)
+
+
+* {\bf poznámka} \ii poznámka -- cokoliv se objeví v~kódu mezi znaky {\tt /\char`\*} a~{\tt \char`\*/}, tak je poznámka a~bude pøed pøekladem odstranìno z~kódu. 
+
+Pokud chceme zapoznámkovat pouze jeden øádek, použijeme {\tt //}
+
+Pøíklady:
+\hisyntax{C} \begtt 
+/* Vše co napsáno zde
+je poznámka a nebude pøekládáno
+*/
+\endtt
+
+\hisyntax{C} \begtt 
+// Toto je poznámka, která mùže popsat funkci nìjakého úseku kódu
+\endtt
+
+\enditems
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\secc{Výrazy a~operátory}
+
+Výraz \ii výraz je nìco, co nabývá nìjaké hodnoty, napø.: { \tt  5 + 3} je výraz, který nabývá hodnoty { \tt  8}. { \tt  5 > 3} je výraz nabývající hodnoty { \tt  true} neboli pravda, { \tt  x <= 10} je výraz který je pravdivý, pokud promìnná { \tt  x} (kterou musíme mít deklarovanou) menší nebo rovna èíslu { \tt  10}. 
+
+%\begitems \style o
+
+{ \bf Aritmetické operátory} 
+
+{ \tt  +} sèítání 
+
+{ \tt  -} odèítaní 
+
+{ \tt  \char`\*} násobení 
+
+{ \tt  /} dìlení 
+
+{ \bf Operátory inkrementace a~dekrementace}
+
+pokud chceme zvýšit hodnotu promìnné o jednièku, napíšeme 
+{ \tt  ++název\_promìnné};
+pokud chceme snížit hodnotu promìnné o jednièku, napíšeme { \tt  --název\_promìnné};
+
+Pøíklad:
+
+\hisyntax{C} \begtt 
+uint8_t i = 5;  // Vytvoøení promìnné i a dosazení hodnoty 5 do ní.  
+uint8_t j = 42; // Vytvoøení promìnné j a dosazení hodnoty 42 do ní. 
+
+++i;  // Hodnota i se zvýší o jednièku na èíslo 6.
+--j;  // Hodnota j se sníží o jednièku na èíslo 41.
+\endtt
+
+
+%\subsubsection{Pøiøazovací operátor}
+%= 
+
+{ \bf Logické výrazy a~operátory} 
+ 
+{ \tt  ==} porovnání - rovnost 
+ 
+{ \tt  !=} porovnání - nerovnost 
+
+{ \tt  \&\&} logický souèin 
+ 
+{ \tt  ||} logický souèet 
+
+{ \tt  ! } negace 
+ 
+{ \tt  $<$ } menší než 
+
+{ \tt  $<=$} menší nebo rovno 
+
+{ \tt  $>$ } vìtší než 
+
+{ \tt  $>=$} vìtší nebo rovno 
+
+%\enditems
+
+{\bf Logický výraz} \ii logický/výraz,@ mùže nabývat pouze dvou hodnot -- pravda (true) 
+a~nepravda (false).  Obvykle je nepravda reprezentovaná nulou a~pravda každým nenulovým èíslem. Logické výrazy se používají v~podmínkách 
+(viz napø. kap. \ref[if])
+
+{\bf Logické operace} \ii logická/operace,@ se používají pøi vyhodnocování logických výrazù.    
+
+
+Pøíklady: 
+l
+{ \tt  a~== b} výraz je pravdivý, pokud se { \tt  a} rovná { \tt  b} 
+l
+{ \tt  a~!= b} výraz je pravdivý, pokud se { \tt  a} nerovná { \tt  b}. 
+
+Lze to napsat i~konkrétnìji, napø.: { \tt  a~!= 5}, výraz je pravda, pokud se { \tt  a} nerovná { \tt  5}, pokud se rovná, výsledkem výrazu je nepravda(false).
+
+{ \tt  b > c} výraz je pravdivý, pokud je { \tt  b} vìtší než { \tt  c} 
+
+{ \tt  b >= d} výraz je pravdivý, pokud je { \tt  b} vìtší nebo rovno { \tt  d} 
+
+{ \tt  !(a == b)} výraz { \tt  (a~== b)} je negován znaménkem { \tt  !}, to znamená, že výraz je pravdivý, pokud se výraz { \tt  a} nerovná výrazu { \tt  b}
+
+Pozor: negace výrazu { \tt  (a~> b)}, tj. { \tt  !(a > b)} není to samé jako výraz { \tt  (a~< b)}, ale správnì je to { \tt  (a~<= b)} \fnote{Platí zde urèité zákonitosti viz De Morganovy zákony.} 
+
+
+Logický souèin {\tt  \&\&} se používá, pokud budeme potøebovat spojit dva nebo více výrazù dohromady, napø.: {\tt  (a~$>$ b)\&\&(c $==$ d)}, výsledkem tohoto výrazu bude \ii logický/souèin,@ výrazù v~závorkách. Pro logický souèin platí, že je pravda pokud oba výrazy jsou pravdivé, jinak je výsledek nepravda. 
+
+Tedy, zde bude výsledkem pravda, pouze pokud bude { \tt  a} vìtší než { \tt  b} a~zároveò bude platit, že { \tt  c} se rovná { \tt  d}.
+
+Logický souèin použijeme, pokud musí všechny výrazy být pravda.
+
+Logický souèet \ii logický/souèet,@ { \tt  ||} je pravdivý, pokud alespoò jeden výraz je pravdivý. 
+
+Napø.: { \tt  (e $<=$ f)||(g $!=$ 3)} výraz bude pravda, pokud bude platit, že { \tt  e} je menší nebo roven { \tt  f}, nebo bude platit, že { \tt  g} se nerovná { \tt  3}, anebo klidnì budou platit oba výrazy.
+

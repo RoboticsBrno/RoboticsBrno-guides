@@ -1,0 +1,41 @@
+ Pøíkazy TeXu, které se mùžou hodit:
+\coltext\Black\Red{text ...} - obarví text i podklad
+
+\nl - nový øádek 
+\hfil \break - nový øádek
+\vfil \break - nová stránka
+\link[ref:PWM]{\Magenta}{PWM}\Black  - odkaz na text (je vidìt fialovì)
+\dest[ref:PWM] - cíl odkazu (není vidìt)
+\ii<mezera>slovo<mezera> pøevezme slovo do rejstøíku (slovo v textu není vidìt) 
+\iid <mezera>slovo<mezera> pøevezme slovo do rejstøíku (slovo v textu je vidìt)
+viz TPP str. 62
+\label[neco] \ref[neco] vždy pøed nadpisem sekce a spol 
+Tady je normální text\rfc{ovìøit, zda netvrdím blbosti}. 
+viz http://petr.olsak.net/opmac-tricks.html#rfc  
+
+\emergencystretch=2cm % když se text se nechce vejít do øádku a zobrazí èerný obdélník, je potøeba zvìtšit pružnost mezer
+
+
+
+
+
+
+
+-----------------------
+na pozdìji:
+
+\parskip=\medskipamount % mezi odstavci bude mezera jako \medskip
+\parindent=0pt % odstavce nebudou odsazeny zará3kou
+\let\itemskip=\relax % 3ádné dal1í mezery mezi výety
+
+
+% test grafiky a pøemazání nevhodného èísla v jednom - premazavani nefunguje, èíslo je vidìt i pøes barvu  
+\pdfliteral{q % uchování grafického stavu
+0 1 0 RG 0 0 1 rg % nastavení barvy pro eáry (zelená)
+20 w % (Width) 1íoka eáry 
+200 -30 m % (Moveto) pero polo3íme do poeátku
+250 -30 l % (Lineto) poidáme úseeku z 0 0 do 30 30
+S % kresba samotné èáry 
+Q % návrat do pùvodního stavu 
+}
+

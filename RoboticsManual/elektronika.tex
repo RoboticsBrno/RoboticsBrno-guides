@@ -1,0 +1,206 @@
+\chap Elektronika
+
+\sec Základní souèástky
+
+\secc{Rezistor}
+
+{\bf Rezistor} \ii{rezistor} nebo také odpor\fnote{Správnì se souèástce øíká rezistor, odpor je její vlastnost. Ale mnoho lidí pouívá pro oznaèení souèástky slovo odpor.} je souèástka, která klade elektrickému proudu  urèitı odpor neboli ho omezuje. Toho se pouívá jako ochrana pøed znièením èipu nebo jeho èásti. Odpor se znaèí $R$. Jednotkou odporu je 1~Ohm, znaèka $\Omega$. 
+
+Dva rezistory (nebo jiné souèástky) mohou bıt zapojeny buï \dest[ref:serie] {\bf sériovì} (tj. za sebou) nebo {\bf paralelnì} (tj. vedle sebe), viz obrázek \ref[rezistory]. \ii zapojení/sériové,@ \ii zapojení/paralelní,@      
+\midinsert
+\picw=0.5\hsize \centerline{\inspic soubory/rezistory.jpg }
+\nobreak\medskip
+\label[rezistory] \caption/f vlevo: znaèka rezistoru, uprostøed: rezistory zapojené sériovì, vpravo: rezistory zapojené paralelnì  
+\endinsert
+
+\secc{Kondenzátor}
+{\bf Kondenzátor}\ii{kondenzátor} je souèástka, která uchovává elektrickı náboj. Jeho hlavní vlastností je kapacita. Jednotkou kapacity je Farad, znaèka F. V~praxi se pouívají násobky jako mikrofarad ( $\mu$ F), nanofarad (nF) a~pikofarad\fnote{Mikrofarad je miliontina faradu, nanofarad je tisíckrát menší a~pikofarad milionkrát menší ne mikrofarad.} (pF). Kondenzátory se nabíjí a~vybíjí rùznì rychle a~mají rùznou kapacitu. Keramické kondenzátory 
+\ii kondenzátor/keramickı,@ mají nejmenší kapacitu(pF, nF) a~jsou nejrychlejší, tantalové \ii kondenzátor/tantalovı,@ mívají kapacitu okolo pár $\mu$F a~jsou pomalejší a~nejpomalejší jsou elektrolytické \ii kondenzátor/elektrolytickı,@ s~kapacitou stovek a tisícù $\mu$F. U~tantalovıch a~elektrolytickıch kondenzátorù musíme dát pozor na polaritu, tj. kam pøipojujeme + a~kam -. Další dùleitı údaj je maximální hodnota napìtí, kterou kondenzátor snese. 
+
+\secc{Dioda}
+
+{\bf Dioda}\ii{dioda} je souèástka, která usmìròuje elektrickı proud. To znamená, e pokud ji zapojíme do elektrického obvodu, tak zajistí, e proud bude téct pouze jedním smìrem. Proto budeme diodu pouívat jako ochranu 
+proti tzv. {\bf pøepólování} \ii pøepolóvání/ochrana -- chybnému zapojení baterie nebo souèástky do obvodu, které obvykle vede ke znièení souèástky. 
+U~samotné diody také záleí na polaritì, tj. pøi jejím zapojení musíme dávat pozor, kde má kladnı pól a~kde zápornı. 
+
+Na diodì vzniká úbytek napìtí, se kterım musíme poèítat pøi návrhu obvodu. Tak napøíklad pokud pøipojím na diodu s~úbytkem napìtí 0,6 V~pøipojím 12 V, tak za diodou bude napìtí 11,4 V. 
+
+Ze zaèátku nám bude staèit, pokud budeme pouívat diody   
+\link[ref:1N4148]{\Magenta}{1N4148}\Black \
+a~\link[ref:1N4007]{\Magenta}{1N4007}\Black .
+
+ 
+
+\secc{LED}
+
+{\bf LED}\fnote{Light emitting diode -- svìtlo vysílající dioda}
+\ii{LED} \ii dioda/LED \ii LED \dest[ref:LED] je souèástka, která není primárnì urèená k~usmìrnìní proudu, ale k~signalizaci, zda obvodem protéká proud. K~LED se vdy musí pøipojit rezistor. 
+
+\secc{Tranzistor}
+
+{\bf Tranzistor} \ii tranzistor \dest[ref:tranzistor] je souèástka, která umoòuje pomocí malıch proudù z~èipu øídit vìtší proudy, napøíklad do reproduktoru nebo motorku. 
+
+Tranzistor má tøi noièky: \ii báze {\bf báze}, \ii kolektor {\bf kolektor} a \ii emitor {\bf emitor}. Tranzistorù existuje obrovské mnoství, pro jednoduchost se budeme zabıvat pouze tzv. bipolárními tranzistory. Ty existují ve dvou provedeních PNP a~NPN\fnote{Pro lepší zapamatování znaèky: eN-Pé-eN - šipka VEN}. Tranzistory mají prakticky dvì pouití: mohou pracovat jako spínaè (vypínaè) nebo jako zesilovaè. Budeme se zabıvat jednodušším pouitím, tj. jako spínaèe. Budeme pouívat tranzistory NPN. Pokud bude pøes bázi do emitoru téct omezenı (malı) proud, tranzistor se otevøe a~pøes kolektor do emitoru bude téct velkı proud. Tak nám staèil malı proud k~øízení velkého. A~toho budeme vyuívat. 
+
+Ze zaèátku nám bude staèit pouívat tranzistory 
+\link[ref:BCC337]{\Magenta}{BCC337}\Black , 
+\link[ref:BCC547]{\Magenta}{BCC547}\Black \
+a~\link[ref:BD911]{\Magenta}{BD911}\Black .
+
+
+\secc{Cívka}
+
+{\bf Cívka} \ii{cívka} neboli {\bf tlumivka} \ii{tlumivka} je souèástka, její hlavní vlastností je indukènost, jednotka henry, znaèka H. V~praxi se pouívají milihenry (mH) a~mikrohenry ( $\mu$H).
+
+\secc{Driver}
+
+Èip nemùe øídit napøíklad motor pøímo, protoe jedním pinem mùe protékat obvykle maximálnì 40~mA. Vìtšina motorù potøebuje mnohem vìtší proud. Proto se pouívají souèástky zvané \ii{driver} {\bf drivery}, které podle pokynù z~èipu øídí proud z~baterií do motorù a~servomotorù. \dest[ref:drivery] 
+
+\secc{Stabilizátor}
+
+Vìtšinu èipù je potøeba napájet pøesnì 5~V~nebo 3,3~V. Jak toho docílit z~baterií, na kterıch je napøíklad 9~V~nebo 12~V, zkrátka více ne 5~V? Navíc napìtí na bateriích kolísá podle toho, jak moc proudu zrovna odebírají motory. 
+Pro napájení èipù je proto nutné pouít stabilizátor. 
+
+{\bf Stabilizátor} \ii{stabilizátor} je souèástka, která z~kolísavého vyššího napìtí vyrobí pøesné napìtí niší. %Pøitom nìjaké napìtí také sama spotøebuje. 
+Nejèastìji se pouívají stabilizátory øady 78XX, kde XX znaèí, na kolik voltù souèástka stabilizuje, napøíklad 7805 stabilizuje na 5~V. 
+
+Aby stabilizátor mohl pracovat správnì, je potøeba, aby napìtí, které pøivedeme na jeho vstup, bylo aspoò o 2~V~vyšší ne které potøebujeme, tj. pokud budu chtít stabilizovat napìtí na 5~V, musím stabilizátor napájet aspoò 7~V. Pøesné hodnoty pro kadı stabilizátor jsou v~jeho datasheetu. 
+
+Stabilizátor má tøi piny (vstup, zem, vıstup). Zapojí se takto: kladnı pól baterie (+) se napojí na vstup, zápornı pól na zem (-). Mikrokontrolér se zapojí pinem VCC na vıstup stabilizátoru a~GND  se zapojí na zem stabilizátoru. Tímto máme pøipojenı mikrokontrolér na napájení.
+
+
+Pokud máme stabilizátor pøed sebou tak, abychom pøeèetli jeho oznaèení, napø. L7805, potom první pin zleva je vstup, druhı je zem a~tøetí, tj. úplnì vpravo je vıstup. Na vstup pøipojíme 7~V~a 12~V, prostøední pin uzemníme, a~poslední pin vyvedeme na VCC mikrokontroléru. Dále je potøeba vìnovat pozornost zapojení kondenzátorù. Mezi vstup a~zem pøipojím podle datasheetu kondenzátor s~kapacitou 330~nF. Mezi vıstup a~zem kondenzátor 100~nF. 
+
+
+
+\secc{Krystal}
+Pokud budeme potøebovat provozovat nìkteré procesory na vyšší frekvenci, pouijeme \ii{krystal} {\bf krystal}. Napøíklad pùvodní frekvence mikrokontroléru ATMega16 je nastavena na 1 MHz. S~pomocí krystalu ji mùeme zvıšit a na 16 MHz. 
+%Je však dùleité si zjistit jakou Atmegu máme, protoe na 16 MHz potøebujeme Atmega16-16, existuje však varianta Atmega16-8 a ta je "pouze" na 8 MHz. 
+Krystal zapojíme takto: Jeden pin krystalu (je jedno, kterı) pøipojíme na pin XTAL1 a~druhı na XTAL2. Dále na pin XTAL1 pøipojíme jednu noièku kondenzátoru a~druhou na digitální zem (11-GND). To samé u~pinu XTAL2. Hodnotu kondenzátoru mùeme volit od 12pF do 22pF.
+
+\sec Základní velièiny v~elektronice 
+
+\secc{Proud} 
+
+Pokud \ii proud/elektrickı,@ pouijeme vodní model, tak (elektrickı) proud je mnoství vody, které proteèe vodièem za jednu sekundu.\fnote{Ve skuteènosti je to proteèení mnoství elektronù nebo jinıch nosièù el. nábojù s~celkovım nábojem 1 Coulomb za sekundu.} Znaèka: $I$, jednotka: 1~A~= 1 ampér. 
+
+
+\secc{Napìtí} 
+Elektrické napìtí \ii elektrické/napìtí,@ mìøíme vdy mezi dvìma body. Mùeme si ho pøedstavit jako rozdíl vıšek dvou vodních hladin. Z~vıše poloeného jezera (kladné napìtí, +) teèe voda (el. proud) do níe poloeného (zem, nulovı potenciál, -). Znaèka: $U$, jednotka: 1~V~= 1 volt.
+
+
+\secc{Odpor} 
+
+Mezi napìtím $U$ a~elektrickım proudem $I$ platí vztah:
+
+$$U = R \cdot I,$$ 
+Tento vztah je znám pod názvem {\bf Ohmùv zákon} \ii zákon/Ohmùv,@ . 
+
+Konstanta $R$ se nazıvá elektrickı odpor, mìøíme ho ohmech, znaèka $\Omega$. 
+
+Z~Ohmùva zákona mùeme vyjádøit proud $ I $: 
+$$ I = U / R .$$ Ze vzorce je vidìt, e pokud pouijeme rezistor s~vìtším odporem pøi stejném napìtí, tak se protékající proud zmenší. 
+
+\secc{Vıkon} 
+Vıkon \ii{vıkon} je definován jako souèin napìtí a~proudu:
+$$P = U \cdot I.$$ Znaèka: $P$, jednotka: 1~W = 1 watt.
+
+
+\secc{Vıpoèet tepelného vıkonu (ztrátového)} 
+Na souèástkách, na kterıch je úbytek napìtí a~kterımi protéká proud, vznikají \ii vıkon/tepelnı,@ tepelné ztráty. 
+
+{\bf Pøíklad 1:} Na rezistoru je úbytek napìtí 3,6~V~a~protéká jím 240~mA. Jakı je tepelnı ztrátovı vıkon?
+$$P = U \cdot I = \rm 3,6\ V \cdot 0,24\ A = 0,864\ W = 864\ mW$$
+Ztráty na rezistoru èiní 864~mW, a~proto musíme volit rezistor, kterı zvládne vìtší vıkon, tj. minimálnì 1~W. 
+
+{\bf Pøíklad 2:} Diodou 1N4148 bude procházet 100~mA, pøi tomto proudu bude úbytek napìtí na diodì 1~V. Neznièíme diodu 1N4148?
+$$P = U \cdot I = \rm 1\ V \cdot 0,1\ A = 0,1\ W = 100\ mW$$
+Diodu neznièíme, protoe je vyrábìná na celkovı vıkon 500~mW. 
+
+{\bf Pøíklad 3:} Na stabilizátor L7805 pøivádím 12~V, stabilizátor mi vytváøí 5~V~stabilizovaného napìtí a~odebírám z~nìho 250~mA. Jakı tepelnı vıkon bude potøeba uchladit?
+$$P = U \cdot I = \rm (12\ V - 5\ V) \cdot 0,25\ A = 1,75\ W$$
+Tepelné ztráty na stabilizátoru budou 1,75~W\fnote{Ve vzorci bylo pouito 12~V~-- 5~V, je to protoe na stabilizátoru ubyde 7~V, abychom se dostali na poadovanıch 5~V.}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\secc Vıpoèet rezistoru pro LED 
+
+LED \ii dioda/LED,@ \ii rezistor \ii LED je souèástka, která není primárnì urèená k~usmìrnìní proudu, ale k~signalizaci. Mùe svítit svìtlem bílım, modrım, zelenım, èervenım, ultrafialovım èi infraèervenım\fnote{Toho vyuijeme jako senzoru pro robota.}.
+
+Pokud pøipojím diodu správnì na napìtí, tj. tak aby mohl procházet proud a~ono pøesto nic, tak jsem diodu spálil, protoe jí tekl moc velkı proud. A~proto musíme vdy k~diodì pøipojit do  \link[ref:serie]{\Magenta}{série} \Black 
+ rezistor, kterı omezí proud protékající pøes LED. A~to podle vzorce:
+
+$$R = \frac{U}{I} = \rm \frac{Napeti\_zdroje - Ubytek\_napeti}{Pozadovany\_proud}$$
+
+{\bf Pøíklad 1:} Vypoèítejte odpor rezistoru, kterı zapojíme do série k~LED. Pøipojujeme k~ní napìtí 5~V~a~provozní proud je 20~mA a~maximální proud, pøi kterém dojde ke znièení diody je 40~mA. Úbytek na diodì je 1,2~V.
+$$R = \frac{U}{I} = \rm \frac{5\ V - 1,2 \ V}{0,02 \ A} = 190\ \Omega$$
+Pouijeme rezistor s~odporem $190\ \Omega$ nebo nejbliší vyšší odpor.
+
+{\bf Pøíklad 2:} Máme sériovì spojeny tøi LED, s~úbytky napìtí 0,6~V, 0,8~V~a~1,2~V. Pøipojíme je k~zdroji o napìtí 12~V. Rezistor o jak velkém odporu musíme pouít, jestlie má diodami protékat 20~mA?
+
+$$R = \frac{U}{I} = \rm \frac{12\ V-0,6\ V-0,8\ V-1,2\ V}{0,02 \ A} = 470\ \Omega$$
+
+Musíme pouít rezistor o odporu $470\ \Omega$. 
+
+Mìli bychom ještì spoèítat tepelnı vıkon rezistoru. Mùeme pouít úbytek napìtí na rezistoru vynásobenı procházejícím proudem:
+$$P = U \cdot I = \rm (12\ V-0,6\ V-0,8\ V-1,2\ V) \cdot 0,02\ A = 9,4\ V \cdot 0,02\ A = 0,188\ W = 188\ mW$$
+Staèí 250~mW rezistor. Nebo si mùu vypoèítat úbytek napìtí z~$U = R \cdot I$, to protoe znám odpor a~protékající proud.
+
+$$P = U \cdot I = R \cdot I \cdot I = R \cdot I^2 = 470\ \Omega \cdot \rm (0,02\ A)^2 = 0,188\ W = 188\ mW$$
+
+Vyšel nám stejnı vısledek, pouijeme tedy 250~mW rezistor o odporu $470\ \Omega$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sec Motorky, serva a~PWM 
+
+\secc Motorky
+
+Motorek pøipojujeme vdy pøes \link[ref:tranzistor]{\Magenta}{tranzistor}\Black .  
+Pokud chceme øídit motorek z èipu stylem start -- stop, postaèí pøes odpor napø. 1~k$\Omega$ spojit vıstupní pin èipu s bází tranzistoru a na emitor a kolektor pøipojit baterii a motorek zapojenı do série. 
+
+Dále je potøeba bázi tranzistoru propojit pomocí napø. 10~k$\Omega$ se zemí. Jinak toti pøi vypnutém signálu z èipu báze \uv{visí v luftì} a chová se jako anténa -- indukují se na ní rùzné signály a vìtšinou se díky tomu motorek samovolnì slabì otáèí.   
+
+Nakonec je potøeba mít spoleènou zem pro èip i pro motorek -- pokud to není splnìno, obvykle motorek nejede. 
+
+Pro vìtší motorky potøebujeme lepší tranzitor nebo dva tranzistory v tzv. Darlingtonovì zapojení (viz web). Další moností jsou speciální integrované obvody pro øízení motorù, tzv.  \link[ref:drivery]{\Magenta}{drivery}\Black .  
+
+Pokud chceme øídit motory programovì pomocí PWM (viz další kapitola), musíme navíc mezi emitor a kolektor tranzistoru vloit (obyèejnou) diodu pólovanou závìrnì vùèi baterii. Pøi vypnutí tranzistoru vznikají toti na cívkách motorku napìové špièky, které deformují tvar PWM signálu.  Další proudy se indukují, kdy se motorek po vypnutí proudu setrvaèností otáèí dál. 
+
+\secc PWM
+\dest[ref:PWM] \iid PWM \rfc{pwm} 
+doplnit 
+
+\secc Øízení serva
+
+\ii servo Jak se øídí pohyb serva? Pro tento úèel je ideální právì generování PWM signálu. 
+
+Servo se øídí logickım signálem (jednièkou) po dobu od 1~ms do 2~ms (èasto i~od 0,5~ms do 2,5~ms), a~celková perioda je 20~ms. Podle toho, jak dlouho signál trvá, tak se servo natoèí. Tj. pokud budeme chtít servo maximálnì natoèit na jednu stranu, nastavíme pin, kterı slouí jako øídící signál pro servo, na logickou jednièku po dobu 1~ms a~pak 19~ms logickou nulu a~pak zase logickou jednièku, logickou nulu, atd... 
+
+Pokud budeme chtít servo posunout do druhé krajní polohy, necháme logickou jednièku po dobu 2~ms a~logickou nulu po dobu 18~ms. Pokud budeme chtít støední polohu, tak jednièku nastavíme na 1,5~ms a~nulu na 18,5~ms. Jestlie budeme potøebovat jinı úhel natoèení, nastavíme logickou jednièku na odpovídající dobu.
+
+{\bf Pozor!} Servo nesnáší pøepólování napìtí, kdy se pøepóluje, tak shoøí (kdy se pøepóluje signál, tak to tolik nevadí).
+
+\sec ALKS a~další desky 
+
+\secc ESP 32  
+
+Deska \ii ESP~32/deska,@ ESP~32 je vıvojová deska osazená èipem {\tt ESP-WROOM-32}, kterı má øadu vıbornıch vlastností.\fnote{url{http://navody.arduino-shop.cz/navody-k-produktum/vyvojova-deska-esp32.html} }
+
+Deska se napájí z~\iid USB (5~V) a~je na ní napìovı pøevodník\rfc{? napìovı pøevodník} na 3,3~V. Pøitom USB mùe dodávat oficiálnì 100~mA, v~reálu ale bìnì dodává 500~mA a 1 A. USB porty jsou také vcelku odolné proti zkratu.   
+
+\secc ALKS
+
+Deska ALKS\fnote{Arduion Learning Kit Starter} byla navrena pøímo na Robotárnì Brno právì proto, e 
+hotová \ii ALKS/deska,@ deska   vás hlavnì ze zaèátku zbavuje nutnosti vìdìt, co si mùete dovolit kam pøipojit a~jestli to bude fungovat. 
+
+Na ALKS se dají nasadit desky ESP~32, Arduino uno  a~Arduino nano, které jí také poskytují napájení.  
+
+Stránky  vìnované desce ALKS jsou zde: \hfil \break  \url{https://github.com/RoboticsBrno/ArduinoLearningKitStarter}  
+
+Zapojení \emergencystretch=2cm desky ALKS je zde: \url{https://github.com/RoboticsBrno/ArduinoLearningKitStarter/blob/master/docs/ArduinoLearningKitStarter.pdf}
+
+Zapojení pinù desky ALKS zde: \url{https://github.com/RoboticsBrno/ArduinoLearningKitStarter/blob/master/docs/pinout.pdf}
+
+Pøi pøipojování èehokoliv dalšího k~této nebo jiné desce si nechte pøed zapojením napájení všechno zkontrolovat. Hlavnì, pokud to ere víc proudu (serva a~motory) nebo pokud to vyaduje vyšší napìtí. 
+

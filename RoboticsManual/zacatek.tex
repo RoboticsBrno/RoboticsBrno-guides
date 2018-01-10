@@ -1,0 +1,166 @@
+ \chap Jak zaèít 
+ 
+ \sec Cíl: první robot
+
+\parskip=\smallskipamount % mezi odstavci bude mezera jako \medskip
+\parindent=0pt % odstavce nebudou odsazeny zará3kou
+\let\itemskip=\relax % 3ádné dal1í mezery mezi výety
+
+Tento text je urèen pro zaèáteèníky a~mírnì pokroèilé v~oblasti stavby autonomních robotù -- pøevážnì støedoškoláky v~prvním roèníku, kteøí se pokoušejí postavit 
+svého prvního \link[ref:autonomni]{\Magenta}{autonomního }\Black  robota, nejèastìji pro nìjakou soutìž\fnote{Robotiáda v~Brnì: \url{http://www.robotiada.cz/}, 
+Robotický den v~Praze \url{http://robotickyden.cz/} }. Protože byl sepsán na pracovišti Robotárna\fnote{\url{http://www.helceletka.cz/doku.php/pobocky/robotarna/start}} (poboèka DDM Helceletka Brno), jsou nìkteré èásti urèené pøedevším èlenùm jeho kroužkù. Ale vìtšina textu je použitelná všeobecnì.   
+
+Každý robot se musí 
+\begitems \style O
+*vyrobit (mechanická èást -- konstrukce)
+*osadit elektronikou, motory a~pod. 
+*naprogramovat 
+\enditems
+
+Pøitom mùžou nastat zhruba dvì situace: 
+
+\begitems \style O
+* Nemám žádné znalosti a~zkušenosti $\rightarrow$ doporuèený postup je zaèít ve školním kroužku 
+nebo samostatnì stavìt a~programovat robota z~{\it Lego mindstorms}\fnote{\url{https://www.lego.com/cs-cz/mindstorms}}. 
+Je to daleko nejjednodušší a~nejrychlejší cesta, omezení jste cenou stavebnice a~jejími možnostmi. 
+
+* Už jsem nìkdy nìco naprogramoval nebo zapojil nebo postavil a~chci jít dál $\rightarrow$ potom je pro vás urèen tento text. Jednotlivé kapitoly se vìnují rùzným oblastem, které je postupnì potøeba zvládnout (nebo jimi povìøit jiného èlena týmu) s~dùrazem na zaèáteènické problémy. 
+\enditems
+
+\secc{Týmy pro stavbu robotù}
+
+Už bylo zmínìno, že stavba robotù zahrnuje tøi propojené, ale relativnì nezávislé okruhy: návrh a~výrobu mechanické konstrukce, návrh a~zapojení elektroniky a~programování. 
+Proto je dobré roboty stavìt v~týmech, kde se jednotliví èlenové zamìøují na tyto oblasti a~navzájem se doplòují. Navíc každý tým potøebuje øadu pomocných èinností (nákup souèástek, vyhledávání údajù na internetu a~pod.). Je dobré mít proto v~každém týmu ještì pomocníka, který podporuje ostatní a~umožòuje jim soustøedit se na jejich hlavní úkoly. 
+
+Úplnì ideální potom je, když každou funkci v~týmu zastávají dva lidé, takže se mohou vzájemnì zastupovat. Tým by potom mìl celkem osm èlenù -- dva mechaniky, dva elektroniky, dva programátory a~dva pomocníky. To se ale v~praxi témìø nikdy nepodaøí. Èasto nastane právì opaèný pøípad, kdy tým má pouze dva nebo tøi èleny, kteøí se o~všechny èinnosti musí nìjak podìlit. 
+
+V~každém pøípadì ale platí, že je výhoda, pokud lidé v~týmu znají i~vìci mimo jejich \uv{hlavní obor}, tj. když napøíklad programátor zná základy elekroniky.    
+
+
+{\bf Postup návrhu robota: }
+\begitems \style n
+* stanovit, co by mìl robot splnit -- pøibližnì 
+* sepsat, co by mìl robot splnit -- podrobnì (klidnì i~více stran A4), z~toho vyplyne
+* zjištìní, jaké senzory a~pohony robot potøebuje a~kde budou na robotovi umístìné
+* návrh první konstrukce robota vèetnì umístìní senzorù a~pohonù
+* zprovoznìní toho všeho -- {\bf hlavní cíl tohoto textu }
+\enditems
+
+Zaèáteèníci obvykle tuto posloupnost nedodrží a~pak staví mechaniku pro 3 a~více robotù,
+ než zjistí, že je to dost práce navíc. A~taky dost èasu navíc, který potom pøed soutìží mùže chybìt. 
+
+
+
+
+% na základì vlastních zkušeností s dùkladnìjším komentáøem míst, kde jsem se zasekal (což bylo dost èasto :-) ).
+
+
+\sec Co potøebujete na zaèátku
+
+%\begitems \style I
+{\bf Hardware: }
+
+\begitems \style O 
+* notebook nebo poèítaè s~operaèním systémem win7 a~novìjším nebo Linux (pro starší poèítaèe napø. aktuální distribuci Lubuntu, Mint)
+
+* desku s~èipem, napø. DevKit ESP32\fnote{varianta: jinou vývojovou desku, napø. Arduino Uno, Arduino nano, ...  }
+* vývojovou desku ALKS\fnote{\url{https://github.com/RoboticsBrno/ArduinoLearningKitStarter} \hfil \break {\localcolor \Red NUTNÁ AKTUALIZACE} 
+Hotová deska vás hlavnì ze zaèátku zbavuje nutnosti vìdìt, co si mùžete dovolit kam pøipojit a~hlavnì nutnosti vùbec nìjaké pøipojování èehokoliv øešit. } 
+
+*výhledovì cokoli dalšího, co chcete tím èipem øídit (serva, ultrazvuk, senzory a~motory všeho druhu ... ) 
+\enditems
+
+\noindent {\bf Software: }
+\begitems \style O 
+* {\it Visual Studio code} -- viz kapitola \ref[vsc]
+* {\it PlatformIO }-- viz kapitola \ref[platformio]
+\enditems
+Veškerý zde popisovaný a~doporuèovaný software je freeware. 
+
+\noindent {\bf Znalosti:  }
+\begitems \style O
+* bìžná práce se soubory ve vašem operaèním systému (hledání, kopírování, mazání, ... )
+* základy programování C++ (viz kapitola \ref[cpp]) a~pøíkazy C++ pro èipy (viz kapitola \ref[cpppr]) 
+*velmi se hodí schopnost porozumìt textu psanému v~jednoduché angliètinì) 
+* základy elektroniky -- viz kapitola \ref[elektronika]
+\enditems
+
+\noindent {\bf Taky se hodí vìdìt, že:  } 
+\begitems \style O
+* veškeré \Green zelené\Black , \Blue modré \Black a~\Magenta fialové \Black odkazy a~slova jsou proklikávací (s~výjimkou barevného zvýraznìní syntaxe\fnote{syntaxe -- zpùsob zápisu daného jazyka, barevný zápis je mnohem pøehlednìjší} ve zdrojových textech jazyka C++)
+*na konci textu je obsah 
+*tìsnì pøed obsahem je rejstøík
+*v žádném textu o elektronice a robotice nemùže být všechno, pokud zde nìco nenajdete, použijte napø. Google 
+%*tento text slouží pro \uv{zaèáteènický rozjezd}, pravdìpodobnì vám proto èasem pøestane staèit  
+\enditems
+%\enditems
+
+\sec První projekt
+
+\nonum \notoc \secc Postup
+
+Pokud s~programováním èipù zaèínáme, èekají nás tyto úkoly: 
+\begitems \style n
+* nainstalovat prostøedí {\it Visual Studio code}   
+* do VS code nainstalovat tzv. {\it PlatformIO }
+
+* založit nový projekt 
+
+* napsat zdrojový kód, pøeložit a~dostat jej do èipu 
+\enditems
+
+
+\label[vsc] \secc Nainstalovat  Visual Studio code
+
+{\it Visual Studio code} \ii Visual~Studio~code (zkrácenì VS code) \ii VS~code je nìco jako textový editor, speciálnì navržený pro programátory èehokoliv. 
+Instalujte podobnì jako každý jiný program, stahujte zde: \url{https://code.visualstudio.com/}  
+
+\label[platformio] \secc Nainstalovat PlatformIO 
+
+{\it PlatformIO } \ii PlatformIO je ten software, který umožní program v~C++ pøeložit tak, aby ho èip pochopil a~taky ho do èipu umí nahrát. 
+Instalace podle návodu zde: \url{http://docs.platformio.org/en/latest/ide/vscode.html\#installation}
+
+
+\secc Založit nový projekt 
+
+Program (ne)píšete jen do jednoho souboru, ale aby vše fungovalo, 
+potøebujete povícero dalších souborù, které dohromady tvoøí tzv. {\bf projekt }.
+\ii projekt 
+Tyto soubory jsou mezi sebou hodnì provázané a~navíc vázané na konkrétní místo uložení, 
+takže vám po pøekopírování na jiný poèítaè pravdìpodobnì program nepùjde pøeložit a~nebo 
+nahrát do èipu. Øešení: uložit celý projekt na flešku. 
+Na novém poèítaèi založit nový projekt a~potøebné èásti zdrojového kódu kopírovat pomocí Ctrl+C, Ctrl+V. 
+
+\begitems \style n
+* Založte nový projekt z~ikonky \uv{domeèek} -- viz \url{http://docs.platformio.org/en/latest/ide/vscode.html\#quick-start}.
+* Do kolonky {\it Board} se musí vybrat správná deska. Desek je pøes 400 a~jsou rozdìlené do sekcí øazených podle abecedy vyznaèených šedivou barvou. V~sekcích jsou potom jednotlivé desky øazené taky abecednì. 
+ Pro èip ESP32 najdete sekci {\it Espressif32} a~v~ní položku {\it Espressif ESP32 Dev Module}. Kolonka {\it Framework } se potom vyplní automaticky. 
+* Zbývá vybrat adresáø, do kterého bude projekt uložen. Tento adresáø si pøedem vytvoøte, s~adresáøem vytváøeným za pochodu má VS code kdovíproè problém. Odškrtnìte zatržítko {\it Use defalut folder} a~zvolte vytvoøený adresáø.  
+\enditems
+
+Pro Linux Lubuntu: projekt musí být uložen na pevném disku, ne na flešce, jinak prostì nepojede, netuším proè.  
+
+\secc Napsat zdrojový kód, pøeložit a~dostat jej do èipu 
+
+\midinsert
+\picw=\hsize \centerline{\inspic soubory/rozlozeni2.jpg }
+\nobreak\medskip
+\label[vsc_rozlozeni] \caption/f Rozložení oken v~programu {\it VS code} 
+\endinsert
+
+Obrázek \ref[vsc_rozlozeni] na stranì~\pgref[vsc_rozlozeni]  ukazuje rozložení oken v~rámci projektu. Hlavní okno  rozdìlte na dvì èásti pro zobrazení dvou upravovaných souborù pomocí ikony v~kroužku. Zaèínáme v~oknì \dest[ref:explorer] {\it Explorer}, \ii explorer kde je umístìna adresáøová struktura projektu\fnote{Pokud toto okno není vidìt, zobrazíte ho v~menu {\it View} položka {\it Explorer} }. Otevøete soubory {\it platformio.ini} a~v~adresáøi {\it src} soubor {\it main.cpp}. 
+ 
+Pro pohodlnou práci s~deskou ALKS byla \ii LearningKit napsaná tzv. knihovna {\it LearningKit}. Aby fungovala, musí být do souboru {\it platformio.ini} dopsán øádek 
+{\tt lib\_deps = 1745} (bez mezery na zaèátku øádku)
+a~do záhlaví souboru {\it main.cpp} doplòte {\tt \#include "LearningKit.h"}.  
+Dále dopište do souboru {\it main.cpp} kód, který bliká èervenou LED. Vše je vidìt na obrázku \ref[vsc_rozlozeni]. Celý zdrojový kód tohoto prvního programu (obsah souboru {\it main.cpp}) je uveden v~kapitole \ref[cpppr1].
+ 
+Teï budou potøeba další dvì èásti VS code: \iid terminál (okno vpravo dole) a~stavový øádek ( \iid Status~bar -- proužek pod terminálem). Na stavovém øádku kliknìte na ikonu šipky\fnote{totéž provede Ctrl+Alt+U} (pátá zprava) a~{\it platformIO} se pokusí váš program pøeložit a~nahrát do èipu. Pokud chcete program pouze pøeložit, kliknìte na ikonu zatržítko\fnote{totéž provede Ctrl+Alt+B} hned vedle. 
+
+Pøi prvním pokusu nahrát program do èipu na linuxu má {\it platformIO} problém, 
+že nenajde USB spojení na desku s~èipem a~vyžaduje ho doistalovat. 
+Zpráva\fnote{\tt Warning! Please install `99-platformio-udev.rules`} 
+se objeví se v~terminálu vèetnì nápovìdy,\fnote{\url{https://raw.githubusercontent.com/platformio/platformio/develop/scripts/99-platformio-udev.rules}}
+ jak to udìlat. Nápovìda je ale tak podrobná, že to støednì pouèený linuxový laik s~pomocí internetu zvládne. Pøi všech dalších pøekladech už to nebude problém.  
+
+Další programy budou uvedeny v~kapitole \ref[cpppr].

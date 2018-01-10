@@ -1,0 +1,80 @@
+
+
+\label[cpppr] \sec C++ -- pøíklady 
+
+Ve všech pøíkladech níže je uveden vždy obsah souboru {\it main.cpp}. Text pøedpokládá, že nad pøíklady budete samostatnì pøemýšlet a~uèit se z~nich, proto se to, co bylo øeèeno u~prvního pøíkladu, už neopakuje u~druhého.  
+Doporuèuji projít soubory {\it LearningKit.h}
+a~{\it LearningKit.cpp} (viz
+v~\link[ref:explorer]{\Magenta}{Exploreru}\Black
+adresáø {\it.piolibdeps/ArduinoLearningKitStarter\_ID1745/src} ), protože jsou v~nich zkratky typu {\tt L\_R} a~jejich pøiøazení pinùm èipu.
+Další pøíklady jsou na \url{http://wall.robotikabrno.cz} a~\url{https://www.arduino.cc/reference/en/}.  
+
+\label[cpppr1] \secc Blikání LED
+
+Program bliká èervnenou \link[ref:LED]{\Magenta}{LED}\Black .   
+
+\hisyntax{C} \begtt 
+\#include "LearningKit.h"
+void setup() // this part run once
+\{
+    pinMode(L_R, OUTPUT); // initialize LED digital pin as an output.
+\}
+void loop() // this part works in cycle 
+\{
+    digitalWrite(L_R, HIGH); // switch on red LED
+    delay(500); // pause 500 miliseconds
+    digitalWrite(L_R, LOW);  // switch off red LED
+    delay(500);
+\}
+\endtt
+
+\label[cpppr2] \secc LED zapínaná tlaèítkem 
+
+Žlutá LED zapínaná tlaèítkem.  
+
+\hisyntax{C} \begtt 
+\#include "LearningKit.h"
+void setup() 
+\{
+    pinMode(L_Y, OUTPUT); // initialize LED digital pin as an output
+    
+    digitalWrite(L_Y, HIGH);
+\}
+void loop() 
+\{
+    if ((digitalRead(SW1)) == LOW)
+        {digitalWrite(L_Y, LOW);} 
+    else {digitalWrite(L_Y, HIGH);}
+  
+\}
+\endtt
+
+\label[cpppr3] \secc Nejjednodušší PWM  
+
+\link[ref:PWM]{\Magenta}{PWM}\Black \ii PWM umožòuje (ve spolupráci
+s~\link[ref:PWM]{\Magenta}{drivery}\Black ) øídit motory, serva a~podobnì. Zde je použito na stmívání LED pomocí potenciometru.  
+
+\hisyntax{C} \begtt 
+\#include "LearningKit.h"
+void setup() 
+\{
+    ledcSetup(0, 1000, 10); 
+    ledcAttachPin(L_Y, 0);
+\}
+void loop() 
+\{
+    ledcWrite(0, analogRead(POT1)/4);
+\}
+\endtt
+
+je potøeba setupLeds(); ?? 
+
+
+// ledcSetup(channel, freq, resolution)
+    // channel = 0 - 15
+%    // resolution = 10 => 2^10 => 1024
+tento kód funguje pro èip ESP32. Pro èipy øady ATMega, které jsou na deskách Arduino uno a~Arduino nano, je potøeba použít tento kód: 
+ 
+\rfc{dodìlat program PWM}
+Funguje stejnì, ale místo pøíkazu ledcWrite je použit:  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

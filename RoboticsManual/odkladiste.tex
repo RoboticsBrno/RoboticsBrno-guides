@@ -1,0 +1,95 @@
+
+ \section{Vìci okolo programování v C}
+  
+  není rovno se píše != (ne <>)
+  
+  øetìzcové pole se píše promìnná[] pøi deklaraci, promìnná (bez závorek) potom 
+  
+ znak dìlení /   pokud jsou oba operandy celoèíselné, tak se provede CELOÈÍSELNÉ dìlení, pokud je alespoò jeden operand desetinnı, pak se provede normální dìlení
+ 
+ \verb#&&# - znak pro and; ostatní logické operátory  mají taky svoje znaky 
+ 
+ \verb#||# -- znak pro or;
+ 
+ èíslo a znak je to samé 
+ 
+ øetìzec je pole znakù - znaky do nìj musím vkládat na danou pozici 
+ délka øetìzce je daná pøi deklaraci vyjímka je pøiøazení typu   
+ 
+ apostrofy 'r' oznaèují jeden znak, "x" uvozovky oznaèují øetìzec - to je rozdíl 
+ 
+ pøi zadávání konstant ta konstanta nesmí zaèínat nulou, jinak ji bere, e je v osmièkové soustavì - a vısledek je chyba, která se moc blbì hledá
+ 
+poslední znak øetìzce je 0, je tam navíc, take délka desetiznakového øetìzce je 11 znakù 
+
+všechny registy jsou volatile -- program nemùe v podmínce while ignorovat ètení registrù, i kdy ta podmínka nic potom nedìlá, protoe hodnoty v registru se mùou zmìnit  
+-----------------------------------------------------------
+
+\section{USART}
+
+
+Sbìrnice -- umoòuje posílat data mezi rùznımi zaøízeními.   
+
+\subsection{Typy sbìrnic}
+
+USART - minimum drátù, rychı, jednoduchı, dvì zaøízení 
+
+SPI - libovolnı poèet zaøízení, jednoduchá adresace, pouze synchoní pøenos 
+
+IIC - víc zaøízení v rámci jednoho malého systému, dva dráty, hodiny a data 
+v jednom systému mùe bıt více masters 
+ 
+\subsection{Vıbìt typu pøenosu }
+
+
+pøenos devíti bitù - devátı bit rozlišuje, jestli je to adresa, nebo data. 
+Pouívá se pro multiprocesorovou komunikaci -- nepouijeme to  
+
+? Multi-processor Communication Mode str 163 - nepouívat 
+
+jeden nebo dva stop bity - jeden staèí, kdyby byly dva, mùe se to hodit pro 
+1) delší èas na zpracování signálu, 
+2) líp se chytá konec bajtu -- lepší v pøípadì poruchovıch pøenosù 
+> budeme pouívat jeden, nemusí se to nastavovat 
+
+
+ Parita - kontrolní proces - zahlásí chyby v pøenosu - str 169 pøi zapojení na jedné desce a v blízkém okolí není potøeba, data se neztrácí 
+ 
+ zvolit 38.4 kb/s - je to osvìdèená rychlost, malá chybovost a Junior na ní komunikuje - budeme kompatibilní 
+ 
+ synchronní komunikace -- jsou potøeba hodiny (hodinovı signál na pinu SCK) 
+ hodí se pro dlouhé kusy dat a hlavnì pro komunikaci s periferiemi, které jinou monost neposkytují 
+ 
+ asynchronní komunikace -- staèí propojit Rx a Tx na obou stranách a stejnì nastavit oba èipy. není nutné øešit hodiny --  doporuèeno   
+ 
+ je to taky jedinı zpùsob, jak komunikovat s poèítaèem, je to úplnì stejnı protokol jako RS 232 (sériovı port) a liší se to pouze napìovou úrovní -- MAX232 pouze pøevádí napìové úrovnì a nic jiného (vlastnì je MAX232 DC/DC mìniè)
+ 
+ data overrun? 
+ 
+Chceme: asynchronní pøenos na 38.4 kb/s bez kontrol  
+
+
+\subsection{Nastavení}
+
+(ádná knihovna pro usart není)
+Je potøeba nastavit: 
+- spustit USART (inicializace):  (str 152)
+   - nastavit frekvenci pøenosu (baud rate)  --- 38.4 kb/s 
+   - nastavit, e pøenášíme 8-mi bitové znaky bez kontrol  (frame format ) (UCSRB,C)
+   - nastavit piny 14 a 15 jako Rx a Tx 
+   - e je to  asynchronní pøenos (mode of operation), je nastaveno implicitnì 
+   - pokud chceme pouívat pøerušení od usart, musí bıt bìhem inicializace 
+     globální pøerušení vypnuto 
+   - pøitom musí bıt URSEL = 1 v registru UCSRC (implicitnì je)
+ 
+
+
+ 
+ 
+
+
+
+ 
+
+ 
+

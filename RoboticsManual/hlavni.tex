@@ -1,292 +1,54 @@
-
 \input mixcodes %øeší pøevod latin 2 (tj. ISO-8859-2) a win1250 na UTF-8
 \input opmac % viz TeX pro pragmatiky, kap. 7 
 \chyph % zapnutí èeštiny, napø. názvy kapitol 
 \hyperlinks{\Blue}{\Green} % Pokud napíšete na zaèátek dokumentu \hyperlinks{<color in>}{<color out>}, pak se v dokumentu pøi výstupu do PDF stanou klikacími:
 \typosize[10/12] %úvodní nastavení velikosti fontù - potøeba pro \typoscale
-%\emergencystretch=2cm % když se text se nechce vejít do øádku a zobrazí èerný obdélník, je potøeba zvìtšit pružnost mezer
 \outlines{1} % pøehledový obsah v levé záložce PDF prohlížeèe - TPP str.53
-
-\typoscale[2000/2000]  
-{\bf Jak zaèít programovat èipy (ESP32) }
-\vskip 1cm
-\typoscale[500/500]  
-
-\sec Cíl: první robot
-
-Tento text je psán pro zaèáteèníky - pøevážnì støedoškoláky v prvním roèníku, kteøí se pokoušejí postavit 
-svého prvního autonomního robota, nejèastìji pro nìjakou soutìž\fnote{Robotiáda v Brnì: \url{http://www.robotiada.cz/}, 
-Robotický den v Praze \url{http://robotickyden.cz/} }. 
-
-\vskip 6pt
-Každý robot se musí 
-\begitems \style O
-*vyrobit (mechanická èást -- konstrukce)
-*osadit elektronikou, motory a pod. 
-*naprogramovat 
-\enditems
-
-Pøitom mùžou nastat zhruba dvì situace: 
-
-\begitems \style O
-* Nemám žádné znalosti a zkušenosti $\rightarrow$ doporuèený postup je zaèít ve školním kroužku 
-nebo samostatnì stavìt a programovat robota z {\it Lego mindstorms}\fnote{\url{https://www.lego.com/cs-cz/mindstorms}}. 
-Je to daleko nejjednodušší a nejrychlejší cesta, omezení jste cenou stavebnice a jejími možnostmi. 
-
-* Už jsem nìkdy nìco naprogramoval nebo zapojil nebo postavil a chci jít dál $\rightarrow$ potom je pro vás urèen tento text. Jednotlivé kapitoly se vìnují rùzným oblastem, které je postupnì potøeba zvládnout (nebo jimi povìøit jiného èlena týmu) s dùrazem na zaèáteènické problémy. 
-\enditems
-
-
-{\bf Postup návrhu robota: }
-\begitems \style n
-* stanovit, co by mìl robot splnit -- pøibližnì 
-* sepsat, co by mìl robot splnit -- podrobnì (klidnì i více stran A4), z toho vyplyne
-* zjištìní, jaké senzory a pohony robot potøebuje a kde budou na robotovi umístìné
-* návrh první konstrukce robota vèetnì umístìní senzorù a pohonù
-* zprovoznìní toho všeho -- {\bf cíl tohoto textu }
-\enditems
-
-Zaèáteèníci obvykle tuto posloupnost nedodrží a pak staví mechaniku pro 3 a více robotù,
- než zjistí, že je to dost práce navíc. A taky dost èasu navíc, který potom pøed soutìží mùže chybìt. 
-
-% na základì vlastních zkušeností s dùkladnìjším komentáøem míst, kde jsem se zasekal (což bylo dost èasto :-) ).
-
-
-\sec Co potøebujete
-
-%\begitems \style I
-{\bf Hardware: }
-
-\begitems \style O
-* notebook nebo poèítaè s operaèním systémem win7 a novìjším nebo Linux (pro starší poèítaèe napø. aktuální distribuci Lubuntu, Mint)
-
-* desku s èipem, napø. DevKit ESP32\fnote{varianta: jinou vývojovou desku, napø. Arduino Uno, Arduino nano, ...  }
-* vývojovou desku ALKS\fnote{\url{https://github.com/RoboticsBrno/ArduinoLearningKitStarter} \hfil \break {\localcolor \Red NUTNÁ AKTUALIZACE} 
-Hotová deska vás hlavnì ze zaèátku zbavuje nutnosti vìdìt, co si mùžete dovolit kam pøipojit a hlavnì nutnosti vùbec nìjaké pøipojování èehokoliv øešit. } 
-
-* výhledovì cokoli dalšího, co chcete tím èipem øídit (serva, ultrazvuk, senzory a motory všeho druhu ... ) 
-\enditems
-
-\noindent {\bf Software: }
-\begitems \style O
-* {\it Visual Studio code} -- viz kapitola \ref[vsc]
-* {\it PlatformIO }-- viz kapitola \ref[platformio]
-\enditems
-Veškerý zde popisovaný a doporuèovaný software je freeware. 
-
-\noindent {\bf Znalosti:  }
-\begitems \style O
-* bìžná práce se soubory ve vašem operaèním systému (hledání, kopírování, mazání, ... )
-* základy programování C++ (viz kapitola \ref[cpp]) a pøíkazy C++ pro èipy, obojí lze nalézt napø.: \hfil \break 
-\url{http://wall.robotikabrno.cz} a \url{https://www.arduino.cc/reference/en/} \hfil \break
-(ano, z toho plyne NUTNÁ schopnost porozumìt textu psanému v jednoduché angliètinì) 
-* vìdìt, jak je zapojená deska ALKS\fnote{\url{https://github.com/yaqwsx/ArduinoLearningKitStarter/releases/download/0.1/robotarna_arduino.pdf} \hfil \break 
-{\localcolor \Red NUTNÁ AKTUALIZACE} }
-% a DevKit ESP32 (odkaz na manuál - ano, opìt anglicky)
-
-* základy elektroniky -- viz kapitola \ref[elektronika]
-%v rozsahu II. roèníku SŠ (jak zmìøit napìtí a proud, co je LED, rezistor, kondenzátor a pod. ) - viz uèební texty <doplnit
-\enditems
-
-%\enditems
-
-\sec První projekt
-
-\nonum \notoc \secc Postup
-
-Pokud s programováním èipù zaèínáme, èekají nás tyto úkoly: 
-\begitems \style n
-* nainstalovat prostøedí {\it Visual Studio code}   
-* do VS code nainstalovat tzv. {\it PlatformIO }
-
-* založit nový projekt 
-
-* napsat zdrojový kód, pøeložit a dostat jej do èipu 
-\enditems
-
-
-\label[vsc] \secc Nainstalovat {\it Visual Studio code}
-
-{\it Visual Studio code} (zkrácenì VS code) je nìco jako textový editor, speciálnì navržený pro programátory èehokoliv. 
-Instalujte podobnì jako každý jiný program, stahujte zde: \url{https://code.visualstudio.com/}  
-
-\label[platformio] \secc Nainstalovat {\it PlatformIO }
-
-{\it PlatformIO } je ten software, který umožní program v C++ pøeložit tak, aby ho èip pochopil a taky ho do èipu umí nahrát. 
-Instalace podle návodu zde: \url{http://docs.platformio.org/en/latest/ide/vscode.html\#installation}
-
-
-\secc Založit nový projekt 
-
-Program (ne)píšete jen do jednoho souboru, ale aby vše fungovalo, 
-potøebujete povícero dalších souborù, které dohromady tvoøí tzv. projekt. 
-Tyto soubory jsou mezi sebou hodnì provázané a navíc vázané na konkrétní místo uložení, 
-takže vám po pøekopírování na jiný poèítaè pravdìpodobnì program nepùjde pøeložit a nebo 
-nahrát do èipu. Øešení: uložit celý projekt na flešku. 
-Na novém poèítaèi založit nový projekt a potøebné èásti zdrojového kódu kopírovat pomocí Ctrl+C, Ctrl+V. 
-
-\begitems \style n
-* Založte nový projekt z ikonky \uv{domeèek} -- viz \url{http://docs.platformio.org/en/latest/ide/vscode.html\#quick-start}.
-* Do kolonky {\it Board} se musí vybrat správná deska. Desek je pøes 400 a jsou rozdìlené do sekcí øazených podle abecedy vyznaèených šedivou barvou. V sekcích jsou potom jednotlivé desky øazené taky abecednì. 
- Pro èip ESP32 najdete sekci {\it Espressif32} a v ní položku {\it Espressif ESP32 Dev Module}. Kolonka {\it Framework } se potom vyplní automaticky. 
-* Zbývá vybrat adresáø, do kterého bude projekt uložen. Tento adresáø si pøedem vytvoøte, s adresáøem vytváøeným za pochodu má VS code kdovíproè problém. Odškrtnìte zatržítko {\it Use defalut folder} a zvolte vytvoøený adresáø.  
-\enditems
-
-Pro Linux Lubuntu: projekt musí být uložen na pevném disku, ne na flešce, jinak prostì nepojede, netuším proè.  
-
-\secc Napsat zdrojový kód, pøeložit a dostat jej do èipu 
-
-\midinsert
-\picw=\hsize \centerline{\inspic soubory/rozlozeni2.jpg }
-\nobreak\medskip
-\label[vsc_rozlozeni] \caption/f Rozložení oken v programu {\it VS code} 
-\endinsert
-
-Obrázek \ref[vsc_rozlozeni] na stranì~\pgref[vsc_rozlozeni]  ukazuje rozložení oken v rámci projektu. Hlavní okno  rozdìlte na dvì èásti pro zobrazení dvou upravovaných souborù pomocí ikony v kroužku. Zaèínáme v oknì {\it Explorer}, kde je umístìna adresáøová struktura projektu\fnote{Pokud toto okno není vidìt, zobrazíte ho v menu {\it View} položka {\it Explorer} }. Otevøete soubory {\it platformio.ini} a v adresáøi {\it src} soubor {\it main.cpp}. 
- 
-Pro pohodlnou práci s deskou ALKS byla napsaná tzv. knihovna {\it LearningKit}. Aby fungovala, musí být do souboru {\it platformio.ini} dopsán øádek 
-{\tt lib\_deps = 1745} (bez mezery na zaèátku øádku)
-a do záhlaví souboru {\it main.cpp} doplòte {\tt \#include "LearningKit.h"}.  
-Dále dopište do souboru {\it main.cpp} kód, který bliká èervenou LED. Vše je vidìt na obrázku \ref[vsc_rozlozeni]. Celý zdrojový kód tohoto prvního programu (obsah souboru {\it main.cpp}) je uveden v kapitole \ref[cpppr1].
- 
-Teï budou potøeba další dvì èásti VS code: terminál (okno vpravo dole) a stavový øádek (Status bar -- proužek pod terminálem). Na stavovém øádku kliknìte na ikonu šipky\fnote{totéž provede Ctrl+Alt+U} (pátá zprava) a {\it platformIO} se pokusí váš program pøeložit a nahrát do èipu. Pokud chcete program pouze pøeložit, kliknìte na ikonu zatržítko\fnote{totéž provede Ctrl+Alt+B} hned vedle. 
-
-Pøi prvním pokusu nahrát program do èipu na linuxu má {\it platformIO} problém, 
-že nenajde USB spojení na desku s èipem a vyžaduje ho doistalovat. 
-Zpráva\fnote{\tt Warning! Please install `99-platformio-udev.rules`} 
-se objeví se v terminálu vèetnì nápovìdy,\fnote{\url{https://raw.githubusercontent.com/platformio/platformio/develop/scripts/99-platformio-udev.rules}}
- jak to udìlat. Nápovìda je ale tak podrobná, že to støednì pouèený linuxový laik s pomocí internetu zvládne. Pøi všech dalších pøekladech už to nebude problém.  
-
-Další programy budou uvedeny v kapitole \ref[cpppr].
-
-\label[cpp] \sec Programovací jazyk C++
-
-\label[cpppr] \sec Programovací jazyk C++ -- pøíklady 
-
-\label[cpppr1] \secc Pøíklad 1
-
-\begtt \#include "LearningKit.h"
-
-void setup() // this part run once
-\{
-  pinMode(L_R, OUTPUT); // initialize LED digital pin as an output.
- 
-\}
-
-void loop() // this part works in cycle 
-\{
-  digitalWrite(L_R, HIGH); // switch on red LED
-  delay(500); // pause 500 miliseconds
-  digitalWrite(L_R, LOW);  // switch off red LED
-  delay(500);
-  
-\}
-
-\endtt
-
-\sec Linux
-
-
-Drivery do tiskáren mají pøíponu ppd. Napøed se musí nainstalovat program cups. 
-
-Irfan view jede i v Linuxu\fnote{\url{http://www.boekhoff.info/install-irfan-view-on-linux/}}.
-
-%You can also use the Screenshot program included in Ubuntu (hit the Super key and type "Screenshot") which will afterwards ask you where you want to save the screenshot. If you just want a quick whole-screen shot you can hit the Printscreen key.
-
-\label[elektronika] \sec Pár údajù z ELE
-
-- USB napájí 5V a oficiální 100 mA, v reálu až 1 A 
-- ESP32 jede na 3,3 V  
-
-% Hotová deska vás hlavnì ze zaèátku zbavuje nutnosti vìdìt, co si mùžete dovolit kam pøipojit. hlavnì pokud to žere víc proudu (serva a motory) nebo pokud to vyžaduje vyšší napìtí, takže se radši na každé pøipojení èehokoliv zeptejte } 
-
-\sec Bluetooth
-
-Moduly bluetooth slouží ke komunikaci mezi .... 
-Mohou být napájeny 5V nebo 3,3V a 
-komunikace RX a TX .... 
-
-
-\sec Motory, serva a PWM 
-
-\sec ALKS a další desky 
-
-Nutné znát pinout, zapojení desky a serva mají data u ESP32 a zem u vnìjšího okraje. \iid ALKS 
-
-
-\sec Lorris 
-
-\sec Pájení 
-
-
-\sec \TeX
-
-\secc Proè používat \TeX
-
-Tento text je psán v sázecím systému \ii TeX \TeX . Jeho silná stránka je pøedevším matematická sazba 
-(bohužel nevyužijeme) a snadné zpracování obsahu, rejstøíkù, seznamù obrázkù a tabulek a podobnì, což dramaticky urychluje pøípravu dokumentu. Èas, který vložíte do nastavení a uèení se systému, se vrátí v rychlosti práce $\rightarrow$ jedná se o øešení vhodné pro delší dokumenty, napø. pro soutìž SOÈ nebo dlouhodobou maturitní práci. Existují rùzné nadstavby a rozšíøení \TeX{}u, nejznámìjší je \LaTeX{}.
+\input makra1.tex
+\usepglinks 1  % udìlá ze stránek rejstøíku klikací
+\draft % tiskne na poslední stranu seznam komentáøù, co se má dodìlat , viz opmac.tex ø. 889
+\def\frac#1#2{{#1\over#2}} %definice pøíkazu \frac z LaTeXu  
+
+\input prvni_strana
+\input zacatek.tex
+\input zac_pojmy
+\input cpp.tex
+\input cpp2.tex
+\input cpppr.tex
+\input elektronika.tex
+% \input bity_bajty.tex
+\input software.tex
  
 
-\secc Literatura 
+\chap Ostatní
 
-\begitems \style O
-* \TeX pro pragmatiky: \url{http://petr.olsak.net/ftp/olsak/tpp/tpp.pdf}
-* První setkání se \TeX{}em: \url{http://petr.olsak.net/ftp/cstex/doc/prvni.pdf} 
-* \LaTeX pro pragmatiky: \url{http://mirrors.nic.cz/tex-archive/info/czech/\|latex-pro-pragmatiky/latex-pro-pragmatiky.pdf} \emergencystretch=2cm
-\enditems
-
-Pøíkazy \TeX{}u i \LaTeX{}u podobnì jako C++ a systémy typu Linux {\bf rozlišují velká a malá písmena}. 
- 
-
-\secc Editory 
-
-Ve WinXP používám PSpad, v linuxu TeX Maker. Oba editory umí zavolat pøeklad do pdf pomocí klávesové zkratky, zobrazit výsledný pdf a barevné zvýraznìní syntaxe. PSpad se dá rozjet i pod linuxem pomocí prostøedí Wine, ale nepodaøilo se mi rozchodit volání pøekladu. 
-
-\secc Prohlížení Pdf
-
-Ve WinXP se osvìdèil Foxit Reader verze 2.3, v linuxu Evince.  
-
-\secc Èeština 
-
-Ve WinXP používám kódování CP1250. V linuxu je nativní UTF-8. Pøi pøechodu z Win na Linux není problém. Pøi pøechodu z linuxu na WinXP se vše zobrazuje správnì, ale pøi pøekladu nìkteré znaky (ž) chybnì. Pomohlo ruèní nastavení kódování (menu {\it Formát}) z CP1250 a zpìt kombinované s opakovanými pøeklady, vše v PSpadu.   
+\input mechanika.tex
  
 \sec Øešení nìkterých problémù
 
-\secc Chyba pøi uploadu programu do desky Arduino nano: \nl
+\secc Chyba pøi uploadu programu do desky Arduino nano: 
+
 \begtt Please specify 'upload_port' environment or use global '--upload-port' option \endtt
 
 Øešení: pomohlo spustit pøíkaz {\tt sudo service udev restart} a znovu spustit VS code a odpojit a pøipojit desku.  
 
+\input prilohy
 
 \vfil \break \nonum \sec Rejstøík 
 
-% \begmulti 3 
+\begmulti 3 
 \makeindex 
-%\endmulti
+\endmulti
 
 \vfil \break \nonum \sec Obsah %\notoc
 
 \maketoc
 
 
+\makerfc
+
 \bye
-
-Dotazy: 
-
-- proè se mi v linuxu nezobrazuje prùbìh pøekladu v TeXu 
-
-
-Úkoly:
-
-- E:\_skola\__Texty\Roboti\2010\cipy.pdf
-- E:\_skola\__Texty\Roboti\Návody a manuály\Základy robotiky\Základy robotiky.pdf
-- rejstøík 
-- PWM, serva a motory 
-- pájení a DPS 
-- seznam zkratek 
-- jazyk C 
-- è v názvech kapitol nefunguje v obsahu 
-
+ 
+  
 "-translate-file=cp1250cs" "%Name%.tex"
-
 \input todo.tex
