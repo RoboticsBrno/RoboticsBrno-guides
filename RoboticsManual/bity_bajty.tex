@@ -1,260 +1,260 @@
 \section{Bity a~bajty}
 
-\subsection{Desítková soustava a~dvojková soustava }
+\subsection{DesÃ­tkovÃ¡ soustava a~dvojkovÃ¡ soustava }
 
-V~poèítaèi jsou všechna data uloena pouze v~podobì jednièek a~nul. A~proto se nám bude hodit, kdy se budeme aspoò trochu orientovat v~pøevodech mezi dvojkovou a~desítkovou soustavou.
+V~poÄÃ­taÄi jsou vÅ¡echna data uloÅ¾ena pouze v~podobÄ› jedniÄek a~nul. A~proto se nÃ¡m bude hodit, kdyÅ¾ se budeme aspoÅˆ trochu orientovat v~pÅ™evodech mezi dvojkovou a~desÃ­tkovou soustavou.
 
-\subsubsection{Desítková soustava}
-V~\B{desítkové soustavì}\I{desítková soustava}\I{soustava!desítková} je základem èíslo deset. 
+\subsubsection{DesÃ­tkovÃ¡ soustava}
+V~\B{desÃ­tkovÃ© soustavÄ›}\I{desÃ­tkovÃ¡ soustava}\I{soustava!desÃ­tkovÃ¡} je zÃ¡kladem ÄÃ­slo deset. 
 
-\D Pøíklad: èíslo 156 si mùeme rozloit jako \verb@1*10^2 + 5*10^1 + 6*10^0@, pøitom
+\D PÅ™Ã­klad: ÄÃ­slo 156 si mÅ¯Å¾eme rozloÅ¾it jako \verb@1*10^2 + 5*10^1 + 6*10^0@, pÅ™itom
 \verb@10^0=1, 10^1=10, 10^2=10*10=100, 10^3=10*10*10=1000@ atd ...,
-take naše èíslo potom vypadá takto: \verb@ 1*100 + 5*10 + 6*1 = 156@.
+takÅ¾e naÅ¡e ÄÃ­slo potom vypadÃ¡ takto: \verb@ 1*100 + 5*10 + 6*1 = 156@.
 
-\subsubsection{Dvojková soustava}
-Ve \B{dvojkové soustavì}\I{dvojková soustava}\I{soustava!dvojková} je základem èíslo dva. 
+\subsubsection{DvojkovÃ¡ soustava}
+Ve \B{dvojkovÃ© soustavÄ›}\I{dvojkovÃ¡ soustava}\I{soustava!dvojkovÃ¡} je zÃ¡kladem ÄÃ­slo dva. 
 
-\D Pøíklad: èíslo \verb@11001010@ rozloíme na \\
-\verb@1*2^7 + 1*2^6 + 0*2^5 + 0*2^4 + 1*2^3 + 0*2^2 + 1*2^1 + 0*2^0@, pøitom \\
+\D PÅ™Ã­klad: ÄÃ­slo \verb@11001010@ rozloÅ¾Ã­me na \\
+\verb@1*2^7 + 1*2^6 + 0*2^5 + 0*2^4 + 1*2^3 + 0*2^2 + 1*2^1 + 0*2^0@, pÅ™itom \\
 \verb@2^0=1, 2^1=2, 2^2=2*2=4, 2^3=2*2*2=8, 2^4=2*2*2*2=16, 2^5=32@, \\
- atd..., proto naše èíslo má hodnotu: \\
+ atd..., proto naÅ¡e ÄÃ­slo mÃ¡ hodnotu: \\
 \verb@1*128 + 1*64 + 0*32 + 0*16 + 1*8 + 0*4 + 1*2 + 0*1 = 202@.   
 
-\subsubsection{Pøevod z~desítkové soustavy do dvojkové}
-Jak na to, kdy chceme pøevádìt èíslo z~desítkové soustavy do dvojkové?
+\subsubsection{PÅ™evod z~desÃ­tkovÃ© soustavy do dvojkovÃ©}
+Jak na to, kdyÅ¾ chceme pÅ™evÃ¡dÄ›t ÄÃ­slo z~desÃ­tkovÃ© soustavy do dvojkovÃ©?
 
-\D Napøíklad pøevedeme èíslo \verb@97@. \\ 
-\noindent Nejprve je potøeba, abychom znali násobky èísla dva: \\ 
+\D NapÅ™Ã­klad pÅ™evedeme ÄÃ­slo \verb@97@. \\ 
+\noindent Nejprve je potÅ™eba, abychom znali nÃ¡sobky ÄÃ­sla dva: \\ 
 \verb@2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048@, atd... \\
-Napíšeme jednièku. \\
+NapÃ­Å¡eme jedniÄku. \\
 \verb@1@ \\ 
-Najdeme nejbliší niší násobek dvou k~našemu èíslu, v~našem pøípadì je nejblíe \verb@64@.  Odeèteme si od \verb@97@ èíslo \verb@64@, \verb@97-64=33@. Odeèítali jsme èíslo \verb@64@, další v~poøadí je èíslo \verb@32@, je \verb@32@ obsaeno v~\verb@33@? Ano, proto napíšeme další jednièku. \\ 
+Najdeme nejbliÅ¾Å¡Ã­ niÅ¾Å¡Ã­ nÃ¡sobek dvou k~naÅ¡emu ÄÃ­slu, v~naÅ¡em pÅ™Ã­padÄ› je nejblÃ­Å¾e \verb@64@.  OdeÄteme si od \verb@97@ ÄÃ­slo \verb@64@, \verb@97-64=33@. OdeÄÃ­tali jsme ÄÃ­slo \verb@64@, dalÅ¡Ã­ v~poÅ™adÃ­ je ÄÃ­slo \verb@32@, je \verb@32@ obsaÅ¾eno v~\verb@33@? Ano, proto napÃ­Å¡eme dalÅ¡Ã­ jedniÄku. \\ 
 \verb@11@ \\ 
-Dále \verb@33-32=1@, další èíslo je \verb@16@, je \verb@16@ obsaeno v~\verb@1@? Ne, proto napíšeme nulu.
+DÃ¡le \verb@33-32=1@, dalÅ¡Ã­ ÄÃ­slo je \verb@16@, je \verb@16@ obsaÅ¾eno v~\verb@1@? Ne, proto napÃ­Å¡eme nulu.
 \verb@110@ \\ 
-Další èíslo je \verb@8@, také není obsaeno v~\verb@1@, take napíšeme nulu. \\ 
+DalÅ¡Ã­ ÄÃ­slo je \verb@8@, takÃ© nenÃ­ obsaÅ¾eno v~\verb@1@, takÅ¾e napÃ­Å¡eme nulu. \\ 
 \verb@1100@ \\ 
-Èísla \verb@4@ a~\verb@2@ také nejsou obsaena v~èísle \verb@1@, proto napíšeme nuly. \\
+ÄŒÃ­sla \verb@4@ a~\verb@2@ takÃ© nejsou obsaÅ¾ena v~ÄÃ­sle \verb@1@, proto napÃ­Å¡eme nuly. \\
 \verb@110000@ \\
-A~nakonec, je èíslo jedna obsaeno v~èísle jedna? Ano, napíšeme jednièku.
-Náš binární zápis èísla \verb@97@ vypadá takto:\verb@1100001@. 
-Èísla v~binární soustavì by mìla mít poèet cifer rovno 8, 16, 32, podle toho s~kolika bitovımi èísly poèítáme. V~našem pøípadì musíme doplnit jednu nulu. Pokud bychom poèítali s~16 bitovımi èísly doplníme o 8 nul více. Nuly doplòujeme zleva. Zapamatujeme si to snadno v~desítkové soustavì se èíslo \verb@128@ také nezmìní pokud pøed nìj dáme nuly, \verb@000128@. Nuly navíc nebudeme psát v~desítkové soustavì, ale v~dvojkové nám to pomùe se lépe orientovat. Take to bude vypadat:
+A~nakonec, je ÄÃ­slo jedna obsaÅ¾eno v~ÄÃ­sle jedna? Ano, napÃ­Å¡eme jedniÄku.
+NÃ¡Å¡ binÃ¡rnÃ­ zÃ¡pis ÄÃ­sla \verb@97@ vypadÃ¡ takto:\verb@1100001@. 
+ÄŒÃ­sla v~binÃ¡rnÃ­ soustavÄ› by mÄ›la mÃ­t poÄet cifer rovno 8, 16, 32, podle toho s~kolika bitovÃ½mi ÄÃ­sly poÄÃ­tÃ¡me. V~naÅ¡em pÅ™Ã­padÄ› musÃ­me doplnit jednu nulu. Pokud bychom poÄÃ­tali s~16 bitovÃ½mi ÄÃ­sly doplnÃ­me o 8 nul vÃ­ce. Nuly doplÅˆujeme zleva. Zapamatujeme si to snadno v~desÃ­tkovÃ© soustavÄ› se ÄÃ­slo \verb@128@ takÃ© nezmÄ›nÃ­ pokud pÅ™ed nÄ›j dÃ¡me nuly, \verb@000128@. Nuly navÃ­c nebudeme psÃ¡t v~desÃ­tkovÃ© soustavÄ›, ale v~dvojkovÃ© nÃ¡m to pomÅ¯Å¾e se lÃ©pe orientovat. TakÅ¾e to bude vypadat:
 \verb@01100001@ 
-No a~to ještì není všechno. Aby mìlo èíslo správnı tvar musí mít pøed èíslem uvedeno \verb@0b@(nula a~malé B), tím øíkáme v~jazyce C, e èíslo je v~(binární) dvojkové soustavì. 
+No a~to jeÅ¡tÄ› nenÃ­ vÅ¡echno. Aby mÄ›lo ÄÃ­slo sprÃ¡vnÃ½ tvar musÃ­ mÃ­t pÅ™ed ÄÃ­slem uvedeno \verb@0b@(nula a~malÃ© B), tÃ­m Å™Ã­kÃ¡me v~jazyce C, Å¾e ÄÃ­slo je v~(binÃ¡rnÃ­) dvojkovÃ© soustavÄ›. 
 
-Pozor: Èísla \verb@101@ a~\verb@0b101@ nejsou to samé!Je to jednoduché, pokud \verb@0b@ neuvedeme bude pøekladaè èíslo brát jakoe je v~desítkové soustavì. Tj. \verb@101 =>@ èíslo sto jedna, \verb@0b101 =>@ èíslo pìt.
+Pozor: ÄŒÃ­sla \verb@101@ a~\verb@0b101@ nejsou to samÃ©!Je to jednoduchÃ©, pokud \verb@0b@ neuvedeme bude pÅ™ekladaÄ ÄÃ­slo brÃ¡t jakoÅ¾e je v~desÃ­tkovÃ© soustavÄ›. Tj. \verb@101 =>@ ÄÃ­slo sto jedna, \verb@0b101 =>@ ÄÃ­slo pÄ›t.
 
-\D \B{Další pøíklad:}\\
-Pøevedeme èíslo \verb@237@. \\ 
-Nejbliší niší èíslo je \verb@128@. \\ 
+\D \B{DalÅ¡Ã­ pÅ™Ã­klad:}\\
+PÅ™evedeme ÄÃ­slo \verb@237@. \\ 
+NejbliÅ¾Å¡Ã­ niÅ¾Å¡Ã­ ÄÃ­slo je \verb@128@. \\ 
  \verb@1@  \\
-\verb@237-128=109@ je èíslo \verb@64@ obsaeno v~èísle \verb@109@? ANO, další jednièka. \\
+\verb@237-128=109@ je ÄÃ­slo \verb@64@ obsaÅ¾eno v~ÄÃ­sle \verb@109@? ANO, dalÅ¡Ã­ jedniÄka. \\
 \verb@11@ \\ 
-\verb@109-64=45@ je èíslo \verb@32@ obsaeno v~\verb@45@? ANO, jednièka. \\
+\verb@109-64=45@ je ÄÃ­slo \verb@32@ obsaÅ¾eno v~\verb@45@? ANO, jedniÄka. \\
 \verb@111@  \\ 
-\verb@45-32=13@ je \verb@16@ obsaeno v~èísle \verb@13@? NE, nula. \\ 
+\verb@45-32=13@ je \verb@16@ obsaÅ¾eno v~ÄÃ­sle \verb@13@? NE, nula. \\ 
 \verb@1110@  \\ 
-je èíslo \verb@8@ obsaeno v~\verb@13@? ANO, jednièka. \\
+je ÄÃ­slo \verb@8@ obsaÅ¾eno v~\verb@13@? ANO, jedniÄka. \\
 \verb@11101@ \\ 
-\verb@13-8=5@ je \verb@4@ obsaeno v~\verb@5@? ANO, jednièka. \\
+\verb@13-8=5@ je \verb@4@ obsaÅ¾eno v~\verb@5@? ANO, jedniÄka. \\
 \verb@111011@ \\ 
-\verb@5-4=1@ je  obsaena v~\verb@1@? NE, nula. \\
+\verb@5-4=1@ je  obsaÅ¾ena v~\verb@1@? NE, nula. \\
 \verb@1110110@ \\
-je \verb@1@ obsaena v~\verb@1@? ANO, jednièka. \\
+je \verb@1@ obsaÅ¾ena v~\verb@1@? ANO, jedniÄka. \\
 \verb@11101101@
-Binární zápis èísla \verb@237@ vypadá takto:\verb@11101101@.
+BinÃ¡rnÃ­ zÃ¡pis ÄÃ­sla \verb@237@ vypadÃ¡ takto:\verb@11101101@.
 
 \subsubsection{Bity a~bajty}
 
-Kadá èíslice ve dvojkové soustavì reprezentuje jeden \B{bit}\I{bit} (nabıvá hodnot \verb@0@ nebo \verb@1@). 
+KaÅ¾dÃ¡ ÄÃ­slice ve dvojkovÃ© soustavÄ› reprezentuje jeden \B{bit}\I{bit} (nabÃ½vÃ¡ hodnot \verb@0@ nebo \verb@1@). 
 
-\D Osm bitù dohromady tvoøí \B{bajt}\I{bajt}. Nejniší bit v~bajtu leí vpravo (tzv \B{nultı bit}\I{nultı bit}\I{bit!nultı}), další je nalevo od nìj (první bit), a do sedmého bitu, kterı je nejvíce vlevo.  
+\D Osm bitÅ¯ dohromady tvoÅ™Ã­ \B{bajt}\I{bajt}. NejniÅ¾Å¡Ã­ bit v~bajtu leÅ¾Ã­ vpravo (tzv \B{nultÃ½ bit}\I{nultÃ½ bit}\I{bit!nultÃ½}), dalÅ¡Ã­ je nalevo od nÄ›j (prvnÃ­ bit), aÅ¾ do sedmÃ©ho bitu, kterÃ½ je nejvÃ­ce vlevo.  
 
-\subsubsection{Pøevod z~dvojkové soustavy do desítkové}
+\subsubsection{PÅ™evod z~dvojkovÃ© soustavy do desÃ­tkovÃ©}
 
-Vezmeme si napøíklad binární èíslo \verb@1011@. Oèíslujeme si pozice zprava doleva od nuly, tj.:
+Vezmeme si napÅ™Ã­klad binÃ¡rnÃ­ ÄÃ­slo \verb@1011@. OÄÃ­slujeme si pozice zprava doleva od nuly, tj.:
 \begin{verbatim}
 1 0 1 1
 3 2 1 0
 \end{verbatim}
-Pohybujeme se v~dvojkové soustavì, tj. základ bude \verb@2@. Vezmeme nultou èíslici a~vynásobíme s~ní èíslo \verb@2^0@. 
-Dostáváme \verb@1*2^0 = 1@.
-Dále první èíslici vynásobíme èíslem \verb@2^1@, tj. \verb@1*2^1 = 2@.
-Dále druhou èíslici vynásobíme èíslem \verb@2^2@, tj. \verb@0*2^2 = 0@.
-A~to samé provedeme s~èíslicí na tøetí pozici: \verb@1*2^3 = 8@.
-A~nyní èísla seèteme \verb@8 + 0 + 2 + 1 = 11@, take binární èíslo \verb@1011@ pøevedené do desítkové soustavy je \verb@11@.
+Pohybujeme se v~dvojkovÃ© soustavÄ›, tj. zÃ¡klad bude \verb@2@. Vezmeme nultou ÄÃ­slici a~vynÃ¡sobÃ­me s~nÃ­ ÄÃ­slo \verb@2^0@. 
+DostÃ¡vÃ¡me \verb@1*2^0 = 1@.
+DÃ¡le prvnÃ­ ÄÃ­slici vynÃ¡sobÃ­me ÄÃ­slem \verb@2^1@, tj. \verb@1*2^1 = 2@.
+DÃ¡le druhou ÄÃ­slici vynÃ¡sobÃ­me ÄÃ­slem \verb@2^2@, tj. \verb@0*2^2 = 0@.
+A~to samÃ© provedeme s~ÄÃ­slicÃ­ na tÅ™etÃ­ pozici: \verb@1*2^3 = 8@.
+A~nynÃ­ ÄÃ­sla seÄteme \verb@8 + 0 + 2 + 1 = 11@, takÅ¾e binÃ¡rnÃ­ ÄÃ­slo \verb@1011@ pÅ™evedenÃ© do desÃ­tkovÃ© soustavy je \verb@11@.
 
-Pøíklad 2: Pøeveïte binární èíslo \verb@11101001@ do desítkové soustavy.\\
+PÅ™Ã­klad 2: PÅ™eveÄte binÃ¡rnÃ­ ÄÃ­slo \verb@11101001@ do desÃ­tkovÃ© soustavy.\\
 \verb@1*2^0 + 0*2^1 + 0*2^2 + 1*2^3 + 0*2^4 + 1*2^5 + 1*2^6 + 1*2^7@
 To je: \\
 \verb@1 + 0 + 0 + 8 + 0 + 32 + 64 + 128 = 233@
-Binární èíslo \verb@11101001@ pøevedeno do desítkové soustavy je \verb@233@.
+BinÃ¡rnÃ­ ÄÃ­slo \verb@11101001@ pÅ™evedeno do desÃ­tkovÃ© soustavy je \verb@233@.
 
-Pøíklad 3: Pøeveïte binární èíslo \verb@00010101@. \\
-\verb@1*2^0 + 0*2^1 + 1*2^2 + 0*2^3 + 1*2^4 + 0*2^5 + 0*2^6 + 0*2^7@, samozøejmì èleny \verb@2^x@, které násobíme nulou budou nulové a~tudí je mùeme beztrestnì vynechat, tj. \\
+PÅ™Ã­klad 3: PÅ™eveÄte binÃ¡rnÃ­ ÄÃ­slo \verb@00010101@. \\
+\verb@1*2^0 + 0*2^1 + 1*2^2 + 0*2^3 + 1*2^4 + 0*2^5 + 0*2^6 + 0*2^7@, samozÅ™ejmÄ› Äleny \verb@2^x@, kterÃ© nÃ¡sobÃ­me nulou budou nulovÃ© a~tudÃ­Å¾ je mÅ¯Å¾eme beztrestnÄ› vynechat, tj. \\
 \verb@1*2^0 + 1*2^2 + 1*2^4 = 1 + 4 + 16 = 21@
-Binární èíslo \verb@00010101@ má v~desítkové soustavì hodnotu \verb@21@. 
+BinÃ¡rnÃ­ ÄÃ­slo \verb@00010101@ mÃ¡ v~desÃ­tkovÃ© soustavÄ› hodnotu \verb@21@. 
 
-\subsection{Bitové vırazy a~práce s~nimi}
+\subsection{BitovÃ© vÃ½razy a~prÃ¡ce s~nimi}
 
-Bitové operace se od logickıch operací (viz \ref{logika1}) liší tím, e se neaplikují na èíslo jako celek, ale bit po bitu, viz níe. 
+BitovÃ© operace se od logickÃ½ch operacÃ­ (viz \ref{logika1}) liÅ¡Ã­ tÃ­m, Å¾e se neaplikujÃ­ na ÄÃ­slo jako celek, ale bit po bitu, viz nÃ­Å¾e. 
 
-My budeme potøebovat následující bitové operace: bitovı souèet, bitovı souèin, bitovou negaci, bitovı posun doleva.
+My budeme potÅ™ebovat nÃ¡sledujÃ­cÃ­ bitovÃ© operace: bitovÃ½ souÄet, bitovÃ½ souÄin, bitovou negaci, bitovÃ½ posun doleva.
 
-\subsubsection{Bitové operátory}
-\verb@|@ bitovı souèet \\
-\verb@&@ bitovı souèin \\
-\verb@~@ bitová negace \\
-\verb@^@ bitovı exluzivní souèet \\
-\verb@<<@ bitovı posuv doleva \\
-\verb@>>@ bitovı posuv doprava \\ 
+\subsubsection{BitovÃ© operÃ¡tory}
+\verb@|@ bitovÃ½ souÄet \\
+\verb@&@ bitovÃ½ souÄin \\
+\verb@~@ bitovÃ¡ negace \\
+\verb@^@ bitovÃ½ exluzivnÃ­ souÄet \\
+\verb@<<@ bitovÃ½ posuv doleva \\
+\verb@>>@ bitovÃ½ posuv doprava \\ 
 
-\subsubsection{Bitovı souèet} Platí, e \verb@0|0=0, 0|1=1, 1|0=1, 1|1=1@, sèítají se vdy pouze bity, které leí pod sebou. Zkrátka pokud je aspoò jeden bit jedna, vısledek je také jedna. 
+\subsubsection{BitovÃ½ souÄet} PlatÃ­, Å¾e \verb@0|0=0, 0|1=1, 1|0=1, 1|1=1@, sÄÃ­tajÃ­ se vÅ¾dy pouze bity, kterÃ© leÅ¾Ã­ pod sebou. ZkrÃ¡tka pokud je aspoÅˆ jeden bit jedna, vÃ½sledek je takÃ© jedna. 
 
-Pøíklad: máme dvì binární èísla \verb@00000100@ a~\verb@01100001@ a~chceme je bitovì seèíst. 
+PÅ™Ã­klad: mÃ¡me dvÄ› binÃ¡rnÃ­ ÄÃ­sla \verb@00000100@ a~\verb@01100001@ a~chceme je bitovÄ› seÄÃ­st. 
 
-\D Kdy seèteme nulté bity zadanıch èísel, dostamene 0|1=1. Pak provedeme bitovı souèet i~pro první, druhé a~další bity.
-Zapíšeme:
+\D KdyÅ¾ seÄteme nultÃ© bity zadanÃ½ch ÄÃ­sel, dostamene 0|1=1. Pak provedeme bitovÃ½ souÄet i~pro prvnÃ­, druhÃ© a~dalÅ¡Ã­ bity.
+ZapÃ­Å¡eme:
 \verb@(0b00000100 | 0b01100001);@
-Nebo pokud budeme mít èísla v~promìnnıch:
+Nebo pokud budeme mÃ­t ÄÃ­sla v~promÄ›nnÃ½ch:
 \begin{verbatim}
 uint8_t a~= 0b00000100;
 uint8_t b = 0b01100001;
 uint8_t c;
 c = (a|b);
 \end{verbatim}
-Do promìnné \verb@c@ se zapíše vısledná hodnota.
+Do promÄ›nnÃ© \verb@c@ se zapÃ­Å¡e vÃ½slednÃ¡ hodnota.
 
 \begin{verbatim}
-00000100 - první èíslo
-01100001 - druhé èíslo
+00000100 - prvnÃ­ ÄÃ­slo
+01100001 - druhÃ© ÄÃ­slo
 --------
-01100101 - vısledek po bitovém logickém souètu 
+01100101 - vÃ½sledek po bitovÃ©m logickÃ©m souÄtu 
 \end{verbatim}
 
-Vısledek: \verb@01100101@.
+VÃ½sledek: \verb@01100101@.
 
-\subsubsection{Bitovı souèin} 
-Platí, e \verb@0&0=0, 0&1=0, 1&0=0, 1&1=1@, tady platí, e vısledek je jedna, pokud oba bity jsou jedna.
-Pøíklad: bitovı souèin èísel \verb@00110011@ a~\verb@01000001@
-Zapíšeme:
+\subsubsection{BitovÃ½ souÄin} 
+PlatÃ­, Å¾e \verb@0&0=0, 0&1=0, 1&0=0, 1&1=1@, tady platÃ­, Å¾e vÃ½sledek je jedna, pokud oba bity jsou jedna.
+PÅ™Ã­klad: bitovÃ½ souÄin ÄÃ­sel \verb@00110011@ a~\verb@01000001@
+ZapÃ­Å¡eme:
 \verb@(0b00110011 & 0b01000001);@
-Nebo pokud budeme mít èísla v~promìnnıch:
+Nebo pokud budeme mÃ­t ÄÃ­sla v~promÄ›nnÃ½ch:
 \begin{verbatim}
 uint8_t c = 0b00110011;
 uint8_t d = 0b01000001;
 uint8_t e;
 e = (c&d);
 \end{verbatim}
-Vısledná hodnota se zapíše do promìnné \verb@e@.
+VÃ½slednÃ¡ hodnota se zapÃ­Å¡e do promÄ›nnÃ© \verb@e@.
 \begin{verbatim}
-00110011 - první èíslo
-01000001 - druhé èíslo
+00110011 - prvnÃ­ ÄÃ­slo
+01000001 - druhÃ© ÄÃ­slo
 --------
-00000001 - vısledek bitového logického souèinu
+00000001 - vÃ½sledek bitovÃ©ho logickÃ©ho souÄinu
 \end{verbatim}
 
-\subsubsection{Bitová negace}
-Tam, kde byla jednièka, bude nula, a~kde byla nula, bude jednièka.
-Pøíklad: znegujte èíslo \verb@00110101@
-Zapíšeme:
+\subsubsection{BitovÃ¡ negace}
+Tam, kde byla jedniÄka, bude nula, a~kde byla nula, bude jedniÄka.
+PÅ™Ã­klad: znegujte ÄÃ­slo \verb@00110101@
+ZapÃ­Å¡eme:
 \verb@~(0b00110101);@
-Nebo pokud budeme mít èíslo v~promìnné:
+Nebo pokud budeme mÃ­t ÄÃ­slo v~promÄ›nnÃ©:
 \begin{verbatim}
 uint8_t a~= 0b00110101;
 uint8_t b;
 b = ~a;
 \end{verbatim}
-Do promìnné \verb@b@ se zapíše vısledná hodnota.
+Do promÄ›nnÃ© \verb@b@ se zapÃ­Å¡e vÃ½slednÃ¡ hodnota.
 \begin{verbatim}
-00110101 - èíslo, které bude logicky znegováno
+00110101 - ÄÃ­slo, kterÃ© bude logicky znegovÃ¡no
 --------
-11001010 - vısledek
+11001010 - vÃ½sledek
 \end{verbatim}
 
 
-\subsubsection{Bitovı exklusivní souèet}
-Vısledkem exklusivního souèinu je pravda, pokud se hodnoty liší, tj. nejsou stejné. Take platí \verb@0^0=0, 0^1=1, 1^0=1, 1^1=0@
+\subsubsection{BitovÃ½ exklusivnÃ­ souÄet}
+VÃ½sledkem exklusivnÃ­ho souÄinu je pravda, pokud se hodnoty liÅ¡Ã­, tj. nejsou stejnÃ©. TakÅ¾e platÃ­ \verb@0^0=0, 0^1=1, 1^0=1, 1^1=0@
 
-Zapíšeme:
+ZapÃ­Å¡eme:
 \verb@(0b00110011 ^ 0b01000001);@
-Nebo pokud budeme mít èísla v~promìnnıch:
+Nebo pokud budeme mÃ­t ÄÃ­sla v~promÄ›nnÃ½ch:
 \begin{verbatim}
 uint8_t c = 0b00110011;
 uint8_t d = 0b01000001;
 uint8_t e;
 e = (c^d);
 \end{verbatim}
-Vısledná hodnota se zapíše do promìnné \verb@e@.
+VÃ½slednÃ¡ hodnota se zapÃ­Å¡e do promÄ›nnÃ© \verb@e@.
 \begin{verbatim}
-00110011 - první èíslo
-01000001 - druhé èíslo
+00110011 - prvnÃ­ ÄÃ­slo
+01000001 - druhÃ© ÄÃ­slo
 --------
-01110010 - vısledek bitového exklusivního souètu
+01110010 - vÃ½sledek bitovÃ©ho exklusivnÃ­ho souÄtu
 \end{verbatim}
 
-\subsubsection{Bitovı posun doleva} 
-Vezmeme celé osmibitové èíslo a~posuneme ho o urèitı poèet míst doleva. Pøitom èísla vlevo zmizí a~na na uprázdnìné místo vpravo pøijdou vdy nuly.
-Zapíšeme:
+\subsubsection{BitovÃ½ posun doleva} 
+Vezmeme celÃ© osmibitovÃ© ÄÃ­slo a~posuneme ho o urÄitÃ½ poÄet mÃ­st doleva. PÅ™itom ÄÃ­sla vlevo zmizÃ­ a~na na uprÃ¡zdnÄ›nÃ© mÃ­sto vpravo pÅ™ijdou vÅ¾dy nuly.
+ZapÃ­Å¡eme:
 \verb@(0b01000101 << 3);@
-Nebo pokud budeme mít èíslo v~promìnné:
+Nebo pokud budeme mÃ­t ÄÃ­slo v~promÄ›nnÃ©:
 \begin{verbatim}
 uint8_t c = 0b01000101;
 uint8_t d;
 d = (c << 3);
 \end{verbatim}
-Do promìnné \verb@d@ se pøiøadí vısledek operace.
-Pokud napøíklad u nebudeme potøebovat pùvodní hodnotu promìnné \verb@c@, lze to napsat i~takto:
+Do promÄ›nnÃ© \verb@d@ se pÅ™iÅ™adÃ­ vÃ½sledek operace.
+Pokud napÅ™Ã­klad uÅ¾ nebudeme potÅ™ebovat pÅ¯vodnÃ­ hodnotu promÄ›nnÃ© \verb@c@, lze to napsat i~takto:
 \begin{verbatim}
 uint8_t c = 0b01000101;
 c = (c << 3);
 \end{verbatim}
-Hodnota v~promìnné \verb@c@ se nejprve posune o tøi pozice a~pak se vısledná pozice zapíše na stejnou pozici v~pamìti mikrokontroléru.
+Hodnota v~promÄ›nnÃ© \verb@c@ se nejprve posune o tÅ™i pozice a~pak se vÃ½slednÃ¡ pozice zapÃ­Å¡e na stejnou pozici v~pamÄ›ti mikrokontrolÃ©ru.
 
-Pøíklad: proveïte bitovı posun doleva o tøi s~èíslem \verb@00000101@
+PÅ™Ã­klad: proveÄte bitovÃ½ posun doleva o tÅ™i s~ÄÃ­slem \verb@00000101@
 
 \begin{verbatim}
 01000101
 --------
 10001010 - posun o jedno doleva 
-00010100 - znovu o jedno doleva (celkem o dvì místa)
-00101000 - celkovı posun o tøi bity doleva 
+00010100 - znovu o jedno doleva (celkem o dvÄ› mÃ­sta)
+00101000 - celkovÃ½ posun o tÅ™i bity doleva 
 \end{verbatim}
 
-\subsubsection{Bitovı posun doprava}
-Bitovı posun doprava je podobnı jako operace bitovı posun doleva, liší se jen ve smìru posunu, tj. posouvá se na opaènou stranu.
-Pøíklad 1: Proveïte bitovı posun doprava o tøi pozice s~binárním èíslem \verb@00000101@. Zapíšeme:
+\subsubsection{BitovÃ½ posun doprava}
+BitovÃ½ posun doprava je podobnÃ½ jako operace bitovÃ½ posun doleva, liÅ¡Ã­ se jen ve smÄ›ru posunu, tj. posouvÃ¡ se na opaÄnou stranu.
+PÅ™Ã­klad 1: ProveÄte bitovÃ½ posun doprava o tÅ™i pozice s~binÃ¡rnÃ­m ÄÃ­slem \verb@00000101@. ZapÃ­Å¡eme:
 \verb@(0b00000101 >> 3);@
-Vısledkem bude toto:
+VÃ½sledkem bude toto:
 \begin{verbatim}
 00000101
 --------
 00000010 - posun o jednu pozici doprava
 00000001 - posun o druhou pozici
-00000000 - posun o tøetí pozici
+00000000 - posun o tÅ™etÃ­ pozici
 \end{verbatim}
 
-Pøíklad 2: Proveïte bitovı posun o dvì pozice doprava a~potom o tøi doleva s~binárním èíslem \verb@11110111@. Zapíšeme:
+PÅ™Ã­klad 2: ProveÄte bitovÃ½ posun o dvÄ› pozice doprava a~potom o tÅ™i doleva s~binÃ¡rnÃ­m ÄÃ­slem \verb@11110111@. ZapÃ­Å¡eme:
 \verb@((0b11110111 >> 2) << 3);@
-Vısledkem bude toto:
+VÃ½sledkem bude toto:
 \begin{verbatim}
 11110111
 --------
-00111101 - posun o dvì pozice doprava
-11101000 - posun o tøi pozice doleva, toto je vısledek.
+00111101 - posun o dvÄ› pozice doprava
+11101000 - posun o tÅ™i pozice doleva, toto je vÃ½sledek.
 \end{verbatim}
 
-Pøíklad 3: Ale co kdy zadám èíslo do promìnné v~desítkové soustavì, napøíklad \verb@189@ a~provedu bitovı posun o dvì pozice doprava? Co dostanu? Dostanu snad \verb@1@? Ne, i~kdy jsme èíslo zadali v~desítkové soustavì, v~mikrokontroléru je stejnì uloeno jako jednièky a~nuly, take èíslo musíme nejprve pøevést do dvojkové soustavy.
+PÅ™Ã­klad 3: Ale co kdyÅ¾ zadÃ¡m ÄÃ­slo do promÄ›nnÃ© v~desÃ­tkovÃ© soustavÄ›, napÅ™Ã­klad \verb@189@ a~provedu bitovÃ½ posun o dvÄ› pozice doprava? Co dostanu? Dostanu snad \verb@1@? Ne, i~kdyÅ¾ jsme ÄÃ­slo zadali v~desÃ­tkovÃ© soustavÄ›, v~mikrokontrolÃ©ru je stejnÄ› uloÅ¾eno jako jedniÄky a~nuly, takÅ¾e ÄÃ­slo musÃ­me nejprve pÅ™evÃ©st do dvojkovÃ© soustavy.
 \verb@189 = 0b10111101@
-A~teï posun o dvì pozice doprava:
+A~teÄ posun o dvÄ› pozice doprava:
 
-\verb@00101111@ a~to je èíslo \verb@47@.
-Take \verb@47@ je vısledek bitového posunu èísla \verb@189@ o dvì pozice doprava.
+\verb@00101111@ a~to je ÄÃ­slo \verb@47@.
+TakÅ¾e \verb@47@ je vÃ½sledek bitovÃ©ho posunu ÄÃ­sla \verb@189@ o dvÄ› pozice doprava.
 
-Zapíšeme takto:
+ZapÃ­Å¡eme takto:
 \begin{verbatim}
 uint8_t a~= 189;
 uint8_t b;
 b = (a~>> 2);
 \end{verbatim}
-No a~vısledek(tj. èíslo \verb@47@ ) se uloí do promìnné \verb@b@.
+No a~vÃ½sledek(tj. ÄÃ­slo \verb@47@ ) se uloÅ¾Ã­ do promÄ›nnÃ© \verb@b@.

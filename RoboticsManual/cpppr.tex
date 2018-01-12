@@ -1,17 +1,17 @@
 
 
-\label[cpppr] \sec C++ -- pøíklady 
+\label[cpppr] \sec C++ -- pÅ™Ã­klady 
 
-Ve všech pøíkladech níe je uveden vdy obsah souboru {\it main.cpp}. Text pøedpokládá, e nad pøíklady budete samostatnì pøemıšlet a~uèit se z~nich, proto se to, co bylo øeèeno u~prvního pøíkladu, u neopakuje u~druhého.  
-Doporuèuji projít soubory {\it LearningKit.h}
+Ve vÅ¡ech pÅ™Ã­kladech nÃ­Å¾e je uveden vÅ¾dy obsah souboru {\it main.cpp}. Text pÅ™edpoklÃ¡dÃ¡, Å¾e nad pÅ™Ã­klady budete samostatnÄ› pÅ™emÃ½Å¡let a~uÄit se z~nich, proto se to, co bylo Å™eÄeno u~prvnÃ­ho pÅ™Ã­kladu, uÅ¾ neopakuje u~druhÃ©ho.  
+DoporuÄuji projÃ­t soubory {\it LearningKit.h}
 a~{\it LearningKit.cpp} (viz
 v~\link[ref:explorer]{\Magenta}{Exploreru}\Black
-adresáø {\it.piolibdeps/ArduinoLearningKitStarter\_ID1745/src} ), protoe jsou v~nich zkratky typu {\tt L\_R} a~jejich pøiøazení pinùm èipu.
-Další pøíklady jsou na \url{http://wall.robotikabrno.cz} a~\url{https://www.arduino.cc/reference/en/}.  
+adresÃ¡Å™ {\it.piolibdeps/ArduinoLearningKitStarter\_ID1745/src} ), protoÅ¾e jsou v~nich zkratky typu {\tt L\_R} a~jejich pÅ™iÅ™azenÃ­ pinÅ¯m Äipu.
+DalÅ¡Ã­ pÅ™Ã­klady jsou na \url{http://wall.robotikabrno.cz} a~\url{https://www.arduino.cc/reference/en/}.  
 
-\label[cpppr1] \secc Blikání LED
+\label[cpppr1] \secc BlikÃ¡nÃ­ LED
 
-Program bliká èervnenou \link[ref:LED]{\Magenta}{LED}\Black .   
+Program blikÃ¡ Äervnenou \link[ref:LED]{\Magenta}{LED}\Black .   
 
 \hisyntax{C} \begtt 
 \#include "LearningKit.h"
@@ -28,9 +28,9 @@ void loop() // this part works in cycle
 \}
 \endtt
 
-\label[cpppr2] \secc LED zapínaná tlaèítkem 
+\label[cpppr2] \secc LED zapÃ­nanÃ¡ tlaÄÃ­tkem 
 
-lutá LED zapínaná tlaèítkem.  
+Å½lutÃ¡ LED zapÃ­nanÃ¡ tlaÄÃ­tkem.  
 
 \hisyntax{C} \begtt 
 \#include "LearningKit.h"
@@ -49,10 +49,10 @@ void loop()
 \}
 \endtt
 
-\label[cpppr3] \secc Nejjednodušší PWM  
+\label[cpppr3] \secc NejjednoduÅ¡Å¡Ã­ PWM  
 
-\link[ref:PWM]{\Magenta}{PWM}\Black \ii PWM umoòuje (ve spolupráci
-s~\link[ref:PWM]{\Magenta}{drivery}\Black ) øídit motory, serva a~podobnì. Zde je pouito na stmívání LED pomocí potenciometru.  
+\link[ref:PWM]{\Magenta}{PWM}\Black \ii PWM umoÅ¾Åˆuje (ve spoluprÃ¡ci
+s~\link[ref:PWM]{\Magenta}{drivery}\Black ) Å™Ã­dit motory, serva a~podobnÄ›. Zde je pouÅ¾ito na stmÃ­vÃ¡nÃ­ LED pomocÃ­ potenciometru.  
 
 \hisyntax{C} \begtt 
 \#include "LearningKit.h"
@@ -67,14 +67,14 @@ void loop()
 \}
 \endtt
 
-je potøeba setupLeds(); ?? 
+je potÅ™eba setupLeds(); ?? 
 
 
 // ledcSetup(channel, freq, resolution)
     // channel = 0 - 15
 %    // resolution = 10 => 2^10 => 1024
-tento kód funguje pro èip ESP32. Pro èipy øady ATMega, které jsou na deskách Arduino uno a~Arduino nano, je potøeba pouít tento kód: 
+tento kÃ³d funguje pro Äip ESP32. Pro Äipy Å™ady ATMega, kterÃ© jsou na deskÃ¡ch Arduino uno a~Arduino nano, je potÅ™eba pouÅ¾Ã­t tento kÃ³d: 
  
-\rfc{dodìlat program PWM}
-Funguje stejnì, ale místo pøíkazu ledcWrite je pouit:  
+\rfc{dodÄ›lat program PWM}
+Funguje stejnÄ›, ale mÃ­sto pÅ™Ã­kazu ledcWrite je pouÅ¾it:  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

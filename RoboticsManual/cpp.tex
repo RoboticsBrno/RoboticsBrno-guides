@@ -1,59 +1,59 @@
-\chap Programovací jazyk C++
+\chap ProgramovacÃ­ jazyk C++
 
-\sec Základy syntaxe v~jazyce C
+\sec ZÃ¡klady syntaxe v~jazyce C
 
-\secc Základní pojmy
+\secc ZÃ¡kladnÃ­ pojmy
 
-Upozornìní: V~jazyce C++ se {\bf rozlišují velká a~malá písmena}.  
+UpozornÄ›nÃ­: V~jazyce C++ se {\bf rozliÅ¡ujÃ­ velkÃ¡ a~malÃ¡ pÃ­smena}.  
 
 \begitems \style o
 
-* {\bf pøíkaz} \ii{pøíkaz} -- povel pro procesor, øíká procesoru, co má dìlat.
-Pøíkazy probíhají postupnì, nejprve se udìlá jeden a~pak další, kterı je na øadì
-Za pøíkazy dáváme støedník (;).
+* {\bf pÅ™Ã­kaz} \ii{pÅ™Ã­kaz} -- povel pro procesor, Å™Ã­kÃ¡ procesoru, co mÃ¡ dÄ›lat.
+PÅ™Ã­kazy probÃ­hajÃ­ postupnÄ›, nejprve se udÄ›lÃ¡ jeden a~pak dalÅ¡Ã­, kterÃ½ je na Å™adÄ›
+Za pÅ™Ã­kazy dÃ¡vÃ¡me stÅ™ednÃ­k (;).
 
-* {\bf syntaxe} \ii{syntaxe} -- \uv{pravopis} programovacího jazyka, øíká, jak psát pøíkazy programovacího jazyka tak, aby nám poèítaè rozumìl 
+* {\bf syntaxe} \ii{syntaxe} -- \uv{pravopis} programovacÃ­ho jazyka, Å™Ã­kÃ¡, jak psÃ¡t pÅ™Ã­kazy programovacÃ­ho jazyka tak, aby nÃ¡m poÄÃ­taÄ rozumÄ›l 
 
-* {\bf preprocesor} \ii{preprocesor} -- pøed samotnım pøekladem programu do {\it  \char`\*.hex} souboru probìhnou tzv. direktivy preprocesoru.\fnote{nìco jako pøíkazy, podrobnì viz napø. Kadlec: Programování v~jazyce C, str. 18 } \ii direktiva~preprocesoru \nl 
-Pøíklady: 
+* {\bf preprocesor} \ii{preprocesor} -- pÅ™ed samotnÃ½m pÅ™ekladem programu do {\it  \char`\*.hex} souboru probÄ›hnou tzv. direktivy preprocesoru.\fnote{nÄ›co jako pÅ™Ã­kazy, podrobnÄ› viz napÅ™. Kadlec: ProgramovÃ¡nÃ­ v~jazyce C, str. 18 } \ii direktiva~preprocesoru \nl 
+PÅ™Ã­klady: 
 
- { \tt \#include $<>$ } -- \ii include pro vkládání hlavièkovıch souborù neboli {\bf knihoven} \ii knihovna \ii hlavièkovı/soubor,@
+ { \tt \#include $<>$ } -- \ii include pro vklÃ¡dÃ¡nÃ­ hlaviÄkovÃ½ch souborÅ¯ neboli {\bf knihoven} \ii knihovna \ii hlaviÄkovÃ½/soubor,@
 
- { \tt \#include "" } -- pro vkládání vlastních hlavièkovıch souborù  
+ { \tt \#include "" } -- pro vklÃ¡dÃ¡nÃ­ vlastnÃ­ch hlaviÄkovÃ½ch souborÅ¯  
  
- {\tt \#define KONSTANTA HODNOTA\_KONSTANTY} -- \ii define pro definici konstanty, všude kde se v~kódu vyskytne text {\tt KONSTANTA} bude tento text nahrazen  {\tt HODNOTA\_KONSTANTY}
+ {\tt \#define KONSTANTA HODNOTA\_KONSTANTY} -- \ii define pro definici konstanty, vÅ¡ude kde se v~kÃ³du vyskytne text {\tt KONSTANTA} bude tento text nahrazen  {\tt HODNOTA\_KONSTANTY}
 
-* {\bf promìnná} \ii{promìnná}  -- je místo v~pamìti, kde jsou uloena nìjaké data
+* {\bf promÄ›nnÃ¡} \ii{promÄ›nnÃ¡}  -- je mÃ­sto v~pamÄ›ti, kde jsou uloÅ¾ena nÄ›jakÃ© data
 
-* {\bf datovı typ} \dest[ref:datovy_typ]
- \ii datovı/typ,@ -- øíká nám, v~jaké podobì jsou data v~promìnné uloena. V~promìnné jsou pouze jednièky a~nuly, Pomocí datového typu mikrokontrolér pozná, jestli ta data jsou èísla, nebo znak, v~jakém rozsahu jsou èísla, atd...
-pouívané datové typy:   \nl
-{\tt uint8\_t} -- celá èísla od 0 do 255  \rfc{zkontrolovat typy dat} \nl
-{\tt int8\_t} -- celá èísla od -127 do 127 \nl
-{\tt uint16\_t} --  celá èísla od 0 do 65535  \nl
-{\tt int16\_t} -- celá èísla od -32767 do 32767 \nl
-{\tt uint32\_t} -- celá èísla od 0 do 4294967296 \nl
-{\tt int32\_t} -- celá èísla od -2147483647 do 2147483647 \nl
+* {\bf datovÃ½ typ} \dest[ref:datovy_typ]
+ \ii datovÃ½/typ,@ -- Å™Ã­kÃ¡ nÃ¡m, v~jakÃ© podobÄ› jsou data v~promÄ›nnÃ© uloÅ¾ena. V~promÄ›nnÃ© jsou pouze jedniÄky a~nuly, PomocÃ­ datovÃ©ho typu mikrokontrolÃ©r poznÃ¡, jestli ta data jsou ÄÃ­sla, nebo znak, v~jakÃ©m rozsahu jsou ÄÃ­sla, atd...
+pouÅ¾Ã­vanÃ© datovÃ© typy:   \nl
+{\tt uint8\_t} -- celÃ¡ ÄÃ­sla od 0 do 255  \rfc{zkontrolovat typy dat} \nl
+{\tt int8\_t} -- celÃ¡ ÄÃ­sla od -127 do 127 \nl
+{\tt uint16\_t} --  celÃ¡ ÄÃ­sla od 0 do 65535  \nl
+{\tt int16\_t} -- celÃ¡ ÄÃ­sla od -32767 do 32767 \nl
+{\tt uint32\_t} -- celÃ¡ ÄÃ­sla od 0 do 4294967296 \nl
+{\tt int32\_t} -- celÃ¡ ÄÃ­sla od -2147483647 do 2147483647 \nl
 
-* {\bf operandy} \ii operand -- jsou èísla nebo vırazy, které \uv{vstupují do operace} 
-* {\bf operátory} \ii operátor -- nám øíkají, jaké operace provedeme s~operandy (co s~nimi udìláme) 
+* {\bf operandy} \ii operand -- jsou ÄÃ­sla nebo vÃ½razy, kterÃ© \uv{vstupujÃ­ do operace} 
+* {\bf operÃ¡tory} \ii operÃ¡tor -- nÃ¡m Å™Ã­kajÃ­, jakÃ© operace provedeme s~operandy (co s~nimi udÄ›lÃ¡me) 
 
-Pøíklad: {\tt 5 + 2}, pøitom {\tt 5} a~{\tt 2} jsou operandy a~znaménko plus je operátor, kterı nám øíká, e èísla chceme seèíst (provést operaci seèítání)
+PÅ™Ã­klad: {\tt 5 + 2}, pÅ™itom {\tt 5} a~{\tt 2} jsou operandy a~znamÃ©nko plus je operÃ¡tor, kterÃ½ nÃ¡m Å™Ã­kÃ¡, Å¾e ÄÃ­sla chceme seÄÃ­st (provÃ©st operaci seÄÃ­tÃ¡nÃ­)
 
 
-* {\bf poznámka} \ii poznámka -- cokoliv se objeví v~kódu mezi znaky {\tt /\char`\*} a~{\tt \char`\*/}, tak je poznámka a~bude pøed pøekladem odstranìno z~kódu. 
+* {\bf poznÃ¡mka} \ii poznÃ¡mka -- cokoliv se objevÃ­ v~kÃ³du mezi znaky {\tt /\char`\*} a~{\tt \char`\*/}, tak je poznÃ¡mka a~bude pÅ™ed pÅ™ekladem odstranÄ›no z~kÃ³du. 
 
-Pokud chceme zapoznámkovat pouze jeden øádek, pouijeme {\tt //}
+Pokud chceme zapoznÃ¡mkovat pouze jeden Å™Ã¡dek, pouÅ¾ijeme {\tt //}
 
-Pøíklady:
+PÅ™Ã­klady:
 \hisyntax{C} \begtt 
-/* Vše co napsáno zde
-je poznámka a nebude pøekládáno
+/* VÅ¡e co napsÃ¡no zde
+je poznÃ¡mka a nebude pÅ™eklÃ¡dÃ¡no
 */
 \endtt
 
 \hisyntax{C} \begtt 
-// Toto je poznámka, která mùe popsat funkci nìjakého úseku kódu
+// Toto je poznÃ¡mka, kterÃ¡ mÅ¯Å¾e popsat funkci nÄ›jakÃ©ho Ãºseku kÃ³du
 \endtt
 
 \enditems
@@ -61,95 +61,95 @@ je poznámka a nebude pøekládáno
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\secc{Vırazy a~operátory}
+\secc{VÃ½razy a~operÃ¡tory}
 
-Vıraz \ii vıraz je nìco, co nabıvá nìjaké hodnoty, napø.: { \tt  5 + 3} je vıraz, kterı nabıvá hodnoty { \tt  8}. { \tt  5 > 3} je vıraz nabıvající hodnoty { \tt  true} neboli pravda, { \tt  x <= 10} je vıraz kterı je pravdivı, pokud promìnná { \tt  x} (kterou musíme mít deklarovanou) menší nebo rovna èíslu { \tt  10}. 
+VÃ½raz \ii vÃ½raz je nÄ›co, co nabÃ½vÃ¡ nÄ›jakÃ© hodnoty, napÅ™.: { \tt  5 + 3} je vÃ½raz, kterÃ½ nabÃ½vÃ¡ hodnoty { \tt  8}. { \tt  5 > 3} je vÃ½raz nabÃ½vajÃ­cÃ­ hodnoty { \tt  true} neboli pravda, { \tt  x <= 10} je vÃ½raz kterÃ½ je pravdivÃ½, pokud promÄ›nnÃ¡ { \tt  x} (kterou musÃ­me mÃ­t deklarovanou) menÅ¡Ã­ nebo rovna ÄÃ­slu { \tt  10}. 
 
 %\begitems \style o
 
-{ \bf Aritmetické operátory} 
+{ \bf AritmetickÃ© operÃ¡tory} 
 
-{ \tt  +} sèítání 
+{ \tt  +} sÄÃ­tÃ¡nÃ­ 
 
-{ \tt  -} odèítaní 
+{ \tt  -} odÄÃ­tanÃ­ 
 
-{ \tt  \char`\*} násobení 
+{ \tt  \char`\*} nÃ¡sobenÃ­ 
 
-{ \tt  /} dìlení 
+{ \tt  /} dÄ›lenÃ­ 
 
-{ \bf Operátory inkrementace a~dekrementace}
+{ \bf OperÃ¡tory inkrementace a~dekrementace}
 
-pokud chceme zvıšit hodnotu promìnné o jednièku, napíšeme 
-{ \tt  ++název\_promìnné};
-pokud chceme sníit hodnotu promìnné o jednièku, napíšeme { \tt  --název\_promìnné};
+pokud chceme zvÃ½Å¡it hodnotu promÄ›nnÃ© o jedniÄku, napÃ­Å¡eme 
+{ \tt  ++nÃ¡zev\_promÄ›nnÃ©};
+pokud chceme snÃ­Å¾it hodnotu promÄ›nnÃ© o jedniÄku, napÃ­Å¡eme { \tt  --nÃ¡zev\_promÄ›nnÃ©};
 
-Pøíklad:
+PÅ™Ã­klad:
 
 \hisyntax{C} \begtt 
-uint8_t i = 5;  // Vytvoøení promìnné i a dosazení hodnoty 5 do ní.  
-uint8_t j = 42; // Vytvoøení promìnné j a dosazení hodnoty 42 do ní. 
+uint8_t i = 5;  // VytvoÅ™enÃ­ promÄ›nnÃ© i a dosazenÃ­ hodnoty 5 do nÃ­.  
+uint8_t j = 42; // VytvoÅ™enÃ­ promÄ›nnÃ© j a dosazenÃ­ hodnoty 42 do nÃ­. 
 
-++i;  // Hodnota i se zvıší o jednièku na èíslo 6.
---j;  // Hodnota j se sníí o jednièku na èíslo 41.
+++i;  // Hodnota i se zvÃ½Å¡Ã­ o jedniÄku na ÄÃ­slo 6.
+--j;  // Hodnota j se snÃ­Å¾Ã­ o jedniÄku na ÄÃ­slo 41.
 \endtt
 
 
-%\subsubsection{Pøiøazovací operátor}
+%\subsubsection{PÅ™iÅ™azovacÃ­ operÃ¡tor}
 %= 
 
-{ \bf Logické vırazy a~operátory} 
+{ \bf LogickÃ© vÃ½razy a~operÃ¡tory} 
  
-{ \tt  ==} porovnání - rovnost 
+{ \tt  ==} porovnÃ¡nÃ­ - rovnost 
  
-{ \tt  !=} porovnání - nerovnost 
+{ \tt  !=} porovnÃ¡nÃ­ - nerovnost 
 
-{ \tt  \&\&} logickı souèin 
+{ \tt  \&\&} logickÃ½ souÄin 
  
-{ \tt  ||} logickı souèet 
+{ \tt  ||} logickÃ½ souÄet 
 
 { \tt  ! } negace 
  
-{ \tt  $<$ } menší ne 
+{ \tt  $<$ } menÅ¡Ã­ neÅ¾ 
 
-{ \tt  $<=$} menší nebo rovno 
+{ \tt  $<=$} menÅ¡Ã­ nebo rovno 
 
-{ \tt  $>$ } vìtší ne 
+{ \tt  $>$ } vÄ›tÅ¡Ã­ neÅ¾ 
 
-{ \tt  $>=$} vìtší nebo rovno 
+{ \tt  $>=$} vÄ›tÅ¡Ã­ nebo rovno 
 
 %\enditems
 
-{\bf Logickı vıraz} \ii logickı/vıraz,@ mùe nabıvat pouze dvou hodnot -- pravda (true) 
-a~nepravda (false).  Obvykle je nepravda reprezentovaná nulou a~pravda kadım nenulovım èíslem. Logické vırazy se pouívají v~podmínkách 
-(viz napø. kap. \ref[if])
+{\bf LogickÃ½ vÃ½raz} \ii logickÃ½/vÃ½raz,@ mÅ¯Å¾e nabÃ½vat pouze dvou hodnot -- pravda (true) 
+a~nepravda (false).  Obvykle je nepravda reprezentovanÃ¡ nulou a~pravda kaÅ¾dÃ½m nenulovÃ½m ÄÃ­slem. LogickÃ© vÃ½razy se pouÅ¾Ã­vajÃ­ v~podmÃ­nkÃ¡ch 
+(viz napÅ™. kap. \ref[if])
 
-{\bf Logické operace} \ii logická/operace,@ se pouívají pøi vyhodnocování logickıch vırazù.    
+{\bf LogickÃ© operace} \ii logickÃ¡/operace,@ se pouÅ¾Ã­vajÃ­ pÅ™i vyhodnocovÃ¡nÃ­ logickÃ½ch vÃ½razÅ¯.    
 
 
-Pøíklady: 
+PÅ™Ã­klady: 
 l
-{ \tt  a~== b} vıraz je pravdivı, pokud se { \tt  a} rovná { \tt  b} 
+{ \tt  a~== b} vÃ½raz je pravdivÃ½, pokud se { \tt  a} rovnÃ¡ { \tt  b} 
 l
-{ \tt  a~!= b} vıraz je pravdivı, pokud se { \tt  a} nerovná { \tt  b}. 
+{ \tt  a~!= b} vÃ½raz je pravdivÃ½, pokud se { \tt  a} nerovnÃ¡ { \tt  b}. 
 
-Lze to napsat i~konkrétnìji, napø.: { \tt  a~!= 5}, vıraz je pravda, pokud se { \tt  a} nerovná { \tt  5}, pokud se rovná, vısledkem vırazu je nepravda(false).
+Lze to napsat i~konkrÃ©tnÄ›ji, napÅ™.: { \tt  a~!= 5}, vÃ½raz je pravda, pokud se { \tt  a} nerovnÃ¡ { \tt  5}, pokud se rovnÃ¡, vÃ½sledkem vÃ½razu je nepravda(false).
 
-{ \tt  b > c} vıraz je pravdivı, pokud je { \tt  b} vìtší ne { \tt  c} 
+{ \tt  b > c} vÃ½raz je pravdivÃ½, pokud je { \tt  b} vÄ›tÅ¡Ã­ neÅ¾ { \tt  c} 
 
-{ \tt  b >= d} vıraz je pravdivı, pokud je { \tt  b} vìtší nebo rovno { \tt  d} 
+{ \tt  b >= d} vÃ½raz je pravdivÃ½, pokud je { \tt  b} vÄ›tÅ¡Ã­ nebo rovno { \tt  d} 
 
-{ \tt  !(a == b)} vıraz { \tt  (a~== b)} je negován znaménkem { \tt  !}, to znamená, e vıraz je pravdivı, pokud se vıraz { \tt  a} nerovná vırazu { \tt  b}
+{ \tt  !(a == b)} vÃ½raz { \tt  (a~== b)} je negovÃ¡n znamÃ©nkem { \tt  !}, to znamenÃ¡, Å¾e vÃ½raz je pravdivÃ½, pokud se vÃ½raz { \tt  a} nerovnÃ¡ vÃ½razu { \tt  b}
 
-Pozor: negace vırazu { \tt  (a~> b)}, tj. { \tt  !(a > b)} není to samé jako vıraz { \tt  (a~< b)}, ale správnì je to { \tt  (a~<= b)} \fnote{Platí zde urèité zákonitosti viz De Morganovy zákony.} 
+Pozor: negace vÃ½razu { \tt  (a~> b)}, tj. { \tt  !(a > b)} nenÃ­ to samÃ© jako vÃ½raz { \tt  (a~< b)}, ale sprÃ¡vnÄ› je to { \tt  (a~<= b)} \fnote{PlatÃ­ zde urÄitÃ© zÃ¡konitosti viz De Morganovy zÃ¡kony.} 
 
 
-Logickı souèin {\tt  \&\&} se pouívá, pokud budeme potøebovat spojit dva nebo více vırazù dohromady, napø.: {\tt  (a~$>$ b)\&\&(c $==$ d)}, vısledkem tohoto vırazu bude \ii logickı/souèin,@ vırazù v~závorkách. Pro logickı souèin platí, e je pravda pokud oba vırazy jsou pravdivé, jinak je vısledek nepravda. 
+LogickÃ½ souÄin {\tt  \&\&} se pouÅ¾Ã­vÃ¡, pokud budeme potÅ™ebovat spojit dva nebo vÃ­ce vÃ½razÅ¯ dohromady, napÅ™.: {\tt  (a~$>$ b)\&\&(c $==$ d)}, vÃ½sledkem tohoto vÃ½razu bude \ii logickÃ½/souÄin,@ vÃ½razÅ¯ v~zÃ¡vorkÃ¡ch. Pro logickÃ½ souÄin platÃ­, Å¾e je pravda pokud oba vÃ½razy jsou pravdivÃ©, jinak je vÃ½sledek nepravda. 
 
-Tedy, zde bude vısledkem pravda, pouze pokud bude { \tt  a} vìtší ne { \tt  b} a~zároveò bude platit, e { \tt  c} se rovná { \tt  d}.
+Tedy, zde bude vÃ½sledkem pravda, pouze pokud bude { \tt  a} vÄ›tÅ¡Ã­ neÅ¾ { \tt  b} a~zÃ¡roveÅˆ bude platit, Å¾e { \tt  c} se rovnÃ¡ { \tt  d}.
 
-Logickı souèin pouijeme, pokud musí všechny vırazy bıt pravda.
+LogickÃ½ souÄin pouÅ¾ijeme, pokud musÃ­ vÅ¡echny vÃ½razy bÃ½t pravda.
 
-Logickı souèet \ii logickı/souèet,@ { \tt  ||} je pravdivı, pokud alespoò jeden vıraz je pravdivı. 
+LogickÃ½ souÄet \ii logickÃ½/souÄet,@ { \tt  ||} je pravdivÃ½, pokud alespoÅˆ jeden vÃ½raz je pravdivÃ½. 
 
-Napø.: { \tt  (e $<=$ f)||(g $!=$ 3)} vıraz bude pravda, pokud bude platit, e { \tt  e} je menší nebo roven { \tt  f}, nebo bude platit, e { \tt  g} se nerovná { \tt  3}, anebo klidnì budou platit oba vırazy.
+NapÅ™.: { \tt  (e $<=$ f)||(g $!=$ 3)} vÃ½raz bude pravda, pokud bude platit, Å¾e { \tt  e} je menÅ¡Ã­ nebo roven { \tt  f}, nebo bude platit, Å¾e { \tt  g} se nerovnÃ¡ { \tt  3}, anebo klidnÄ› budou platit oba vÃ½razy.
 

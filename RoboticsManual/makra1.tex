@@ -1,6 +1,6 @@
 % viz http://petr.olsak.net/opmac-tricks.html
 
-% toto makro je potøeba pro text níe 
+% toto makro je potÅ™eba pro text nÃ­Å¾e 
 
 \newdimen\hyphdim
 \let\hyphentt=\tentt  \hyphdim=\fontdimen6\hyphentt \divide\hyphdim by2
@@ -35,11 +35,11 @@
 }
 
 
-%V následujícím triku ukáeme makro \coltext\BarvaA\BarvaB{text}, které vytvoøí uvnitø odstavce text v bavì \BarvaA podbarvenı barvou \BarvaB, pøitom tento text podléhá øádkovému zlomu jako bìnı text v odstavci. Napøíklad:
+%V nÃ¡sledujÃ­cÃ­m triku ukÃ¡Å¾eme makro \coltext\BarvaA\BarvaB{text}, kterÃ© vytvoÅ™Ã­ uvnitÅ™ odstavce text v bavÄ› \BarvaA podbarvenÃ½ barvou \BarvaB, pÅ™itom tento text podlÃ©hÃ¡ Å™Ã¡dkovÃ©mu zlomu jako bÄ›Å¾nÃ½ text v odstavci. NapÅ™Ã­klad:
 
-%Zde je bìnı text odstavce.
-%\coltext\Yellow\Blue{Tady je podbarvenı textík, kterı se láme do øádkù.}
-%A pokraèujeme v bìném textu odstavce.
+%Zde je bÄ›Å¾nÃ½ text odstavce.
+%\coltext\Yellow\Blue{Tady je podbarvenÃ½ textÃ­k, kterÃ½ se lÃ¡me do Å™Ã¡dkÅ¯.}
+%A pokraÄujeme v bÄ›Å¾nÃ©m textu odstavce.
 
 
 \def\coltextstrut{height2ex depth.6ex}
@@ -62,7 +62,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Zvıraznìní syntaxe (syntax highlighting) nìjakého programovacího jazyka mezi \begtt a \endtt provedeme pomocí \hisyntax{jazyk}, co napíšeme tìsnì pøed \begtt nebo pøed \verbinput. Toto je makro pouze pro jazyk C
+%ZvÃ½raznÄ›nÃ­ syntaxe (syntax highlighting) nÄ›jakÃ©ho programovacÃ­ho jazyka mezi \begtt a \endtt provedeme pomocÃ­ \hisyntax{jazyk}, coÅ¾ napÃ­Å¡eme tÄ›snÄ› pÅ™ed \begtt nebo pÅ™ed \verbinput. Toto je makro pouze pro jazyk C
 
 \def\hisyntax#1{\bgroup\def\ptthook{\csname hisyntax#1\endcsname}}
 \def\ghisyntax#1{\def\ptthook{\bgroup\csname hisyntax#1\endcsname}}
@@ -93,14 +93,14 @@
 \edef\keywordsC{{auto}{break}{case}{char}{continue}{default}{do}{double}%
    {else}{entry}{enum}{extern}{float}{for}{goto}{if}{int}{long}{register}%
    {return}{short}{sizeof}{static}{struct}{switch}{typedef}{union}
-   {unsigned}{void}{while}} % zde jsou všechna klíèová slova jazyka C
+   {unsigned}{void}{while}} % zde jsou vÅ¡echna klÃ­ÄovÃ¡ slova jazyka C
 \def\kwC#1{{\Red#1}}
 \edef\charsC{()\string{\string}+-*/=[]<>,:;\percent\string&\string^|!?}
 \let\chCcolor=\Blue
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Opmac nabízí jen tøístupòovou hiearchii nadpisù: kapitoly, sekce a podsekce. Èasto se sektávám s poadavkem zaøadit i monost tisku podpodsekcí. Osobnì to nepovauji za pøíliš úèelné a zbyteènì to mate ètenáøe. Ale je-li k tomu pádnı dùvod, mùete si vytvoøit makro \seccc takto:
+%Opmac nabÃ­zÃ­ jen tÅ™Ã­stupÅˆovou hiearchii nadpisÅ¯: kapitoly, sekce a podsekce. ÄŒasto se sektÃ¡vÃ¡m s poÅ¾adavkem zaÅ™adit i moÅ¾nost tisku podpodsekcÃ­. OsobnÄ› to nepovaÅ¾uji za pÅ™Ã­liÅ¡ ÃºÄelnÃ© a zbyteÄnÄ› to mate ÄtenÃ¡Å™e. Ale je-li k tomu pÃ¡dnÃ½ dÅ¯vod, mÅ¯Å¾ete si vytvoÅ™it makro \seccc takto:
 
 \newcount\secccnum
 
@@ -116,13 +116,13 @@
    \nobreak \smallskip \firstnoindent
 }
 
-%^Makro øeší uvedenı poadavek co nejjednodušším zpùsobem: zavádí èíslování v registru \secccnum a tiskne ve fontu \bf (nezvìtšená velikost). Neøeší dopravení informací do obsahu (tam je to stejnì nevhodné) ani do záhlaví. Byl-li by takovı poadavek, je potøeba vyuít makro \wcontents pro obsah a primitiv \mark pro záhlaví.
+%^Makro Å™eÅ¡Ã­ uvedenÃ½ poÅ¾adavek co nejjednoduÅ¡Å¡Ã­m zpÅ¯sobem: zavÃ¡dÃ­ ÄÃ­slovÃ¡nÃ­ v registru \secccnum a tiskne ve fontu \bf (nezvÄ›tÅ¡enÃ¡ velikost). NeÅ™eÅ¡Ã­ dopravenÃ­ informacÃ­ do obsahu (tam je to stejnÄ› nevhodnÃ©) ani do zÃ¡hlavÃ­. Byl-li by takovÃ½ poÅ¾adavek, je potÅ™eba vyuÅ¾Ã­t makro \wcontents pro obsah a primitiv \mark pro zÃ¡hlavÃ­.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Dùvod, proè OPmac neimplementuje aktivní èísla stránek v rejstøíku jsou dva: drí se kréda ,,v jednoduchosti je síla`` a šetøí pamìtí TeXu. Za kadı odkaz na stránku by toti do makroprostoru musel pøidat tøi tokeny. Pøi tisíci heslech a prùmìrnì tøech odkazech u hesla dostáváme 9 tisíc tokenù navíc. Tomu se chce OPmac vyhnout.
+%DÅ¯vod, proÄ OPmac neimplementuje aktivnÃ­ ÄÃ­sla strÃ¡nek v rejstÅ™Ã­ku jsou dva: drÅ¾Ã­ se krÃ©da ,,v jednoduchosti je sÃ­la`` a Å¡etÅ™Ã­ pamÄ›tÃ­ TeXu. Za kaÅ¾dÃ½ odkaz na strÃ¡nku by totiÅ¾ do makroprostoru musel pÅ™idat tÅ™i tokeny. PÅ™i tisÃ­ci heslech a prÅ¯mÄ›rnÄ› tÅ™ech odkazech u hesla dostÃ¡vÃ¡me 9 tisÃ­c tokenÅ¯ navÃ­c. Tomu se chce OPmac vyhnout.
 
-%Pokud pøesto chcete mít èísla stránek v rejstøíku aktivní, staèí pouít tento kód:
+%Pokud pÅ™esto chcete mÃ­t ÄÃ­sla strÃ¡nek v rejstÅ™Ã­ku aktivnÃ­, staÄÃ­ pouÅ¾Ã­t tento kÃ³d:
 
 \def\printiipages#1&{\usepglinks#1\relax\par}
 \def\usepglinks{\afterassignment\usepglinksA \tmpnum=}
@@ -135,7 +135,7 @@
    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Slova v restøíku chceme mít oddìlena podle jejich prvního písmene do oddílù, kadı oddíl má bıt uvozen ,,nadpisem``, kterı obsahuje zvìtšené písmeno, kterım všechna slova daného oddílu zaèínají.
+% Slova v restÅ™Ã­ku chceme mÃ­t oddÄ›lena podle jejich prvnÃ­ho pÃ­smene do oddÃ­lÅ¯, kaÅ¾dÃ½ oddÃ­l mÃ¡ bÃ½t uvozen ,,nadpisem``, kterÃ½ obsahuje zvÄ›tÅ¡enÃ© pÃ­smeno, kterÃ½m vÅ¡echna slova danÃ©ho oddÃ­lu zaÄÃ­najÃ­.
 
 \def\lastchar{}
 \def\everyii{\expandafter\makecurrchar\currii\end
@@ -147,8 +147,8 @@
 \def\makecurrchar#1#2\end{\uppercase{\def\currchar{#1}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Interní poznámky viz http://petr.olsak.net/opmac-tricks.html#rfc
-% Tady je normální text\rfc{ovìøit, zda netvrdím blbosti}. \draft  
+% InternÃ­ poznÃ¡mky viz http://petr.olsak.net/opmac-tricks.html#rfc
+% Tady je normÃ¡lnÃ­ text\rfc{ovÄ›Å™it, zda netvrdÃ­m blbosti}. \draft  
 \newcount\rfcnum
 
 \def\rfclist{}  
@@ -165,7 +165,7 @@
    \bgroup\rfcnum=0 \rfclist\egroup\fi}
    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% centuje poslení øádek odstavce 
+% centuje poslenÃ­ Å™Ã¡dek odstavce 
 \def\raggedcenter{%
   \parindent=0pt \rightskip0pt plus1em \leftskip0pt plus1em
   \spaceskip.3333em \xspaceskip.5em \parfillskip=0pt
@@ -174,7 +174,7 @@
 }
  
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% centrování textu, pokud mezi øádky vloím prázdnı øádek, centruje se kadı øádek zvláš 
+% centrovÃ¡nÃ­ textu, pokud mezi Å™Ã¡dky vloÅ¾Ã­m prÃ¡zdnÃ½ Å™Ã¡dek, centruje se kaÅ¾dÃ½ Å™Ã¡dek zvlÃ¡Å¡Å¥ 
  \def\startcenter{%
   \par
   \begingroup

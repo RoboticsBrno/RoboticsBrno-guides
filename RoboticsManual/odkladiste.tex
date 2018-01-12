@@ -1,86 +1,86 @@
 
- \section{Vìci okolo programování v C}
+ \section{VÄ›ci okolo programovÃ¡nÃ­ v C}
   
-  není rovno se píše != (ne <>)
+  nenÃ­ rovno se pÃ­Å¡e != (ne <>)
   
-  øetìzcové pole se píše promìnná[] pøi deklaraci, promìnná (bez závorek) potom 
+  Å™etÄ›zcovÃ© pole se pÃ­Å¡e promÄ›nnÃ¡[] pÅ™i deklaraci, promÄ›nnÃ¡ (bez zÃ¡vorek) potom 
   
- znak dìlení /   pokud jsou oba operandy celoèíselné, tak se provede CELOÈÍSELNÉ dìlení, pokud je alespoò jeden operand desetinnı, pak se provede normální dìlení
+ znak dÄ›lenÃ­ /   pokud jsou oba operandy celoÄÃ­selnÃ©, tak se provede CELOÄŒÃSELNÃ‰ dÄ›lenÃ­, pokud je alespoÅˆ jeden operand desetinnÃ½, pak se provede normÃ¡lnÃ­ dÄ›lenÃ­
  
- \verb#&&# - znak pro and; ostatní logické operátory  mají taky svoje znaky 
+ \verb#&&# - znak pro and; ostatnÃ­ logickÃ© operÃ¡tory  majÃ­ taky svoje znaky 
  
  \verb#||# -- znak pro or;
  
- èíslo a znak je to samé 
+ ÄÃ­slo a znak je to samÃ© 
  
- øetìzec je pole znakù - znaky do nìj musím vkládat na danou pozici 
- délka øetìzce je daná pøi deklaraci vyjímka je pøiøazení typu   
+ Å™etÄ›zec je pole znakÅ¯ - znaky do nÄ›j musÃ­m vklÃ¡dat na danou pozici 
+ dÃ©lka Å™etÄ›zce je danÃ¡ pÅ™i deklaraci vyjÃ­mka je pÅ™iÅ™azenÃ­ typu   
  
- apostrofy 'r' oznaèují jeden znak, "x" uvozovky oznaèují øetìzec - to je rozdíl 
+ apostrofy 'r' oznaÄujÃ­ jeden znak, "x" uvozovky oznaÄujÃ­ Å™etÄ›zec - to je rozdÃ­l 
  
- pøi zadávání konstant ta konstanta nesmí zaèínat nulou, jinak ji bere, e je v osmièkové soustavì - a vısledek je chyba, která se moc blbì hledá
+ pÅ™i zadÃ¡vÃ¡nÃ­ konstant ta konstanta nesmÃ­ zaÄÃ­nat nulou, jinak ji bere, Å¾e je v osmiÄkovÃ© soustavÄ› - a vÃ½sledek je chyba, kterÃ¡ se moc blbÄ› hledÃ¡
  
-poslední znak øetìzce je 0, je tam navíc, take délka desetiznakového øetìzce je 11 znakù 
+poslednÃ­ znak Å™etÄ›zce je 0, je tam navÃ­c, takÅ¾e dÃ©lka desetiznakovÃ©ho Å™etÄ›zce je 11 znakÅ¯ 
 
-všechny registy jsou volatile -- program nemùe v podmínce while ignorovat ètení registrù, i kdy ta podmínka nic potom nedìlá, protoe hodnoty v registru se mùou zmìnit  
+vÅ¡echny registy jsou volatile -- program nemÅ¯Å¾e v podmÃ­nce while ignorovat ÄtenÃ­ registrÅ¯, i kdyÅ¾ ta podmÃ­nka nic potom nedÄ›lÃ¡, protoÅ¾e hodnoty v registru se mÅ¯Å¾ou zmÄ›nit  
 -----------------------------------------------------------
 
 \section{USART}
 
 
-Sbìrnice -- umoòuje posílat data mezi rùznımi zaøízeními.   
+SbÄ›rnice -- umoÅ¾Åˆuje posÃ­lat data mezi rÅ¯znÃ½mi zaÅ™Ã­zenÃ­mi.   
 
-\subsection{Typy sbìrnic}
+\subsection{Typy sbÄ›rnic}
 
-USART - minimum drátù, rychı, jednoduchı, dvì zaøízení 
+USART - minimum drÃ¡tÅ¯, rychÃ½, jednoduchÃ½, dvÄ› zaÅ™Ã­zenÃ­ 
 
-SPI - libovolnı poèet zaøízení, jednoduchá adresace, pouze synchoní pøenos 
+SPI - libovolnÃ½ poÄet zaÅ™Ã­zenÃ­, jednoduchÃ¡ adresace, pouze synchonÃ­ pÅ™enos 
 
-IIC - víc zaøízení v rámci jednoho malého systému, dva dráty, hodiny a data 
-v jednom systému mùe bıt více masters 
+IIC - vÃ­c zaÅ™Ã­zenÃ­ v rÃ¡mci jednoho malÃ©ho systÃ©mu, dva drÃ¡ty, hodiny a data 
+v jednom systÃ©mu mÅ¯Å¾e bÃ½t vÃ­ce masters 
  
-\subsection{Vıbìt typu pøenosu }
+\subsection{VÃ½bÄ›t typu pÅ™enosu }
 
 
-pøenos devíti bitù - devátı bit rozlišuje, jestli je to adresa, nebo data. 
-Pouívá se pro multiprocesorovou komunikaci -- nepouijeme to  
+pÅ™enos devÃ­ti bitÅ¯ - devÃ¡tÃ½ bit rozliÅ¡uje, jestli je to adresa, nebo data. 
+PouÅ¾Ã­vÃ¡ se pro multiprocesorovou komunikaci -- nepouÅ¾ijeme to  
 
-? Multi-processor Communication Mode str 163 - nepouívat 
+? Multi-processor Communication Mode str 163 - nepouÅ¾Ã­vat 
 
-jeden nebo dva stop bity - jeden staèí, kdyby byly dva, mùe se to hodit pro 
-1) delší èas na zpracování signálu, 
-2) líp se chytá konec bajtu -- lepší v pøípadì poruchovıch pøenosù 
-> budeme pouívat jeden, nemusí se to nastavovat 
+jeden nebo dva stop bity - jeden staÄÃ­, kdyby byly dva, mÅ¯Å¾e se to hodit pro 
+1) delÅ¡Ã­ Äas na zpracovÃ¡nÃ­ signÃ¡lu, 
+2) lÃ­p se chytÃ¡ konec bajtu -- lepÅ¡Ã­ v pÅ™Ã­padÄ› poruchovÃ½ch pÅ™enosÅ¯ 
+> budeme pouÅ¾Ã­vat jeden, nemusÃ­ se to nastavovat 
 
 
- Parita - kontrolní proces - zahlásí chyby v pøenosu - str 169 pøi zapojení na jedné desce a v blízkém okolí není potøeba, data se neztrácí 
+ Parita - kontrolnÃ­ proces - zahlÃ¡sÃ­ chyby v pÅ™enosu - str 169 pÅ™i zapojenÃ­ na jednÃ© desce a v blÃ­zkÃ©m okolÃ­ nenÃ­ potÅ™eba, data se neztrÃ¡cÃ­ 
  
- zvolit 38.4 kb/s - je to osvìdèená rychlost, malá chybovost a Junior na ní komunikuje - budeme kompatibilní 
+ zvolit 38.4 kb/s - je to osvÄ›dÄenÃ¡ rychlost, malÃ¡ chybovost a Junior na nÃ­ komunikuje - budeme kompatibilnÃ­ 
  
- synchronní komunikace -- jsou potøeba hodiny (hodinovı signál na pinu SCK) 
- hodí se pro dlouhé kusy dat a hlavnì pro komunikaci s periferiemi, které jinou monost neposkytují 
+ synchronnÃ­ komunikace -- jsou potÅ™eba hodiny (hodinovÃ½ signÃ¡l na pinu SCK) 
+ hodÃ­ se pro dlouhÃ© kusy dat a hlavnÄ› pro komunikaci s periferiemi, kterÃ© jinou moÅ¾nost neposkytujÃ­ 
  
- asynchronní komunikace -- staèí propojit Rx a Tx na obou stranách a stejnì nastavit oba èipy. není nutné øešit hodiny --  doporuèeno   
+ asynchronnÃ­ komunikace -- staÄÃ­ propojit Rx a Tx na obou stranÃ¡ch a stejnÄ› nastavit oba Äipy. nenÃ­ nutnÃ© Å™eÅ¡it hodiny --  doporuÄeno   
  
- je to taky jedinı zpùsob, jak komunikovat s poèítaèem, je to úplnì stejnı protokol jako RS 232 (sériovı port) a liší se to pouze napìovou úrovní -- MAX232 pouze pøevádí napìové úrovnì a nic jiného (vlastnì je MAX232 DC/DC mìniè)
+ je to taky jedinÃ½ zpÅ¯sob, jak komunikovat s poÄÃ­taÄem, je to ÃºplnÄ› stejnÃ½ protokol jako RS 232 (sÃ©riovÃ½ port) a liÅ¡Ã­ se to pouze napÄ›Å¥ovou ÃºrovnÃ­ -- MAX232 pouze pÅ™evÃ¡dÃ­ napÄ›Å¥ovÃ© ÃºrovnÄ› a nic jinÃ©ho (vlastnÄ› je MAX232 DC/DC mÄ›niÄ)
  
  data overrun? 
  
-Chceme: asynchronní pøenos na 38.4 kb/s bez kontrol  
+Chceme: asynchronnÃ­ pÅ™enos na 38.4 kb/s bez kontrol  
 
 
-\subsection{Nastavení}
+\subsection{NastavenÃ­}
 
-(ádná knihovna pro usart není)
-Je potøeba nastavit: 
+(Å¾Ã¡dnÃ¡ knihovna pro usart nenÃ­)
+Je potÅ™eba nastavit: 
 - spustit USART (inicializace):  (str 152)
-   - nastavit frekvenci pøenosu (baud rate)  --- 38.4 kb/s 
-   - nastavit, e pøenášíme 8-mi bitové znaky bez kontrol  (frame format ) (UCSRB,C)
+   - nastavit frekvenci pÅ™enosu (baud rate)  --- 38.4 kb/s 
+   - nastavit, Å¾e pÅ™enÃ¡Å¡Ã­me 8-mi bitovÃ© znaky bez kontrol  (frame format ) (UCSRB,C)
    - nastavit piny 14 a 15 jako Rx a Tx 
-   - e je to  asynchronní pøenos (mode of operation), je nastaveno implicitnì 
-   - pokud chceme pouívat pøerušení od usart, musí bıt bìhem inicializace 
-     globální pøerušení vypnuto 
-   - pøitom musí bıt URSEL = 1 v registru UCSRC (implicitnì je)
+   - Å¾e je to  asynchronnÃ­ pÅ™enos (mode of operation), je nastaveno implicitnÄ› 
+   - pokud chceme pouÅ¾Ã­vat pÅ™eruÅ¡enÃ­ od usart, musÃ­ bÃ½t bÄ›hem inicializace 
+     globÃ¡lnÃ­ pÅ™eruÅ¡enÃ­ vypnuto 
+   - pÅ™itom musÃ­ bÃ½t URSEL = 1 v registru UCSRC (implicitnÄ› je)
  
 
 

@@ -1,149 +1,149 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\label[cpp] \sec Nejèastìjší pøíkazy C++
+\label[cpp] \sec NejÄastÄ›jÅ¡Ã­ pÅ™Ã­kazy C++
 
-\secc Pøiøazovací pøíkaz  
-Pouijeme, pokud chceme, aby se do promìnné uloila nìjaká data. 
+\secc PÅ™iÅ™azovacÃ­ pÅ™Ã­kaz  
+PouÅ¾ijeme, pokud chceme, aby se do promÄ›nnÃ© uloÅ¾ila nÄ›jakÃ¡ data. 
 
-Syntaxe: {\tt  datovı\_typ název\_promìnné; } 
+Syntaxe: {\tt  datovÃ½\_typ nÃ¡zev\_promÄ›nnÃ©; } 
  
-syntaxe vkládání: 
+syntaxe vklÃ¡dÃ¡nÃ­: 
  
-{\tt  název\_promìnné = hodnota\_která\_se\_má\_uloit; }
+{\tt  nÃ¡zev\_promÄ›nnÃ© = hodnota\_kterÃ¡\_se\_mÃ¡\_uloÅ¾it; }
 
-Data do promìnné mùeme vloit rovnou pøi vytváøení promìnnıch:
+Data do promÄ›nnÃ© mÅ¯Å¾eme vloÅ¾it rovnou pÅ™i vytvÃ¡Å™enÃ­ promÄ›nnÃ½ch:
 
- { \tt  datovı\_typ název\_promìnné $=$ hodnota};
+ { \tt  datovÃ½\_typ nÃ¡zev\_promÄ›nnÃ© $=$ hodnota};
 
-Pøíklad: { \tt  uint8\_t b = 5};  Vytvoøí se promìnná pojmenovaná { \tt  b} (která je v rozsahu od 0 do 255) a uloí se do ní èíslo { \tt  5}. 
+PÅ™Ã­klad: { \tt  uint8\_t b = 5};  VytvoÅ™Ã­ se promÄ›nnÃ¡ pojmenovanÃ¡ { \tt  b} (kterÃ¡ je v rozsahu od 0 do 255) a uloÅ¾Ã­ se do nÃ­ ÄÃ­slo { \tt  5}. 
 
-{ \tt  int16\_t B;}  Vytvoøí se promìnná { \tt  B}. { \tt  B} není to samé jako { \tt  b}, protoe jazyk C rozlišuje VELKÁ a malá písmena. 
+{ \tt  int16\_t B;}  VytvoÅ™Ã­ se promÄ›nnÃ¡ { \tt  B}. { \tt  B} nenÃ­ to samÃ© jako { \tt  b}, protoÅ¾e jazyk C rozliÅ¡uje VELKÃ a malÃ¡ pÃ­smena. 
 
-{ \tt  B $=$ 1024;}  Do promìnné B se uloí hodnota 1024;
+{ \tt  B $=$ 1024;}  Do promÄ›nnÃ© B se uloÅ¾Ã­ hodnota 1024;
 
-\secc{Blok pøíkazù} 
-Pokud chceme nìkam dát více pøíkazù, ale mùeme tam dát pouze jeden pøíkaz, tak je dáme do sloenıch závorek
-Pøíklad: 
+\secc{Blok pÅ™Ã­kazÅ¯} 
+Pokud chceme nÄ›kam dÃ¡t vÃ­ce pÅ™Ã­kazÅ¯, ale mÅ¯Å¾eme tam dÃ¡t pouze jeden pÅ™Ã­kaz, tak je dÃ¡me do sloÅ¾enÃ½ch zÃ¡vorek
+PÅ™Ã­klad: 
  
 \hisyntax{C} \begtt 
 {
-  PØÍKAZ1;
-  PØÍKAZ2;
-  PØÍKAZ3;
+  PÅ˜ÃKAZ1;
+  PÅ˜ÃKAZ2;
+  PÅ˜ÃKAZ3;
 }
 \endtt
 
 
-\label[if] \secc{Podmiòovací pøíkaz if }
+\label[if] \secc{PodmiÅˆovacÃ­ pÅ™Ã­kaz if }
 
-\ii if Pouijeme, pokud chceme, aby se program mohl rozhodnout na základì nìjaké podmínky. \ii else
+\ii if PouÅ¾ijeme, pokud chceme, aby se program mohl rozhodnout na zÃ¡kladÄ› nÄ›jakÃ© podmÃ­nky. \ii else
  
 syntaxe:
 
 \hisyntax{C} \begtt 
-if(PODMÍNKA)
-  PØÍKAZ1;
+if(PODMÃNKA)
+  PÅ˜ÃKAZ1;
 else
-  PØÍKAZ2;
+  PÅ˜ÃKAZ2;
 \endtt
 
-Pokud platí { \tt  PODMÍNKA} v kulaté závorce, vykoná se { \tt  PØÍKAZ1}, pokud neplatí, vykoná se { \tt  PØÍKAZ2}.
-Za { \tt  if} nebo { \tt  else} mùe bıt pouze jeden pøíkaz, pokud jich tam chceme dát více, pouijeme blok.
-Vìtev { \tt  else} je nepovinná.
+Pokud platÃ­ { \tt  PODMÃNKA} v kulatÃ© zÃ¡vorce, vykonÃ¡ se { \tt  PÅ˜ÃKAZ1}, pokud neplatÃ­, vykonÃ¡ se { \tt  PÅ˜ÃKAZ2}.
+Za { \tt  if} nebo { \tt  else} mÅ¯Å¾e bÃ½t pouze jeden pÅ™Ã­kaz, pokud jich tam chceme dÃ¡t vÃ­ce, pouÅ¾ijeme blok.
+VÄ›tev { \tt  else} je nepovinnÃ¡.
 
-Pøíklad:
+PÅ™Ã­klad:
 \hisyntax{C} \begtt 
-if(a > 5) // Pokud platí, e 
-          //promìnná a je vìtší nì 5, tak se
+if(a > 5) // Pokud platÃ­, Å¾e 
+          //promÄ›nnÃ¡ a je vÄ›tÅ¡Ã­ nÄ›Å¾ 5, tak se
 {
-  b = a;  // do promìnné b uloí hodnota, která je v promìnné a
-  c = 2;  // do promìnné c se uloí èíslo 2.
-} // Pokud podmínka neplatí, tak se nevykoná nic.
+  b = a;  // do promÄ›nnÃ© b uloÅ¾Ã­ hodnota, kterÃ¡ je v promÄ›nnÃ© a
+  c = 2;  // do promÄ›nnÃ© c se uloÅ¾Ã­ ÄÃ­slo 2.
+} // Pokud podmÃ­nka neplatÃ­, tak se nevykonÃ¡ nic.
 \endtt
 
-podmínka mùe bıt vıraz napø.: 
+podmÃ­nka mÅ¯Å¾e bÃ½t vÃ½raz napÅ™.: 
 \hisyntax{C} \begtt 
-a > 5 // podmínka bude platit, 
-      // pokud promìnná a je vìtší ne 5
+a > 5 // podmÃ­nka bude platit, 
+      // pokud promÄ›nnÃ¡ a je vÄ›tÅ¡Ã­ neÅ¾ 5
 \endtt
-podmínìné pøíkazy lze vnoøovat - v bloku pøíkazù mùe bıt další if
-Pøíklad:
+podmÃ­nÄ›nÃ© pÅ™Ã­kazy lze vnoÅ™ovat - v bloku pÅ™Ã­kazÅ¯ mÅ¯Å¾e bÃ½t dalÅ¡Ã­ if
+PÅ™Ã­klad:
 \hisyntax{C} \begtt 
-if(PODMÍNKA1)
+if(PODMÃNKA1)
 {
-  PØÍKAZ1;
-  if(PODMÍNKA2)
+  PÅ˜ÃKAZ1;
+  if(PODMÃNKA2)
   {
-    PØÍKAZ2;
+    PÅ˜ÃKAZ2;
   }
-  PØÍKAZ3;
+  PÅ˜ÃKAZ3;
 }
 else 
 {
-  PØÍKAZ4;
+  PÅ˜ÃKAZ4;
 }
 \endtt
 
-Pokud platí { \tt  PODMÍNKA1} tak se vykoná { \tt  PØÍKAZ1}, pak se zkontroluje { \tt  PODMÍNKA2}, pokud platí, tak se vykoná { \tt  PØÍKAZ2}, pokud ne, program pokraèuje dál a vykoná { \tt  PØÍKAZ3}.
-V pøípadì, e neplatí ani { \tt  PODMÍNKA1}, tak se blok pøíkazù pøeskoèí a vykoná se blok pøíkazù za { \tt  else}, tj. { \tt  PØÍKAZ4}.
+Pokud platÃ­ { \tt  PODMÃNKA1} tak se vykonÃ¡ { \tt  PÅ˜ÃKAZ1}, pak se zkontroluje { \tt  PODMÃNKA2}, pokud platÃ­, tak se vykonÃ¡ { \tt  PÅ˜ÃKAZ2}, pokud ne, program pokraÄuje dÃ¡l a vykonÃ¡ { \tt  PÅ˜ÃKAZ3}.
+V pÅ™Ã­padÄ›, Å¾e neplatÃ­ ani { \tt  PODMÃNKA1}, tak se blok pÅ™Ã­kazÅ¯ pÅ™eskoÄÃ­ a vykonÃ¡ se blok pÅ™Ã­kazÅ¯ za { \tt  else}, tj. { \tt  PÅ˜ÃKAZ4}.
 
-Je tu monost také do vìtve { \tt  else} napsat daší { \tt  if else}, vypadá to takto:
+Je tu moÅ¾nost takÃ© do vÄ›tve { \tt  else} napsat daÅ¡Ã­ { \tt  if else}, vypadÃ¡ to takto:
 \hisyntax{C} \begtt 
-if(PODMÍNKA1)
+if(PODMÃNKA1)
 {
-  PRÍKAZ1;
+  PRÃKAZ1;
 }
 else
 {
-  if(PODMÍNKA2)
+  if(PODMÃNKA2)
   {
-    PRÍKAZ2;
+    PRÃKAZ2;
   }
   else
   {
-    PRÍKAZ3;
+    PRÃKAZ3;
   }
 }
 \endtt
-Pokud platí { \tt  PODMÍNKA1}, tak se vykoná { \tt  PØÍKAZ1}, pokud ne, tak se zkontroluje { \tt  PODMÍNKA2}, pokud platí tak se vykoná { \tt  PØÍKAZ2}, pokud neplatí, tak se vykoná { \tt  PØÍKAZ3}. Vıše zapsanı kód sice bude fungovat, ale není pøehlednı, a proto z dùvodu lepší orientace v kódu zvolíme tento zápis:
+Pokud platÃ­ { \tt  PODMÃNKA1}, tak se vykonÃ¡ { \tt  PÅ˜ÃKAZ1}, pokud ne, tak se zkontroluje { \tt  PODMÃNKA2}, pokud platÃ­ tak se vykonÃ¡ { \tt  PÅ˜ÃKAZ2}, pokud neplatÃ­, tak se vykonÃ¡ { \tt  PÅ˜ÃKAZ3}. VÃ½Å¡e zapsanÃ½ kÃ³d sice bude fungovat, ale nenÃ­ pÅ™ehlednÃ½, a proto z dÅ¯vodu lepÅ¡Ã­ orientace v kÃ³du zvolÃ­me tento zÃ¡pis:
 \hisyntax{C} \begtt 
-if(PODMÍNKA1)
+if(PODMÃNKA1)
 {
-  PRÍKAZ1;
+  PRÃKAZ1;
 }
-else if(PODMÍNKA2)
+else if(PODMÃNKA2)
 {
-  PRÍKAZ2;
+  PRÃKAZ2;
 }
 else
 {
-  PRÍKAZ3;
+  PRÃKAZ3;
 }
 \endtt
 
-\secc{Pøíkaz nìkolikanásobného vìtvení }
+\secc{PÅ™Ã­kaz nÄ›kolikanÃ¡sobnÃ©ho vÄ›tvenÃ­ }
 
-Pokud by takto zapsanıch podmínek bylo moc a vztahovali by se k jedné øídící promìnné lze pouít pøíkaz nìkolikanásobného vìtvìní neboli {\tt switch}. \ii switch Tak napøíklad místo zápisu:
+Pokud by takto zapsanÃ½ch podmÃ­nek bylo moc a vztahovali by se k jednÃ© Å™Ã­dÃ­cÃ­ promÄ›nnÃ© lze pouÅ¾Ã­t pÅ™Ã­kaz nÄ›kolikanÃ¡sobnÃ©ho vÄ›tvÄ›nÃ­ neboli {\tt switch}. \ii switch Tak napÅ™Ã­klad mÃ­sto zÃ¡pisu:
 
 \hisyntax{C} \begtt 
 if(a == 1)
 {
-  PØÍKAZ1;
+  PÅ˜ÃKAZ1;
 }
 else if(a == 2)
 {
-  PØÍKAZ2;
+  PÅ˜ÃKAZ2;
 }
 else if(a == 3)
 {
-  PØÍKAZ3;
+  PÅ˜ÃKAZ3;
 }
 else if(a == 4)
 {
-  PØÍKAZ4;
+  PÅ˜ÃKAZ4;
 }
 else
 {
-  PØÍKAZ5;
+  PÅ˜ÃKAZ5;
 }
 \endtt
 Lze napsat:
@@ -151,37 +151,37 @@ Lze napsat:
 switch(a)
 {
   case 1:
-    PØÍKAZ1;
+    PÅ˜ÃKAZ1;
     break;
   case 2:
-    PØÍKAZ2;
+    PÅ˜ÃKAZ2;
     break;
   case 3:
-    PØÍKAZ3;
+    PÅ˜ÃKAZ3;
     break;
   case 4:
-    PØÍKAZ4;
+    PÅ˜ÃKAZ4;
     break;
   default:
-    PØÍKAZ5;
+    PÅ˜ÃKAZ5;
     break;
 }
 \endtt
-Èím se to celé zjednodušuje.
+ÄŒÃ­m se to celÃ© zjednoduÅ¡uje.
 
-\secc{Cyklus for (cyklus øízenı promìnou )} 
+\secc{Cyklus for (cyklus Å™Ã­zenÃ½ promÄ›nou )} 
 
-\ii for Tento cyklu pouijeme, pokud pøedem známe kolikrát se má opakovat urèitá operace
+\ii for Tento cyklu pouÅ¾ijeme, pokud pÅ™edem znÃ¡me kolikrÃ¡t se mÃ¡ opakovat urÄitÃ¡ operace
 Syntaxe:
 \hisyntax{C} \begtt 
-for(øidící_promìnná; podmínka; zvıšení_nebo_sníení_hodnoty_promìnné )
+for(Å™idÃ­cÃ­_promÄ›nnÃ¡; podmÃ­nka; zvÃ½Å¡enÃ­_nebo_snÃ­Å¾enÃ­_hodnoty_promÄ›nnÃ© )
 {
-  PØÍKAZ1;
-  PØÍKAZ2;
+  PÅ˜ÃKAZ1;
+  PÅ˜ÃKAZ2;
 }
 \endtt
 
-Pøíklad:
+PÅ™Ã­klad:
 \hisyntax{C} \begtt 
 for(uint8_t i=0; i<4; i++)
 {
@@ -190,10 +190,10 @@ for(uint8_t i=0; i<4; i++)
   zhasni ledku();
 }
 \endtt
-Co tento kód udìlá? Dejme tomu, e máme u pøedem vytvoøené funkce { \tt  rozsvit\_ledku()}, atd... Potom cyklus udìlá následující: vytvoøí promìnnou { \tt  i} datového typu { \tt  uint8\_t} (celá èísla od { \tt  0} do { \tt  255}), uloí do ní èíslo { \tt  0}. Potom zkontroluje podmínku, zda je promìnná { \tt  i} menší ne { \tt  4}, pak se provedou pøíkazy èi funkce v tìle cyklu, tj. rozsvítí se LED, bude svítit jednu sekundu, a pak zhasne. Pak se provede pøíkaz { \tt  i++}, ten zvıší hodnotu promìnné o jednu, tj. na èíslo { \tt  1}. Potom se kontroluje znovu podmínka, zdali je promìnná { \tt  i} (která má teï hodnotu { \tt  1}) menší ne { \tt  4}, atd... Celkem se tìlo cyklu vykoná ètyøikrát.
+Co tento kÃ³d udÄ›lÃ¡? Dejme tomu, Å¾e mÃ¡me uÅ¾ pÅ™edem vytvoÅ™enÃ© funkce { \tt  rozsvit\_ledku()}, atd... Potom cyklus udÄ›lÃ¡ nÃ¡sledujÃ­cÃ­: vytvoÅ™Ã­ promÄ›nnou { \tt  i} datovÃ©ho typu { \tt  uint8\_t} (celÃ¡ ÄÃ­sla od { \tt  0} do { \tt  255}), uloÅ¾Ã­ do nÃ­ ÄÃ­slo { \tt  0}. Potom zkontroluje podmÃ­nku, zda je promÄ›nnÃ¡ { \tt  i} menÅ¡Ã­ neÅ¾ { \tt  4}, pak se provedou pÅ™Ã­kazy Äi funkce v tÄ›le cyklu, tj. rozsvÃ­tÃ­ se LED, bude svÃ­tit jednu sekundu, a pak zhasne. Pak se provede pÅ™Ã­kaz { \tt  i++}, ten zvÃ½Å¡Ã­ hodnotu promÄ›nnÃ© o jednu, tj. na ÄÃ­slo { \tt  1}. Potom se kontroluje znovu podmÃ­nka, zdali je promÄ›nnÃ¡ { \tt  i} (kterÃ¡ mÃ¡ teÄ hodnotu { \tt  1}) menÅ¡Ã­ neÅ¾ { \tt  4}, atd... Celkem se tÄ›lo cyklu vykonÃ¡ ÄtyÅ™ikrÃ¡t.
 
-Cyklus { \tt  for} lze pouít i bez promìnné, podmínky a zvıšení hodnoty, potom bude probíhat donekoneèna.
-Pøíklad:
+Cyklus { \tt  for} lze pouÅ¾Ã­t i bez promÄ›nnÃ©, podmÃ­nky a zvÃ½Å¡enÃ­ hodnoty, potom bude probÃ­hat donekoneÄna.
+PÅ™Ã­klad:
 { \tt  for(;;)}
 \hisyntax{C} \begtt 
 {
@@ -202,26 +202,26 @@ Pøíklad:
   zhasni ledku();
 }
 \endtt 
-Tento cyklus bude dìlat to samé, co pøedchozí, s tím rozdílem, e to bude dìlat donekoneèna a nebude se ptát na podmínku. 
+Tento cyklus bude dÄ›lat to samÃ©, co pÅ™edchozÃ­, s tÃ­m rozdÃ­lem, Å¾e to bude dÄ›lat donekoneÄna a nebude se ptÃ¡t na podmÃ­nku. 
 
-Pouití v programu pro robota: Nekoneènı cyklus, ve kterém se kontrolují podmínky, zda je na èáøe, zda je pøed ním soupeø, zda má udìlat to èi ono.
+PouÅ¾itÃ­ v programu pro robota: NekoneÄnÃ½ cyklus, ve kterÃ©m se kontrolujÃ­ podmÃ­nky, zda je na ÄÃ¡Å™e, zda je pÅ™ed nÃ­m soupeÅ™, zda mÃ¡ udÄ›lat to Äi ono.
 
 
-\secc{Cyklus while (cyklus s podmínkou na zaèátku )} 
+\secc{Cyklus while (cyklus s podmÃ­nkou na zaÄÃ¡tku )} 
 
-\ii while Pouijeme, pokud nebudeme vìdìt kolikrát mají probìhnout pøíkazy a funkce v tìle cyklu.
+\ii while PouÅ¾ijeme, pokud nebudeme vÄ›dÄ›t kolikrÃ¡t majÃ­ probÄ›hnout pÅ™Ã­kazy a funkce v tÄ›le cyklu.
 Syntaxe:
 
 \hisyntax{C} \begtt 
-while(podmínka)
+while(podmÃ­nka)
 {
-  PØÍKAZ1;
+  PÅ˜ÃKAZ1;
   ...
 }
 \endtt
 
 
-Pøíklad:
+PÅ™Ã­klad:
 \hisyntax{C} \begtt 
 while(!je_tlacitko_stiskle())
 {
@@ -229,30 +229,30 @@ while(!je_tlacitko_stiskle())
 }
 \endtt
 
-Tento cyklus bude stát, dokud nezmáèkneme tlaèítko. Vyaduje mít pøedem naprogramovanou funkci { \tt  ujed\_1\_cm()} a { \tt  je\_tlacitko\_stiskle()}.
+Tento cyklus bude stÃ¡t, dokud nezmÃ¡Äkneme tlaÄÃ­tko. VyÅ¾aduje mÃ­t pÅ™edem naprogramovanou funkci { \tt  ujed\_1\_cm()} a { \tt  je\_tlacitko\_stiskle()}.
 
  
 %%%%%%%%%%%%%% Napsat cyklus do-while 
   
 \sec{Funkce a procedury} 
 
- Pokud se nám v zdrojovém kódu opakují dokola stejné pøíkazy, mùeme vytvoøit \iid funkce nebo procedury, které potom voláme a které nám usnadní kód.
+ Pokud se nÃ¡m v zdrojovÃ©m kÃ³du opakujÃ­ dokola stejnÃ© pÅ™Ã­kazy, mÅ¯Å¾eme vytvoÅ™it \iid funkce nebo procedury, kterÃ© potom volÃ¡me a kterÃ© nÃ¡m usnadnÃ­ kÃ³d.
 syntaxe:
 \hisyntax{C} \begtt 
-datovı_typ_kterı_funkce_vrací název_funkce(datovı_typ_parametru1 
-parametr1, datovı_typ_parametru2 parametr2) 
-// Parametry jsou nepovinné
+datovÃ½_typ_kterÃ½_funkce_vracÃ­ nÃ¡zev_funkce(datovÃ½_typ_parametru1 
+parametr1, datovÃ½_typ_parametru2 parametr2) 
+// Parametry jsou nepovinnÃ©
 {
-  PØÍKAZ1; // Nepovinné pøíkazy
-  PØÍKAZ2;
+  PÅ˜ÃKAZ1; // NepovinnÃ© pÅ™Ã­kazy
+  PÅ˜ÃKAZ2;
   return HODNOTA_KTEROU_FUNKCE_VRACI; 
-  // Za return se napíše vıraz, kterı funkce vrací.
+  // Za return se napÃ­Å¡e vÃ½raz, kterÃ½ funkce vracÃ­.
 }
 \endtt \ii return
 
-Pøíklad:
+PÅ™Ã­klad:
 \hisyntax{C} \begtt 
-// Funkce na sèítání dvou èísel, kadé od 0 do 255.
+// Funkce na sÄÃ­tÃ¡nÃ­ dvou ÄÃ­sel, kaÅ¾dÃ© od 0 do 255.
 uint16_t umocni(uint8_t zakl, uint8_t exp)
 {
   uint16_t vys = 1;
@@ -267,57 +267,57 @@ uint16_t umocni(uint8_t zakl, uint8_t exp)
 }
 \endtt
 
-pokud nìkde v programu pouiji funkci { \tt  secti(10, 2)}, tak vısledkem bude, jako bych napsal { \tt  10*10}, tj. { \tt  100}.
-Pøíklad:
+pokud nÄ›kde v programu pouÅ¾iji funkci { \tt  secti(10, 2)}, tak vÃ½sledkem bude, jako bych napsal { \tt  10*10}, tj. { \tt  100}.
+PÅ™Ã­klad:
 \hisyntax{C} \begtt 
-c = umocni(a, b); // Do promìnné c se uloí b-tá mocnina èísla a. 
+c = umocni(a, b); // Do promÄ›nnÃ© c se uloÅ¾Ã­ b-tÃ¡ mocnina ÄÃ­sla a. 
 \endtt
 
-\iid procedura -- je vlastnì funkce, jen s tím rozdílem, e procedura má datovı typ { \tt  void} \ii void  
-a nemá { \tt  return} (tj. nevrací ádnou hodnotu).
+\iid procedura -- je vlastnÄ› funkce, jen s tÃ­m rozdÃ­lem, Å¾e procedura mÃ¡ datovÃ½ typ { \tt  void} \ii void  
+a nemÃ¡ { \tt  return} (tj. nevracÃ­ Å¾Ã¡dnou hodnotu).
 
-Pøíklad:
+PÅ™Ã­klad:
 \hisyntax{C} \begtt 
 void rozsvitLedku()
 {
-  DDRB |= (1<<PB0); /* Co dìlá tento pøíkaz nemusíte zatím øešit,
+  DDRB |= (1<<PB0); /* Co dÄ›lÃ¡ tento pÅ™Ã­kaz nemusÃ­te zatÃ­m Å™eÅ¡it,
    pak se k tomu dostaneme.
    */
 }
 \endtt
 
-Pokud nìkde v programu napíšu { \tt  rozsvitLedku()}, tak se rozsvítí LEDka na robotovi.
+Pokud nÄ›kde v programu napÃ­Å¡u { \tt  rozsvitLedku()}, tak se rozsvÃ­tÃ­ LEDka na robotovi.
 
-Celı program v C++ tvoøí funkce \iid main -- všechny pøíkazy, které jsou mezi sloenımi závorkami, se po zahajení programu postupnì vykonají. 
+CelÃ½ program v C++ tvoÅ™Ã­ funkce \iid main -- vÅ¡echny pÅ™Ã­kazy, kterÃ© jsou mezi sloÅ¾enÃ½mi zÃ¡vorkami, se po zahajenÃ­ programu postupnÄ› vykonajÃ­. 
 
 \sec{Knihovny}
 
-\secc{Vlastní knihovny}
-Z funkcí a procedur se mohou vytváøet soubory pro usnadnìní práce. tìmto souborùm se øíká {\bf knihovny}. \ii knihovna Soubory mají koncovku {\it .h}
-Pøíklad: { \tt  avr/io.h}
+\secc{VlastnÃ­ knihovny}
+Z funkcÃ­ a procedur se mohou vytvÃ¡Å™et soubory pro usnadnÄ›nÃ­ prÃ¡ce. tÄ›mto souborÅ¯m se Å™Ã­kÃ¡ {\bf knihovny}. \ii knihovna Soubory majÃ­ koncovku {\it .h}
+PÅ™Ã­klad: { \tt  avr/io.h}
 { \tt  moje\_knihovna.h}
 
-Vlastní knihovnu poté mohu vloit direktivou { \tt  \#include}
-Pøíklad:
+VlastnÃ­ knihovnu potÃ© mohu vloÅ¾it direktivou { \tt  \#include}
+PÅ™Ã­klad:
 \hisyntax{C} \begtt 
 #include "moje_knihovna.h"
 \endtt 
 
-\secc{Pouité knihovny}  
+\secc{PouÅ¾itÃ© knihovny}  
 
-Pro práci s èipy budeme potøebovat nìkteré u vytvoøené knihovny
+Pro prÃ¡ci s Äipy budeme potÅ™ebovat nÄ›kterÃ© uÅ¾ vytvoÅ™enÃ© knihovny
 
-Pøíklad: 
+PÅ™Ã­klad: 
 
-%{ \tt  avr/io.h}  -- pro základní vstup a vıstup
+%{ \tt  avr/io.h}  -- pro zÃ¡kladnÃ­ vstup a vÃ½stup
 
-%{ \tt  avr/interrupt.h} -- pro práci s pøerušením
+%{ \tt  avr/interrupt.h} -- pro prÃ¡ci s pÅ™eruÅ¡enÃ­m
 
-{ \tt  Arduino.h} -- zavádí pøíkazy pro práci s èipy ATMega a ESP32
+{ \tt  Arduino.h} -- zavÃ¡dÃ­ pÅ™Ã­kazy pro prÃ¡ci s Äipy ATMega a ESP32
 
-{ \tt  Learningkit.h}  -- pro pohodlnou práci s deskou ALKS
+{ \tt  Learningkit.h}  -- pro pohodlnou prÃ¡ci s deskou ALKS
 
-{ \tt  stdint.h}  -- zde je definovány \link[ref:datovy_typ]{\Magenta}{datové typy}\Black   
+{ \tt  stdint.h}  -- zde je definovÃ¡ny \link[ref:datovy_typ]{\Magenta}{datovÃ© typy}\Black   
 
  
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

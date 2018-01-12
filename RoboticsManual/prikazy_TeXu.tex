@@ -1,19 +1,19 @@
- Pøíkazy TeXu, které se mùou hodit:
-\coltext\Black\Red{text ...} - obarví text i podklad
+ PÅ™Ã­kazy TeXu, kterÃ© se mÅ¯Å¾ou hodit:
+\coltext\Black\Red{text ...} - obarvÃ­ text i podklad
 
-\nl - novı øádek 
-\hfil \break - novı øádek
-\vfil \break - nová stránka
-\link[ref:PWM]{\Magenta}{PWM}\Black  - odkaz na text (je vidìt fialovì)
-\dest[ref:PWM] - cíl odkazu (není vidìt)
-\ii<mezera>slovo<mezera> pøevezme slovo do rejstøíku (slovo v textu není vidìt) 
-\iid <mezera>slovo<mezera> pøevezme slovo do rejstøíku (slovo v textu je vidìt)
+\nl - novÃ½ Å™Ã¡dek 
+\hfil \break - novÃ½ Å™Ã¡dek
+\vfil \break - novÃ¡ strÃ¡nka
+\link[ref:PWM]{\Magenta}{PWM}\Black  - odkaz na text (je vidÄ›t fialovÄ›)
+\dest[ref:PWM] - cÃ­l odkazu (nenÃ­ vidÄ›t)
+\ii<mezera>slovo<mezera> pÅ™evezme slovo do rejstÅ™Ã­ku (slovo v textu nenÃ­ vidÄ›t) 
+\iid <mezera>slovo<mezera> pÅ™evezme slovo do rejstÅ™Ã­ku (slovo v textu je vidÄ›t)
 viz TPP str. 62
-\label[neco] \ref[neco] vdy pøed nadpisem sekce a spol 
-Tady je normální text\rfc{ovìøit, zda netvrdím blbosti}. 
+\label[neco] \ref[neco] vÅ¾dy pÅ™ed nadpisem sekce a spol 
+Tady je normÃ¡lnÃ­ text\rfc{ovÄ›Å™it, zda netvrdÃ­m blbosti}. 
 viz http://petr.olsak.net/opmac-tricks.html#rfc  
 
-\emergencystretch=2cm % kdy se text se nechce vejít do øádku a zobrazí èernı obdélník, je potøeba zvìtšit prunost mezer
+\emergencystretch=2cm % kdyÅ¾ se text se nechce vejÃ­t do Å™Ã¡dku a zobrazÃ­ ÄernÃ½ obdÃ©lnÃ­k, je potÅ™eba zvÄ›tÅ¡it pruÅ¾nost mezer
 
 
 
@@ -22,20 +22,20 @@ viz http://petr.olsak.net/opmac-tricks.html#rfc
 
 
 -----------------------
-na pozdìji:
+na pozdÄ›ji:
 
 \parskip=\medskipamount % mezi odstavci bude mezera jako \medskip
-\parindent=0pt % odstavce nebudou odsazeny zará3kou
-\let\itemskip=\relax % 3ádné dal1í mezery mezi vıety
+\parindent=0pt % odstavce nebudou odsazeny zarÃ¡3kou
+\let\itemskip=\relax % 3Ã¡dnÃ© dal1Ã­ mezery mezi vÃ½ety
 
 
-% test grafiky a pøemazání nevhodného èísla v jednom - premazavani nefunguje, èíslo je vidìt i pøes barvu  
-\pdfliteral{q % uchování grafického stavu
-0 1 0 RG 0 0 1 rg % nastavení barvy pro eáry (zelená)
-20 w % (Width) 1íoka eáry 
-200 -30 m % (Moveto) pero polo3íme do poeátku
-250 -30 l % (Lineto) poidáme úseeku z 0 0 do 30 30
-S % kresba samotné èáry 
-Q % návrat do pùvodního stavu 
+% test grafiky a pÅ™emazÃ¡nÃ­ nevhodnÃ©ho ÄÃ­sla v jednom - premazavani nefunguje, ÄÃ­slo je vidÄ›t i pÅ™es barvu  
+\pdfliteral{q % uchovÃ¡nÃ­ grafickÃ©ho stavu
+0 1 0 RG 0 0 1 rg % nastavenÃ­ barvy pro eÃ¡ry (zelenÃ¡)
+20 w % (Width) 1Ã­oka eÃ¡ry 
+200 -30 m % (Moveto) pero polo3Ã­me do poeÃ¡tku
+250 -30 l % (Lineto) poidÃ¡me Ãºseeku z 0 0 do 30 30
+S % kresba samotnÃ© ÄÃ¡ry 
+Q % nÃ¡vrat do pÅ¯vodnÃ­ho stavu 
 }
 
