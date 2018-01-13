@@ -1,54 +1,96 @@
-\input mixcodes %řeší převod latin 2 (tj. ISO-8859-2) a win1250 na UTF-8
-\input opmac % viz TeX pro pragmatiky, kap. 7 
-\chyph % zapnutí češtiny, např. názvy kapitol 
-\hyperlinks{\Blue}{\Green} % Pokud napíšete na začátek dokumentu \hyperlinks{<color in>}{<color out>}, pak se v dokumentu při výstupu do PDF stanou klikacími:
-\typosize[10/12] %úvodní nastavení velikosti fontů - potřeba pro \typoscale
-\outlines{1} % přehledový obsah v levé záložce PDF prohlížeče - TPP str.53
-\input makra1.tex
-\usepglinks 1  % udělá ze stránek rejstříku klikací
-\draft % tiskne na poslední stranu seznam komentářů, co se má dodělat , viz opmac.tex ř. 889
+\documentclass[12pt]{article} % article - typ/šablona dokumentu
+\usepackage[czech]{babel} % nastavuje české popisky např. u obsahu, referencí, tabulek, obázků 
+\usepackage[utf8]{inputenc} % použito UTF8 kvůli češtině (zvládá prakticky všechny jazyky na světě)
+
+\usepackage{color} % balíček pro obarvování textů
+% \color{blue}
+
+\usepackage{hyperref} % balíček pro hypertextové odkazy
+% \url{www.odkaz.cz}
+% \href{http://www.odkaz.cz}{Text který bude jako odkaz}
+
+\usepackage{makeidx} % slouží pro vytváření indexů/rejstříků
+\makeindex % zapíná vytváření/ukládání indexů
+% \index{key} % ukládá index
+% \printindex % tiskné indexy/rejstřík
+
+\usepackage{graphicx} % pro vkládání obrázků a příkaz "\includegraphics"
+%% samotné vložení obrázku
+%\begin{figure}
+%	\includegraphics[width=\textwidth]{../img/when_use_latex.png}
+%	\caption{Kdy se vyplatí použít \LaTeX} % popis, který se zobrazí pod obrázkem
+%	\label{moje_navesti} %identifikuje objekt, který lze pak referencovat
+%\end{figure}
+%% ---------------------------
+
+%opening
+\title{}
+\author{}
+
+\begin{document}
+
+
+%% v LaTeXu lze myslím udělat jinak
+% \hyperlinks{\Blue}{\Green} % Pokud napíšete na začátek dokumentu \hyperlinks{<color in>}{<color out>}, pak se v dokumentu při výstupu do PDF stanou klikacími:
+
+% \typosize[10/12] %úvodní nastavení velikosti fontů - potřeba pro \typoscale
+% \outlines{1} % přehledový obsah v levé záložce PDF prohlížeče - TPP str.53
+
+%% makra pro PlainTex?
+% \input makra1.tex
+
+%% tohle možná dělá LaTeX automaticky - nebo stačí nějaký balíček 
+% \usepglinks 1  % udělá ze stránek rejstříku klikací
+
+%% určitě je pro to v LaTeXu alternativa
+% \draft % tiskne na poslední stranu seznam komentářů, co se má dodělat , viz opmac.tex ř. 889
 \def\frac#1#2{{#1\over#2}} %definice příkazu \frac z LaTeXu  
 
-\input prvni_strana
+%\input prvni_strana
 \input zacatek.tex
-\input zac_pojmy
-\input cpp.tex
-\input cpp2.tex
-\input cpppr.tex
-\input elektronika.tex
+%\input zac_pojmy
+%\input cpp.tex
+%\input cpp2.tex
+%\input cpppr.tex
+%\input elektronika.tex
 % \input bity_bajty.tex
-\input software.tex
+%\input software.tex
  
 
-\chap Ostatní
+%\chap Ostatní
 
-\input mechanika.tex
+%\input mechanika.tex
  
-\sec Řešení některých problémů
+\section{Řešení některých problémů}
 
-\secc Chyba při uploadu programu do desky Arduino nano: 
+\subsection{Chyba při uploadu programu do desky Arduino nano:}
 
-\begtt Please specify 'upload_port' environment or use global '--upload-port' option \endtt
+% \begtt Please specify 'upload_port' environment or use global '--upload-port' option \endtt
 
 Řešení: pomohlo spustit příkaz {\tt sudo service udev restart} a znovu spustit VS code a odpojit a připojit desku.  
 
-\input prilohy
+% \input prilohy
 
-\vfil \break \nonum \sec Rejstřík 
+% \vfil \break \nonum \sec Rejstřík 
 
-\begmulti 3 
-\makeindex 
-\endmulti
+% \begmulti 3 
+% \makeindex 
+% \endmulti
 
-\vfil \break \nonum \sec Obsah %\notoc
+% \vfil \break \nonum \sec Obsah %\notoc
 
-\maketoc
+% \maketoc
 
 
-\makerfc
+% \makerfc
 
-\bye
+% \bye
  
   
-"-translate-file=cp1250cs" "%Name%.tex"
-\input todo.tex
+% "-translate-file=cp1250cs" "%Name%.tex"
+% \input todo.tex
+
+
+
+\end{document}
+
