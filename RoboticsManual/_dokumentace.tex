@@ -2,12 +2,23 @@
 \usepackage[czech]{babel} % nastavuje české popisky např. u obsahu, referencí, tabulek, obázků 
 \usepackage[utf8]{inputenc} % použito UTF8 kvůli češtině (zvládá prakticky všechny jazyky na světě)
 
+%\usepackage{indentfirst} % odsazuje první odstavec v kapitole
+
 \usepackage{color} % balíček pro obarvování textů
 % \color{blue}
+\usepackage{xcolor}  % zapne možnost používání barev, mj. pro \definecolor
 
 \usepackage{hyperref} % balíček pro hypertextové odkazy
 % \url{www.odkaz.cz}
 % \href{http://www.odkaz.cz}{Text který bude jako odkaz}
+%\hyperlink{label}{proklikávací_text} - odkaz na text 
+% \hypertarget{label}{cíl_odkazu} - cíl odkazu  
+
+
+\definecolor{mygreen}{RGB}{0,150,0} % nastavení barvy odkazů 
+\definecolor{myblue}{RGB}{0,0,200} 
+\hypersetup{colorlinks=true, linkcolor=myblue, urlcolor=mygreen, citecolor=blue, anchorcolor = magenta, linktocpage = true, frenchlinks } % nastavení barvy odkazů
+
 
 \usepackage{makeidx} % slouží pro vytváření indexů/rejstříků
 \makeindex % zapíná vytváření/ukládání indexů
@@ -22,33 +33,25 @@
 %	\label{moje_navesti} %identifikuje objekt, který lze pak referencovat
 %\end{figure}
 %% ---------------------------
-
+  
+  
+  
 %opening
-\title{}
-\author{}
+%\title{}
+%\author{}
 
 \begin{document}
-
-
-%% v LaTeXu lze myslím taky nějak udělat + nevím jestli to balíček hyperref nedělá automaticky
-% \hyperlinks{\Blue}{\Green} % Pokud napíšete na začátek dokumentu \hyperlinks{<color in>}{<color out>}, pak se v dokumentu při výstupu do PDF stanou klikacími:
-
-% \typosize[10/12] %úvodní nastavení velikosti fontů - potřeba pro \typoscale
-% \outlines{1} % přehledový obsah v levé záložce PDF prohlížeče - TPP str.53
 
 %% makra pro PlainTex?
 % \input makra1.tex
 
-%% tohle možná dělá LaTeX automaticky - nebo stačí nějaký balíček 
-% \usepglinks 1  % udělá ze stránek rejstříku klikací
-
-%% určitě je pro to v LaTeXu alternativa
+%% určitě je pro to v LaTeXu alternativa -> OK, prosím o její nalezení 
 % \draft % tiskne na poslední stranu seznam komentářů, co se má dodělat , viz opmac.tex ř. 889
-\def\frac#1#2{{#1\over#2}} %definice příkazu \frac z LaTeXu  
 
-%\input prvni_strana
+
+\input prvni_s.tex
 \input zacatek.tex
-%\input zac_pojmy
+\input zac_pojmy
 %\input cpp.tex
 %\input cpp2.tex
 %\input cpppr.tex
