@@ -1,0 +1,89 @@
+\section{ Základní veličiny v~elektronice }
+
+\subsection{Proud} 
+
+Pokud\index{proud!elektrický}\index{elektrický!proud} použijeme vodní model, 
+tak (elektrický) proud je množství vody, které proteče vodičem za jednu 
+sekundu.\footnote{Ve skutečnosti je to protečení množství elektronů nebo jiných nosičů el. nábojů s~celkovým nábojem 1 Coulomb za sekundu.} 
+Značka: $I$, jednotka: 1~A~= 1 ampér. 
+
+
+\subsection{Napětí} 
+Elektrické napětí\index{elektrické!napětí}\index{napětí!elektrické} měříme vždy mezi dvěma body. 
+Můžeme si ho představit jako rozdíl výšek dvou vodních hladin. 
+Z~výše položeného jezera (kladné napětí, +) teče voda (el. proud) do níže položeného (zem, nulový potenciál, $-$). 
+Značka: $U$, jednotka: 1~V~= 1 volt.
+
+
+\subsection{Odpor} 
+
+Mezi napětím $U$ a~elektrickým proudem $I$ platí vztah:
+
+$$U = R \cdot I,$$ 
+Tento vztah je znám pod názvem {\bf Ohmův zákon}\index{zákon!Ohmův}\index{Ohmův!zákon}. 
+
+Konstanta $R$ se nazývá elektrický odpor, měříme ho ohmech, značka $\Omega$. 
+
+Z~Ohmůva zákona můžeme vyjádřit proud $ I $: 
+$$ I = U / R .$$ Ze vzorce je vidět, že pokud použijeme rezistor s~větším odporem při stejném napětí, tak se protékající proud zmenší. 
+
+\subsection{Výkon} 
+
+Výkon\index{výkon} je definován jako součin napětí a~proudu:
+$$P = U \cdot I.$$ Značka: $P$, jednotka: 1~W = 1 watt.
+
+
+\subsection{Výpočet tepelného výkonu (ztrátového)} 
+Na součástkách, na kterých je úbytek napětí a~kterými protéká proud, vznikají 
+\index{výkon!tepelný}\index{tepelný!výkon}  tepelné ztráty. 
+
+{\bf Příklad 1:} Na rezistoru je úbytek napětí 3,6~V~a~protéká jím 240~mA. Jaký je tepelný ztrátový výkon?
+$$P = U \cdot I = \rm 3,6\ V \cdot 0,24\ A = 0,864\ W = 864\ mW$$
+Ztráty na rezistoru činí 864~mW, a~proto musíme volit rezistor, který zvládne větší výkon, tj. minimálně 1~W. 
+
+{\bf Příklad 2:} Diodou 1N4148 bude procházet 100~mA, při tomto proudu bude úbytek napětí na diodě 1~V. Nezničíme diodu 1N4148?
+$$P = U \cdot I = \rm 1\ V \cdot 0,1\ A = 0,1\ W = 100\ mW$$
+Diodu nezničíme, protože je vyráběná na celkový výkon 500~mW. 
+
+{\bf Příklad 3:} Na stabilizátor L7805 přivádím 12~V, 
+stabilizátor mi vytváří 5~V~stabilizovaného napětí a~odebírám z~něho 250~mA. 
+Jaký tepelný výkon bude potřeba uchladit?
+$$P = U \cdot I = \rm (12\ V - 5\ V) \cdot 0,25\ A = 1,75\ W$$
+Tepelné ztráty na stabilizátoru budou 1,75~W\footnote{Ve vzorci bylo použito 12~V~-- 5~V,
+	 je to protože na stabilizátoru ubyde 7~V, abychom se dostali na požadovaných 5~V.}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Výpočet rezistoru pro LED}
+
+LED\index{dioda!LED}\index{LED!dioda} \index{rezistor}\index{LED} je součástka, 
+která není primárně určená k~usměrnění proudu, ale k~signalizaci. 
+Může svítit světlem bílým, modrým, zeleným, červeným, ultrafialovým či infračerveným\footnote{Toho využijeme jako senzoru pro robota.}.
+
+Pokud připojím diodu správně na napětí, tj. tak aby mohl procházet proud a~ono přesto nic,
+ tak jsem diodu spálil, protože jí tekl moc velký proud. A~proto musíme vždy k~diodě připojit do  
+ \hyperlink{serie}{série}  rezistor, který omezí proud protékající přes LED. A~to podle vzorce:
+
+$$R = \frac{U}{I} = \rm \frac{Napeti\_zdroje - Ubytek\_napeti}{Pozadovany\_proud}$$
+
+{\bf Příklad 1:} Vypočítejte odpor rezistoru, který zapojíme do série k~LED. 
+Připojujeme k~ní napětí 5~V~a~provozní proud je 20~mA a~maximální proud, při kterém dojde ke zničení diody je 40~mA. Úbytek na diodě je 1,2~V.
+$$R = \frac{U}{I} = \rm \frac{5\ V - 1,2 \ V}{0,02 \ A} = 190\ \Omega$$
+Použijeme rezistor s~odporem $190\ \Omega$ nebo nejbližší vyšší odpor.
+
+{\bf Příklad 2:} Máme sériově spojeny tři LED, s~úbytky napětí 0,6~V, 0,8~V~a~1,2~V. 
+Připojíme je k~zdroji o napětí 12~V. Rezistor o jak velkém odporu musíme použít, jestliže má diodami protékat 20~mA?
+
+$$R = \frac{U}{I} = \rm \frac{12\ V-0,6\ V-0,8\ V-1,2\ V}{0,02 \ A} = 470\ \Omega$$
+
+Musíme použít rezistor o odporu $470\ \Omega$. 
+
+Měli bychom ještě spočítat tepelný výkon rezistoru. Můžeme použít úbytek napětí na rezistoru vynásobený procházejícím proudem:
+$$P = U \cdot I = \rm (12\ V-0,6\ V-0,8\ V-1,2\ V) \cdot 0,02\ A = 9,4\ V \cdot 0,02\ A = 0,188\ W = 188\ mW$$
+Stačí 250~mW rezistor. Nebo si můžu vypočítat úbytek napětí z~$U = R \cdot I$, to protože znám odpor a~protékající proud.
+
+$$P = U \cdot I = R \cdot I \cdot I = R \cdot I^2 = 470\ \Omega \cdot \rm (0,02\ A)^2 = 0,188\ W = 188\ mW$$
+
+Vyšel nám stejný výsledek, použijeme tedy 250~mW rezistor o odporu $470\ \Omega$.
+
+

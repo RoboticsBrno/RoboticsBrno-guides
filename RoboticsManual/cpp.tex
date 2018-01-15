@@ -1,155 +1,461 @@
-\chap Programovací jazyk C++
+\section{Základy syntaxe v jazyce C}
 
-\sec Základy syntaxe v~jazyce C
+\subsection{Základní pojmy}
 
-\secc Základní pojmy
+\label{cpp} Upozornění: V~jazyce C++ se {\bf rozlišují velká a~malá písmena}.  
 
-Upozornění: V~jazyce C++ se {\bf rozlišují velká a~malá písmena}.  
+\begin{description}
 
-\begitems \style o
-
-* {\bf příkaz} \ii{příkaz} -- povel pro procesor, říká procesoru, co má dělat.
-Příkazy probíhají postupně, nejprve se udělá jeden a~pak další, který je na řadě
+\item[příkaz] \index{příkaz} -- povel pro procesor, říká procesoru, co má dělat.
+Příkazy probíhají postupně, nejprve se udělá jeden a pak další, který je na řadě.
 Za příkazy dáváme středník (;).
 
-* {\bf syntaxe} \ii{syntaxe} -- \uv{pravopis} programovacího jazyka, říká, jak psát příkazy programovacího jazyka tak, aby nám počítač rozuměl 
+\item[syntaxe]\index{syntaxe} -- \uv{pravopis} programovacího jazyka, říká, jak psát příkazy programovacího jazyka tak, aby nám počítač rozuměl 
 
-* {\bf preprocesor} \ii{preprocesor} -- před samotným překladem programu do {\it  \char`\*.hex} souboru proběhnou tzv. direktivy preprocesoru.\fnote{něco jako příkazy, podrobně viz např. Kadlec: Programování v~jazyce C, str. 18 } \ii direktiva~preprocesoru \nl 
-Příklady: 
+\item[preprocesor]\index{preprocesor} -- před samotným překladem programu do \textit{*.hex} souboru proběhnou tzv. direktivy preprocesoru (něco jako příkazy, podrobně . \index{direktiva preprocesoru} 
 
- { \tt \#include $<>$ } -- \ii include pro vkládání hlavičkových souborů neboli {\bf knihoven} \ii knihovna \ii hlavičkový/soubor,@
+%\footnote{něco jako příkazy, podrobně viz např. Kadlec: Programování v~jazyce C, str. 18 }
 
- { \tt \#include "" } -- pro vkládání vlastních hlavičkových souborů  
- 
- {\tt \#define KONSTANTA HODNOTA\_KONSTANTY} -- \ii define pro definici konstanty, všude kde se v~kódu vyskytne text {\tt KONSTANTA} bude tento text nahrazen  {\tt HODNOTA\_KONSTANTY}
+Příklady: \verb@#include <>@ -- pro vkládání hlavičkových souborů \\
+ \verb@#include ""@ -- pro vkládání vlastních hlavičkových souborů \\
+ \verb@#define KONSTANTA HODNOTA_KONSTANTY@ -- pro definici konstanty, všude kde se v kódu vyskytne text \verb@KONSTANTA@ bude tento text nahrazen\\  \verb@HODNOTA_KONSTANTY@
 
-* {\bf proměnná} \ii{proměnná}  -- je místo v~paměti, kde jsou uložena nějaké data
+\item[proměnná] \index{proměnná}  -- je místo v paměti, kde jsou uložena nějaké data
 
-* {\bf datový typ} \dest[ref:datovy_typ]
- \ii datový/typ,@ -- říká nám, v~jaké podobě jsou data v~proměnné uložena. V~proměnné jsou pouze jedničky a~nuly, Pomocí datového typu mikrokontrolér pozná, jestli ta data jsou čísla, nebo znak, v~jakém rozsahu jsou čísla, atd...
-používané datové typy:   \nl
-{\tt uint8\_t} -- celá čísla od 0 do 255  \rfc{zkontrolovat typy dat} \nl
-{\tt int8\_t} -- celá čísla od -127 do 127 \nl
-{\tt uint16\_t} --  celá čísla od 0 do 65535  \nl
-{\tt int16\_t} -- celá čísla od -32767 do 32767 \nl
-{\tt uint32\_t} -- celá čísla od 0 do 4294967296 \nl
-{\tt int32\_t} -- celá čísla od -2147483647 do 2147483647 \nl
+\item[datový typ]\index{datový typ}\label{data1}   -- říká nám, v jaké podobě jsou data v proměnné uložena. V proměnné jsou pouze jedničky a nuly, Pomocí datového typu mikrokontrolér pozná, jestli ta data jsou čísla, nebo znak, v jakém rozsahu jsou čísla, atd...
+používané datové typy:   \\
+\verb@uint8_t@ -- celá čísla od 0 do 255  \\  
+\verb@int8_t@ -- celá čísla od -127 do 127 \\
+\verb@uint16_t@ --  celá čísla od 0 do 65535  \\
+\verb@int16_t@ -- celá čísla od -32767 do 32767 \\
+\verb@uint32_t@ -- celá čísla od 0 do 4294967296 \\
+\verb@int32_t@ -- celá čísla od -2147483647 do 2147483647 \\
 
-* {\bf operandy} \ii operand -- jsou čísla nebo výrazy, které \uv{vstupují do operace} 
-* {\bf operátory} \ii operátor -- nám říkají, jaké operace provedeme s~operandy (co s~nimi uděláme) 
+\item[operandy] -- jsou čísla nebo výrazy, které \uv{vstupují do operace} 
 
-Příklad: {\tt 5 + 2}, přitom {\tt 5} a~{\tt 2} jsou operandy a~znaménko plus je operátor, který nám říká, že čísla chceme sečíst (provést operaci sečítání)
+\item[operátory] -- nám říká, jaké operace provedeme s operandy (co s nimi uděláme) 
+
+Příklad: \verb@5 + 2@, přitom \verb@5@ a \verb@2@ jsou operandy a znaménko plus je operátor, který nám říká, že čísla chceme sečíst (provést operaci sečítání)
 
 
-* {\bf poznámka} \ii poznámka -- cokoliv se objeví v~kódu mezi znaky {\tt /\char`\*} a~{\tt \char`\*/}, tak je poznámka a~bude před překladem odstraněno z~kódu. 
+\item[poznámka] -- cokoliv se objeví v kódu mezi znaky \verb@/*@  a \verb@*/@, tak je poznámka a bude před překladem odstraněno z kódu. 
 
-Pokud chceme zapoznámkovat pouze jeden řádek, použijeme {\tt //}
+Pokud chceme zapoznámkovat pouze jeden řádek, použijeme \verb@//@
 
 Příklady:
-\hisyntax{C} \begtt 
-/* Vše co napsáno zde
-je poznámka a nebude překládáno
-*/
-\endtt
 
-\hisyntax{C} \begtt 
-// Toto je poznámka, která může popsat funkci nějakého úseku kódu
-\endtt
+\lstinputlisting{priklady_c/poznamky.cpp}
 
-\enditems
+%\begin{verbatim}
+%/* Vše co je napsáno zde
+%je poznámka a nebude překládáno
+%*/
+%\end{verbatim}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{verbatim}
+%// Toto je poznámka, která může popsat funkci nějakého úseku kódu
+%\end{verbatim}
 
 
-\secc{Výrazy a~operátory}
+\end{description}
 
-Výraz \ii výraz je něco, co nabývá nějaké hodnoty, např.: { \tt  5 + 3} je výraz, který nabývá hodnoty { \tt  8}. { \tt  5 > 3} je výraz nabývající hodnoty { \tt  true} neboli pravda, { \tt  x <= 10} je výraz který je pravdivý, pokud proměnná { \tt  x} (kterou musíme mít deklarovanou) menší nebo rovna číslu { \tt  10}. 
 
-%\begitems \style o
+\subsection{Výrazy a operátory}
 
-{ \bf Aritmetické operátory} 
+Výraz je něco co nabývá nějaké hodnoty, např.: \verb@5 + 3@ je výraz, 
+který nabývá hodnoty \verb@8@. \verb@5 > 3@ je výraz nabývající hodnoty \verb@true@ neboli pravda, 
+\verb@x <= 10@ je výraz který je pravdivý, pokud proměnná \verb@x@(kterou musíme mít deklarovanou) menší nebo rovna číslu \verb@10@. 
 
-{ \tt  +} sčítání 
+\subsubsection{Aritmetické operátory}
+\verb@+@ sčítání \\
+\verb@-@ odčítaní \\
+\verb@*@ násobení \\
+\verb@/@ dělení \\
 
-{ \tt  -} odčítaní 
-
-{ \tt  \char`\*} násobení 
-
-{ \tt  /} dělení 
-
-{ \bf Operátory inkrementace a~dekrementace}
-
+\subsubsection{Operátory inkrementace a dekrementace}
 pokud chceme zvýšit hodnotu proměnné o jedničku, napíšeme 
-{ \tt  ++název\_proměnné};
-pokud chceme snížit hodnotu proměnné o jedničku, napíšeme { \tt  --název\_proměnné};
+\verb@++název_proměnné@;
+pokud chceme snížit hodnotu proměnné o jedničku, napíšeme \verb@--název_proměnné@;
 
 Příklad:
-
-\hisyntax{C} \begtt 
+\begin{verbatim}
 uint8_t i = 5;  // Vytvoření proměnné i a dosazení hodnoty 5 do ní.  
 uint8_t j = 42; // Vytvoření proměnné j a dosazení hodnoty 42 do ní. 
 
 ++i;  // Hodnota i se zvýší o jedničku na číslo 6.
 --j;  // Hodnota j se sníží o jedničku na číslo 41.
-\endtt
+\end{verbatim}
 
 
 %\subsubsection{Přiřazovací operátor}
 %= 
 
-{ \bf Logické výrazy a~operátory} 
+\subsubsection{Logické výrazy a operátory} \label{logika1}
+
+Přehled logických operátorů: \\
+\verb@==@ porovnání - rovnost \\ 
+\verb@!=@ porovnání - nerovnost \\
+\verb@&&@ logický součin \\ 
+\verb@||@ logický součet \\
+\verb@! @ negace \\ 
+\verb@< @ menší než \\
+\verb@<=@ menší nebo rovno \\
+\verb@> @ větší než \\
+\verb@>=@ větší nebo rovno \\
+
+
+\B{Logický výraz}\index{logický výraz}\index{výraz!logický} může nabývat pouze dvou hodnot -- pravda (true) a nepravda (false).  
+Obvykle je nepravda reprezentovaná nulou a pravda každým nenulovým číslem. Logické výrazy se používají v podmínkách (viz např. \ref{if1})\\.
+
+  \B{Logické operace}\index{logická operace}\index{operace!logická} se používají při vyhodnocování logických výrazů.    
+
+Příklady: \\
+\verb@a == b@ výraz je pravdivý, pokud se \verb@a@ rovná \verb@b@ \\
+\verb@a != b@ výraz je pravdivý, pokud se \verb@a@ nerovná \verb@b@ 
+lze to napsat i konkrétněji, např.: \verb@a != 5@, výraz je pravda pokud se \verb@a@ nerovná \verb@5@, pokud se rovná výsledkem výrazu je nepravda(false)
+\verb@b > c@ výraz je pravdivý, pokud je \verb@b@ větší než \verb@c@ \\
+\verb@b >= d@ výraz je pravdivý, pokud je \verb@b@ větší nebo rovný \verb@d@ \\
+
+\verb@!(a > b)@ výraz v závorce je pravdivý, pokud je \verb@a@ větší než \verb@b@, 
+ale pak je negováno(z pravdy se stává nepravda a naopak ), tj. celý výraz je nepravdivý, 
+pokud je \verb@a@ větší než \verb@b@, pokud je a menší nebo rovno, tak je výraz pravdivý. \\
+
+\verb@!(a == b)@ výraz \verb@(a == b)@ je negován znaménkem \verb@!@, to znamená, že výraz je pravdivý, 
+pokud se výraz \verb@a@ nerovná výrazu \verb@b@, v podstatě se to dá napsat i takto: \verb@a != b@ \\
+Pozor: negace výrazu \verb@(a > b)@, tj. \verb@!(a > b)@ není to samé jako výraz \verb@(a < b)@, 
+ale správně je to \verb@(a <= b)@ \footnote{Platí zde určité zákonitosti viz De Morganovy zákony} \\
+
+Logický součin \verb@&&@ se používá, pokud budeme potřebovat spojit dva nebo více výrazů dohromady,
+ např.: \verb@(a > b)&&(c == d)@, výsledkem tohoto výrazu bude logický součin výrazů v závorkách,
+  pro logický součin platí, že je pravda pokud oba výrazy jsou pravdivé, jinak je výsledek nepravda, 
+  tj. zde bude pravda pouze pokud bude \verb@a@ větší než \verb@b@ a zároveň bude platit, že \verb@c@ se rovná \verb@d@.
+Logický součin použijeme, pokud musí všechny výryzy být pravda.
+
+Logický součet \verb@||@ je pravdivý, pokud alespoň jeden výraz je pravdivý. 
+Např.: \verb@(e <= f)||(g != 3)@ výraz bude pravda, pokud bude platit, že \verb@e@ je menší
+ nebo roven \verb@f@, nebo bude platit, že \verb@g@ se nerovná \verb@3@, anebo klidně budou platit oba výrazy.
+
+
+\subsection{Nejčastější příkazy C++}
+
+\subsubsection{Přiřazovací příkaz} 
+Použijeme, pokud chceme, aby se do proměnné uložila nějaká data. 
+
+Syntaxe: \\
+\verb@datový_typ název_proměnné@; \\ 
+
+syntaxe vkládání: \\ 
+\verb@název_proměnné = hodnota_která_se_má_uložit@;
+
+Data do proměnné můžeme vložit rovnou při vytváření proměnných:
+
+  \verb@datový_typ název_proměnné = hodnota@;
+
+ Příklad: \verb@uint8_t b = 5@;  Vytvoří se proměnná pojmenovaná \verb@b@ (která je v rozsahu od 0 do 255) a uloží se do ní číslo \verb@5@. \\
+\verb@int16_t B;@  Vytvoří se proměnná \verb@B@. \verb@B@ není to samé jako \verb@b@, protože jazyk C rozlišuje VELKÁ a malá písmena. \\
+\verb@B = 1024;@  Do proměnné B se uloží hodnota 1024;
+
+\subsubsection{Blok příkazů} 
+Pokud chceme někam dát více příkazů, ale můžeme tam dát pouze jeden příkaz, tak je dáme do složených závorek
+Příklad: \\ 
+\begin{verbatim}
+{
+  PŘÍKAZ1;
+  PŘÍKAZ2;
+  PŘÍKAZ3;
+}
+\end{verbatim}
+
+
+
+\subsubsection{Podmiňovací příkaz (\texttt{if})} \label{if1}
+
+Použijeme, pokud chceme, aby se program mohl rozhodnout na základě nějaké podmínky. \\ 
+syntaxe:
+
+\begin{verbatim}
+if(PODMÍNKA)
+  PŘÍKAZ1;
+else
+  PŘÍKAZ2;
+\end{verbatim}
+
+Pokud platí \verb@PODMÍNKA@ v kulaté závorce, vykoná se \verb@PŘÍKAZ1@, pokud neplatí, vykoná se \verb@PŘÍKAZ2@.
+Za \verb@if@ nebo \verb@else@ může být pouze jeden příkaz, pokud jich tam chceme dát více, použijeme blok.
+Větev \verb@else@ je nepovinná.
+
+Příklad:
+\begin{verbatim}
+if(a > 5) // Pokud platí, že 
+          //proměnná a je větší něž 5, tak se
+{
+  b = a;  // do proměnné b uloží hodnota, která je v proměnné a
+  c = 2;  // do proměnné c se uloží číslo 2.
+} // Pokud podmínka neplatí, tak se nevykoná nic.
+\end{verbatim}
+
+podmínka může být výraz např.: 
+\begin{verbatim}
+a > 5 // podmínka bude platit, 
+      // pokud proměnná a je větší než 5
+\end{verbatim}
+podmíněné příkazy lze vnořovat - v bloku příkazů může být další if
+Příklad:
+\begin{verbatim}
+if(PODMÍNKA1)
+{
+  PŘÍKAZ1;
+  if(PODMÍNKA2)
+  {
+    PŘÍKAZ2;
+  }
+  PŘÍKAZ3;
+}
+else 
+{
+  PŘÍKAZ4;
+}
+\end{verbatim}
+
+Pokud platí \verb@PODMÍNKA1@ tak se vykoná \verb@PŘÍKAZ1@, pak se zkontroluje \verb@PODMÍNKA2@,
+ pokud platí, tak se vykoná \verb@PŘÍKAZ2@, pokud ne, program pokračuje dál a vykoná \verb@PŘÍKAZ3@.
+V případě, že neplatí ani \verb@PODMÍNKA1@, tak se blok příkazů přeskočí a vykoná se blok příkazů za \verb@else@, tj. \verb@PŘÍKAZ4@.
+
+Je tu možnost také do větve \verb@else@ napsat daší \verb@if else@, vypadá to takto:
+\begin{verbatim}
+if(PODMÍNKA1)
+{
+  PRÍKAZ1;
+}
+else
+{
+  if(PODMÍNKA2)
+  {
+    PRÍKAZ2;
+  }
+  else
+  {
+    PRÍKAZ3;
+  }
+}
+\end{verbatim}
+Pokud platí \verb@PODMÍNKA1@, tak se vykoná \verb@PŘÍKAZ1@, pokud ne, tak se zkontroluje
+ \verb@PODMÍNKA2@, pokud platí tak se vykoná \verb@PŘÍKAZ2@, pokud neplatí, tak se vykoná
+  \verb@PŘÍKAZ3@. Výše zapsaný kód sice bude fungovat, ale není přehledný, a proto z důvodu lepší orientace v kódu zvolíme tento zápis:
+\begin{verbatim}
+if(PODMÍNKA1)
+{
+  PRÍKAZ1;
+}
+else if(PODMÍNKA2)
+{
+  PRÍKAZ2;
+}
+else
+{
+  PRÍKAZ3;
+}
+\end{verbatim}
+
+\subsubsection{Příkaz několikanásobného větvení (\texttt{switch})}
+Pokud by takto zapsaných podmínek bylo moc a vztahovali by se k jedné řídící 
+proměnné lze použít příkaz několikanásobného větvění neboli switch. Tak například místo zápisu:
+\begin{verbatim}
+if(a == 1)
+{
+  PŘÍKAZ1;
+}
+else if(a == 2)
+{
+  PŘÍKAZ2;
+}
+else if(a == 3)
+{
+  PŘÍKAZ3;
+}
+else if(a == 4)
+{
+  PŘÍKAZ4;
+}
+else
+{
+  PŘÍKAZ5;
+}
+\end{verbatim}
+Lze napsat:
+\begin{verbatim}
+switch(a)
+{
+  case 1:
+    PŘÍKAZ1;
+    break;
+  case 2:
+    PŘÍKAZ2;
+    break;
+  case 3:
+    PŘÍKAZ3;
+    break;
+  case 4:
+    PŘÍKAZ4;
+    break;
+  default:
+    PŘÍKAZ5;
+    break;
+}
+\end{verbatim}
+Čím se to celé zjednodušuje.
+
+\subsubsection{Cyklus \texttt{for}  (cyklus řízený proměnou )} 
+Tento cyklu použijeme, pokud předem známe kolikrát se má opakovat určitá operace
+Syntaxe:
+\begin{verbatim}
+for(řidící_proměnná; podmínka; zvýšení_nebo_snížení_hodnoty_proměnné )
+{
+  PŘÍKAZ1;
+  PŘÍKAZ2;
+}
+\end{verbatim}
+
+Příklad:
+\begin{verbatim}
+for(uint8_t i=0; i<4; i++)
+{
+  rozsvit_ledku();
+  pockej_sekundu();
+  zhasni ledku();
+}
+\end{verbatim}
+Co tento kód udělá? Dejme tomu, že máme už předem vytvořené funkce \verb@rozsvit_ledku()@, atd... 
+Potom cyklus udělá následující: vytvoří proměnnou \verb@i@ datového typu \verb@uint8_t@ (celá čísla od \verb@0@ do \verb@255@),
+ uloží do ní číslo \verb@0@. 
+ Potom zkontroluje podmínku, zda je proměnná \verb@i@ menší než \verb@4@, pak se provedou příkazy či funkce v těle cyklu,
+  tj. rozsvítí se LED-dioda, bude svítit jednu sekundu, a pak zhasne. 
+  Pak se provede příkaz \verb@i++@, ten zvýší hodnotu proměnné o jednu, 
+  tj. na číslo \verb@1@. Potom se kontroluje znovu podmínka, zdali je
+   proměnná \verb@i@ (která má teď hodnotu \verb@1@) menší než \verb@4@, atd... Celkem se tělo cyklu vykoná čtyřikrát.
+
+Cyklus \verb@for@ lze použít i bez proměnné, podmínky a zvýšení hodnoty, potom bude probíhat donekonečna.
+Příklad:
+\verb@for(;;)@
+\begin{verbatim}
+{
+  rozsvit_ledku();
+  pockej_sekundu();
+  zhasni ledku();
+}
+\end{verbatim} 
+Tento cyklus bude dělat to samé, co předchozí, s tím rozdílem, že to bude dělat donekonečna a nebude se ptát na podmínku. 
+
+Použití v programu pro robota: Nekonečný cyklus, ve kterém se kontrolují podmínky, zda je na čáře, zda je před ním soupeř, zda má udělat to či ono.
+
+
+\subsubsection{Cyklus  \texttt{while}  (cyklus s podmínkou na začátku )} 
+
+Použijeme, pokud nebudeme vědět kolikrát mají proběhnout příkazy a funkce v těle cyklu.
+Syntaxe:
+
+\begin{verbatim}
+while(podmínka)
+{
+  PŘÍKAZ1;
+  ...
+}
+\end{verbatim}
+
+
+Příklad:
+\begin{verbatim}
+while(!je_tlacitko_stiskle())
+{
+  ujed_1_cm();
+}
+\end{verbatim}
+
+Tento cyklus bude stát, dokud nezmáčkneme tlačítko. Vyžaduje mít předem naprogramovanou funkci \verb@ujed_1_cm()@ a \verb@je_tlacitko_stiskle()@.
+
  
-{ \tt  ==} porovnání - rovnost 
+%%%%%%%%%%%%%% Napsat cyklus do-while 
+  
+\subsection{Funkce a procedury} 
+
+ Pokud se nám v zdrojovém kódu opakují dokola stejné příkazy, můžeme vytvořit funkce nebo procedury, které potom voláme a které nám usnadní kód.
+syntaxe:
+\begin{verbatim}
+datový_typ_který_funkce_vrací název_funkce(datový_typ_parametru1 
+parametr1, datový_typ_parametru2 parametr2) 
+// Parametry jsou nepovinné
+{
+  PŘÍKAZ1; // Nepovinné příkazy
+  PŘÍKAZ2;
+  return HODNOTA_KTEROU_FUNKCE_VRACI; 
+  // Za return se napíše výraz, který funkce vrací.
+}
+\end{verbatim}
+
+Příklad:
+\begin{verbatim}
+// Funkce na sčítání dvou čísel, každé od 0 do 255.
+uint16_t umocni(uint8_t zakl, uint8_t exp)
+{
+  uint16_t vys = 1;
+  if(exp > 0)
+  {
+    for(uint8_t i = 0; i < exp; i++)
+    {
+      vys = vys * zakl; 
+    }
+  }
+  return vys;
+}
+\end{verbatim}
+
+pokud někde v programu použiji funkci \verb@secti(10, 2)@, tak výsledkem bude, jako bych napsal \verb@10*10@, tj. \verb@100@.
+Příklad:
+\begin{verbatim}
+c = umocni(a, b); // Do proměnné c se uloží b-tá mocnina čísla a. 
+\end{verbatim}
+
+procedura -- je vlastně funkce, jen s tím rozdílem, že procedura má datový typ \verb@void@ % co to je???? 
+a nemá \verb@return@ (tj. nevrací žádnou hodnotu).
+
+Příklad:
+\begin{verbatim}
+void rozsvitLedku()
+{
+  DDRB |= (1<<PB0); /* Co dělá tento příkaz nemusíte zatím řešit,
+   pak se k tomu dostaneme.
+   */
+}
+\end{verbatim}
+
+Pokud někde v programu napíšu \verb@rozsvitLedku()@, tak se rozsvítí LEDka na robotovi.
+
+tělo funkce main -- všechny příkazy, které jsou mezi složenými závorkami, se po zahajení programu postupně vykonají
+
+\subsection{Knihovny}
+
+\subsubsection{Vlastní knihovny}
+Z funkcí a procedur se mohou vytvářet soubory pro usnadnění práce. těmto souborům se říká \B{knihovny} \index{knihovna}. 
+  Soubory mají koncovku \textit{.h}
+Příklad: \verb@avr/io.h@
+\verb@moje_knihovna.h@
+
+Vlastní knihovnu poté mohu vložit direktivou \verb@#include@
+Příklad:
+\begin{verbatim}
+#include "moje_knihovna.h"
+\end{verbatim} 
+
+\subsubsection{Použité knihovny}  
+
+Pro práci s mikrokontroléry budeme potřebovat některé už vytvořené knihovny
+Příklad: 
+%\verb@avr/io.h@  -- pro základní vstup a výstup
+%\verb@avr/interrupt.h@ -- pro práci s přerušením
+\verb@Arduino.h@ -- zavádí příkazy pro práci s čipy ATMega a ESP32
+\verb@Learningkit.h@  -- pro pohodlnou práci s deskou ALKS
+
+%\verb@stdint.h@  -- zde jsou definovány datové typy (viz \ref{data1}) 
  
-{ \tt  !=} porovnání - nerovnost 
-
-{ \tt  \&\&} logický součin 
- 
-{ \tt  ||} logický součet 
-
-{ \tt  ! } negace 
- 
-{ \tt  $<$ } menší než 
-
-{ \tt  $<=$} menší nebo rovno 
-
-{ \tt  $>$ } větší než 
-
-{ \tt  $>=$} větší nebo rovno 
-
-%\enditems
-
-{\bf Logický výraz} \ii logický/výraz,@ může nabývat pouze dvou hodnot -- pravda (true) 
-a~nepravda (false).  Obvykle je nepravda reprezentovaná nulou a~pravda každým nenulovým číslem. Logické výrazy se používají v~podmínkách 
-(viz např. kap. \ref[if])
-
-{\bf Logické operace} \ii logická/operace,@ se používají při vyhodnocování logických výrazů.    
-
-
-Příklady: 
-l
-{ \tt  a~== b} výraz je pravdivý, pokud se { \tt  a} rovná { \tt  b} 
-l
-{ \tt  a~!= b} výraz je pravdivý, pokud se { \tt  a} nerovná { \tt  b}. 
-
-Lze to napsat i~konkrétněji, např.: { \tt  a~!= 5}, výraz je pravda, pokud se { \tt  a} nerovná { \tt  5}, pokud se rovná, výsledkem výrazu je nepravda(false).
-
-{ \tt  b > c} výraz je pravdivý, pokud je { \tt  b} větší než { \tt  c} 
-
-{ \tt  b >= d} výraz je pravdivý, pokud je { \tt  b} větší nebo rovno { \tt  d} 
-
-{ \tt  !(a == b)} výraz { \tt  (a~== b)} je negován znaménkem { \tt  !}, to znamená, že výraz je pravdivý, pokud se výraz { \tt  a} nerovná výrazu { \tt  b}
-
-Pozor: negace výrazu { \tt  (a~> b)}, tj. { \tt  !(a > b)} není to samé jako výraz { \tt  (a~< b)}, ale správně je to { \tt  (a~<= b)} \fnote{Platí zde určité zákonitosti viz De Morganovy zákony.} 
-
-
-Logický součin {\tt  \&\&} se používá, pokud budeme potřebovat spojit dva nebo více výrazů dohromady, např.: {\tt  (a~$>$ b)\&\&(c $==$ d)}, výsledkem tohoto výrazu bude \ii logický/součin,@ výrazů v~závorkách. Pro logický součin platí, že je pravda pokud oba výrazy jsou pravdivé, jinak je výsledek nepravda. 
-
-Tedy, zde bude výsledkem pravda, pouze pokud bude { \tt  a} větší než { \tt  b} a~zároveň bude platit, že { \tt  c} se rovná { \tt  d}.
-
-Logický součin použijeme, pokud musí všechny výrazy být pravda.
-
-Logický součet \ii logický/součet,@ { \tt  ||} je pravdivý, pokud alespoň jeden výraz je pravdivý. 
-
-Např.: { \tt  (e $<=$ f)||(g $!=$ 3)} výraz bude pravda, pokud bude platit, že { \tt  e} je menší nebo roven { \tt  f}, nebo bude platit, že { \tt  g} se nerovná { \tt  3}, anebo klidně budou platit oba výrazy.
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
