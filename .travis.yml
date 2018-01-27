@@ -12,7 +12,8 @@ before_install:
 # TeX Live 2015
 #- sudo add-apt-repository ppa:jonathonf/texlive-2015 -y
 - sudo apt-get update 
-- sudo apt-get install texlive texlive-latex-extra texlive-lang-czechslovak
+- sudo apt-get install pandoc
+- sudo apt-get install texlive texlive-latex-extra texlive-lang-czechslovak 
 - git clone https://github.com/michal-h21/make4ht
 - cd make4ht
 - ls -la
