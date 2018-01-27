@@ -1,0 +1,20 @@
+branches:
+  only:
+  - RoboticsManual
+before_install:
+- sudo apt-get update 
+- sudo apt-get install texlive-latex-extra
+script:
+- cd RoboticsManual
+- mkdir _build
+- pdflatex -output-directory _build ./RoboticsManual/Hello.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: $GITHUB_TOKEN
+  file:
+  - ./RoboticsManual/_build/_dokumentace.pdf
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: RoboticsManual
