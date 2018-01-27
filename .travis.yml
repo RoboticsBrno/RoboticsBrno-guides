@@ -13,9 +13,8 @@ before_install:
 #- sudo add-apt-repository ppa:jonathonf/texlive-2015 -y
 - sudo apt-get update 
 - sudo apt-get install texlive texlive-latex-extra texlive-lang-czechslovak
-- mkdir make4ht
-- cd make4ht
 - git clone https://github.com/michal-h21/make4ht
+- cd make4ht
 - ls -la
 - make
 
