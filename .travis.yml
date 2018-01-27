@@ -7,13 +7,15 @@ before_install:
 script:
 - cd RoboticsManual
 - mkdir _build
-- pdflatex -output-directory _build ./RoboticsManual/_dokumentace.tex
+- mkdir _html
+- pdflatex -output-directory _build _dokumentace.tex
+- make4ht _dokumentace.tex -d _html
 deploy:
   provider: releases
   api_key:
     secure: $GITHUB_TOKEN
   file:
-  - ./RoboticsManual/_build/_dokumentace.pdf
+  - ../RoboticsManual/_build/_dokumentace.pdf
   skip_cleanup: true
   on:
     tags: true
