@@ -12,25 +12,27 @@ before_install:
 # TeX Live 2015
 #- sudo add-apt-repository ppa:jonathonf/texlive-2015 -y
 - sudo apt-get update 
-- sudo apt-get install latexmk
-- sudo apt-get install pandoc
 - sudo apt-get install texlive texlive-latex-extra texlive-lang-czechslovak 
 - aptitude search texlive
-- git clone https://github.com/michal-h21/make4ht
-- cd make4ht
-- ls -la
-- make
+
+# make4ht
+#- sudo apt-get install latexmk
+#- sudo apt-get install pandoc
+#- git clone https://github.com/michal-h21/make4ht
+#- cd make4ht
+#- ls -la
+#- make
 
 script:
-- make4ht -v
+#- make4ht -v
 - latex --version
 - cd RoboticsManual
 - mkdir _build
 - mkdir _html
 - pdflatex -output-directory _build _dokumentace.tex
 - cd
-- make4ht /RoboticsManual/_dokumentace.tex -d /RoboticsManual/_html
-- ls -la /RoboticsManual/_html
+#- make4ht /RoboticsManual/_dokumentace.tex -d /RoboticsManual/_html
+#- ls -la /RoboticsManual/_html
 
 deploy:
   provider: releases
