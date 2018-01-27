@@ -7,7 +7,7 @@ before_install:
 script:
 - cd RoboticsManual
 - mkdir _build
-- pdflatex -output-directory _build ./RoboticsManual/Hello.tex
+- pdflatex -output-directory _build ./RoboticsManual/_dokumentace.tex
 deploy:
   provider: releases
   api_key:
