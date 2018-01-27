@@ -42,5 +42,5 @@ deploy:
   - ../RoboticsManual/_build/_dokumentace.pdf
   skip_cleanup: true
   on:
-    tags: true
+    tags: false
     branch: RoboticsManual
