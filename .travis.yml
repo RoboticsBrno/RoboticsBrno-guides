@@ -35,12 +35,18 @@ script:
 #- ls -la /RoboticsManual/_html
 
 deploy:
-  provider: releases
-  api_key:
-    secure: $GITHUB_TOKEN
-  file:
-  - ../RoboticsManual/_build/_dokumentace.pdf
-  skip_cleanup: true
-  on:
-    tags: false
-    branch: RoboticsManual
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    keep-history: true
+    file:
+    - ../RoboticsManual/_build/_dokumentace.pdf
+  - provider: releases
+    api_key:
+      secure: $GITHUB_TOKEN
+    file:
+    - ../RoboticsManual/_build/_dokumentace.pdf
+    skip_cleanup: true
+    on:
+      tags: false
+      branch: RoboticsManual
