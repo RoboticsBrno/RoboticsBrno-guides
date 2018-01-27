@@ -4,9 +4,10 @@ branches:
   
 before_install:
 - sudo apt-get update 
-- sudo apt-get install texlive-latex-extra texlive-lang-czechslovak
+- sudo apt-get install texlive texlive-latex-extra texlive-lang-czechslovak
 
 script:
+- aptitude search texlive
 - cd RoboticsManual
 - mkdir _build
 - mkdir _html
