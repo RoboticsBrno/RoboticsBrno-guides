@@ -3,7 +3,7 @@ branches:
   - RoboticsManual
   
 before_install:
-- sudo add-apt-repository ppa:jonathonf/texlive-2015
+- sudo add-apt-repository ppa:jonathonf/texlive-2015 -y
 - sudo apt-get update 
 - sudo apt-get install texlive texlive-latex-extra texlive-lang-czechslovak
 
