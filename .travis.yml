@@ -37,7 +37,7 @@ script:
 - ls -la _build
 - ls -la _html
 - pwd
-- cd
+- cd ..
 - pwd
 - ls -la
 - ls -la RoboticsManual
@@ -51,14 +51,14 @@ deploy:
     github-token: $GITHUB_TOKEN
     keep-history: true
     file:
-    - RoboticsManual/_build/_dokumentace.pdf
+    - ./RoboticsManual/_build/_dokumentace.pdf
     on:
       branch: RoboticsManual
   - provider: releases
     api_key:
       secure: $GITHUB_TOKEN
     file:
-    - RoboticsManual/_build/_dokumentace.pdf
+    - ./RoboticsManual/_build/_dokumentace.pdf
     skip_cleanup: true
     on:
       tags: false
