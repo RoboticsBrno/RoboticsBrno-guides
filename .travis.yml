@@ -31,6 +31,8 @@ script:
 - mkdir _html
 - pdflatex -output-directory _build _dokumentace.tex
 - cd
+- ls -la ./RoboticsManual/_build/
+- ls -la /RoboticsManual/_build/
 #- make4ht /RoboticsManual/_dokumentace.tex -d /RoboticsManual/_html
 #- ls -la /RoboticsManual/_html
 
@@ -41,11 +43,13 @@ deploy:
     keep-history: true
     file:
     - ./RoboticsManual/_build/_dokumentace.pdf
+    on:
+      branch: RoboticsManual
   - provider: releases
     api_key:
       secure: $GITHUB_TOKEN
     file:
-    - ./RoboticsManual/_build/_dokumentace.pdf
+    - /RoboticsManual/_build/_dokumentace.pdf
     skip_cleanup: true
     on:
       tags: false
