@@ -1,0 +1,44 @@
+
+
+\section{Příklady programů v C++}   \label{cpppr}
+
+Ve všech příkladech níže je uveden vždy obsah souboru {\it main.cpp}. 
+Text předpokládá, že nad příklady budete samostatně přemýšlet a~učit se z~nich, proto se to, co bylo řečeno u~prvního příkladu, už neopakuje u~druhého.  
+Doporučuji projít soubory {\it LearningKit.h}
+a~{\it LearningKit.cpp} (viz v~\hyperlink{explorer}{Exploreru}
+adresář {\it .piolibdeps/ArduinoLearningKitStarter\_ID1745/src} ), protože jsou v~nich zkratky typu {\tt L\_R} a~jejich přiřazení pinům čipu.
+Další příklady jsou na \url{http://wall.robotikabrno.cz} a~\url{https://www.arduino.cc/reference/en/}.  
+
+\label{cpppr1} \subsection{Blikání LED} 
+
+Program bliká červnenou LED.   
+
+\lstinputlisting{priklady_c/blikani_LED1.cpp}
+
+
+\label{cpppr2} \subsection{LED zapínaná tlačítkem} 
+
+Žlutá LED zapínaná tlačítkem.  
+
+\lstinputlisting{priklady_c/zapnuti_LED1.cpp}
+
+
+\label{cpppr3} \subsection{Nejjednodušší PWM} 
+
+PWM \index{PWM} umožňuje (ve spolupráci
+s~drivery ) řídit motory, serva a~podobně. Zde je použito na stmívání LED pomocí potenciometru.  %todo doplnit vazby
+
+\lstinputlisting{priklady_c/PWM_01.cpp}
+
+
+%je potřeba setupLeds(); ?? 
+
+
+%// ledcSetup(channel, freq, resolution)
+%    // channel = 0 - 15
+%    // resolution = 10 => 2^10 => 1024
+tento kód funguje pro čip ESP32. Pro čipy řady ATMega, které jsou na deskách Arduino uno a~Arduino nano, je potřeba použít tento kód: 
+ 
+%todo dodělat program PWM
+Funguje stejně, ale místo příkazu ledcWrite je použit:  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

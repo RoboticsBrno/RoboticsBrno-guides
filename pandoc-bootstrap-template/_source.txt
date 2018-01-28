@@ -1,1 +1,0 @@
-https://github.com/tonyblundell/pandoc-bootstrap-template.git

@@ -1,0 +1,41 @@
+ Příkazy TeXu, které se můžou hodit:
+\coltext\Black\Red{text ...} - obarví text i podklad
+
+\nl - nový řádek 
+\hfil \break - nový řádek
+\vfil \break - nová stránka
+\link[ref:PWM]{\Magenta}{PWM}\Black  - odkaz na text (je vidět fialově)
+\dest[ref:PWM] - cíl odkazu (není vidět)
+\ii<mezera>slovo<mezera> převezme slovo do rejstříku (slovo v textu není vidět) 
+\iid <mezera>slovo<mezera> převezme slovo do rejstříku (slovo v textu je vidět)
+viz TPP str. 62
+\label[neco] \ref[neco] vždy před nadpisem sekce a spol 
+Tady je normální text\rfc{ověřit, zda netvrdím blbosti}. 
+viz http://petr.olsak.net/opmac-tricks.html#rfc  
+
+\emergencystretch=2cm % když se text se nechce vejít do řádku a zobrazí černý obdélník, je potřeba zvětšit pružnost mezer
+
+
+
+
+
+
+
+-----------------------
+na později:
+
+\parskip=\medskipamount % mezi odstavci bude mezera jako \medskip
+\parindent=0pt % odstavce nebudou odsazeny zará3kou
+\let\itemskip=\relax % 3ádné dal1í mezery mezi výety
+
+
+% test grafiky a přemazání nevhodného čísla v jednom - premazavani nefunguje, číslo je vidět i přes barvu  
+\pdfliteral{q % uchování grafického stavu
+0 1 0 RG 0 0 1 rg % nastavení barvy pro eáry (zelená)
+20 w % (Width) 1íoka eáry 
+200 -30 m % (Moveto) pero polo3íme do poeátku
+250 -30 l % (Lineto) poidáme úseeku z 0 0 do 30 30
+S % kresba samotné čáry 
+Q % návrat do původního stavu 
+}
+

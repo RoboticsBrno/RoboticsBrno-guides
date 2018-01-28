@@ -1,0 +1,125 @@
+\section{Příloha A~-- Hodnoty vybraných součástek}
+%todo příloha se nečísluje
+
+\hypertarget{1N4148}{}
+{\bf Dioda 1N4148}  \index{dioda!1N4148}\index{1N4148!dioda}
+
+Maximální napětí: 100 V
+
+Maximální proud: 200 mA
+
+Maximální výkon:  500 mW
+
+Úbytek napětí: 1,8 V
+
+\vskip 2mm
+
+\hypertarget{1N4007}{}
+{\bf Dioda 1N4007} \index{dioda!1N4007}\index{1N4007!dioda}
+
+Maximální napětí: 1000 V
+
+Maximální proud: 1 A
+
+Maximální výkon: 3 W
+
+Úbytek napětí: 1,1 V
+
+\vskip 2mm
+
+\hypertarget{BCC337}{}
+{\bf tranzistor BC337} \index{tranzistor!BCC337}\index{BCC337!tranzistor}
+
+Max. napětí mezi kol. a~emit. $V \rm _{CEO}$:50 V
+
+Max. napětí mezi bází a~emit. $V \rm _{CBO}$: 5 V
+
+Max. proud tekoucí kolektorem $I \rm _C$: 800 mA
+
+Maximální výkon $ P \rm _C$: 625 mW
+
+Zesílení $ h \rm _{fe}$: 100 až 600
+
+\vskip 2mm
+
+\hypertarget{BCC547}{}
+{\bf tranzistor BC547} \index{tranzistor!BCC547}\index{BCC547!tranzistor}
+
+Max. napětí mezi kol. a~emit. $ V \rm_{CEO}$: 45 V
+
+Max. napětí mezi bází a~emit. $ V \rm _{CBO}$: 6 V
+ 
+Max. proud tekoucí kolektorem $ I \rm _C$: 100 mA
+
+Maximální výkon $P \rm _C$: 500 mW
+
+Zesílení $h \rm _{fe}$: 110 až 800
+
+\vskip 2mm
+
+\hypertarget{BD911}{}
+{\bf tranzistor BD911}  \index{tranzistor!BD911}\index{BD911!tranzistor}
+
+Max. napětí mezi kol. a~emit.$V \rm _{CEO}$: 100 V
+
+Max. napětí mezi bází a~emit. $V \rm _{CBO}$: 5 V
+
+Max. proud tekoucí kolektorem $I \rm _C$: 15 A
+
+Maximální výkon $P \rm _C$: 90 W
+
+Zesílení $h \rm _{fe}$: 5 až 250
+
+Důležité je si všimnout, že minimální zesílení\footnote{Platí pokud bude kolektorem protékat 10~A.}  je 5. 
+To znamená, že pokud budeme chtít tranzistorem spínat proud 10~A, tak budeme muset nechat bází téct řídící proud 2~A,
+ to znamená, že ho nemůžeme naplno využít, pokud ho budeme řídit mikrokontrolérem, tj. musíme ho spínat jiným tranzistorem. 
+ Anebo přijdeme na myšlenku, že pokud budeme chtít řídit velké proudy, budeme potřebovat tranzistory typu MOS-FET, např.: IRF520, IRL3803.
+
+%Maximální proud tekoucí kolektorem $I_C$\footnote{Ang.: Collector Current}
+
+%Maximální výkon $P_C$\footnote{Ang.: Collector Power Dissipation}
+
+%Zesílení $h_{fe}$\footnote{Ang.: DC Current Gain}
+
+\section{ Příloha B -- Poznámky a~vize}
+
+\subsection{Linux}
+
+Drivery do tiskáren mají příponu ppd. Napřed se musí nainstalovat program cups. 
+
+Irfan view jede i~v~Linuxu\footnote{\url{http://www.boekhoff.info/install-irfan-view-on-linux/}}.
+
+%You can also use the Screenshot program included in Ubuntu (hit the Super key and type "Screenshot") which will afterwards ask you where you want to save the screenshot. If you just want a quick whole-screen shot you can hit the Printscreen key.
+
+
+\subsection{Přerušení}
+
+Co je přerušení? Procesor může zvládnout pouze jednu operaci na jeden tik krystalu, 
+postupuje od jednoho příkazu k~druhému a~nemůže jen tak všeho nechat a~věnovat se něčemu jinému, občas je to ale potřeba.
+ Při přerušení procesor všeho nechá a~bude se věnovat přerušení, potom co skončí se bude věnovat dál programu tam, kde přestal. 
+
+\subsection{Baterie}
+
+Dobíjecí: napětí 1,2 V~\index{baterie!dobíjecí}\index{dobíjecí!baterie}
+
+Jednorázové: napětí 1,5 V~\index{baterie!jednorázové}\index{jednorázové!baterie}
+ 
+\subsection{Vize -- co přidat do textu}
+
+Github
+
+Lorris
+
+Adruino IDE 
+
+Laser ve Lablabu 
+
+Osciloskop
+
+Baterie LiPol a~jejich nabíjení 
+
+Převodník napěťových úrovní 
+
+Pájení 
+
+Sběrnice - USART/UART, IIC, SPI, další?
