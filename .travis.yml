@@ -34,9 +34,13 @@ script:
 - mkdir _html
 - ls -la
 - pdflatex -output-directory _build _dokumentace.tex
-- ls -la html
+- ls -la _build
+- ls -la _html
+- pwd
 - cd
+- pwd
 - ls -la
+- ls -la RoboticsManual
 - ls -la RoboticsManual/_build
 #- make4ht /RoboticsManual/_dokumentace.tex -d /RoboticsManual/_html
 #- ls -la /RoboticsManual/_html
