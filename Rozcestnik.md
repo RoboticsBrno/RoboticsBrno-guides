@@ -29,3 +29,13 @@ Akuálně ukládáme/verzujeme všechny projekty na serveru [GitHub](https://git
 [Serial Port Adapter Toolbox / s-center](https://www.u-blox.com/en/product/s-center) - aplikace pro nastavování bluetooth modulů ConnectBlue (nově [u-blox](https://www.u-blox.com/en))
 
 <http://technika.robotikabrno.cz/xboot/> - online generátor XBoot bootloaderů (pro mikrokontroléry AVR Xmega)   
+
+## Software
+
+[Kicad](http://kicad-pcb.org/help/documentation/) - open-source nástroj na návrh plošných spojů - [dokumentace](http://kicad-pcb.org/help/documentation/)
+
+## Knihy
+
+[Ponořme se do Pythonu 3](http://diveintopython3.py.cz/index.html) - vhodná kniha pro naučení programovacího jazyku Python 3
+
+[Hradla, volty, jednočipy](https://knihy.nic.cz/) - publikace je určena pro zájemce o elektroniku, číslicovou techniku a vlastní stavbu zařízení pro Internet věcí 
