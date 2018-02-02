@@ -8,19 +8,19 @@ OUTPUT_HTML=_html
 
 all:
 	ls -la
-	mkdir ${OUTPUT_PDF}
-	mkdir ${OUTPUT_HTML}
+	mkdir ${OUTPUT_PDF}  || \
+	mkdir ${OUTPUT_HTML} || \
 	ls -la
-	pdflatex -output-directory ${OUTPUT_PDF} ${LATEX_MAIN_FILE}.tex
-	cp -r ${OUTPUT_HTML}/ ../../output/
+	pdflatex -output-directory ${OUTPUT_PDF} ${LATEX_MAIN_FILE}.tex 
+	cp -r ${OUTPUT_PDF}/${LATEX_MAIN_FILE}.pdf ../../output/${OUTPUT_PDF}/${LATEX_MAIN_FILE}.pdf || \
 	make4ht ${LATEX_MAIN_FILE}.tex -d ${OUTPUT_HTML}
-	cp ${OUTPUT_PDF}/${LATEX_MAIN_FILE}.pdf ../../output/${OUTPUT_PDF}/${LATEX_MAIN_FILE}.pdf
+	cp -r ${OUTPUT_HTML}/ ../../output/ || \
 	ls -la ${OUTPUT_PDF}
 	ls -la ${OUTPUT_HTML}
 	
 copy:
+	cp -r ${OUTPUT_PDF}/${LATEX_MAIN_FILE}.pdf ../../output/pdf/${LATEX_MAIN_FILE}.pdf
 	cp -r ${OUTPUT_HTML}/ ../../output/
-	cp ${OUTPUT_PDF}/${LATEX_MAIN_FILE}.pdf ../../output/pdf/${LATEX_MAIN_FILE}.pdf
 	
 clean:
 	rm -rf ${OUTPUT_PDF}/
