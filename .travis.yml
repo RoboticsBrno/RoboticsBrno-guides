@@ -1,3 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
 branches:
   only:
   - RoboticsManual
@@ -11,9 +16,9 @@ before_install:
 
 # TeX Live 2015
 #- sudo add-apt-repository ppa:jonathonf/texlive-2015 -y
-- sudo apt-get update 
-- sudo apt-get install texlive texlive-latex-extra texlive-lang-czechslovak 
-- aptitude search texlive
+#- sudo apt-get update 
+#- sudo apt-get install texlive texlive-latex-extra texlive-lang-czechslovak 
+#- aptitude search texlive
 
 # make4ht
 #- sudo apt-get install latexmk
@@ -24,26 +29,18 @@ before_install:
 #- make
 
 script:
+- pwd
+- ls -la
+- mkdir output
+- ls -la
+- TMP_POOL=./output
+- sudo docker build -t paralj-test:0.1 .	
+- sudo docker run -v "${TMP_POOL}:/output"  paralj-test:0.1
+- ls -la
+- ls -la output
+- ls -la output/_pdf
+- ls -la output/_html
 #- make4ht -v
-- latex --version
-- pwd
-- ls -la
-- cd RoboticsManual
-- ls -la
-- mkdir _build
-- mkdir _html
-- ls -la
-- pdflatex -output-directory _build _dokumentace.tex
-- ls -la _build
-- ls -la _html
-- pwd
-- cd ..
-- pwd
-- ls -la
-- ls -la RoboticsManual
-- ls -la RoboticsManual/_build
-#- make4ht /RoboticsManual/_dokumentace.tex -d /RoboticsManual/_html
-#- ls -la /RoboticsManual/_html
 
 deploy:
   - provider: pages
@@ -51,14 +48,14 @@ deploy:
     github-token: $GITHUB_TOKEN
     keep-history: true
     file:
-    - ./RoboticsManual/_build/_dokumentace.pdf
+    - ./output/_pdf/_dokumentace.pdf
     on:
       branch: RoboticsManual
   - provider: releases
     api_key:
       secure: $GITHUB_TOKEN
     file:
-    - ./RoboticsManual/_build/_dokumentace.pdf
+    -  ./output/_pdf/_dokumentace.pdf
     skip_cleanup: true
     on:
       tags: false
