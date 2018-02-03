@@ -1,115 +1,132 @@
-<!doctype html>
-<html> 
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="author" content="Martin Sýkora">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="http://robotikabrno.cz/css/design2.css">
-    <meta name="theme-color" content="#9cb036"> 
-    <style>
-      button{
-        padding: 5px;
-        margin: 3px 3px 3px 0px;
-      }
-      
-      button.empty_dir{
-        background-color: rgb(255,32,0);
-      }
-    </style>
-  </head>
-  
-  <body>
-    <div id="header_bg"></div>
-    <div id="main" class="home">
-       
-      <!--<div id="header">
-        <div id="main_menu" class="shadow">
-          <a href="/" style="text-decoration: none; color: white"><div class="logo_in_header"></div></a>
-        </div>          
-      </div>--> 
-           
-       
-      <div id="files" class="shadow hp_div">
-      
-      <h1>files.robotikabrno.cz</h1>
+<?php
+// index.php - Zobrazeni obsahu adresare
 
-      <hr>
-    
-      <?php
-        $cache = explode('?', substr($_SERVER['REQUEST_URI'], 1));
-        $cache = explode('#', $cache[0]);
-        
-        if(substr($cache[0], -1) == '/')
-          $cache[0] = substr($cache[0], 0, -1);
-        
-        $cache[0] = rawurldecode($cache[0]);
-        
-         
-        function size($path)
-        {
-          $size = filesize($path);
-          if($size >= 1048576)
-            return round(($size / 1048576), 1) . ' MB';
-          else
-            return round(($size / 1024), 1) . ' kB';
-        }
-        
-        $id = 0;
-        
-        $levels = explode('/', $cache[0]);
-        echo '<h2>Cesta: <a href="/">home</a>'; 
-        $addr = '';
-        foreach($levels as $level)
-        {
-          $addr .= '/' . $level;
-          echo '/<a href="' . $addr . '">' . $level . '</a>';          
-        }        
-        echo '</h2>';
-        
-        $href_folder = '/' . $cache[0];
-        if($cache[0] == '')
-          unset($href_folder);
-        scan('./' . $cache[0], $href_folder);
-        function scan($folder = './', $href_folder = '')
-        {
-          echo '<ul id="' . $GLOBALS['id'] . '" style="display: none;">';
-          $len = strlen($href_folder) + 2;
-          foreach(glob('.' . $href_folder . "/*", GLOB_ONLYDIR) as $folder_2)
-          {
-            $foldername = substr($folder_2, $len);
-            $counter = scandir($folder_2);
-            if(count($counter) <= 2)
-              $class = ' class="empty_dir"';
-            else
-              $class = '';
-            echo '<li><a href="' . $href_folder . '/' . rawurlencode($foldername) . '"><button' . $class . '>' . $foldername . '</button></a></li>';  
-          }
-          foreach(glob('.' . $href_folder . "/*.*") as $file)
-          {
-            $filename = substr($file, $len);
-            echo '<li><a target="_blank" href="' . $href_folder . '/' . rawurlencode($filename) . '">' . $filename . ' (' . size($file) . ')</a></li>';  
-          }
-          echo '</ul>';
-        }
-        
-        
-      ?>
-      
-      <script>
-        document.getElementById('0').style.display = 'block';
-      </script>
-      
-      </div>
-      
-      <a href="#header_bg" id="up" class="shadow">nahoru</a>
-      
-       <div id="footer" class="shadow">
-        <div id="copyright">
-        2014 - 2015 Robotika Brno
-        </div> 
-      </div>
-        
-    </div>
-  </body>
+// ------------------------------------------------------------
+// Konfigurace
+define('DIR_FIRST', 1);
+define('SHOW_BACK', 1);
+define('SHOW_DATE', 1);
+define('SHOW_SIZE', 1);
+
+// ------------------------------------------------------------
+// Deklarace funkci
+
+// ------------------------------------------------------------
+// Porovnani polozek seznamu souboru
+function cmp_files_item($a, $b) {
+  if ((DIR_FIRST) && ($a['dir'] != $b['dir'])) {
+    return ($a['dir'] > $b['dir']) ? -1 : 1;
+  }
+  if ($a['name'] == $b['name']) return 0;
+  return ($a['name'] > $b['name']) ? 1 : -1;
+}
+
+// ------------------------------------------------------------
+// Funkce formatuje velikost souboru
+function format_size($size) {
+  $ap = array(' ','K','M','G','T','P','E','Z','Y');
+  $pidx = 0;
+  $rmain = 0;
+  if ($size < 973) {
+    return sprintf('%3d ', $size);
+  }
+  while ($size >= 973) {
+    $rmain = $size & 1023;
+    $size = $size >> 10;
+    $pidx++;
+  }
+  if (($size < 9) || (($size == 9) && ($rmain < 973))) {
+    if (($rmain = (($rmain * 5) + 256) / 512) >= 10) {
+      $size++;
+      $rmain = 0;
+    }
+    return sprintf('%d.%d%s', $size, $rmain, $ap[$pidx]);
+  }
+  if ($rmain >= 512) $size++;
+  return sprintf('%3d%s', $size, $ap[$pidx]);
+}
+
+// ------------------------------------------------------------
+// Funkce MAIN
+$path = dirname($_SERVER['SCRIPT_NAME']);
+if (strlen($path) <= 1) $path = '/';
+
+// Inicializace seznamu souboru
+$files = array();
+
+// Nacteni obsahu adresare
+$hdir = opendir(".");
+while ($file = readdir($hdir)) {
+  if ((substr($file, 0, 1) == '.') && ($file != '..')) continue;
+  if ($file == basename(__FILE__)) continue;
+  if (is_dir($file)) {
+    array_push($files, array('dir' => 1, 'name' => $file, 'date' => filemtime($file), 'size' => 0));
+  } else {
+    array_push($files, array('dir' => 0, 'name' => $file, 'date' => filemtime($file), 'size' => filesize($file)));
+  }
+}
+closedir($hdir);
+
+// Serazeni seznamu souboru
+usort($files, 'cmp_files_item');
+
+// ------------------------------------------------------------
+// Zobrazeni HTML
+?>
+<html>
+<head>
+<title>Index of <?php echo $path; ?></title>
+</head>
+<body background="/img/pozadi.png">
+<h1>Index of <?php echo $path; ?></h1>
+<pre><hr>
+<?php
+$nlen = 23;
+if (!SHOW_DATE) $nlen += 18;
+if (!SHOW_SIZE) $nlen += 6;
+foreach ($files as $file) {
+  if ($file['dir']) {
+    if ($file['name'] == '..') {
+      if ($path == '/') continue;
+      if (!SHOW_BACK) continue;
+      $icon = 'back.gif';
+      $desc = 'Parent Directory';
+    } else {
+      $icon = 'folder.gif';
+      $desc = $file['name'];
+    }
+    $alti = '[DIR]';
+    $href = $file['name'].'/';
+  } else {
+    $icon = 'unknown.gif';
+    $alti = '[   ]';
+    $href = $file['name'];
+    $desc = $file['name'];
+  }
+  if (strlen($desc) > $nlen) {
+    $desc = substr($desc, 0, ($nlen - 3)).'..>';
+  }
+  if (SHOW_DATE) {
+    if ($file['name'] == '..') {
+      $date = str_repeat(' ', 18);
+    } else {
+      $date = date('  d.m.Y H:i', $file['date']);
+    }
+  } else {
+    $date = '';
+  }
+  if (SHOW_SIZE) {
+    if ($file['dir']) {
+      $size = '    - ';
+    } else {
+      $size = '  '.format_size($file['size']);
+    }
+  } else {
+    $size = '';
+  }
+  echo '<img src="/img/icons/'.$icon.'" alt="'.$alti.'"> <a href="'.$href.'">'.htmlspecialchars($desc).'</a>'.str_repeat(' ', $nlen - strlen($desc)).$date.$size."\n";
+}
+?>
+<hr></pre>
+<body>
 </html>
