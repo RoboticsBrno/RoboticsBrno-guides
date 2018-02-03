@@ -38,4 +38,4 @@ Akuálně ukládáme/verzujeme všechny projekty na serveru [GitHub](https://git
 
 [Ponořme se do Pythonu 3](http://diveintopython3.py.cz/index.html) - vhodná kniha pro naučení programovacího jazyku Python 3
 
-[Hradla, volty, jednočipy](https://knihy.nic.cz/) - publikace je určena pro zájemce o elektroniku, číslicovou techniku a vlastní stavbu zařízení pro Internet věcí 
+[Hradla, volty, jednočipy](https://maly.gitbooks.io/hradla-volty-jednocipy/) - publikace je určena pro zájemce o elektroniku, číslicovou techniku a vlastní stavbu zařízení pro Internet věcí 
