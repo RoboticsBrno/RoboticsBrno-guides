@@ -1,132 +1,3582 @@
-<?php
-// index.php - Zobrazeni obsahu adresare
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="cs" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,charset=utf-8,html --> 
+<meta name="src" content="_dokumentace.tex" /> 
+<meta name="date" content="2018-02-03 09:57:00" /> 
+<link rel="stylesheet" type="text/css" href="_dokumentace.css" /> 
+</head><body 
+>
+<div class="center" 
+>
+<!--l. 3--><p class="noindent" ></p><!--l. 8--><p class="noindent" ><span 
+class="ecbx-2488">Jak za</span><span 
+class="ecbx-2488">č</span><span 
+class="ecbx-2488">ít</span>
+</p><!--l. 10--><p class="noindent" ><span 
+class="ecbx-2488">programovat </span><span 
+class="ecbx-2488">čipy</span>
+</p><!--l. 12--><p class="noindent" ><span 
+class="ecbx-2488">(ESP32)</span>
+</p><!--l. 23--><p class="noindent" ><span 
+class="ecbx-1728">Jaroslav P</span><span 
+class="ecbx-1728">áral</span>
+</p><!--l. 25--><p class="noindent" ><span 
+class="ecbx-1728">Jakub Streit</span>
+</p><!--l. 27--><p class="noindent" ><span 
+class="ecbx-1728">Rudolf Hlav</span><span 
+class="ecbx-1728">á</span><span 
+class="ecbx-1728">ček</span>
+</p><!--l. 29--><p class="noindent" ><span 
+class="ecbx-1728">a dal</span><span 
+class="ecbx-1728">š</span><span 
+class="ecbx-1728">í</span>
+</p>
+<hr class="figure" /><div class="figure" 
+>
+<div class="center" 
+>
+<!--l. 34--><p class="noindent" >
 
-// ------------------------------------------------------------
-// Konfigurace
-define('DIR_FIRST', 1);
-define('SHOW_BACK', 1);
-define('SHOW_DATE', 1);
-define('SHOW_SIZE', 1);
+</p><!--l. 35--><p class="noindent" ><img 
+src="soubory/robotarna1.jpg" alt="PIC"  
+ /></p></div>
+</div><hr class="endfigure" />
+<!--l. 40--><p class="noindent" ><span 
+class="ectt-1728">www.robotarna.cz</span>
+</p><!--l. 44--><p class="noindent" ><span 
+class="ecbx-1728">za kolektiv autorů</span>
+</p><!--l. 46--><p class="noindent" ><span 
+class="ecbx-1728">Miroslav Burda</span>
+</p><!--l. 48--><p class="noindent" ><span 
+class="ecbx-1728">editor</span>
+</p><!--l. 52--><p class="noindent" ><span 
+class="ectt-1728">dokumentace@robotikabrno.cz</span>                              
 
-// ------------------------------------------------------------
-// Deklarace funkci
+                                                                          
+</p><!--l. 56--><p class="noindent" ><span 
+class="ecbx-1728">verze 0.6</span>
+</p>
+</div>
+                                                                          
 
-// ------------------------------------------------------------
-// Porovnani polozek seznamu souboru
-function cmp_files_item($a, $b) {
-  if ((DIR_FIRST) && ($a['dir'] != $b['dir'])) {
-    return ($a['dir'] > $b['dir']) ? -1 : 1;
-  }
-  if ($a['name'] == $b['name']) return 0;
-  return ($a['name'] > $b['name']) ? 1 : -1;
-}
+                                                                          
+<h2 class="likechapterHead"><a 
+ id="x1-1000"></a>Obsah</h2> <div class="tableofcontents">
+<span class="chapterToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">Začínáme</a></span>
+<br /> <span class="sectionToc" >1.1 <a 
+href="#x1-30001.1" id="QQ2-1-3">Cíl: první robot</a></span>
+<br />  <span class="subsectionToc" >1.1.1 <a 
+href="#x1-40001.1.1" id="QQ2-1-4">Týmy pro stavbu robotů</a></span>
+<br />  <span class="subsectionToc" >1.1.2 <a 
+href="#x1-50001.1.2" id="QQ2-1-5">Postup návrhu robota</a></span>
+<br />  <span class="subsectionToc" >1.1.3 <a 
+href="#x1-60001.1.3" id="QQ2-1-6">Co potřebujete na začátku</a></span>
+<br />  <span class="subsectionToc" >1.1.4 <a 
+href="#x1-70001.1.4" id="QQ2-1-7">První projekt</a></span>
+<br />  <span class="subsectionToc" >1.1.5 <a 
+href="#x1-130001.1.5" id="QQ2-1-14">Základní pojmy – čipy</a></span>
+<br /><span class="chapterToc" >2 <a 
+href="#x1-170002" id="QQ2-1-18">Programovací jazyk C++</a></span>
+<br /> <span class="sectionToc" >2.1 <a 
+href="#x1-180002.1" id="QQ2-1-19">Základy syntaxe v jazyce C</a></span>
+<br />  <span class="subsectionToc" >2.1.1 <a 
+href="#x1-190002.1.1" id="QQ2-1-20">Základní pojmy</a></span>
+<br />  <span class="subsectionToc" >2.1.2 <a 
+href="#x1-200002.1.2" id="QQ2-1-22">Výrazy a operátory</a></span>
+<br />  <span class="subsectionToc" >2.1.3 <a 
+href="#x1-240002.1.3" id="QQ2-1-26">Nejčastější příkazy C++</a></span>
+<br />  <span class="subsectionToc" >2.1.4 <a 
+href="#x1-310002.1.4" id="QQ2-1-33">Funkce a procedury</a></span>
+<br />  <span class="subsectionToc" >2.1.5 <a 
+href="#x1-320002.1.5" id="QQ2-1-34">Knihovny</a></span>
+<br /> <span class="sectionToc" >2.2 <a 
+href="#x1-350002.2" id="QQ2-1-37">Příkazy C++ pro čipy</a></span>
+<br /> <span class="sectionToc" >2.3 <a 
+href="#x1-360002.3" id="QQ2-1-38">Příklady programů v C++</a></span>
+<br />  <span class="subsectionToc" >2.3.1 <a 
+href="#x1-370002.3.1" id="QQ2-1-39">Blikání LED</a></span>
+<br />  <span class="subsectionToc" >2.3.2 <a 
+href="#x1-380002.3.2" id="QQ2-1-41">LED zapínaná tlačítkem</a></span>
+<br />  <span class="subsectionToc" >2.3.3 <a 
+href="#x1-390002.3.3" id="QQ2-1-43">Nejjednodušší PWM</a></span>
+<br /><span class="chapterToc" >3 <a 
+href="#x1-400003" id="QQ2-1-45">Elektronika</a></span>
+<br /> <span class="sectionToc" >3.1 <a 
+href="#x1-410003.1" id="QQ2-1-46">Základní součástky</a></span>
+<br />  <span class="subsectionToc" >3.1.1 <a 
+href="#x1-420003.1.1" id="QQ2-1-47">Rezistor</a></span>
+<br />  <span class="subsectionToc" >3.1.2 <a 
+href="#x1-430003.1.2" id="QQ2-1-49">Kondenzátor</a></span>
+<br />  <span class="subsectionToc" >3.1.3 <a 
+href="#x1-440003.1.3" id="QQ2-1-50">Dioda</a></span>
+<br />  <span class="subsectionToc" >3.1.4 <a 
+href="#x1-450003.1.4" id="QQ2-1-51">LED</a></span>
+                                                                          
 
-// ------------------------------------------------------------
-// Funkce formatuje velikost souboru
-function format_size($size) {
-  $ap = array(' ','K','M','G','T','P','E','Z','Y');
-  $pidx = 0;
-  $rmain = 0;
-  if ($size < 973) {
-    return sprintf('%3d ', $size);
-  }
-  while ($size >= 973) {
-    $rmain = $size & 1023;
-    $size = $size >> 10;
-    $pidx++;
-  }
-  if (($size < 9) || (($size == 9) && ($rmain < 973))) {
-    if (($rmain = (($rmain * 5) + 256) / 512) >= 10) {
-      $size++;
-      $rmain = 0;
-    }
-    return sprintf('%d.%d%s', $size, $rmain, $ap[$pidx]);
-  }
-  if ($rmain >= 512) $size++;
-  return sprintf('%3d%s', $size, $ap[$pidx]);
-}
+                                                                          
+<br />  <span class="subsectionToc" >3.1.5 <a 
+href="#x1-460003.1.5" id="QQ2-1-52">Tranzistor</a></span>
+<br />  <span class="subsectionToc" >3.1.6 <a 
+href="#x1-470003.1.6" id="QQ2-1-53">Cívka</a></span>
+<br />  <span class="subsectionToc" >3.1.7 <a 
+href="#x1-480003.1.7" id="QQ2-1-54">Driver</a></span>
+<br />  <span class="subsectionToc" >3.1.8 <a 
+href="#x1-490003.1.8" id="QQ2-1-55">Stabilizátor</a></span>
+<br />  <span class="subsectionToc" >3.1.9 <a 
+href="#x1-500003.1.9" id="QQ2-1-56">Krystal</a></span>
+<br /> <span class="sectionToc" >3.2 <a 
+href="#x1-510003.2" id="QQ2-1-57"> Základní veličiny v elektronice </a></span>
+<br />  <span class="subsectionToc" >3.2.1 <a 
+href="#x1-520003.2.1" id="QQ2-1-58">Proud</a></span>
+<br />  <span class="subsectionToc" >3.2.2 <a 
+href="#x1-530003.2.2" id="QQ2-1-59">Napětí</a></span>
+<br />  <span class="subsectionToc" >3.2.3 <a 
+href="#x1-540003.2.3" id="QQ2-1-60">Odpor</a></span>
+<br />  <span class="subsectionToc" >3.2.4 <a 
+href="#x1-550003.2.4" id="QQ2-1-61">Výkon</a></span>
+<br />  <span class="subsectionToc" >3.2.5 <a 
+href="#x1-560003.2.5" id="QQ2-1-62">Výpočet tepelného výkonu (ztrátového)</a></span>
+<br />  <span class="subsectionToc" >3.2.6 <a 
+href="#x1-570003.2.6" id="QQ2-1-63">Výpočet rezistoru pro LED</a></span>
+<br /> <span class="sectionToc" >3.3 <a 
+href="#x1-580003.3" id="QQ2-1-64">Motorky, serva a PWM</a></span>
+<br />  <span class="subsectionToc" >3.3.1 <a 
+href="#x1-590003.3.1" id="QQ2-1-65">Motorky</a></span>
+<br />  <span class="subsectionToc" >3.3.2 <a 
+href="#x1-600003.3.2" id="QQ2-1-66">PWM</a></span>
+<br />  <span class="subsectionToc" >3.3.3 <a 
+href="#x1-610003.3.3" id="QQ2-1-67">Řízení serva</a></span>
+<br /> <span class="sectionToc" >3.4 <a 
+href="#x1-620003.4" id="QQ2-1-68">ALKS, další desky a další zařízení</a></span>
+<br />  <span class="subsectionToc" >3.4.1 <a 
+href="#x1-630003.4.1" id="QQ2-1-69">ESP 32</a></span>
+<br />  <span class="subsectionToc" >3.4.2 <a 
+href="#x1-640003.4.2" id="QQ2-1-70">ALKS</a></span>
+<br />  <span class="subsectionToc" >3.4.3 <a 
+href="#x1-650003.4.3" id="QQ2-1-71">Bluetooth</a></span>
+<br />  <span class="subsectionToc" >3.4.4 <a 
+href="#x1-660003.4.4" id="QQ2-1-72">Připojení k počítači pomocí bluetooth</a></span>
+<br /> <span class="sectionToc" >3.5 <a 
+href="#x1-670003.5" id="QQ2-1-73">Desítková soustava a dvojková soustava </a></span>
+<br />  <span class="subsectionToc" >3.5.1 <a 
+href="#x1-680003.5.1" id="QQ2-1-74">Desítková soustava</a></span>
+<br />  <span class="subsectionToc" >3.5.2 <a 
+href="#x1-690003.5.2" id="QQ2-1-75">Dvojková soustava</a></span>
+<br />  <span class="subsectionToc" >3.5.3 <a 
+href="#x1-700003.5.3" id="QQ2-1-76">Převod z desítkové soustavy do dvojkové</a></span>
+<br />  <span class="subsectionToc" >3.5.4 <a 
+href="#x1-710003.5.4" id="QQ2-1-77">Převod z dvojkové soustavy do desítkové</a></span>
+<br />  <span class="subsectionToc" >3.5.5 <a 
+href="#x1-720003.5.5" id="QQ2-1-78">Bitové výrazy a práce s nimi</a></span>
+<br /><span class="chapterToc" >4 <a 
+href="#x1-800004" id="QQ2-1-86">Software</a></span>
+<br /> <span class="sectionToc" >4.1 <a 
+href="#x1-810004.1" id="QQ2-1-87"><span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span></a></span>
+<br />  <span class="subsectionToc" >4.1.1 <a 
+href="#x1-820004.1.1" id="QQ2-1-88">Proč používat <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span></a></span>
+<br />  <span class="subsectionToc" >4.1.2 <a 
+href="#x1-830004.1.2" id="QQ2-1-89">Editory</a></span>
+<br />  <span class="subsectionToc" >4.1.3 <a 
+href="#x1-840004.1.3" id="QQ2-1-90">Další software</a></span>
+                                                                          
 
-// ------------------------------------------------------------
-// Funkce MAIN
-$path = dirname($_SERVER['SCRIPT_NAME']);
-if (strlen($path) <= 1) $path = '/';
+                                                                          
+<br />  <span class="subsectionToc" >4.1.4 <a 
+href="#x1-850004.1.4" id="QQ2-1-91">Proficad</a></span>
+<br />  <span class="subsectionToc" >4.1.5 <a 
+href="#x1-860004.1.5" id="QQ2-1-92">Prohlížení Pdf</a></span>
+<br /><span class="chapterToc" >5 <a 
+href="#x1-870005" id="QQ2-1-93">Ostatní</a></span>
+<br /> <span class="sectionToc" >5.1 <a 
+href="#x1-880005.1" id="QQ2-1-94">Mechanická konstrukce robota – doporučení</a></span>
+<br />  <span class="subsectionToc" >5.1.1 <a 
+href="#x1-910005.1.1" id="QQ2-1-97">Konstrukce velkých robotů</a></span>
+<br /> <span class="sectionToc" >5.2 <a 
+href="#x1-920005.2" id="QQ2-1-98">Řešení některých problémů</a></span>
+<br />  <span class="subsectionToc" >5.2.1 <a 
+href="#x1-930005.2.1" id="QQ2-1-99">Chyba při uploadu programu do desky Arduino nano:</a></span>
+<br /> <span class="sectionToc" >5.3 <a 
+href="#x1-940005.3" id="QQ2-1-100">Příloha A – Hodnoty vybraných součástek</a></span>
+<br /> <span class="sectionToc" >5.4 <a 
+href="#x1-950005.4" id="QQ2-1-101"> Příloha B – Poznámky a vize</a></span>
+<br />  <span class="subsectionToc" >5.4.1 <a 
+href="#x1-960005.4.1" id="QQ2-1-102">Linux</a></span>
+<br />  <span class="subsectionToc" >5.4.2 <a 
+href="#x1-970005.4.2" id="QQ2-1-103">Přerušení</a></span>
+<br />  <span class="subsectionToc" >5.4.3 <a 
+href="#x1-980005.4.3" id="QQ2-1-104">Baterie</a></span>
+<br />  <span class="subsectionToc" >5.4.4 <a 
+href="#x1-990005.4.4" id="QQ2-1-105">Vize – co přidat do textu</a></span>
+</div>
+                                                                          
 
-// Inicializace seznamu souboru
-$files = array();
+                                                                          
+<h2 class="chapterHead"><span class="titlemark">Kapitola 1</span><br /><a 
+ id="x1-20001"></a>Začínáme</h2>
+<h3 class="sectionHead"><span class="titlemark">1.1   </span> <a 
+ id="x1-30001.1"></a>Cíl: první robot</h3>
+<!--l. 3--><p class="noindent" >Tento text je určen pro začátečníky a mírně pokročilé v oblasti stavby
+autonomních robotů – převážně středoškoláky v prvním ročníku, kteří se
+pokoušejí postavit svého prvního <a 
+href="#autonomni">autonomního</a> robota, nejčastěji pro nějakou
+soutěž<span class="footnote-mark"><a 
+href="_dokumentace2.html#fn1x1"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-3001f1"></a> . Protože byl sepsán
+na pracovišti Robotárna<span class="footnote-mark"><a 
+href="_dokumentace3.html#fn2x1"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x1-3002f2"></a> 
+(pobočka DDM Helceletka Brno), jsou některé části určené především členům
+jeho kroužků. Ale většina textu je použitelná všeobecně.
+</p><!--l. 15--><p class="noindent" >Každý robot se musí </p>
+      <ul class="itemize1">
+      <li class="itemize">vyrobit (mechanická část – konstrukce)
+      </li>
+      <li class="itemize">osadit elektronikou, motory a pod.
+      </li>
+      <li class="itemize">naprogramovat</li></ul>
+<!--l. 22--><p class="noindent" >Přitom můžou nastat zhruba dvě situace:
+</p>
+      <ul class="itemize1">
+      <li class="itemize">Nemám žádné znalosti a zkušenosti <span 
+class="cmsy-10x-x-120">→ </span>doporučený postup je začít
+      ve školním kroužku nebo samostatně stavět a programovat robota
+      z <span 
+class="ecti-1200">Lego Mindstorms</span><span class="footnote-mark"><a 
+href="_dokumentace4.html#fn3x1"><sup class="textsuperscript">3</sup></a></span><a 
+ id="x1-3003f3"></a> .
+      Je to daleko nejjednodušší a nejrychlejší cesta, omezení jste cenou
+      stavebnice a jejími možnostmi.
+                                                                          
 
-// Nacteni obsahu adresare
-$hdir = opendir(".");
-while ($file = readdir($hdir)) {
-  if ((substr($file, 0, 1) == '.') && ($file != '..')) continue;
-  if ($file == basename(__FILE__)) continue;
-  if (is_dir($file)) {
-    array_push($files, array('dir' => 1, 'name' => $file, 'date' => filemtime($file), 'size' => 0));
-  } else {
-    array_push($files, array('dir' => 0, 'name' => $file, 'date' => filemtime($file), 'size' => filesize($file)));
-  }
-}
-closedir($hdir);
+                                                                          
+      </li>
+      <li class="itemize">Už jsem někdy něco naprogramoval nebo zapojil nebo postavil a chci
+      jít dál <span 
+class="cmsy-10x-x-120">→ </span>potom je pro vás určen tento text. Jednotlivé kapitoly se
+      věnují různým oblastem, které je postupně potřeba zvládnout (nebo
+      jimi pověřit jiného člena týmu) s důrazem na začátečnické problémy.</li></ul>
+<h4 class="subsectionHead"><span class="titlemark">1.1.1   </span> <a 
+ id="x1-40001.1.1"></a>Týmy pro stavbu robotů</h4>
+<!--l. 35--><p class="noindent" >Už bylo zmíněno, že stavba robotů zahrnuje tři propojené, ale relativně
+nezávislé okruhy: návrh a výrobu mechanické konstrukce, návrh a zapojení
+elektroniky a programování. Proto je dobré roboty stavět v týmech, kde se
+jednotliví členové zaměřují na tyto oblasti a navzájem se doplňují. Navíc
+každý tým potřebuje řadu pomocných činností (nákup součástek, vyhledávání
+údajů na internetu a pod.). Je dobré mít proto v každém týmu ještě
+pomocníka, který podporuje ostatní a umožňuje jim soustředit se na jejich
+hlavní úkoly.
+</p><!--l. 42--><p class="noindent" >Úplně ideální potom je, když každou funkci v týmu zastávají dva lidé, takže se
+mohou vzájemně zastupovat. Tým by potom měl celkem osm členů – dva
+mechaniky, dva elektroniky, dva programátory a dva pomocníky. To se ale
+v praxi téměř nikdy nepodaří. Často nastane právě opačný případ, kdy tým
+má pouze dva nebo tři členy, kteří se o všechny činnosti musí nějak
+podělit.
+</p><!--l. 47--><p class="noindent" >V každém případě ale platí, že je výhoda, pokud lidé v týmu znají i věci
+mimo jejich „hlavní obor“, tj. když například programátor zná základy
+elekroniky.
+</p><!--l. 49--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.2   </span> <a 
+ id="x1-50001.1.2"></a>Postup návrhu robota</h4>
+<!--l. 52--><p class="noindent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">stanovit, co by měl robot splnit – přibližně
+                                                                          
 
-// Serazeni seznamu souboru
-usort($files, 'cmp_files_item');
+                                                                          
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">sepsat, co by měl robot splnit – podrobně (klidně i více stran A4),
+      z toho vyplyne
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">zjištění,  jaké  senzory  a pohony  robot  potřebuje  a kde  budou  na
+      robotovi umístěné
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">návrh první konstrukce robota včetně umístění senzorů a pohonů
+      </dd><dt class="enumerate-enumitem">
+   5. </dt><dd 
+class="enumerate-enumitem">zprovoznění toho všeho – <span 
+class="ecbx-1200">hlavn</span><span 
+class="ecbx-1200">í c</span><span 
+class="ecbx-1200">íl tohoto textu </span></dd></dl>
+<!--l. 59--><p class="noindent" >Začátečníci obvykle tuto posloupnost nedodrží a pak staví mechaniku pro 3
+a více robotů, než zjistí, že je to dost práce navíc. A taky dost času navíc,
+který potom před soutěží může chybět.
+</p><!--l. 65--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.3   </span> <a 
+ id="x1-60001.1.3"></a>Co potřebujete na začátku</h4>
+<!--l. 67--><p class="noindent" ><span 
+class="ecbx-1200">Hardware:</span>
+</p>
+      <ul class="itemize1">
+      <li class="itemize">notebook               nebo               počítač               s operačním
+      systémem Windows 7 a novějším nebo Linux (pro starší počítače
+      např. aktuální distribuci Xubuntu, Lubuntu, Mint)
+      </li>
+      <li class="itemize">desku s čipem, např. DevKit ESP32<span class="footnote-mark"><a 
+href="_dokumentace5.html#fn4x1"><sup class="textsuperscript">4</sup></a></span><a 
+ id="x1-6001f4"></a> 
+      </li>
+      <li class="itemize">vývojovou desku ALKS<span class="footnote-mark"><a 
+href="_dokumentace6.html#fn5x1"><sup class="textsuperscript">5</sup></a></span><a 
+ id="x1-6002f5"></a>
+                                                                          
 
-// ------------------------------------------------------------
-// Zobrazeni HTML
-?>
-<html>
-<head>
-<title>Index of <?php echo $path; ?></title>
-</head>
-<body background="/img/pozadi.png">
-<h1>Index of <?php echo $path; ?></h1>
-<pre><hr>
-<?php
-$nlen = 23;
-if (!SHOW_DATE) $nlen += 18;
-if (!SHOW_SIZE) $nlen += 6;
-foreach ($files as $file) {
-  if ($file['dir']) {
-    if ($file['name'] == '..') {
-      if ($path == '/') continue;
-      if (!SHOW_BACK) continue;
-      $icon = 'back.gif';
-      $desc = 'Parent Directory';
-    } else {
-      $icon = 'folder.gif';
-      $desc = $file['name'];
-    }
-    $alti = '[DIR]';
-    $href = $file['name'].'/';
-  } else {
-    $icon = 'unknown.gif';
-    $alti = '[   ]';
-    $href = $file['name'];
-    $desc = $file['name'];
-  }
-  if (strlen($desc) > $nlen) {
-    $desc = substr($desc, 0, ($nlen - 3)).'..>';
-  }
-  if (SHOW_DATE) {
-    if ($file['name'] == '..') {
-      $date = str_repeat(' ', 18);
-    } else {
-      $date = date('  d.m.Y H:i', $file['date']);
-    }
-  } else {
-    $date = '';
-  }
-  if (SHOW_SIZE) {
-    if ($file['dir']) {
-      $size = '    - ';
-    } else {
-      $size = '  '.format_size($file['size']);
-    }
-  } else {
-    $size = '';
-  }
-  echo '<img src="/img/icons/'.$icon.'" alt="'.$alti.'"> <a href="'.$href.'">'.htmlspecialchars($desc).'</a>'.str_repeat(' ', $nlen - strlen($desc)).$date.$size."\n";
-}
-?>
-<hr></pre>
-<body>
-</html>
+                                                                          
+      </li>
+      <li class="itemize">výhledově cokoli dalšího, co chcete tím čipem řídit (serva, ultrazvuk,
+      senzory a motory všeho druhu ... )</li></ul>
+<!--l. 77--><p class="noindent" ><span 
+class="ecbx-1200">Software:</span>  </p>
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ecti-1200">Visual Studio Code </span>– viz kapitola <a 
+href="#x1-80001.1.4">1.1.4<!--tex4ht:ref: vsc --></a>
+      </li>
+      <li class="itemize"><span 
+class="ecti-1200">PlatformIO </span>– viz kapitola <a 
+href="#x1-100001.1.4">1.1.4<!--tex4ht:ref: platformio --></a></li></ul>
+<!--l. 82--><p class="noindent" >Veškerý zde popisovaný a doporučovaný software je freeware.
+</p><!--l. 86--><p class="noindent" ><span 
+class="ecbx-1200">Znalosti:</span>  </p>
+      <ul class="itemize1">
+      <li class="itemize">běžná  práce  se  soubory  ve  vašem  operačním  systému  (hledání,
+      kopírování, mazání, ... )
+      </li>
+      <li class="itemize">základy programování C++ (viz kapitola <a 
+href="#x1-190002.1.1">2.1.1<!--tex4ht:ref: cpp --></a>) a příkazy C++ pro
+      čipy (viz kapitola <a 
+href="#x1-350002.2">2.2<!--tex4ht:ref: cppcipy --></a>)
+      </li>
+      <li class="itemize">velmi  se  hodí  schopnost  porozumět  textu  psanému  v jednoduché
+      angličtině)
+      </li>
+      <li class="itemize">základy elektroniky – viz kapitola <a 
+href="#x1-400003">3<!--tex4ht:ref: elektronika --></a></li></ul>
+<!--l. 96--><p class="noindent" ><span 
+class="ecbx-1200">Taky se hod</span><span 
+class="ecbx-1200">í v</span><span 
+class="ecbx-1200">ěd</span><span 
+class="ecbx-1200">ět, </span><span 
+class="ecbx-1200">že:</span>  </p>
+      <ul class="itemize1">
+      <li class="itemize">veškeré zelené a modré odkazy a slova jsou proklikávací (s výjimkou
+      barevného zvýraznění syntaxe<span class="footnote-mark"><a 
+href="_dokumentace7.html#fn6x1"><sup class="textsuperscript">6</sup></a></span><a 
+ id="x1-6003f6"></a> 
+      ve zdrojových textech jazyka C++)
+      </li>
+      <li class="itemize">na konci textu je (klikací) obsah
+      </li>
+      <li class="itemize">těsně před obsahem je (také klikací) rejstřík
+                                                                          
+
+                                                                          
+      </li>
+      <li class="itemize">v žádném textu o elektronice a robotice nemůže být všechno, pokud
+      zde něco nenajdete, použijte např. Google</li></ul>
+<!--l. 107--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.4   </span> <a 
+ id="x1-70001.1.4"></a>První projekt</h4>
+<!--l. 112--><p class="noindent" >
+</p>
+<h5 class="likesubsubsectionHead"><a 
+ id="x1-80001.1.4"></a>Postup</h5>
+<!--l. 114--><p class="noindent" >Pokud s programováním čipů začínáme, čekají nás tyto úkoly:
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">nainstalovat prostředí <span 
+class="ecti-1200">Visual Studio Code</span>
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">do VS Code nainstalovat tzv. <span 
+class="ecti-1200">PlatformIO</span>
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">založit nový projekt
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">napsat zdrojový kód, přeložit a dostat jej do čipu</dd></dl>
+<!--l. 121--><p class="noindent" >Toto vše podrobněji probereme na dalších řádcích.
+</p><!--l. 123--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-90001.1.4"></a>Nainstalovat Visual Studio Code</h5>
+<!--l. 126--><p class="noindent" ><span 
+class="ecti-1200">Visual Studio Code </span><a 
+ id="dx1-9001"></a>(zkráceně VS Code) je něco jako textový editor, speciálně
+navržený pro programátory čehokoliv. Instalujte podobně jako každý jiný
+program, stahujte zde: <a 
+href="https://code.visualstudio.com/" class="url" ><span 
+class="ectt-1200">https://code.visualstudio.com/</span></a>
+                                                                          
+
+                                                                          
+</p><!--l. 131--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-100001.1.4"></a>Nainstalovat PlatformIO</h5>
+<a 
+ id="dx1-10001"></a>
+<!--l. 133--><p class="noindent" >PlatformIO je ten software, který umožní program v C++ přeložit tak, aby ho
+čip pochopil a taky ho do čipu umí nahrát. Instalace podle návodu zde:
+<a 
+href="http://docs.platformio.org/en/latest/ide/vscode.html\#installation" class="url" ><span 
+class="ectt-1200">http://docs.platformio.org/en/latest/ide/vscode.html\#installation</span></a>
+</p><!--l. 137--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-110001.1.4"></a>Založit nový projekt</h5>
+<!--l. 139--><p class="noindent" >Program (ne)píšete jen do jednoho souboru, ale aby vše fungovalo, potřebujete
+povícero dalších souborů, které dohromady tvoří tzv. <span 
+class="ecbx-1200">projekt</span><a 
+ id="dx1-11001"></a>. Tyto soubory
+jsou mezi sebou hodně provázané a navíc vázané na konkrétní místo uložení,
+takže vám po překopírování na jiný počítač pravděpodobně program nepůjde
+přeložit a nebo nahrát do čipu. Řešení: uložit celý projekt na flešku. Na novém
+počítači založit nový projekt a potřebné části zdrojového kódu kopírovat
+pomocí Ctrl+C, Ctrl+V.
+</p><!--l. 146--><p class="noindent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Založte nový projekt z ikonky „domeček“ – viz <a 
+href="http://docs.platformio.org/en/latest/ide/vscode.html\#quick-start" class="url" ><span 
+class="ectt-1200">http://docs.platformio.org/en/latest/ide/vscode.html\#quick-_start</span></a>.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">Do  kolonky  <span 
+class="ecti-1200">Board  </span>se  musí  vybrat  správná  deska.  Desek  je  přes
+      400 a jsou rozdělené do sekcí řazených podle abecedy vyznačených
+      šedivou barvou. V sekcích jsou potom jednotlivé desky řazené taky
+      abecedně. Pro čip ESP32 najdete sekci <span 
+class="ecti-1200">Espressif32 </span>a v ní položku
+      <span 
+class="ecti-1200">Espressif ESP32 Dev Module</span>. Kolonka <span 
+class="ecti-1200">Framework  </span>se potom vyplní
+      automaticky.
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">Zbývá vybrat adresář, do kterého bude projekt uložen. Tento adresář
+      si předem vytvořte, s adresářem vytvářeným za pochodu má VS Code
+      kdovíproč problém. Odškrtněte zatržítko <span 
+class="ecti-1200">Use defalut folder </span>a zvolte
+      vytvořený adresář.</dd></dl>
+                                                                          
+
+                                                                          
+<!--l. 157--><p class="noindent" >Pro Linux Lubuntu: projekt musí být uložen na pevném disku, ne na flešce, jinak
+prostě nepojede, netuším proč.
+</p><!--l. 159--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-120001.1.4"></a>Napsat zdrojový kód, přeložit a dostat jej do čipu</h5>
+<hr class="figure" /><div class="figure" 
+>
+                                                                          
+
+                                                                          
+<a 
+ id="x1-120011"></a>
+                                                                          
+
+                                                                          
+
+<!--l. 162--><p class="noindent" ><img 
+src="soubory/rozlozeni2.jpg" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Obrázek 1.1: </span><span  
+class="content">Rozložení oken v programu <span 
+class="ecti-1200">VS Code</span></span></div><!--tex4ht:label?: x1-120011 -->
+                                                                          
+
+                                                                          
+</div><hr class="endfigure" />
+<!--l. 167--><p class="noindent" ><a 
+ id="explorer"></a> Obrázek <a 
+href="#x1-120011">1.1<!--tex4ht:ref: fig:vsc_rozlozeni --></a> na straně <a 
+href="#x1-120011">13<!--tex4ht:ref: fig:vsc_rozlozeni --></a> ukazuje rozložení oken v rámci projektu. Hlavní okno
+rozdělte na dvě části pro zobrazení dvou upravovaných souborů pomocí ikony
+v kroužku. Začínáme v okně <span 
+class="ecbx-1200">Explorer</span>, <a 
+ id="dx1-12002"></a>kde je umístěna adresářová struktura
+projektu<span class="footnote-mark"><a 
+href="_dokumentace8.html#fn7x1"><sup class="textsuperscript">7</sup></a></span><a 
+ id="x1-12003f7"></a> .
+Otevřete soubory <span 
+class="ecti-1200">platformio.ini </span>a v adresáři <span 
+class="ecti-1200">src </span>soubor <span 
+class="ecti-1200">main.cpp</span>.
+</p><!--l. 174--><p class="noindent" >Pro pohodlnou práci s deskou ALKS byla <a 
+ id="dx1-12004"></a>napsaná tzv. knihovna <span 
+class="ecti-1200">LearningKit</span>.
+Aby fungovala, musí být do souboru <span 
+class="ecti-1200">platformio.ini </span>dopsán řádek <span 
+class="ectt-1200">lib_deps =</span>
+<span 
+class="ectt-1200">1745 </span>(bez mezery na začátku řádku) a do záhlaví souboru <span 
+class="ecti-1200">main.cpp </span>doplňte
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200"> include</span><span 
+class="ectt-1200"> &#x0022;LearningKit.h&#x0022;</span></span></span> Dále dopište do souboru <span 
+class="ecti-1200">main.cpp </span>kód, který
+bliká červenou LED. Vše je vidět na obrázku <a 
+href="#x1-120011">1.1<!--tex4ht:ref: fig:vsc_rozlozeni --></a>. Celý zdrojový kód
+tohoto prvního programu (obsah souboru <span 
+class="ecti-1200">main.cpp</span>) je uveden v kapitole
+<a 
+href="#x1-360002.3">2.3<!--tex4ht:ref: cpppr1 --></a>.
+</p><!--l. 183--><p class="noindent" >Teď budou potřeba další dvě části VS Code: terminál <a 
+ id="dx1-12005"></a>(okno vpravo dole) a stavový
+řádek (Status bar<a 
+ id="dx1-12006"></a> – proužek pod terminálem). Na stavovém řádku klikněte na ikonu
+šipky<span class="footnote-mark"><a 
+href="_dokumentace9.html#fn8x1"><sup class="textsuperscript">8</sup></a></span><a 
+ id="x1-12007f8"></a> 
+(pátá zprava) a <span 
+class="ecti-1200">PlatformIO </span>se pokusí váš program přeložit a nahrát
+do čipu. Pokud chcete program pouze přeložit, klikněte na ikonu
+zatržítko<span class="footnote-mark"><a 
+href="_dokumentace10.html#fn9x1"><sup class="textsuperscript">9</sup></a></span><a 
+ id="x1-12008f9"></a> 
+hned vedle.
+</p><!--l. 187--><p class="noindent" >Při prvním pokusu nahrát program do čipu na Linuxu může mít <span 
+class="ecti-1200">PlatformIO</span>
+problém, že nenajde USB spojení na desku s čipem a vyžaduje ho doistalovat.
+Zpráva<span class="footnote-mark"><a 
+href="_dokumentace11.html#fn10x1"><sup class="textsuperscript">10</sup></a></span><a 
+ id="x1-12009f10"></a>  se objeví se
+                                                                          
+
+                                                                          
+v terminálu včetně nápovědy,<span class="footnote-mark"><a 
+href="_dokumentace12.html#fn11x1"><sup class="textsuperscript">11</sup></a></span><a 
+ id="x1-12010f11"></a> 
+jak to udělat. Nápověda je ale tak podrobná, že to středně poučený linuxový laik
+s pomocí internetu zvládne. Při všech dalších překladech už to nebude
+problém.
+</p><!--l. 192--><p class="noindent" >Další programy budou uvedeny v kapitole <a 
+href="#x1-360002.3">2.3<!--tex4ht:ref: cpppr --></a>.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">1.1.5   </span> <a 
+ id="x1-130001.1.5"></a>Základní pojmy – čipy</h4>
+<!--l. 3--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-140001.1.5"></a>Datasheet</h5>
+<!--l. 5--><p class="noindent" ><span 
+class="ecbx-1200">Datasheet</span> <a 
+ id="dx1-14001"></a>je dokument, ve kterém jsou detailně popsány vlastnosti a možnosti
+dané elektronické součástky. Každá součástka má svůj datasheet.
+</p><!--l. 8--><p class="noindent" >Datasheet pro každou součástku je možné najít na
+internetu<span class="footnote-mark"><a 
+href="_dokumentace13.html#fn12x1"><sup class="textsuperscript">12</sup></a></span><a 
+ id="x1-14002f12"></a> 
+nebo na stránkách výrobce nebo prodejce součástky. Bohužel jsou všechny
+datasheety anglicky.
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-150001.1.5"></a>Mikroprocesor, mikrokontrolér</h5>
+<!--l. 14--><p class="noindent" ><span 
+class="ecbx-1200">Mikroprocesor, mikrokontrol</span><span 
+class="ecbx-1200">ér, </span><span 
+class="ecbx-1200">čip</span> <a 
+ id="dx1-15001"></a><a 
+ id="dx1-15002"></a> <a 
+ id="dx1-15003"></a>znamenají totéž – integrovaný
+obvod, který se snažíme naprogramovat, aby řídil robota nebo jeho část.
+<a 
+ id="cip1"></a>
+</p><!--l. 17--><p class="noindent" ><span 
+class="ecbx-1200">Pin</span> <a 
+ id="dx1-15004"></a>je vývod (nožička) čipu. Jednoduché čipy (např. ATtiny) mají osm pinů,
+složitější čipy mají 32, 40, nebo také 100 pinů.
+                                                                          
+
+                                                                          
+</p><!--l. 19--><p class="noindent" >Pin může být nastavený jako vstupní nebo jako výstupní.
+</p><!--l. 21--><p class="noindent" >Pokud je pin nastavený jako <span 
+class="ecbx-1200">vstupn</span><span 
+class="ecbx-1200">í</span>, umí určit, zda na něm je napětí
+odpovídající logické jedničce<a 
+ id="dx1-15005"></a> (5 V nebo 3,3 V podle typu čipu) nebo logické
+nule (0 V)<a 
+ id="dx1-15006"></a> . Také umí přečíst, jaké je na něm analogové napětí.
+</p><!--l. 25--><p class="noindent" >Pokud je pin nastavený jako <span 
+class="ecbx-1200">v</span><span 
+class="ecbx-1200">ýstupn</span><span 
+class="ecbx-1200">í</span>, umí se nastavit na logickou jedničku
+nebo logickou nulu.
+</p><!--l. 28--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-160001.1.5"></a>Bity a bajty</h5>
+<!--l. 30--><p class="noindent" >Každá číslice ve dvojkové soustavě reprezentuje jeden <span 
+class="ecbx-1200">bit</span> <a 
+ id="dx1-16001"></a>(nabývá hodnot 0
+nebo 1).
+</p><!--l. 32--><p class="noindent" >Osm bitů dohromady tvoří <a 
+ id="dx1-16002"></a><span 
+class="ecbx-1200">bajt</span>. Nejnižší bit v bajtu leží vpravo (tzv. <span 
+class="ecbx-1200">nult</span><span 
+class="ecbx-1200">ý</span>
+<span 
+class="ecbx-1200">bit</span> <a 
+ id="dx1-16003"></a><a 
+ id="dx1-16004"></a> ), další je nalevo od něj (první bit), až do sedmého bitu, který je nejvíce
+vlevo.
+                                                                          
+
+                                                                          
+</p>
+<h2 class="chapterHead"><span class="titlemark">Kapitola 2</span><br /><a 
+ id="x1-170002"></a>Programovací jazyk C++</h2>
+<h3 class="sectionHead"><span class="titlemark">2.1   </span> <a 
+ id="x1-180002.1"></a>Základy syntaxe v jazyce C</h3>
+<!--l. 3--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">2.1.1   </span> <a 
+ id="x1-190002.1.1"></a>Základní pojmy</h4>
+<!--l. 5--><p class="noindent" >Upozornění: V jazyce C++ se <span 
+class="ecbx-1200">rozli</span><span 
+class="ecbx-1200">šuj</span><span 
+class="ecbx-1200">í velk</span><span 
+class="ecbx-1200">á a</span><span 
+class="ecbx-1200"> mal</span><span 
+class="ecbx-1200">á p</span><span 
+class="ecbx-1200">ísmena</span>.
+      </p><dl class="description"><dt class="description">
+<span 
+class="ecbx-1200">p</span><span 
+class="ecbx-1200">ř</span><span 
+class="ecbx-1200">íkaz</span> </dt><dd 
+class="description"><a 
+ id="dx1-19001"></a>  –  povel  pro  procesor,  říká  procesoru,  co  má  dělat.  Příkazy
+      probíhají postupně, nejprve se udělá jeden a pak další, který je na
+      řadě. Za příkazy dáváme středník (;).
+      </dd><dt class="description">
+<span 
+class="ecbx-1200">syntaxe</span> </dt><dd 
+class="description"><a 
+ id="dx1-19002"></a> –  „pravopis“  programovacího  jazyka,  říká,  jak  psát  příkazy
+      programovacího jazyka tak, aby nám počítač rozuměl
+      </dd><dt class="description">
+<span 
+class="ecbx-1200">preprocesor</span> </dt><dd 
+class="description"><a 
+ id="dx1-19003"></a> – před samotným překladem programu do <span 
+class="ecti-1200">*.hex  </span>souboru
+      proběhnou tzv. direktivy preprocesoru (něco jako příkazy, podrobně .
+      <a 
+ id="dx1-19004"></a>
+      <!--l. 19--><p class="noindent" >Příklady: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">#include</span><span 
+class="ectt-1200"> &#x003C;&#x003E;</span></span></span> – pro vkládání hlavičkových souborů <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">#include</span><span 
+class="ectt-1200"> &#x0022;&#x0022;</span></span></span> – pro vkládání vlastních hlavičkových souborů <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">#define</span><span 
+class="ectt-1200"> KONSTANTA</span><span 
+class="ectt-1200"> HODNOTA_KONSTANTY</span></span></span> –  pro  definici  konstanty,
+      všude kde se v kódu vyskytne text <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">KONSTANTA</span></span></span> bude tento text nahrazen<br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">HODNOTA_KONSTANTY</span></span></span>
+      </p></dd><dt class="description">
+<span 
+class="ecbx-1200">prom</span><span 
+class="ecbx-1200">ěnn</span><span 
+class="ecbx-1200">á</span> </dt><dd 
+class="description"><a 
+ id="dx1-19005"></a> – je místo v paměti, kde jsou uložena nějaké data
+      </dd><dt class="description">
+<span 
+class="ecbx-1200">datov</span><span 
+class="ecbx-1200">ý typ</span> </dt><dd 
+class="description"><a 
+ id="dx1-19006"></a> – říká nám, v jaké podobě jsou data v proměnné uložena.
+      V  proměnné  jsou  pouze  jedničky  a  nuly,  Pomocí  datového  typu
+      mikrokontrolér pozná, jestli ta data jsou čísla, nebo znak, v jakém
+      rozsahu jsou čísla, atd... používané datové typy: <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">uint8_t</span></span></span> – celá čísla od 0 do 255 <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">int8_t</span></span></span> – celá čísla od -127 do 127 <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">uint16_t</span></span></span> – celá čísla od 0 do 65535 <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">int16_t</span></span></span> – celá čísla od -32767 do 32767 <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">uint32_t</span></span></span> – celá čísla od 0 do 4294967296 <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">int32_t</span></span></span> – celá čísla od -2147483647 do 2147483647 <br 
+class="newline" />
+      </dd><dt class="description">
+<span 
+class="ecbx-1200">operandy</span> </dt><dd 
+class="description">– jsou čísla nebo výrazy, které „vstupují do operace“
+      </dd><dt class="description">
+<span 
+class="ecbx-1200">oper</span><span 
+class="ecbx-1200">átory</span> </dt><dd 
+class="description">–  nám  říká,  jaké  operace  provedeme  s  operandy  (co  s  nimi
+      uděláme)
+      <!--l. 38--><p class="noindent" >Příklad:  <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">5</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 2</span></span></span>,  přitom  <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">5</span></span></span> a  <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">2</span></span></span> jsou  operandy  a  znaménko  plus  je
+      operátor, který nám říká, že čísla chceme sečíst (provést operaci
+      sečítání)
+      </p></dd><dt class="description">
+<span 
+class="ecbx-1200">pozn</span><span 
+class="ecbx-1200">ámka</span> </dt><dd 
+class="description">– cokoliv se objeví v kódu mezi znaky <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">/*</span></span></span> a <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">*/</span></span></span>, tak je poznámka
+      a bude před překladem odstraněno z kódu.
+      <!--l. 43--><p class="noindent" >Pokud chceme zapoznámkovat pouze jeden řádek, použijeme <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">//</span></span></span>
+      </p><!--l. 45--><p class="noindent" >Příklady:
+</p>
+      <!--l. 47--><div class="lstinputlisting">
+<a 
+ id="x1-19007"></a>
+      <span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-19008r1"></a></span><span 
+class="ectt-1200">/*</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">Vse</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">co</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">je</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">napsano</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">zde</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-19009r2"></a></span><span 
+class="ectt-1200">je</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">poznamka</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">a</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">nebude</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">prekladano</span><span 
+class="ectt-1200">.</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-19010r3"></a></span><span 
+class="ectt-1200">*/</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-19011r4"></a></span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-19012r5"></a></span><span 
+class="ectt-1200">//</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">Toto</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">je</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">poznamka</span><span 
+class="ectt-1200">,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">ktera</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">popisuje</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">funkci</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">kodu</span>
+      
+      </div>
+      </dd></dl>
+<!--l. 63--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">2.1.2   </span> <a 
+ id="x1-200002.1.2"></a>Výrazy a operátory</h4>
+                                                                          
+
+                                                                          
+<!--l. 65--><p class="noindent" >Výraz je něco co nabývá nějaké hodnoty, např.: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">5</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 3</span></span></span> je výraz, který nabývá
+hodnoty <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">8</span></span></span>. <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">5</span><span 
+class="ectt-1200"> &#x003E;</span><span 
+class="ectt-1200"> 3</span></span></span> je výraz nabývající hodnoty <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">true</span></span></span> neboli pravda, <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">x</span><span 
+class="ectt-1200"> &#x003C;=</span><span 
+class="ectt-1200"> 10</span></span></span> je
+výraz který je pravdivý, pokud proměnná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">x</span></span></span>(kterou musíme mít deklarovanou)
+menší nebo rovna číslu <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">10</span></span></span>.
+</p><!--l. 69--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-210002.1.2"></a>Aritmetické operátory</h5>
+<!--l. 70--><p class="noindent" ><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">+</span></span></span> sčítání <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">-</span></span></span> odčítaní <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">*</span></span></span> násobení <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">/</span></span></span> dělení <br 
+class="newline" />
+</p><!--l. 75--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-220002.1.2"></a>Operátory inkrementace a dekrementace</h5>
+<!--l. 76--><p class="noindent" >pokud chceme zvýšit hodnotu proměnné o jedničku, napíšeme <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">++n</span><span 
+class="ectt-1200">ázev_prom</span><span 
+class="ectt-1200">ěnn</span><span 
+class="ectt-1200">é</span></span></span>;
+pokud chceme snížit hodnotu proměnné o jedničku, napíšeme <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">--n</span><span 
+class="ectt-1200">ázev_prom</span><span 
+class="ectt-1200">ěnn</span><span 
+class="ectt-1200">é</span></span></span>;
+</p><!--l. 80--><p class="noindent" >Příklad:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-1">
+uint8_t i = 5;  // Vytvoření proměnné i a dosazení hodnoty 5 do ní.
+ <br />uint8_t j = 42; // Vytvoření proměnné j a dosazení hodnoty 42 do ní.
+ <br />
+ <br />++i;  // Hodnota i se zvýší o jedničku na číslo 6.
+ <br />--j;  // Hodnota j se sníží o jedničku na číslo 41.
+</div>
+<!--l. 87--><p class="nopar" >
+</p><!--l. 93--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-230002.1.2"></a>Logické výrazy a operátory</h5>
+<!--l. 95--><p class="noindent" >Přehled logických operátorů: <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">==</span></span></span> porovnání - rovnost <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">!=</span></span></span> porovnání - nerovnost <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">&#x0026;&#x0026;</span></span></span> logický součin <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">||</span></span></span> logický součet <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">!</span><span 
+class="ectt-1200"> </span></span></span> negace <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">&#x003C;</span><span 
+class="ectt-1200"> </span></span></span> menší než <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">&#x003C;=</span></span></span> menší nebo rovno <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">&#x003E;</span><span 
+class="ectt-1200"> </span></span></span> větší než <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">&#x003E;=</span></span></span> větší nebo rovno <br 
+class="newline" />
+</p><!--l. 107--><p class="noindent" ><span 
+class="ecbx-1200">Logick</span><span 
+class="ecbx-1200">ý v</span><span 
+class="ecbx-1200">ýraz</span><a 
+ id="dx1-23001"></a><a 
+ id="dx1-23002"></a> může nabývat pouze dvou hodnot – pravda (true) a
+nepravda (false). Obvykle je nepravda reprezentovaná nulou a pravda každým
+nenulovým číslem. Logické výrazy se používají v podmínkách (viz např.
+<a 
+href="#x1-270002.1.3">2.1.3<!--tex4ht:ref: if1 --></a>)<br 
+class="newline" />.
+</p><!--l. 110--><p class="noindent" ><span 
+class="ecbx-1200">Logick</span><span 
+class="ecbx-1200">é operace</span><a 
+ id="dx1-23003"></a><a 
+ id="dx1-23004"></a> se používají při vyhodnocování logických výrazů.
+</p><!--l. 112--><p class="noindent" >Příklady: <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span><span 
+class="ectt-1200"> ==</span><span 
+class="ectt-1200"> b</span></span></span> výraz je pravdivý, pokud se <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span></span></span> rovná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span> <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span><span 
+class="ectt-1200"> !=</span><span 
+class="ectt-1200"> b</span></span></span> výraz je pravdivý, pokud se <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span></span></span> nerovná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span> lze to napsat i konkrétněji,
+např.: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span><span 
+class="ectt-1200"> !=</span><span 
+class="ectt-1200"> 5</span></span></span>, výraz je pravda pokud se <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span></span></span> nerovná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">5</span></span></span>, pokud se rovná výsledkem
+výrazu je nepravda(false) <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span><span 
+class="ectt-1200"> &#x003E;</span><span 
+class="ectt-1200"> c</span></span></span> výraz je pravdivý, pokud je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span> větší než <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">c</span></span></span>
+<br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span><span 
+class="ectt-1200"> &#x003E;=</span><span 
+class="ectt-1200"> d</span></span></span> výraz je pravdivý, pokud je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span> větší nebo rovný <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">d</span></span></span> <br 
+class="newline" />
+</p><!--l. 119--><p class="noindent" ><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">!(a</span><span 
+class="ectt-1200"> &#x003E;</span><span 
+class="ectt-1200"> b)</span></span></span> výraz v závorce je pravdivý, pokud je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span></span></span> větší než <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span>, ale pak je
+negováno(z pravdy se stává nepravda a naopak ), tj. celý výraz je nepravdivý,
+pokud je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span></span></span> větší než <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span>, pokud je a menší nebo rovno, tak je výraz pravdivý.
+<br 
+class="newline" />
+</p><!--l. 123--><p class="noindent" ><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">!(a</span><span 
+class="ectt-1200"> ==</span><span 
+class="ectt-1200"> b)</span></span></span> výraz <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(a</span><span 
+class="ectt-1200"> ==</span><span 
+class="ectt-1200"> b)</span></span></span> je negován znaménkem <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">!</span></span></span>, to znamená, že výraz je
+pravdivý, pokud se výraz <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span></span></span> nerovná výrazu <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span>, v podstatě se to dá napsat i takto:
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span><span 
+class="ectt-1200"> !=</span><span 
+class="ectt-1200"> b</span></span></span> <br 
+class="newline" />Pozor: negace výrazu <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(a</span><span 
+class="ectt-1200"> &#x003E;</span><span 
+class="ectt-1200"> b)</span></span></span>, tj. <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">!(a</span><span 
+class="ectt-1200"> &#x003E;</span><span 
+class="ectt-1200"> b)</span></span></span> není to samé jako výraz <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(a</span><span 
+class="ectt-1200"> &#x003C;</span><span 
+class="ectt-1200"> b)</span></span></span>, ale správně
+je to <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(a</span><span 
+class="ectt-1200"> &#x003C;=</span><span 
+class="ectt-1200"> b)</span></span></span> <span class="footnote-mark"><a 
+href="_dokumentace14.html#fn1x2"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-23005f1"></a> 
+<br 
+class="newline" />
+</p><!--l. 128--><p class="noindent" >Logický součin <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">&#x0026;&#x0026;</span></span></span> se používá, pokud budeme potřebovat spojit dva nebo více
+výrazů dohromady, např.: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(a</span><span 
+class="ectt-1200"> &#x003E;</span><span 
+class="ectt-1200"> b)&#x0026;&#x0026;(c</span><span 
+class="ectt-1200"> ==</span><span 
+class="ectt-1200"> d)</span></span></span>, výsledkem tohoto výrazu bude
+logický součin výrazů v závorkách, pro logický součin platí, že je pravda
+pokud oba výrazy jsou pravdivé, jinak je výsledek nepravda, tj. zde bude
+pravda pouze pokud bude <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">a</span></span></span> větší než <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span> a zároveň bude platit, že <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">c</span></span></span> se
+rovná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">d</span></span></span>. Logický součin použijeme, pokud musí všechny výryzy být
+pravda.
+</p><!--l. 134--><p class="noindent" >Logický součet <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">||</span></span></span> je pravdivý, pokud alespoň jeden výraz je pravdivý. Např.:
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(e</span><span 
+class="ectt-1200"> &#x003C;=</span><span 
+class="ectt-1200"> f)||(g</span><span 
+class="ectt-1200"> !=</span><span 
+class="ectt-1200"> 3)</span></span></span> výraz bude pravda, pokud bude platit, že <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">e</span></span></span> je menší nebo
+roven <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">f</span></span></span>, nebo bude platit, že <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">g</span></span></span> se nerovná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">3</span></span></span>, anebo klidně budou platit oba
+výrazy.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">2.1.3   </span> <a 
+ id="x1-240002.1.3"></a>Nejčastější příkazy C++</h4>
+                                                                          
+
+                                                                          
+<!--l. 141--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-250002.1.3"></a>Přiřazovací příkaz</h5>
+<!--l. 142--><p class="noindent" >Použijeme, pokud chceme, aby se do proměnné uložila nějaká data.
+</p><!--l. 144--><p class="noindent" >Syntaxe: <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">datov</span><span 
+class="ectt-1200">ý_typ</span><span 
+class="ectt-1200"> n</span><span 
+class="ectt-1200">ázev_prom</span><span 
+class="ectt-1200">ěnn</span><span 
+class="ectt-1200">é</span></span></span>; <br 
+class="newline" />
+</p><!--l. 147--><p class="noindent" >syntaxe vkládání: <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">n</span><span 
+class="ectt-1200">ázev_prom</span><span 
+class="ectt-1200">ěnn</span><span 
+class="ectt-1200">é</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> hodnota_kter</span><span 
+class="ectt-1200">á_se_m</span><span 
+class="ectt-1200">á_ulo</span><span 
+class="ectt-1200">žit</span></span></span>;
+</p><!--l. 150--><p class="noindent" >Data do proměnné můžeme vložit rovnou při vytváření proměnných:
+</p><!--l. 152--><p class="noindent" ><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">datov</span><span 
+class="ectt-1200">ý_typ</span><span 
+class="ectt-1200"> n</span><span 
+class="ectt-1200">ázev_prom</span><span 
+class="ectt-1200">ěnn</span><span 
+class="ectt-1200">é</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> hodnota</span></span></span>;
+</p><!--l. 154--><p class="noindent" >Příklad: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">uint8_t</span><span 
+class="ectt-1200"> b</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 5</span></span></span>; Vytvoří se proměnná pojmenovaná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span> (která je v
+rozsahu od 0 do 255) a uloží se do ní číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">5</span></span></span>. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">int16_t</span><span 
+class="ectt-1200"> B;</span></span></span> Vytvoří se proměnná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">B</span></span></span>. <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">B</span></span></span> není to samé jako <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span>, protože jazyk C
+rozlišuje VELKÁ a malá písmena. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">B</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 1024;</span></span></span> Do proměnné B se uloží hodnota 1024;
+</p><!--l. 158--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-260002.1.3"></a>Blok příkazů</h5>
+<!--l. 159--><p class="noindent" >Pokud chceme někam dát více příkazů, ale můžeme tam dát pouze jeden
+příkaz, tak je dáme do složených závorek Příklad: <br 
+class="newline" />
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-2">
+{
+ <br />  PŘÍKAZ1;
+ <br />  PŘÍKAZ2;
+ <br />  PŘÍKAZ3;
+ <br />}
+</div>
+<!--l. 167--><p class="nopar" >
+</p><!--l. 171--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-270002.1.3"></a>Podmiňovací příkaz (<span 
+class="ectt-1200">if</span>)</h5>
+<!--l. 173--><p class="noindent" >Použijeme, pokud chceme, aby se program mohl rozhodnout na základě nějaké
+podmínky. <br 
+class="newline" />syntaxe:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-3">
+if(PODMÍNKA)
+ <br />  PŘÍKAZ1;
+ <br />else
+ <br />  PŘÍKAZ2;
+</div>
+<!--l. 181--><p class="nopar" >
+</p><!--l. 183--><p class="noindent" >Pokud platí <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">PODM</span><span 
+class="ectt-1200">ÍNKA</span></span></span> v kulaté závorce, vykoná se <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">P</span><span 
+class="ectt-1200">Ř</span><span 
+class="ectt-1200">ÍKAZ1</span></span></span>, pokud neplatí,
+vykoná se <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">P</span><span 
+class="ectt-1200">Ř</span><span 
+class="ectt-1200">ÍKAZ2</span></span></span>. Za <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">if</span></span></span> nebo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">else</span></span></span> může být pouze jeden příkaz, pokud jich
+tam chceme dát více, použijeme blok. Větev <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">else</span></span></span> je nepovinná.
+</p><!--l. 187--><p class="noindent" >Příklad:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-4">
+if(a &#x003E; 5) // Pokud platí, že
+ <br />          //proměnná a je větší něž 5, tak se
+ <br />{
+ <br />  b = a;  // do proměnné b uloží hodnota, která je v proměnné a
+ <br />  c = 2;  // do proměnné c se uloží číslo 2.
+ <br />} // Pokud podmínka neplatí, tak se nevykoná nic.
+</div>
+<!--l. 195--><p class="nopar" >
+</p><!--l. 197--><p class="noindent" >podmínka může být výraz např.:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-5">
+a &#x003E; 5 // podmínka bude platit,
+ <br />      // pokud proměnná a je větší než 5
+</div>
+<!--l. 201--><p class="nopar" > podmíněné příkazy lze vnořovat - v bloku příkazů může být další if
+Příklad:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-6">
+if(PODMÍNKA1)
+ <br />{
+ <br />  PŘÍKAZ1;
+ <br />  if(PODMÍNKA2)
+ <br />  {
+ <br />    PŘÍKAZ2;
+ <br />  }
+ <br />  PŘÍKAZ3;
+ <br />}
+ <br />else
+ <br />{
+ <br />  PŘÍKAZ4;
+ <br />}
+</div>
+<!--l. 218--><p class="nopar" >
+</p><!--l. 220--><p class="noindent" >Pokud platí <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">PODM</span><span 
+class="ectt-1200">ÍNKA1</span></span></span> tak se vykoná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">P</span><span 
+class="ectt-1200">Ř</span><span 
+class="ectt-1200">ÍKAZ1</span></span></span>, pak se zkontroluje <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">PODM</span><span 
+class="ectt-1200">ÍNKA2</span></span></span>,
+pokud platí, tak se vykoná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">P</span><span 
+class="ectt-1200">Ř</span><span 
+class="ectt-1200">ÍKAZ2</span></span></span>, pokud ne, program pokračuje dál a vykoná
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">P</span><span 
+class="ectt-1200">Ř</span><span 
+class="ectt-1200">ÍKAZ3</span></span></span>. V případě, že neplatí ani <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">PODM</span><span 
+class="ectt-1200">ÍNKA1</span></span></span>, tak se blok příkazů přeskočí a
+vykoná se blok příkazů za <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">else</span></span></span>, tj. <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">P</span><span 
+class="ectt-1200">Ř</span><span 
+class="ectt-1200">ÍKAZ4</span></span></span>.
+</p><!--l. 224--><p class="noindent" >Je tu možnost také do větve <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">else</span></span></span> napsat daší <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">if</span><span 
+class="ectt-1200"> else</span></span></span>, vypadá to takto:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-7">
+if(PODMÍNKA1)
+ <br />{
+ <br />  PRÍKAZ1;
+ <br />}
+ <br />else
+ <br />{
+ <br />  if(PODMÍNKA2)
+ <br />  {
+ <br />    PRÍKAZ2;
+ <br />  }
+ <br />  else
+ <br />  {
+ <br />    PRÍKAZ3;
+ <br />  }
+ <br />}
+</div>
+<!--l. 241--><p class="nopar" > Pokud platí <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">PODM</span><span 
+class="ectt-1200">ÍNKA1</span></span></span>, tak se vykoná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">P</span><span 
+class="ectt-1200">Ř</span><span 
+class="ectt-1200">ÍKAZ1</span></span></span>, pokud ne, tak se zkontroluje
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">PODM</span><span 
+class="ectt-1200">ÍNKA2</span></span></span>, pokud platí tak se vykoná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">P</span><span 
+class="ectt-1200">Ř</span><span 
+class="ectt-1200">ÍKAZ2</span></span></span>, pokud neplatí, tak se vykoná
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">P</span><span 
+class="ectt-1200">Ř</span><span 
+class="ectt-1200">ÍKAZ3</span></span></span>. Výše zapsaný kód sice bude fungovat, ale není přehledný, a proto z
+důvodu lepší orientace v kódu zvolíme tento zápis:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-8">
+if(PODMÍNKA1)
+ <br />{
+ <br />  PRÍKAZ1;
+ <br />}
+ <br />else if(PODMÍNKA2)
+ <br />{
+ <br />  PRÍKAZ2;
+ <br />}
+ <br />else
+ <br />{
+ <br />  PRÍKAZ3;
+ <br />}
+</div>
+<!--l. 258--><p class="nopar" >
+</p><!--l. 260--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-280002.1.3"></a>Příkaz několikanásobného větvení (<span 
+class="ectt-1200">switch</span>)</h5>
+<!--l. 261--><p class="noindent" >Pokud by takto zapsaných podmínek bylo moc a vztahovali by se k jedné řídící
+proměnné lze použít příkaz několikanásobného větvění neboli switch. Tak
+například místo zápisu:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-9">
+if(a == 1)
+ <br />{
+ <br />  PŘÍKAZ1;
+ <br />}
+ <br />else if(a == 2)
+ <br />{
+ <br />  PŘÍKAZ2;
+ <br />}
+ <br />else if(a == 3)
+ <br />{
+ <br />  PŘÍKAZ3;
+ <br />}
+ <br />else if(a == 4)
+ <br />{
+ <br />  PŘÍKAZ4;
+ <br />}
+ <br />else
+ <br />{
+ <br />  PŘÍKAZ5;
+ <br />}
+</div>
+<!--l. 284--><p class="nopar" > Lze napsat:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-10">
+switch(a)
+ <br />{
+ <br />  case 1:
+ <br />    PŘÍKAZ1;
+ <br />    break;
+ <br />  case 2:
+ <br />    PŘÍKAZ2;
+ <br />    break;
+ <br />  case 3:
+ <br />    PŘÍKAZ3;
+ <br />    break;
+ <br />  case 4:
+ <br />    PŘÍKAZ4;
+ <br />    break;
+ <br />  default:
+ <br />    PŘÍKAZ5;
+ <br />    break;
+ <br />}
+</div>
+<!--l. 305--><p class="nopar" > Čím se to celé zjednodušuje.
+</p><!--l. 308--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-290002.1.3"></a>Cyklus <span 
+class="ectt-1200">for </span>(cyklus řízený proměnou )</h5>
+<!--l. 309--><p class="noindent" >Tento cyklu použijeme, pokud předem známe kolikrát se má opakovat určitá
+operace Syntaxe:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-11">
+for(řidící_proměnná; podmínka; zvýšení_nebo_snížení_hodnoty_proměnné )
+ <br />{
+ <br />  PŘÍKAZ1;
+ <br />  PŘÍKAZ2;
+ <br />}
+</div>
+<!--l. 317--><p class="nopar" >
+</p><!--l. 319--><p class="noindent" >Příklad:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-12">
+for(uint8_t i=0; i&#x003C;4; i++)
+ <br />{
+ <br />  rozsvit_ledku();
+ <br />  pockej_sekundu();
+ <br />  zhasni ledku();
+ <br />}
+</div>
+<!--l. 327--><p class="nopar" > Co tento kód udělá? Dejme tomu, že máme už předem vytvořené funkce
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">rozsvit_ledku()</span></span></span>, atd... Potom cyklus udělá následující: vytvoří proměnnou <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">i</span></span></span>
+datového typu <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">uint8_t</span></span></span> (celá čísla od <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0</span></span></span> do <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">255</span></span></span>), uloží do ní číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0</span></span></span>. Potom
+zkontroluje podmínku, zda je proměnná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">i</span></span></span> menší než <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">4</span></span></span>, pak se provedou příkazy
+či funkce v těle cyklu, tj. rozsvítí se LED-dioda, bude svítit jednu sekundu, a
+pak zhasne. Pak se provede příkaz <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">i++</span></span></span>, ten zvýší hodnotu proměnné o jednu, tj.
+na číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span>. Potom se kontroluje znovu podmínka, zdali je proměnná <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">i</span></span></span>
+(která má teď hodnotu <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span>) menší než <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">4</span></span></span>, atd... Celkem se tělo cyklu vykoná
+čtyřikrát.
+</p><!--l. 337--><p class="noindent" >Cyklus <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">for</span></span></span> lze použít i bez proměnné, podmínky a zvýšení hodnoty, potom
+bude probíhat donekonečna. Příklad: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">for(;;)</span></span></span>
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-13">
+{
+ <br />  rozsvit_ledku();
+ <br />  pockej_sekundu();
+ <br />  zhasni ledku();
+ <br />}
+</div>
+<!--l. 346--><p class="nopar" > Tento cyklus bude dělat to samé, co předchozí, s tím rozdílem, že to bude
+dělat donekonečna a nebude se ptát na podmínku.
+</p><!--l. 349--><p class="noindent" >Použití v programu pro robota: Nekonečný cyklus, ve kterém se kontrolují
+podmínky, zda je na čáře, zda je před ním soupeř, zda má udělat to či
+ono.
+</p><!--l. 352--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-300002.1.3"></a>Cyklus <span 
+class="ectt-1200">while </span>(cyklus s podmínkou na začátku )</h5>
+<!--l. 354--><p class="noindent" >Použijeme, pokud nebudeme vědět kolikrát mají proběhnout příkazy a funkce v
+těle cyklu. Syntaxe:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-14">
+while(podmínka)
+ <br />{
+ <br />  PŘÍKAZ1;
+ <br />  ...
+ <br />}
+</div>
+<!--l. 363--><p class="nopar" >
+</p><!--l. 366--><p class="noindent" >Příklad:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-15">
+while(!je_tlacitko_stiskle())
+ <br />{
+ <br />  ujed_1_cm();
+ <br />}
+</div>
+<!--l. 372--><p class="nopar" >
+</p><!--l. 374--><p class="noindent" >Tento cyklus bude stát, dokud nezmáčkneme tlačítko. Vyžaduje mít předem
+naprogramovanou funkci <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">ujed_1_cm()</span></span></span> a <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">je_tlacitko_stiskle()</span></span></span>.
+</p><!--l. 379--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">2.1.4   </span> <a 
+ id="x1-310002.1.4"></a>Funkce a procedury</h4>
+<!--l. 381--><p class="noindent" >Pokud se nám v zdrojovém kódu opakují dokola stejné příkazy, můžeme
+vytvořit funkce nebo procedury, které potom voláme a které nám usnadní kód.
+syntaxe:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-16">
+datový_typ_který_funkce_vrací název_funkce(datový_typ_parametru1
+ <br />parametr1, datový_typ_parametru2 parametr2)
+ <br />// Parametry jsou nepovinné
+ <br />{
+ <br />  PŘÍKAZ1; // Nepovinné příkazy
+ <br />  PŘÍKAZ2;
+ <br />  return HODNOTA_KTEROU_FUNKCE_VRACI;
+ <br />  // Za return se napíše výraz, který funkce vrací.
+ <br />}
+</div>
+<!--l. 393--><p class="nopar" >
+</p><!--l. 395--><p class="noindent" >Příklad:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-17">
+// Funkce na sčítání dvou čísel, každé od 0 do 255.
+ <br />uint16_t umocni(uint8_t zakl, uint8_t exp)
+ <br />{
+ <br />  uint16_t vys = 1;
+ <br />  if(exp &#x003E; 0)
+ <br />  {
+ <br />    for(uint8_t i = 0; i &#x003C; exp; i++)
+ <br />    {
+ <br />      vys = vys * zakl;
+ <br />    }
+ <br />  }
+ <br />  return vys;
+ <br />}
+</div>
+<!--l. 410--><p class="nopar" >
+</p><!--l. 412--><p class="noindent" >pokud někde v programu použiji funkci <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">secti(10,</span><span 
+class="ectt-1200"> 2)</span></span></span>, tak výsledkem bude, jako
+bych napsal <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">10*10</span></span></span>, tj. <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">100</span></span></span>. Příklad:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-18">
+c = umocni(a, b); // Do proměnné c se uloží b-tá mocnina čísla a.
+</div>
+<!--l. 416--><p class="nopar" >
+</p><!--l. 418--><p class="noindent" >procedura – je vlastně funkce, jen s tím rozdílem, že procedura má datový typ
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">void</span></span></span> a nemá <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">return</span></span></span> (tj. nevrací žádnou hodnotu).
+</p><!--l. 421--><p class="noindent" >Příklad:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-19">
+void rozsvitLedku()
+ <br />{
+ <br />  DDRB |= (1&#x003C;&#x003C;PB0); /* Co dělá tento příkaz nemusíte zatím řešit,
+ <br />   pak se k tomu dostaneme.
+ <br />   */
+ <br />}
+</div>
+<!--l. 429--><p class="nopar" >
+</p><!--l. 431--><p class="noindent" >Pokud někde v programu napíšu <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">rozsvitLedku()</span></span></span>, tak se rozsvítí LEDka na
+robotovi.
+</p><!--l. 433--><p class="noindent" >tělo funkce main – všechny příkazy, které jsou mezi složenými závorkami, se po
+zahajení programu postupně vykonají
+</p><!--l. 435--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">2.1.5   </span> <a 
+ id="x1-320002.1.5"></a>Knihovny</h4>
+<!--l. 437--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-330002.1.5"></a>Vlastní knihovny</h5>
+<!--l. 438--><p class="noindent" >Z funkcí a procedur se mohou vytvářet soubory pro usnadnění práce. těmto
+souborům se říká <span 
+class="ecbx-1200">knihovny</span> <a 
+ id="dx1-33001"></a>. Soubory mají koncovku <span 
+class="ecti-1200">.h </span>Příklad: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">avr/io.h</span></span></span>
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">moje_knihovna.h</span></span></span>
+</p><!--l. 443--><p class="noindent" >Vlastní knihovnu poté mohu vložit direktivou <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">#include</span></span></span> Příklad:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-20">
+#include &#x0022;moje_knihovna.h&#x0022;
+</div>
+<!--l. 447--><p class="nopar" >
+</p><!--l. 449--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-340002.1.5"></a>Použité knihovny</h5>
+<!--l. 451--><p class="noindent" >Pro práci s mikrokontroléry budeme potřebovat některé už vytvořené knihovny
+Příklad: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">Arduino.h</span></span></span> – zavádí příkazy pro práci s čipy ATMega a ESP32
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">Learningkit.h</span></span></span> – pro pohodlnou práci s deskou ALKS
+</p><!--l. 2--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">2.2   </span> <a 
+ id="x1-350002.2"></a>Příkazy C++ pro čipy</h3>
+<!--l. 3--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
+ id="x1-360002.3"></a>Příklady programů v C++</h3>
+<!--l. 5--><p class="noindent" >Ve všech příkladech níže je uveden vždy obsah souboru <span 
+class="ecti-1200">main.cpp</span>. Text
+předpokládá, že nad příklady budete samostatně přemýšlet a učit se z nich,
+proto se to, co bylo řečeno u prvního příkladu, už neopakuje u druhého.
+Doporučuji projít soubory <span 
+class="ecti-1200">LearningKit.h </span>a <span 
+class="ecti-1200">LearningKit.cpp </span>(viz v <a 
+href="#explorer">Exploreru</a>
+adresář <span 
+class="ecti-1200">.piolibdeps/ArduinoLearningKitStarter_ID1745/src </span>), protože jsou v nich
+zkratky typu <span 
+class="ectt-1200">L_R </span>a jejich přiřazení pinům čipu. Další příklady jsou na
+<a 
+href="http://wall.robotikabrno.cz" class="url" ><span 
+class="ectt-1200">http://wall.robotikabrno.cz</span></a> a <a 
+href="https://www.arduino.cc/reference/en/" class="url" ><span 
+class="ectt-1200">https://www.arduino.cc/reference/en/</span></a>.
+                                                                          
+
+                                                                          
+</p><!--l. 12--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">2.3.1   </span> <a 
+ id="x1-370002.3.1"></a>Blikání LED</h4>
+<!--l. 14--><p class="noindent" >Program bliká červnenou LED.
+</p>
+<!--l. 16--><div class="lstinputlisting">
+<a 
+ id="x1-37001"></a>
+<span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37002r1"></a></span><span 
+class="ectt-1200">#</span><span 
+class="ectt-1200">include</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">&#x0022;</span><span 
+class="ectt-1200">LearningKit</span><span 
+class="ectt-1200">.</span><span 
+class="ectt-1200">h</span><span 
+class="ectt-1200">&#x0022;</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37003r2"></a></span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37004r3"></a></span><span 
+class="ectt-1200">void</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">setup</span><span 
+class="ectt-1200">()</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">//</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">this</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">part</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">run</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">once</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37005r4"></a></span><span 
+class="ectt-1200">{</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37006r5"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">pinMode</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">L_R</span><span 
+class="ectt-1200">,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">OUTPUT</span><span 
+class="ectt-1200">);</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">//</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">initialize</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">LED</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">digital</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">pin</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">as</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">an</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">output</span><span 
+class="ectt-1200">.</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37007r6"></a></span><span 
+class="ectt-1200">}</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37008r7"></a></span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37009r8"></a></span><span 
+class="ectt-1200">void</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">loop</span><span 
+class="ectt-1200">()</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">//</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">this</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">part</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">works</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">in</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">cycle</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37010r9"></a></span><span 
+class="ectt-1200">{</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37011r10"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">digitalWrite</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">L_R</span><span 
+class="ectt-1200">,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">HIGH</span><span 
+class="ectt-1200">);</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">//</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">switch</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">on</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">red</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">LED</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37012r11"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">delay</span><span 
+class="ectt-1200">(500);</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">//</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">pause</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">500</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">miliseconds</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37013r12"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">digitalWrite</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">L_R</span><span 
+class="ectt-1200">,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">LOW</span><span 
+class="ectt-1200">);</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">//</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">switch</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">off</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">red</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">LED</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37014r13"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">delay</span><span 
+class="ectt-1200">(500);</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-37015r14"></a></span><span 
+class="ectt-1200">}</span>
+</div>
+<!--l. 19--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">2.3.2   </span> <a 
+ id="x1-380002.3.2"></a>LED zapínaná tlačítkem</h4>
+<!--l. 21--><p class="noindent" >Žlutá LED zapínaná tlačítkem.
+</p>
+<!--l. 23--><div class="lstinputlisting">
+<a 
+ id="x1-38001"></a>
+<span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38002r1"></a></span><span 
+class="ectt-1200">#</span><span 
+class="ectt-1200">include</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">&#x0022;</span><span 
+class="ectt-1200">LearningKit</span><span 
+class="ectt-1200">.</span><span 
+class="ectt-1200">h</span><span 
+class="ectt-1200">&#x0022;</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38003r2"></a></span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38004r3"></a></span><span 
+class="ectt-1200">void</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">setup</span><span 
+class="ectt-1200">()</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38005r4"></a></span><span 
+class="ectt-1200">{</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38006r5"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">pinMode</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">L_Y</span><span 
+class="ectt-1200">,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">OUTPUT</span><span 
+class="ectt-1200">);</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">//</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">initialize</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">LED</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">digital</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">pin</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">as</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">an</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">output</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38007r6"></a></span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38008r7"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">digitalWrite</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">L_Y</span><span 
+class="ectt-1200">,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">HIGH</span><span 
+class="ectt-1200">);</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38009r8"></a></span><span 
+class="ectt-1200">}</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38010r9"></a></span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38011r10"></a></span><span 
+class="ectt-1200">void</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">loop</span><span 
+class="ectt-1200">()</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38012r11"></a></span><span 
+class="ectt-1200">{</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38013r12"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">if</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">((</span><span 
+class="ectt-1200">digitalRead</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">SW1</span><span 
+class="ectt-1200">))</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">==</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">LOW</span><span 
+class="ectt-1200">)</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38014r13"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">{</span><span 
+class="ectt-1200">digitalWrite</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">L_Y</span><span 
+class="ectt-1200">,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">LOW</span><span 
+class="ectt-1200">);}</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38015r14"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">else</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">{</span><span 
+class="ectt-1200">digitalWrite</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">L_Y</span><span 
+class="ectt-1200">,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">HIGH</span><span 
+class="ectt-1200">);}</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38016r15"></a></span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-38017r16"></a></span><span 
+class="ectt-1200">}</span>
+</div>
+<!--l. 26--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">2.3.3   </span> <a 
+ id="x1-390002.3.3"></a>Nejjednodušší PWM</h4>
+<!--l. 28--><p class="noindent" >PWM <a 
+ id="dx1-39001"></a>umožňuje (ve spolupráci s drivery ) řídit motory, serva a podobně. Zde je
+použito na stmívání LED pomocí potenciometru.
+</p>
+<!--l. 31--><div class="lstinputlisting">
+                                                                          
+
+                                                                          
+<a 
+ id="x1-39002"></a>
+<span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39003r1"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">#</span><span 
+class="ectt-1200">include</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">&#x0022;</span><span 
+class="ectt-1200">LearningKit</span><span 
+class="ectt-1200">.</span><span 
+class="ectt-1200">h</span><span 
+class="ectt-1200">&#x0022;</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39004r2"></a></span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39005r3"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">void</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">setup</span><span 
+class="ectt-1200">()</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39006r4"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">{</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39007r5"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">ledcSetup</span><span 
+class="ectt-1200">(0,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">1000,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">10);</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39008r6"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">ledcAttachPin</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">L_Y</span><span 
+class="ectt-1200">,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">0);</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39009r7"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">}</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39010r8"></a></span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39011r9"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">void</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">loop</span><span 
+class="ectt-1200">()</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39012r10"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">{</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39013r11"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">ledcWrite</span><span 
+class="ectt-1200">(0,</span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">analogRead</span><span 
+class="ectt-1200">(</span><span 
+class="ectt-1200">POT1</span><span 
+class="ectt-1200">)/4);</span><span 
+class="ectt-1200"> </span><br /><span class="label"><a 
+ id="x1-39014r12"></a></span><span 
+class="ectt-1200"> </span><span 
+class="ectt-1200">}</span>
+</div>
+<!--l. 40--><p class="noindent" >tento kód funguje pro čip ESP32. Pro čipy řady ATMega, které jsou na deskách
+Arduino uno a Arduino nano, je potřeba použít tento kód:
+</p><!--l. 43--><p class="noindent" >Funguje stejně, ale místo příkazu ledcWrite je použit:
+                                                                          
+
+                                                                          
+</p>
+<h2 class="chapterHead"><span class="titlemark">Kapitola 3</span><br /><a 
+ id="x1-400003"></a>Elektronika</h2>
+<h3 class="sectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x1-410003.1"></a>Základní součástky</h3>
+<!--l. 6--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.1   </span> <a 
+ id="x1-420003.1.1"></a>Rezistor</h4>
+<!--l. 8--><p class="noindent" ><span 
+class="ecbx-1200">Rezistor</span> <a 
+ id="dx1-42001"></a>nebo také odpor<span class="footnote-mark"><a 
+href="_dokumentace15.html#fn1x3"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-42002f1"></a> 
+je součástka, která klade elektrickému proudu určitý odpor neboli ho omezuje.
+Toho se používá jako ochrana před zničením čipu nebo jeho části. Odpor se
+značí <span 
+class="cmmi-12">R</span>. Jednotkou odporu je 1 Ohm, značka <span 
+class="cmr-12">Ω</span>.
+</p><!--l. 12--><p class="noindent" ><a 
+ id="serie"></a> Dva rezistory (nebo jiné součástky) mohou být zapojeny buď <span 
+class="ecbx-1200">s</span><span 
+class="ecbx-1200">ériov</span><span 
+class="ecbx-1200">ě </span>(tj. za
+sebou) nebo <span 
+class="ecbx-1200">paraleln</span><span 
+class="ecbx-1200">ě </span>(tj. vedle sebe), viz obrázek <a 
+href="#x1-420071">3.1<!--tex4ht:ref: fig:rezistory --></a>. <a 
+ id="dx1-42003"></a><a 
+ id="dx1-42004"></a><a 
+ id="dx1-42005"></a> <a 
+ id="dx1-42006"></a>
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                          
+
+                                                                          
+<a 
+ id="x1-420071"></a>
+                                                                          
+
+                                                                          
+<div class="center" 
+>
+<!--l. 19--><p class="noindent" >
+
+</p><!--l. 20--><p class="noindent" ><img 
+src="soubory/rezistory.jpg" alt="PIC"  
+ /></p></div>
+<br /> <div class="caption" 
+><span class="id">Obrázek 3.1: </span><span  
+class="content">vlevo: značka rezistoru, uprostřed: rezistory zapojené sériově,
+vpravo: rezistory zapojené paralelně</span></div><!--tex4ht:label?: x1-420071 -->
+                                                                          
+
+                                                                          
+</div><hr class="endfigure" />
+<h4 class="subsectionHead"><span class="titlemark">3.1.2   </span> <a 
+ id="x1-430003.1.2"></a>Kondenzátor</h4>
+<!--l. 29--><p class="noindent" ><span 
+class="ecbx-1200">Kondenz</span><span 
+class="ecbx-1200">átor</span><a 
+ id="dx1-43001"></a> je součástka, která uchovává elektrický náboj. Jeho
+hlavní vlastností je kapacita. Jednotkou kapacity je Farad, značka F.
+V praxi se používají násobky jako mikrofarad ( <span 
+class="cmmi-12">μ </span>F), nanofarad (nF)
+a pikofarad<span class="footnote-mark"><a 
+href="_dokumentace16.html#fn2x3"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x1-43002f2"></a> 
+(pF). Kondenzátory se nabíjí a vybíjí různě rychle a mají různou kapacitu.
+Keramické kondenzátory <a 
+ id="dx1-43003"></a>mají nejmenší kapacitu(pF, nF) a jsou nejrychlejší,
+tantalové <a 
+ id="dx1-43004"></a>mívají kapacitu okolo pár <span 
+class="cmmi-12">μ</span>F a jsou pomalejší a nejpomalejší jsou
+elektrolytické<a 
+ id="dx1-43005"></a> s kapacitou stovek až tisíců <span 
+class="cmmi-12">μ</span>F. U tantalových a elektrolytických
+kondenzátorů musíme dát pozor na polaritu, tj. kam připojujeme + a kam -.
+Další důležitý údaj je maximální hodnota napětí, kterou kondenzátor
+snese.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.3   </span> <a 
+ id="x1-440003.1.3"></a>Dioda</h4>
+<!--l. 42--><p class="noindent" ><span 
+class="ecbx-1200">Dioda</span> <a 
+ id="dx1-44001"></a>je součástka, která usměrňuje elektrický proud. To znamená, že pokud ji
+zapojíme do elektrického obvodu, tak zajistí, že proud bude téct pouze jedním
+směrem. Proto budeme diodu používat jako ochranu proti tzv. <span 
+class="ecbx-1200">p</span><span 
+class="ecbx-1200">řep</span><span 
+class="ecbx-1200">ólov</span><span 
+class="ecbx-1200">án</span><span 
+class="ecbx-1200">í</span><a 
+ id="dx1-44002"></a><a 
+ id="dx1-44003"></a> –
+chybnému zapojení baterie nebo součástky do obvodu, které obvykle
+vede ke zničení součástky. U samotné diody také záleží na polaritě,
+tj. při jejím zapojení musíme dávat pozor, kde má kladný pól a kde
+záporný.
+</p><!--l. 49--><p class="noindent" >Na diodě vzniká úbytek napětí, se kterým musíme počítat při návrhu obvodu.
+Tak například pokud připojím na diodu s úbytkem napětí 0,6 V připojím
+12 V, tak za diodou bude napětí 11,4 V.
+</p><!--l. 52--><p class="noindent" >Ze začátku nám bude stačit, pokud budeme používat diody <a 
+href="#1N4148">1N4148</a> a
+<a 
+href="#1N4007">1N4007</a>.
+                                                                          
+
+                                                                          
+</p><!--l. 56--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.4   </span> <a 
+ id="x1-450003.1.4"></a>LED</h4>
+<!--l. 58--><p class="noindent" ><a 
+ id="LED"></a> <span 
+class="ecbx-1200">LED</span><span class="footnote-mark"><a 
+href="_dokumentace17.html#fn3x3"><sup class="textsuperscript">3</sup></a></span><a 
+ id="x1-45001f3"></a> 
+<a 
+ id="dx1-45002"></a><a 
+ id="dx1-45003"></a><a 
+ id="dx1-45004"></a> je součástka, která není primárně určená k usměrnění proudu, ale
+k signalizaci, zda obvodem protéká proud. K LED se vždy musí připojit
+rezistor.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.5   </span> <a 
+ id="x1-460003.1.5"></a>Tranzistor</h4>
+<!--l. 66--><p class="noindent" ><a 
+ id="tranzistor"></a> <span 
+class="ecbx-1200">Tranzistor</span><a 
+ id="dx1-46001"></a> je součástka, která umožňuje pomocí malých proudů z čipu řídit
+větší proudy, například do reproduktoru nebo motorku.
+</p><!--l. 69--><p class="noindent" >Tranzistor má tři nožičky:<a 
+ id="dx1-46002"></a> <span 
+class="ecbx-1200">b</span><span 
+class="ecbx-1200">áze</span>,<a 
+ id="dx1-46003"></a> <span 
+class="ecbx-1200">kolektor </span>a<a 
+ id="dx1-46004"></a> <span 
+class="ecbx-1200">emitor</span>. Tranzistorů
+existuje obrovské množství, pro jednoduchost se budeme zabývat pouze
+tzv. bipolárními tranzistory. Ty existují ve dvou provedeních PNP
+a NPN<span class="footnote-mark"><a 
+href="_dokumentace18.html#fn4x3"><sup class="textsuperscript">4</sup></a></span><a 
+ id="x1-46005f4"></a> .
+Tranzistory mají prakticky dvě použití: mohou pracovat jako spínač (vypínač)
+nebo jako zesilovač. Budeme se zabývat jednodušším použitím, tj. jako spínače.
+Budeme používat tranzistory NPN. Pokud bude přes bázi do emitoru téct
+omezený (malý) proud, tranzistor se otevře a přes kolektor do emitoru bude téct
+velký proud. Tak nám stačil malý proud k řízení velkého. A toho budeme
+využívat.
+</p><!--l. 78--><p class="noindent" >Ze začátku nám bude stačit používat tranzistory <a 
+href="#BCC337">BCC337</a>, <a 
+href="#BCC547">BCC547</a> a
+<a 
+href="#BD911">BD911</a>.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.6   </span> <a 
+ id="x1-470003.1.6"></a>Cívka</h4>
+                                                                          
+
+                                                                          
+<!--l. 87--><p class="noindent" ><span 
+class="ecbx-1200">C</span><span 
+class="ecbx-1200">ívka</span><a 
+ id="dx1-47001"></a> neboli <span 
+class="ecbx-1200">tlumivka</span><a 
+ id="dx1-47002"></a> je součástka, jejíž hlavní vlastností je indukčnost,
+jednotka henry, značka H. V praxi se používají milihenry (mH) a mikrohenry (
+<span 
+class="cmmi-12">μ</span>H).
+</p><!--l. 91--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.7   </span> <a 
+ id="x1-480003.1.7"></a>Driver</h4>
+<!--l. 93--><p class="noindent" ><a 
+ id="drivery"></a> Čip nemůže řídit například motor přímo, protože jedním pinem může
+protékat obvykle maximálně 40 mA. Většina motorů potřebuje mnohem větší
+proud. Proto se používají součástky zvané<a 
+ id="dx1-48001"></a> <span 
+class="ecbx-1200">drivery</span>, které podle pokynů z čipu
+řídí proud z baterií do motorů a servomotorů.
+</p><!--l. 98--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.8   </span> <a 
+ id="x1-490003.1.8"></a>Stabilizátor</h4>
+<!--l. 100--><p class="noindent" >Většinu čipů je potřeba napájet přesně 5 V nebo 3,3 V. Jak toho docílit
+z baterií, na kterých je například 9 V nebo 12 V, zkrátka více než 5 V? Navíc
+napětí na bateriích kolísá podle toho, jak moc proudu zrovna odebírají motory.
+Pro napájení čipů je proto nutné použít stabilizátor.
+</p><!--l. 104--><p class="noindent" ><span 
+class="ecbx-1200">Stabiliz</span><span 
+class="ecbx-1200">átor</span><a 
+ id="dx1-49001"></a> je součástka, která z kolísavého vyššího napětí vyrobí přesné
+napětí nižší. Nejčastěji se používají stabilizátory řady 78XX, kde XX
+značí, na kolik voltů součástka stabilizuje, například 7805 stabilizuje na
+5 V.
+</p><!--l. 107--><p class="noindent" >Aby stabilizátor mohl pracovat správně, je potřeba, aby napětí, které
+přivedeme na jeho vstup, bylo aspoň o 2 V vyšší než které potřebujeme,
+tj. pokud budu chtít stabilizovat napětí na 5 V, musím stabilizátor
+napájet aspoň 7 V. Přesné hodnoty pro každý stabilizátor jsou v jeho
+datasheetu.
+</p><!--l. 111--><p class="noindent" >Stabilizátor má tři piny (vstup, zem, výstup). Zapojí se takto: kladný pól baterie
+(+) se napojí na vstup, záporný pól na zem (<span 
+class="cmsy-10x-x-120">−</span>). Mikrokontrolér se zapojí pinem
+VCC na výstup stabilizátoru a GND se zapojí na zem stabilizátoru. Tímto
+máme připojený mikrokontrolér na napájení.
+                                                                          
+
+                                                                          
+</p><!--l. 116--><p class="noindent" >Pokud máme stabilizátor před sebou tak, abychom přečetli jeho označení, např.
+L7805, potom první pin zleva je vstup, druhý je zem a třetí, tj. úplně vpravo je
+výstup. Na vstup připojíme 7 V až 12 V, prostřední pin uzemníme,
+a poslední pin vyvedeme na VCC mikrokontroléru. Dále je potřeba věnovat
+pozornost zapojení kondenzátorů. Mezi vstup a zem připojím podle
+datasheetu kondenzátor s kapacitou 330 nF. Mezi výstup a zem kondenzátor
+100 nF.
+</p><!--l. 123--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.1.9   </span> <a 
+ id="x1-500003.1.9"></a>Krystal</h4>
+<!--l. 124--><p class="noindent" >Pokud budeme potřebovat provozovat některé procesory na vyšší frekvenci,
+použijeme<a 
+ id="dx1-50001"></a> <span 
+class="ecbx-1200">krystal</span>. Například původní frekvence mikrokontroléru ATMega16 je
+nastavena na 1 MHz. S pomocí krystalu ji můžeme zvýšit až na 16 MHz. Krystal
+zapojíme takto: Jeden pin krystalu (je jedno, který) připojíme na pin XTAL1
+a druhý na XTAL2. Dále na pin XTAL1 připojíme jednu nožičku kondenzátoru
+a druhou na digitální zem (11-GND). To samé u pinu XTAL2. Hodnotu
+kondenzátoru můžeme volit od 12 pF do 22 pF.
+</p><!--l. 1--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.2   </span> <a 
+ id="x1-510003.2"></a> Základní veličiny v elektronice </h3>
+<!--l. 3--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.2.1   </span> <a 
+ id="x1-520003.2.1"></a>Proud</h4>
+<!--l. 5--><p class="noindent" >Pokud<a 
+ id="dx1-52001"></a><a 
+ id="dx1-52002"></a> použijeme vodní model, tak (elektrický) proud je množství vody, které proteče vodičem
+za jednu sekundu.<span class="footnote-mark"><a 
+href="_dokumentace19.html#fn5x3"><sup class="textsuperscript">5</sup></a></span><a 
+ id="x1-52003f5"></a> 
+                                                                          
+
+                                                                          
+Značka: <span 
+class="cmmi-12">I</span>, jednotka: 1 A = 1 ampér.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.2.2   </span> <a 
+ id="x1-530003.2.2"></a>Napětí</h4>
+<!--l. 12--><p class="noindent" >Elektrické napětí<a 
+ id="dx1-53001"></a><a 
+ id="dx1-53002"></a> měříme vždy mezi dvěma body. Můžeme si ho představit jako
+rozdíl výšek dvou vodních hladin. Z výše položeného jezera (kladné napětí, +)
+teče voda (el. proud) do níže položeného (zem, nulový potenciál, <span 
+class="cmsy-10x-x-120">−</span>). Značka: <span 
+class="cmmi-12">U</span>,
+jednotka: 1 V = 1 volt.
+</p><!--l. 18--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.2.3   </span> <a 
+ id="x1-540003.2.3"></a>Odpor</h4>
+<!--l. 20--><p class="noindent" >Mezi napětím <span 
+class="cmmi-12">U </span>a elektrickým proudem <span 
+class="cmmi-12">I </span>platí vztah:
+</p><!--l. 22--><p class="noindent" >
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace0x.png" alt="U =  R ⋅ I,  " class="math-display"  /></center>
+Tento vztah je znám pod názvem <span 
+class="ecbx-1200">Ohmův z</span><span 
+class="ecbx-1200">ákon</span><a 
+ id="dx1-54001"></a><a 
+ id="dx1-54002"></a>.
+<!--l. 25--><p class="noindent" >Konstanta <span 
+class="cmmi-12">R </span>se nazývá elektrický odpor, měříme ho ohmech, značka
+<span 
+class="cmr-12">Ω</span>.
+</p><!--l. 27--><p class="noindent" >Z Ohmůva zákona můžeme vyjádřit proud <span 
+class="cmmi-12">I</span>:
+                                                                          
+
+                                                                          
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace1x.png" alt="I =  U∕R.  " class="math-display"  /></center> Ze
+vzorce je vidět, že pokud použijeme rezistor s větším odporem při stejném
+napětí, tak se protékající proud zmenší.
+<!--l. 30--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.2.4   </span> <a 
+ id="x1-550003.2.4"></a>Výkon</h4>
+<!--l. 32--><p class="noindent" >Výkon<a 
+ id="dx1-55001"></a> je definován jako součin napětí a proudu:
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace2x.png" alt="P =  U ⋅ I.  " class="math-display"  /></center>
+Značka: <span 
+class="cmmi-12">P</span>, jednotka: 1 W = 1 watt.
+<!--l. 36--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.2.5   </span> <a 
+ id="x1-560003.2.5"></a>Výpočet tepelného výkonu (ztrátového)</h4>
+<!--l. 37--><p class="noindent" >Na součástkách, na kterých je úbytek napětí a kterými protéká proud, vznikají <a 
+ id="dx1-56001"></a><a 
+ id="dx1-56002"></a>
+tepelné ztráty.
+                                                                          
+
+                                                                          
+</p><!--l. 40--><p class="noindent" ><span 
+class="ecbx-1200">P</span><span 
+class="ecbx-1200">ř</span><span 
+class="ecbx-1200">íklad 1: </span>Na rezistoru je úbytek napětí 3,6 V a protéká jím 240 mA. Jaký
+je tepelný ztrátový výkon?
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace3x.png" alt="P  = U ⋅ I = 3,6 V ⋅ 0,24 A = 0,864 W  = 864 mW  " class="math-display"  /></center>
+Ztráty na rezistoru činí 864 mW, a proto musíme volit rezistor, který zvládne
+větší výkon, tj. minimálně 1 W.
+<!--l. 44--><p class="noindent" ><span 
+class="ecbx-1200">P</span><span 
+class="ecbx-1200">ř</span><span 
+class="ecbx-1200">íklad 2: </span>Diodou 1N4148 bude procházet 100 mA, při tomto proudu bude
+úbytek napětí na diodě 1 V. Nezničíme diodu 1N4148?
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace4x.png" alt="P =  U ⋅ I = 1 V ⋅ 0,1 A = 0,1 W =  100 mW  " class="math-display"  /></center>
+Diodu nezničíme, protože je vyráběná na celkový výkon 500 mW.
+<!--l. 48--><p class="noindent" ><span 
+class="ecbx-1200">P</span><span 
+class="ecbx-1200">ř</span><span 
+class="ecbx-1200">íklad 3: </span>Na stabilizátor L7805 přivádím 12 V, stabilizátor mi vytváří
+5 V stabilizovaného napětí a odebírám z něho 250 mA. Jaký tepelný výkon
+bude potřeba uchladit?
+</p>
+                                                                          
+
+                                                                          
+<center class="math-display" >
+<img 
+src="_dokumentace5x.png" alt="P =  U ⋅ I = (12 V − 5 V) ⋅ 0,25 A = 1,75 W " class="math-display"  /></center> Tepelné ztráty na
+stabilizátoru budou 1,75 W<span class="footnote-mark"><a 
+href="_dokumentace20.html#fn6x3"><sup class="textsuperscript">6</sup></a></span><a 
+ id="x1-56003f6"></a> .
+<h4 class="subsectionHead"><span class="titlemark">3.2.6   </span> <a 
+ id="x1-570003.2.6"></a>Výpočet rezistoru pro LED</h4>
+<!--l. 59--><p class="noindent" >LED<a 
+ id="dx1-57001"></a><a 
+ id="dx1-57002"></a> <a 
+ id="dx1-57003"></a><a 
+ id="dx1-57004"></a> je součástka, která není primárně určená k usměrnění proudu, ale k signalizaci.
+Může svítit světlem bílým, modrým, zeleným, červeným, ultrafialovým či
+infračerveným<span class="footnote-mark"><a 
+href="_dokumentace21.html#fn7x3"><sup class="textsuperscript">7</sup></a></span><a 
+ id="x1-57005f7"></a> .
+</p><!--l. 63--><p class="noindent" >Pokud připojím diodu správně na napětí, tj. tak aby mohl procházet proud
+a ono přesto nic, tak jsem diodu spálil, protože jí tekl moc velký proud. A proto
+musíme vždy k diodě připojit do <a 
+href="#serie">série</a> rezistor, který omezí proud protékající
+přes LED. A to podle vzorce:
+</p><!--l. 67--><p class="noindent" >
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace6x.png" alt="     U     N apeti_zdroje  −  Ubytek_napeti
+R  = -- =  ---------------------------------
+      I          P ozadovany_proud
+" class="math-display"  /></center>
+                                                                          
+
+                                                                          
+<!--l. 69--><p class="noindent" ><span 
+class="ecbx-1200">P</span><span 
+class="ecbx-1200">ř</span><span 
+class="ecbx-1200">íklad 1: </span>Vypočítejte odpor rezistoru, který zapojíme do série k LED.
+Připojujeme k ní napětí 5 V a provozní proud je 20 mA a maximální
+proud, při kterém dojde ke zničení diody je 40 mA. Úbytek na diodě je
+1,2 V.
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace7x.png" alt="     U     5 V − 1,2 V
+R  = -- =  -------------= 190 Ω
+      I      0,02 A  " class="math-display"  /></center>
+Použijeme rezistor s odporem <span 
+class="cmr-12">190</span><span 
+class="cmmi-12"> </span><span 
+class="cmr-12">Ω </span>nebo nejbližší vyšší odpor.
+<!--l. 74--><p class="noindent" ><span 
+class="ecbx-1200">P</span><span 
+class="ecbx-1200">ř</span><span 
+class="ecbx-1200">íklad 2: </span>Máme sériově spojeny tři LED, s úbytky napětí 0,6 V,
+0,8 V a 1,2 V. Připojíme je k zdroji o napětí 12 V. Rezistor o jak velkém
+odporu musíme použít, jestliže má diodami protékat 20 mA?
+</p><!--l. 77--><p class="noindent" >
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace8x.png" alt="     U    12 V  − 0,6 V −  0,8 V − 1,2 V
+R  = -- = ------------------------------- = 470 Ω
+     I                0,02 A
+" class="math-display"  /></center>
+<!--l. 79--><p class="noindent" >Musíme použít rezistor o odporu <span 
+class="cmr-12">470</span><span 
+class="cmmi-12"> </span><span 
+class="cmr-12">Ω</span>.
+</p><!--l. 81--><p class="noindent" >Měli bychom ještě spočítat tepelný výkon rezistoru. Můžeme použít úbytek
+napětí na rezistoru vynásobený procházejícím proudem:
+                                                                          
+
+                                                                          
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace9x.png" alt="P =  U⋅I = (12 V − 0, 6V − 0,8V − 1,2 V )⋅0,02 A = 9,4V ⋅0,02 A = 0,188 W  =  188 mW" class="math-display"  /></center>
+Stačí 250 mW rezistor. Nebo si můžu vypočítat úbytek napětí z <span 
+class="cmmi-12">U </span><span 
+class="cmr-12">= </span><span 
+class="cmmi-12">R </span><span 
+class="cmsy-10x-x-120">⋅ </span><span 
+class="cmmi-12">I</span>, to
+protože znám odpor a protékající proud.
+<!--l. 85--><p class="noindent" >
+</p>
+<center class="math-display" >
+<img 
+src="_dokumentace10x.png" alt="P  = U ⋅ I = R ⋅ I ⋅ I = R ⋅ I2 = 470 Ω ⋅ (0,02 A )2 = 0, 188 W = 188 mW
+" class="math-display"  /></center>
+<!--l. 87--><p class="noindent" >Vyšel nám stejný výsledek, použijeme tedy 250 mW rezistor o odporu
+<span 
+class="cmr-12">470</span><span 
+class="cmmi-12"> </span><span 
+class="cmr-12">Ω</span>.
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x1-580003.3"></a>Motorky, serva a PWM</h3>
+                                                                          
+
+                                                                          
+<!--l. 4--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.3.1   </span> <a 
+ id="x1-590003.3.1"></a>Motorky</h4>
+<!--l. 6--><p class="noindent" >Motorek připojujeme vždy přes <a 
+href="#tranzistor">tranzistor</a>. Pokud chceme řídit motorek z čipu
+stylem start – stop, postačí přes odpor např. 1 k<span 
+class="cmr-12">Ω </span>spojit výstupní pin čipu
+s bází tranzistoru a na emitor a kolektor připojit baterii a motorek zapojený do
+série.
+</p><!--l. 10--><p class="noindent" >Dále je potřeba bázi tranzistoru propojit pomocí např. 10 k<span 
+class="cmr-12">Ω </span>se zemí. Jinak
+totiž při vypnutém signálu z čipu báze „visí v luftě“ a chová se jako anténa –
+indukují se na ní různé signály a většinou se díky tomu motorek samovolně
+slabě otáčí.
+</p><!--l. 14--><p class="noindent" >Nakonec je potřeba mít společnou zem pro čip i pro motorek – pokud to není
+splněno, obvykle motorek nejede.
+</p><!--l. 16--><p class="noindent" >Pro větší motorky potřebujeme lepší tranzitor nebo dva tranzistory v tzv.
+Darlingtonově zapojení (viz web). Další možností jsou speciální integrované
+obvody pro řízení motorů, tzv. <a 
+href="#drivery">drivery</a>.
+</p><!--l. 20--><p class="noindent" >Pokud chceme řídit motory programově pomocí PWM (viz další kapitola),
+musíme navíc mezi emitor a kolektor tranzistoru vložit (obyčejnou) diodu
+pólovanou závěrně vůči baterii. Při vypnutí tranzistoru vznikají totiž na
+cívkách motorku napěťové špičky, které deformují tvar PWM signálu. Další
+proudy se indukují, když se motorek po vypnutí proudu setrvačností otáčí
+dál.
+</p><!--l. 25--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.3.2   </span> <a 
+ id="x1-600003.3.2"></a>PWM</h4>
+<!--l. 30--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.3.3   </span> <a 
+ id="x1-610003.3.3"></a>Řízení serva</h4>
+<a 
+ id="dx1-61001"></a>
+<!--l. 32--><p class="noindent" >Jak se řídí pohyb serva? Pro tento účel je ideální právě generování PWM
+signálu.
+                                                                          
+
+                                                                          
+</p><!--l. 34--><p class="noindent" >Servo se řídí logickým signálem (jedničkou) po dobu od 1 ms do 2 ms (často
+i od 0,5 ms do 2,5 ms), a celková perioda je 20 ms. Podle toho, jak dlouho
+signál trvá, tak se servo natočí. Tj. pokud budeme chtít servo maximálně
+natočit na jednu stranu, nastavíme pin, který slouží jako řídící signál pro
+servo, na logickou jedničku po dobu 1 ms a pak 19 ms logickou nulu a pak zase
+logickou jedničku, logickou nulu, atd...
+</p><!--l. 39--><p class="noindent" >Pokud budeme chtít servo posunout do druhé krajní polohy, necháme logickou
+jedničku po dobu 2 ms a logickou nulu po dobu 18 ms. Pokud budeme chtít
+střední polohu, tak jedničku nastavíme na 1,5 ms a nulu na 18,5 ms. Jestliže
+budeme potřebovat jiný úhel natočení, nastavíme logickou jedničku na
+odpovídající dobu.
+</p><!--l. 43--><p class="noindent" ><span 
+class="ecbx-1200">Pozor! </span>Servo nesnáší přepólování napětí, když se přepóluje, tak shoří (když
+se přepóluje signál, tak to tolik nevadí).
+</p><!--l. 45--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.4   </span> <a 
+ id="x1-620003.4"></a>ALKS, další desky a další zařízení</h3>
+<!--l. 47--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.4.1   </span> <a 
+ id="x1-630003.4.1"></a>ESP 32</h4>
+<!--l. 49--><p class="noindent" >Deska<a 
+ id="dx1-63001"></a><a 
+ id="dx1-63002"></a> ESP 32 je vývojová deska osazená čipem <span 
+class="ectt-1200">ESP-WROOM-32</span>, který má řadu výborných
+vlastností.<span class="footnote-mark"><a 
+href="_dokumentace22.html#fn8x3"><sup class="textsuperscript">8</sup></a></span><a 
+ id="x1-63003f8"></a> 
+</p><!--l. 51--><p class="noindent" >Deska se napájí z <a 
+ id="dx1-63004"></a> USB (5 V) a je na ní napěťový převodník na 3,3 V. Přitom
+USB může dodávat oficiálně 100 mA, v reálu ale běžně dodává 500 mA až 1 A.
+USB porty jsou také vcelku odolné proti zkratu.
+                                                                          
+
+                                                                          
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.4.2   </span> <a 
+ id="x1-640003.4.2"></a>ALKS</h4>
+<!--l. 57--><p class="noindent" >Deska ALKS<span class="footnote-mark"><a 
+href="_dokumentace23.html#fn9x3"><sup class="textsuperscript">9</sup></a></span><a 
+ id="x1-64001f9"></a> 
+byla navržena přímo na Robotárně Brno právě proto, že hotová<a 
+ id="dx1-64002"></a><a 
+ id="dx1-64003"></a> deska vás
+hlavně ze začátku zbavuje nutnosti vědět, co si můžete dovolit kam připojit
+a jestli to bude fungovat.
+</p><!--l. 61--><p class="noindent" >Na ALKS se dají nasadit desky ESP 32, Arduino uno a Arduino nano, které jí
+také poskytují napájení.
+</p><!--l. 63--><p class="noindent" >Stránky věnované desce ALKS jsou zde: <br 
+class="newline" /><a 
+href="https://github.com/RoboticsBrno/ArduinoLearningKitStarter" class="url" ><span 
+class="ectt-1200">https://github.com/RoboticsBrno/ArduinoLearningKitStarter</span></a>
+</p><!--l. 65--><p class="noindent" >Zapojení  desky  ALKS  je  zde:
+<a 
+href="https://github.com/RoboticsBrno/ArduinoLearningKitStarter/blob/master/docs/ArduinoLearningKitStarter.pdf" class="url" ><span 
+class="ectt-1200">https://github.com/RoboticsBrno/ArduinoLearningKitStarter/blob/master/docs/ArduinoLearningKitStarter.pdf</span></a>
+</p><!--l. 67--><p class="noindent" >Zapojení  pinů  desky  ALKS  zde:
+<a 
+href="https://github.com/RoboticsBrno/ArduinoLearningKitStarter/blob/master/docs/pinout.pdf" class="url" ><span 
+class="ectt-1200">https://github.com/RoboticsBrno/ArduinoLearningKitStarter/blob/master/docs/pinout.pdf</span></a>
+</p><!--l. 69--><p class="noindent" >Při připojování čehokoliv dalšího k této nebo jiné desce si nechte před
+zapojením napájení všechno zkontrolovat. Hlavně, pokud to žere víc proudu
+(serva a motory) nebo pokud to vyžaduje vyšší napětí.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.4.3   </span> <a 
+ id="x1-650003.4.3"></a>Bluetooth</h4>
+<!--l. 76--><p class="noindent" ><a 
+ id="bluetooth"></a> Moduly <span 
+class="ecbx-1200">bluetooth </span>slouží ke komunikaci mezi dvěma čipy nebo počítačem a
+čipem (nebo jiným zařízením). Mohou být napájeny 5 V nebo 3,3 V.
+</p><!--l. 80--><p class="noindent" >Propojujeme vždy pin Rx na jednom čipu s pinem Tx na druhém čipu.
+</p><!--l. 82--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.4.4   </span> <a 
+ id="x1-660003.4.4"></a>Připojení k počítači pomocí bluetooth</h4>
+                                                                          
+
+                                                                          
+<!--l. 84--><p class="noindent" >Nový bluetooth (zub) se musí napoprvé vyhledat a aktivovat v počítači.
+Pokaždé se musí připojit a zkontrolovat – když je komunikace v pořádku
+(aktivována, ale nemusí se přenášet data ), svítí LED na zubu. Když je v
+pořádku modul v počítači, tak bliká.
+</p><!--l. 88--><p class="noindent" >Dále musí být spojená země zubu a čipu.
+</p><!--l. 1--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">3.5   </span> <a 
+ id="x1-670003.5"></a>Desítková soustava a dvojková soustava </h3>
+<!--l. 3--><p class="noindent" >V počítači jsou všechna data uložena pouze v podobě jedniček a nul. A proto
+se nám bude hodit, když se budeme aspoň trochu orientovat v převodech mezi
+dvojkovou a desítkovou soustavou.
+</p><!--l. 6--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.5.1   </span> <a 
+ id="x1-680003.5.1"></a>Desítková soustava</h4>
+<!--l. 7--><p class="noindent" >V <span 
+class="ecbx-1200">des</span><span 
+class="ecbx-1200">ítkov</span><span 
+class="ecbx-1200">é soustav</span><span 
+class="ecbx-1200">ě</span><a 
+ id="dx1-68001"></a><a 
+ id="dx1-68002"></a> je základem číslo deset.
+</p><!--l. 9--><p class="noindent" >Příklad: číslo 156 si můžeme rozložit jako <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1*10^2</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 5*10^1</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 6*10^0</span></span></span>, přitom
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">10^0=1,</span><span 
+class="ectt-1200"> 10^1=10,</span><span 
+class="ectt-1200"> 10^2=10*10=100,</span><span 
+class="ectt-1200"> 10^3=10*10*10=1000</span></span></span> atd ..., takže naše
+číslo potom vypadá takto: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200"> 1*100</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 5*10</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 6*1</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 156</span></span></span>.
+</p><!--l. 13--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.5.2   </span> <a 
+ id="x1-690003.5.2"></a>Dvojková soustava</h4>
+<!--l. 14--><p class="noindent" >Ve <span 
+class="ecbx-1200">dvojkov</span><span 
+class="ecbx-1200">é soustav</span><span 
+class="ecbx-1200">ě</span><a 
+ id="dx1-69001"></a><a 
+ id="dx1-69002"></a> je základem číslo dva.
+</p><!--l. 16--><p class="noindent" >Příklad: číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11001010</span></span></span> rozložíme na <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1*2^7</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^6</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^5</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^4</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^3</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^2</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^1</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^0</span></span></span>, přitom
+<br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">2^0=1,</span><span 
+class="ectt-1200"> 2^1=2,</span><span 
+class="ectt-1200"> 2^2=2*2=4,</span><span 
+class="ectt-1200"> 2^3=2*2*2=8,</span><span 
+class="ectt-1200"> 2^4=2*2*2*2=16,</span><span 
+class="ectt-1200"> 2^5=32</span></span></span>,
+<br 
+class="newline" />atd..., proto naše číslo má hodnotu: <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1*128</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*64</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*32</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*16</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*8</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*4</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*1</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 202</span></span></span>.
+</p><!--l. 22--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.5.3   </span> <a 
+ id="x1-700003.5.3"></a>Převod z desítkové soustavy do dvojkové</h4>
+<!--l. 23--><p class="noindent" >Jak na to, když chceme převádět číslo z desítkové soustavy do dvojkové?
+</p><!--l. 25--><p class="noindent" >Například převedeme číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">97</span></span></span>. <br 
+class="newline" />Nejprve je potřeba, abychom znali násobky čísla dva: <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">2,</span><span 
+class="ectt-1200"> 4,</span><span 
+class="ectt-1200"> 8,</span><span 
+class="ectt-1200"> 16,</span><span 
+class="ectt-1200"> 32,</span><span 
+class="ectt-1200"> 64,</span><span 
+class="ectt-1200"> 128,</span><span 
+class="ectt-1200"> 256,</span><span 
+class="ectt-1200"> 512,</span><span 
+class="ectt-1200"> 1024,</span><span 
+class="ectt-1200"> 2048</span></span></span>, atd... <br 
+class="newline" />Napíšeme jedničku. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span> <br 
+class="newline" />Najdeme nejbližší nižší násobek dvou k našemu číslu, v našem případě je
+nejblíže <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">64</span></span></span>. Odečteme si od <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">97</span></span></span> číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">64</span></span></span>, <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">97-64=33</span></span></span>. Odečítali jsme číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">64</span></span></span>,
+další v pořadí je číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">32</span></span></span>, je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">32</span></span></span> obsaženo v <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">33</span></span></span>? Ano, proto napíšeme další
+jedničku. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11</span></span></span> <br 
+class="newline" />Dále <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">33-32=1</span></span></span>, další číslo je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">16</span></span></span>, je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">16</span></span></span> obsaženo v <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span>? Ne, proto napíšeme nulu.
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">110</span></span></span> <br 
+class="newline" />Další číslo je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">8</span></span></span>, také není obsaženo v <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span>, takže napíšeme nulu. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1100</span></span></span> <br 
+class="newline" />Čísla <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">4</span></span></span> a <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">2</span></span></span> také nejsou obsažena v čísle <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span>, proto napíšeme nuly. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">110000</span></span></span> <br 
+class="newline" />A nakonec, je číslo jedna obsaženo v čísle jedna? Ano, napíšeme jedničku. Náš
+binární zápis čísla <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">97</span></span></span> vypadá takto:<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1100001</span></span></span>. Čísla v binární soustavě by měla
+mít počet cifer rovno 8, 16, 32, podle toho s kolika bitovými čísly počítáme.
+V našem případě musíme doplnit jednu nulu. Pokud bychom počítali s 16
+bitovými čísly doplníme o 8 nul více. Nuly doplňujeme zleva. Zapamatujeme si
+to snadno v desítkové soustavě se číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">128</span></span></span> také nezmění pokud před něj dáme
+nuly, <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">000128</span></span></span>. Nuly navíc nebudeme psát v desítkové soustavě, ale v dvojkové
+nám to pomůže se lépe orientovat. Takže to bude vypadat: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">01100001</span></span></span> No a to
+ještě není všechno. Aby mělo číslo správný tvar, musí mít před číslem
+uvedeno <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0b</span></span></span>(nula a malé B), tím říkáme v jazyce C, že číslo je v (binární)
+dvojkové soustavě.
+</p><!--l. 51--><p class="noindent" >Pozor: Čísla <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">101</span></span></span> a <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0b101</span></span></span> nejsou to samé! Je to jednoduché, pokud <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0b</span></span></span> neuvedeme
+bude překladač číslo brát jakože je v desítkové soustavě. Tj. <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">101</span><span 
+class="ectt-1200"> =&#x003E;</span></span></span> číslo sto
+                                                                          
+
+                                                                          
+jedna, <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0b101</span><span 
+class="ectt-1200"> =&#x003E;</span></span></span> číslo pět.
+</p><!--l. 54--><p class="noindent" ><span 
+class="ecbx-1200">Dal</span><span 
+class="ecbx-1200">š</span><span 
+class="ecbx-1200">í p</span><span 
+class="ecbx-1200">ř</span><span 
+class="ecbx-1200">íklad:</span><br 
+class="newline" />Převedeme číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">237</span></span></span>. <br 
+class="newline" />Nejbližší nižší číslo je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">128</span></span></span>. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span> <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">237-128=109</span></span></span> je číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">64</span></span></span> obsaženo v čísle <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">109</span></span></span>? ANO, další jednička.
+<br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11</span></span></span> <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">109-64=45</span></span></span> je číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">32</span></span></span> obsaženo v <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">45</span></span></span>? ANO, jednička. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">111</span></span></span> <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">45-32=13</span></span></span> je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">16</span></span></span> obsaženo v čísle <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">13</span></span></span>? NE, nula. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1110</span></span></span> <br 
+class="newline" />je číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">8</span></span></span> obsaženo v <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">13</span></span></span>? ANO, jednička. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11101</span></span></span> <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">13-8=5</span></span></span> je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">4</span></span></span> obsaženo v <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">5</span></span></span>? ANO, jednička. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">111011</span></span></span> <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">5-4=1</span></span></span> je obsažena v <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span>? NE, nula. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1110110</span></span></span> <br 
+class="newline" />je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span> obsažena v <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span>? ANO, jednička. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11101101</span></span></span> Binární zápis čísla <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">237</span></span></span> vypadá takto:<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11101101</span></span></span>.
+</p><!--l. 75--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.5.4   </span> <a 
+ id="x1-710003.5.4"></a>Převod z dvojkové soustavy do desítkové</h4>
+<!--l. 77--><p class="noindent" >Vezmeme si například binární číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1011</span></span></span>. Očíslujeme si pozice zprava doleva od
+nuly, tj.:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-21">
+1 0 1 1
+ <br />3 2 1 0
+</div>
+<!--l. 81--><p class="nopar" > Pohybujeme se v dvojkové soustavě, tj. základ bude <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">2</span></span></span>. Vezmeme nultou číslici
+a vynásobíme s ní číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">2^0</span></span></span>. Dostáváme <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1*2^0</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 1</span></span></span>. Dále první číslici
+vynásobíme číslem <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">2^1</span></span></span>, tj. <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1*2^1</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 2</span></span></span>. Dále druhou číslici vynásobíme číslem
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">2^2</span></span></span>, tj. <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0*2^2</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 0</span></span></span>. A to samé provedeme s číslicí na třetí pozici: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1*2^3</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 8</span></span></span>.
+A nyní čísla sečteme <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">8</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 2</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 11</span></span></span>, takže binární číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1011</span></span></span> převedené
+do desítkové soustavy je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11</span></span></span>.
+</p><!--l. 89--><p class="noindent" >Příklad 2: Převeďte binární číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11101001</span></span></span> do desítkové soustavy.<br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1*2^0</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^1</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^2</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^3</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^4</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^5</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^6</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^7</span></span></span> To je:
+<br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 8</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 32</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 64</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 128</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 233</span></span></span> Binární číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11101001</span></span></span>
+převedeno do desítkové soustavy je <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">233</span></span></span>.
+</p><!--l. 95--><p class="noindent" >Příklad 3: Převeďte binární číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">00010101</span></span></span>. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1*2^0</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^1</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^2</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^3</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^4</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^5</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^6</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 0*2^7</span></span></span>,
+samozřejmě členy <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">2^x</span></span></span>, které násobíme nulou budou nulové a tudíž je můžeme
+beztrestně vynechat, tj. <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1*2^0</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^2</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 1*2^4</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 1</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 4</span><span 
+class="ectt-1200"> +</span><span 
+class="ectt-1200"> 16</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 21</span></span></span> Binární číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">00010101</span></span></span> má
+v desítkové soustavě hodnotu <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">21</span></span></span>.
+</p><!--l. 101--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">3.5.5   </span> <a 
+ id="x1-720003.5.5"></a>Bitové výrazy a práce s nimi</h4>
+<!--l. 103--><p class="noindent" >Bitové operace se od logických operací (viz <a 
+href="#x1-230002.1.2">2.1.2<!--tex4ht:ref: logika1 --></a>) liší tím, že se neaplikují na
+číslo jako celek, ale bit po bitu, viz níže.
+</p><!--l. 106--><p class="noindent" >My budeme potřebovat následující bitové operace: bitový součet, bitový součin,
+bitovou negaci, bitový posun doleva.
+                                                                          
+
+                                                                          
+</p><!--l. 108--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-730003.5.5"></a>Bitové operátory</h5>
+<!--l. 109--><p class="noindent" ><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">|</span></span></span> bitový součet <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">&#x0026;</span></span></span> bitový součin <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">~</span></span></span> bitová negace <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">^</span></span></span> bitový exluzivní součet <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">&#x003C;&#x003C;</span></span></span> bitový posuv doleva <br 
+class="newline" /><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">&#x003E;&#x003E;</span></span></span> bitový posuv doprava <br 
+class="newline" />
+</p><!--l. 116--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-740003.5.5"></a>Bitový součet</h5>
+<!--l. 116--><p class="noindent" >Platí, že <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0|0=0,</span><span 
+class="ectt-1200"> 0|1=1,</span><span 
+class="ectt-1200"> 1|0=1,</span><span 
+class="ectt-1200"> 1|1=1</span></span></span>, sčítají se vždy pouze bity, které leží
+pod sebou. Zkrátka pokud je aspoň jeden bit jedna, výsledek je také
+jedna.
+</p><!--l. 119--><p class="noindent" >Příklad: máme dvě binární čísla <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">00000100</span></span></span> a <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">01100001</span></span></span> a chceme je bitově
+sečíst.
+</p><!--l. 121--><p class="noindent" >Když sečteme nulté bity zadaných čísel, dostamene 0|1=1. Pak provedeme bitový
+součet i pro první, druhé a další bity. Zapíšeme: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(0b00000100</span><span 
+class="ectt-1200"> |</span><span 
+class="ectt-1200"> 0b01100001);</span></span></span>
+Nebo pokud budeme mít čísla v proměnných:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-22">
+uint8_t a~= 0b00000100;
+ <br />uint8_t b = 0b01100001;
+ <br />uint8_t c;
+ <br />c = (a|b);
+</div>
+<!--l. 130--><p class="nopar" > Do proměnné <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">c</span></span></span> se zapíše výsledná hodnota.
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-23">
+00000100 - první číslo
+ <br />01100001 - druhé číslo
+ <br />--------
+ <br />01100101 - výsledek po bitovém logickém součtu
+</div>
+<!--l. 138--><p class="nopar" >
+</p><!--l. 140--><p class="noindent" >Výsledek: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">01100101</span></span></span>.
+</p><!--l. 142--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-750003.5.5"></a>Bitový součin</h5>
+<!--l. 143--><p class="noindent" >Platí, že <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0&#x0026;0=0,</span><span 
+class="ectt-1200"> 0&#x0026;1=0,</span><span 
+class="ectt-1200"> 1&#x0026;0=0,</span><span 
+class="ectt-1200"> 1&#x0026;1=1</span></span></span>, tady platí, že výsledek je jedna, pokud
+oba bity jsou jedna. Příklad: bitový součin čísel <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">00110011</span></span></span> a <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">01000001</span></span></span>
+Zapíšeme: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(0b00110011</span><span 
+class="ectt-1200"> &#x0026;</span><span 
+class="ectt-1200"> 0b01000001);</span></span></span> Nebo pokud budeme mít čísla
+v proměnných:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-24">
+uint8_t c = 0b00110011;
+ <br />uint8_t d = 0b01000001;
+ <br />uint8_t e;
+ <br />e = (c&#x0026;d);
+</div>
+<!--l. 153--><p class="nopar" > Výsledná hodnota se zapíše do proměnné <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">e</span></span></span>.
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-25">
+00110011 - první číslo
+ <br />01000001 - druhé číslo
+ <br />--------
+ <br />00000001 - výsledek bitového logického součinu
+</div>
+<!--l. 160--><p class="nopar" >
+</p><!--l. 162--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-760003.5.5"></a>Bitová negace</h5>
+<!--l. 163--><p class="noindent" >Tam, kde byla jednička, bude nula, a kde byla nula, bude jednička. Příklad:
+znegujte číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">00110101</span></span></span> Zapíšeme: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">~(0b00110101);</span></span></span> Nebo pokud budeme mít
+číslo v proměnné:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-26">
+uint8_t a~= 0b00110101;
+ <br />uint8_t b;
+ <br />b = ~a;
+</div>
+<!--l. 172--><p class="nopar" > Do proměnné <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span> se zapíše výsledná hodnota.
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-27">
+00110101 - číslo, které bude logicky znegováno
+ <br />--------
+ <br />11001010 - výsledek
+</div>
+<!--l. 178--><p class="nopar" >
+</p><!--l. 181--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-770003.5.5"></a>Bitový exklusivní součet</h5>
+<!--l. 182--><p class="noindent" >Výsledkem exklusivního součinu je pravda, pokud se hodnoty liší, tj. nejsou
+stejné. Takže platí <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">0^0=0,</span><span 
+class="ectt-1200"> 0^1=1,</span><span 
+class="ectt-1200"> 1^0=1,</span><span 
+class="ectt-1200"> 1^1=0</span></span></span>
+</p><!--l. 184--><p class="noindent" >Zapíšeme: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(0b00110011</span><span 
+class="ectt-1200"> ^</span><span 
+class="ectt-1200"> 0b01000001);</span></span></span> Nebo pokud budeme mít čísla
+v proměnných:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-28">
+uint8_t c = 0b00110011;
+ <br />uint8_t d = 0b01000001;
+ <br />uint8_t e;
+ <br />e = (c^d);
+</div>
+<!--l. 192--><p class="nopar" > Výsledná hodnota se zapíše do proměnné <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">e</span></span></span>.
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-29">
+00110011 - první číslo
+ <br />01000001 - druhé číslo
+ <br />--------
+ <br />01110010 - výsledek bitového exklusivního součtu
+</div>
+<!--l. 199--><p class="nopar" >
+</p><!--l. 201--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-780003.5.5"></a>Bitový posun doleva</h5>
+<!--l. 202--><p class="noindent" >Vezmeme celé osmibitové číslo a posuneme ho o určitý počet míst doleva.
+Přitom čísla vlevo zmizí a na na uprázdněné místo vpravo přijdou vždy
+nuly. Zapíšeme: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(0b01000101</span><span 
+class="ectt-1200"> &#x003C;&#x003C;</span><span 
+class="ectt-1200"> 3);</span></span></span> Nebo pokud budeme mít číslo
+v proměnné:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-30">
+uint8_t c = 0b01000101;
+ <br />uint8_t d;
+ <br />d = (c &#x003C;&#x003C; 3);
+</div>
+<!--l. 211--><p class="nopar" > Do proměnné <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">d</span></span></span> se přiřadí výsledek operace. Pokud například už nebudeme
+potřebovat původní hodnotu proměnné <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">c</span></span></span>, lze to napsat i takto:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-31">
+uint8_t c = 0b01000101;
+ <br />c = (c &#x003C;&#x003C; 3);
+</div>
+<!--l. 217--><p class="nopar" > Hodnota v proměnné <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">c</span></span></span> se nejprve posune o tři pozice a pak se výsledná pozice
+zapíše na stejnou pozici v paměti mikrokontroléru.
+</p><!--l. 220--><p class="noindent" >Příklad: proveďte bitový posun doleva o tři s číslem <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">00000101</span></span></span>
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-32">
+01000101
+ <br />--------
+ <br />10001010 - posun o jedno doleva
+ <br />00010100 - znovu o jedno doleva (celkem o dvě místa)
+ <br />00101000 - celkový posun o tři bity doleva
+</div>
+<!--l. 228--><p class="nopar" >
+</p><!--l. 230--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><a 
+ id="x1-790003.5.5"></a>Bitový posun doprava</h5>
+<!--l. 231--><p class="noindent" >Bitový posun doprava je podobný jako operace bitový posun doleva, liší se jen ve
+směru posunu, tj. posouvá se na opačnou stranu. Příklad 1: Proveďte bitový
+posun doprava o tři pozice s binárním číslem <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">00000101</span></span></span>. Zapíšeme:
+<span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">(0b00000101</span><span 
+class="ectt-1200"> &#x003E;&#x003E;</span><span 
+class="ectt-1200"> 3);</span></span></span> Výsledkem bude toto:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-33">
+00000101
+ <br />--------
+ <br />00000010 - posun o jednu pozici doprava
+ <br />00000001 - posun o druhou pozici
+ <br />00000000 - posun o třetí pozici
+</div>
+<!--l. 241--><p class="nopar" >
+</p><!--l. 243--><p class="noindent" >Příklad 2: Proveďte bitový posun o dvě pozice doprava a potom o tři doleva
+s binárním číslem <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">11110111</span></span></span>. Zapíšeme: <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">((0b11110111</span><span 
+class="ectt-1200"> &#x003E;&#x003E;</span><span 
+class="ectt-1200"> 2)</span><span 
+class="ectt-1200"> &#x003C;&#x003C;</span><span 
+class="ectt-1200"> 3);</span></span></span>
+Výsledkem bude toto:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-34">
+11110111
+ <br />--------
+ <br />00111101 - posun o dvě pozice doprava
+ <br />11101000 - posun o tři pozice doleva, toto je výsledek.
+</div>
+<!--l. 251--><p class="nopar" >
+</p><!--l. 253--><p class="noindent" >Příklad 3: Ale co když zadám číslo do proměnné v desítkové soustavě,
+například <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">189</span></span></span> a provedu bitový posun o dvě pozice doprava? Co dostanu?
+Dostanu snad <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">1</span></span></span>? Ne, i když jsme číslo zadali v desítkové soustavě,
+v mikrokontroléru je stejně uloženo jako jedničky a nuly, takže číslo musíme
+nejprve převést do dvojkové soustavy. <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">189</span><span 
+class="ectt-1200"> =</span><span 
+class="ectt-1200"> 0b10111101</span></span></span> A teď posun o dvě
+pozice doprava:
+</p><!--l. 259--><p class="noindent" ><span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">00101111</span></span></span> a to je číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">47</span></span></span>. Takže <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">47</span></span></span> je výsledek bitového posunu čísla <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">189</span></span></span> o dvě
+pozice doprava.
+</p><!--l. 262--><p class="noindent" >Zapíšeme takto:
+                                                                          
+
+                                                                          
+</p>
+<div class="verbatim" id="verbatim-35">
+uint8_t a~= 189;
+ <br />uint8_t b;
+ <br />b = (a~&#x003E;&#x003E; 2);
+</div>
+<!--l. 267--><p class="nopar" > No a výsledek(tj. číslo <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">47</span></span></span> ) se uloží do proměnné <span class="obeylines-h"><span class="verb"><span 
+class="ectt-1200">b</span></span></span>.
+                                                                          
+
+                                                                          
+</p>
+<h2 class="chapterHead"><span class="titlemark">Kapitola 4</span><br /><a 
+ id="x1-800004"></a>Software</h2>
+<h3 class="sectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x1-810004.1"></a><span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span></h3>
+<!--l. 5--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.1   </span> <a 
+ id="x1-820004.1.1"></a>Proč používat <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span></h4>
+<!--l. 7--><p class="noindent" >Tento text je psán v sázecím systému <a 
+ id="dx1-82001"></a><span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>. Jeho silná stránka je
+především matematická sazba (bohužel nevyužijeme) a snadné zpracování
+obsahu, rejstříků, seznamů obrázků a tabulek a podobně, což dramaticky
+urychluje přípravu dokumentu. Čas, který vložíte do nastavení a učení se
+systému, se vrátí v rychlosti práce <span 
+class="cmsy-10x-x-120">→ </span>jedná se o řešení vhodné pro
+delší dokumenty, např. pro soutěž SOČ nebo dlouhodobou maturitní
+práci.
+</p><!--l. 14--><p class="noindent" >Návody  pro  <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>lze  najít  v
+<a 
+href="http://mirrors.nic.cz/tex-archive/info/czech/\|latex-pro-pragmatiky/latex-pro-pragmatiky.pdf" class="url" ><span 
+class="ectt-1200">http://mirrors.nic.cz/tex-_archive/info/czech/\|latex-_pro-_pragmatiky/latex-_pro-_pragmatiky.pdf</span></a>
+a na internetu. Hodně vám také může pomoct zdrojový text této dokumentace.
+</p><!--l. 19--><p class="noindent" >Příkazy <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>u podobně jako C++ a systémy typu Linux <span 
+class="ecbx-1200">rozli</span><span 
+class="ecbx-1200">šuj</span><span 
+class="ecbx-1200">í velk</span><span 
+class="ecbx-1200">á</span>
+<span 
+class="ecbx-1200">a</span><span 
+class="ecbx-1200"> mal</span><span 
+class="ecbx-1200">á p</span><span 
+class="ecbx-1200">ísmena</span>.
+</p><!--l. 22--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.2   </span> <a 
+ id="x1-830004.1.2"></a>Editory</h4>
+<!--l. 24--><p class="noindent" >Ve WinXP používám PSpad, v linuxu TeXstudio. Oba editory umí zavolat
+překlad do pdf pomocí klávesové zkratky, zobrazit výsledný pdf a barevné
+zvýraznění syntaxe. PSpad se dá rozjet i pod linuxem pomocí prostředí Wine,
+ale nepodařilo se mi rozchodit volání překladu.
+                                                                          
+
+                                                                          
+</p><!--l. 29--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.3   </span> <a 
+ id="x1-840004.1.3"></a>Další software</h4>
+<!--l. 31--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.4   </span> <a 
+ id="x1-850004.1.4"></a>Proficad</h4>
+<!--l. 33--><p class="noindent" >Proficad<span class="footnote-mark"><a 
+href="_dokumentace24.html#fn1x4"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-85001f1"></a> 
+je software určený původně pro snadné a rychlé kreslení elektronických schémat
+a v této oblasti je vynikající. Lze jej použít i jako jednoduchý vektorový editor
+obrázků. <a 
+ id="dx1-85002"></a>
+</p><!--l. 37--><p class="noindent" >SPŠ Sokolská zakoupila plnou multilicenci pro Proficad, takže studenti i učitelé
+jej mohou používat bez omezení.
+</p><!--l. 39--><p class="noindent" >Ovládání programu je velice intuitivní a nápovědu prakticky nepotřebujete –
+s jedinou výjimkou, a tou je nastavení rastru. Po instalaci je rastr zobrazení
+automaticky nastaven na 2 mm. To znamená, že součástky můžete umisťovat
+například 10 mm nebo 12 mm od kraje, ale nic mezi tím. Většinou se to hodí –
+součástky máte na schématu pěkně zarovnané – ale někdy je prostě potřeba
+rastr například vypnout neboli nastavit na nulu. Nastavení rastru je schované
+zde: <span 
+class="ecti-1200">soubor/nastaven</span><span 
+class="ecti-1200">í/dokument/obsah/rastr</span>.
+</p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.5   </span> <a 
+ id="x1-860004.1.5"></a>Prohlížení Pdf</h4>
+<!--l. 48--><p class="noindent" >Ve WinXP se osvědčil Foxit Reader verze 2.3, v linuxu Evince.
+                                                                          
+
+                                                                          
+</p>
+<h2 class="chapterHead"><span class="titlemark">Kapitola 5</span><br /><a 
+ id="x1-870005"></a>Ostatní</h2>
+<h3 class="sectionHead"><span class="titlemark">5.1   </span> <a 
+ id="x1-880005.1"></a>Mechanická konstrukce robota – doporučení</h3>
+<a 
+ id="dx1-88001"></a>
+<a 
+ id="dx1-88002"></a>
+<!--l. 6--><p class="noindent" >Roboty rozlišujeme podle způsobu ovládání a podle velikosti.
+</p><!--l. 8--><p class="noindent" >
+</p>
+<h5 class="likesubsubsectionHead"><a 
+ id="x1-890005.1"></a>Ovládání robotů</h5>
+<!--l. 10--><p class="noindent" ><a 
+ id="autonomni"></a>
+</p><!--l. 12--><p class="noindent" >Každý robot může být buď řízený nebo autonomní. <span 
+class="ecbx-1200">Autonomn</span><span 
+class="ecbx-1200">í </span>znamená, že
+je naprogramovaný a během soutěže nebo prezentace se pohybuje samostatně.
+<a 
+ id="dx1-89001"></a>
+</p><!--l. 15--><p class="noindent" >Roboty můžeme řídit po kabelu nebo bezdrátově, například přes <a 
+href="#bluetooth">bluetooth</a>.
+</p><!--l. 18--><p class="noindent" >
+</p>
+<h5 class="likesubsubsectionHead"><a 
+ id="x1-900005.1"></a>Velikost robotů</h5>
+<!--l. 20--><p class="noindent" >Na škole a v DDM stavíme a programujeme hlavně roboty dvojího typu :
+„střední“ a „velké“.
+</p><!--l. 23--><p class="noindent" >Jako střední používáme roboty <span 
+class="ecti-1200">yunimin </span>a <span 
+class="ecti-1200">3pi </span>- jsou v zásadě hotové
+a „pouze“ se programují, jsou určené pro soutěže typu sledování čáry
+(Robotický den v Praze, Istrobot), minisumo a další. Pro střední roboty
+neexistuje soutěž, kde by se ovládali po kabelu, musí proto být autonomní.
+</p><!--l. 27--><p class="noindent" >Velké roboty (typicky pro soutěž Eurobot a Robotický den) si stavíme sami.
+Mohou být dálkově řízené i autonomní. Začátečníkům se silně doporučuje
+začít s dálkově řízeným robotem a nebo se přidat k týmu zkušenějších
+konstruktérů.
+                                                                          
+
+                                                                          
+</p><!--l. 31--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">5.1.1   </span> <a 
+ id="x1-910005.1.1"></a>Konstrukce velkých robotů</h4>
+<!--l. 33--><p class="noindent" >Celého robota nejprve navrhneme ve vhodném <a 
+ id="dx1-91001"></a>CAD programu:
+Solidworks<span class="footnote-mark"><a 
+href="_dokumentace25.html#fn1x5"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-91002f1"></a> ,
+onshape<span class="footnote-mark"><a 
+href="_dokumentace26.html#fn2x5"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x1-91003f2"></a> , . <a 
+ id="dx1-91004"></a><a 
+ id="dx1-91005"></a>
+Pokud jako základní materiál zvolíme překližku nebo například plexisklo (kombinované
+s díly z lega), můžeme díly vymodelované v CADu nechat vyřezat na laseru na pracovišti
+Fablab.<span class="footnote-mark"><a 
+href="_dokumentace27.html#fn3x5"><sup class="textsuperscript">3</sup></a></span><a 
+ id="x1-91006f3"></a> 
+To dramaticky urychluje práci. Pro konstrukci prototypů se také hodí měkčené
+PVC.
+</p><!--l. 41--><p class="noindent" >Při stavbě velkých robotů se držíme osvědčeného schématu:
+</p><!--l. 43--><p class="noindent" >Podvozek tvoří základní deska z překližky nebo rám z hliníkových profilů typu
+„L“ tvaru obdélníku, osmiúhelníku nebo kruhu. Na podvozku jsou připevněné
+dva motory z akušroubováků nebo z akuvrtaček včetně převodovek, které se
+koupí hotové. Jiné typy motorů jsou buď pomalé nebo slabé. V žádném
+případě se nepokoušejte koupit pouze motor (např. protože je levnější)
+a vyrábět si převody sami.
+</p><!--l. 48--><p class="noindent" >Dále jsou zde dvě kola, každé připojené ke svému motoru a jedna nebo více
+podpěr podvozku, obvykle z kartáčku na zuby. Motory s koly lze umístit
+doprostřed nebo dozadu, podle toho, co má robot na hřišti dělat.
+</p><!--l. 52--><p class="noindent" >Na podvozek se umisťuje konstrukce z hliníkových tyčí, profilů nebo
+z merkuru, s pomocí které robot plní svoje úkoly. Méně tuhé materiály se
+neosvědčily.
+                                                                          
+
+                                                                          
+</p>
+<h3 class="sectionHead"><span class="titlemark">5.2   </span> <a 
+ id="x1-920005.2"></a>Řešení některých problémů</h3>
+<!--l. 2--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">5.2.1   </span> <a 
+ id="x1-930005.2.1"></a>Chyba při uploadu programu do desky Arduino nano:</h4>
+<!--l. 4--><p class="noindent" >Chyba: <br 
+class="newline" /><span 
+class="ectt-1200">Please specify &#x2019;upload_port&#x2019; environment or use global &#x2019;–upload-port&#x2019;</span>
+<span 
+class="ectt-1200">option</span>
+</p><!--l. 7--><p class="noindent" >Řešení: pomohlo spustit příkaz <span 
+class="ectt-1200">sudo service udev restart </span>a znovu spustit VS
+code a odpojit a připojit desku.
+</p>
+<h3 class="sectionHead"><span class="titlemark">5.3   </span> <a 
+ id="x1-940005.3"></a>Příloha A – Hodnoty vybraných součástek</h3>
+<!--l. 4--><p class="noindent" ><a 
+ id="1N4148"></a> <span 
+class="ecbx-1200">Dioda 1N4148</span> <a 
+ id="dx1-94001"></a><a 
+ id="dx1-94002"></a>
+</p><!--l. 7--><p class="noindent" >Maximální napětí: 100 V
+</p><!--l. 9--><p class="noindent" >Maximální proud: 200 mA
+</p><!--l. 11--><p class="noindent" >Maximální výkon: 500 mW
+</p><!--l. 13--><p class="noindent" >Úbytek napětí: 1,8 V
+</p><!--l. 17--><p class="noindent" ><a 
+ id="1N4007"></a> <span 
+class="ecbx-1200">Dioda 1N4007</span> <a 
+ id="dx1-94003"></a><a 
+ id="dx1-94004"></a>
+</p><!--l. 20--><p class="noindent" >Maximální napětí: 1000 V
+</p><!--l. 22--><p class="noindent" >Maximální proud: 1 A
+</p><!--l. 24--><p class="noindent" >Maximální výkon: 3 W
+</p><!--l. 26--><p class="noindent" >Úbytek napětí: 1,1 V
+</p><!--l. 30--><p class="noindent" ><a 
+ id="BCC337"></a> <span 
+class="ecbx-1200">tranzistor BC337</span> <a 
+ id="dx1-94005"></a><a 
+ id="dx1-94006"></a>
+</p><!--l. 33--><p class="noindent" >Max. napětí mezi kol. a emit. <span 
+class="cmmi-12">V</span> <sub><span 
+class="cmmi-8">CEO</span></sub>:50 V
+</p><!--l. 35--><p class="noindent" >Max. napětí mezi bází a emit. <span 
+class="cmmi-12">V</span> <sub><span 
+class="cmmi-8">CBO</span></sub>: 5 V
+</p><!--l. 37--><p class="noindent" >Max. proud tekoucí kolektorem <span 
+class="cmmi-12">I</span><sub><span 
+class="cmmi-8">C</span></sub>: 800 mA
+</p><!--l. 39--><p class="noindent" >Maximální výkon <span 
+class="cmmi-12">P</span><sub><span 
+class="cmmi-8">C</span></sub>: 625 mW
+</p><!--l. 41--><p class="noindent" >Zesílení <span 
+class="cmmi-12">h</span><sub><span 
+class="cmmi-8">fe</span></sub>: 100 až 600
+                                                                          
+
+                                                                          
+</p><!--l. 45--><p class="noindent" ><a 
+ id="BCC547"></a> <span 
+class="ecbx-1200">tranzistor BC547</span> <a 
+ id="dx1-94007"></a><a 
+ id="dx1-94008"></a>
+</p><!--l. 48--><p class="noindent" >Max. napětí mezi kol. a emit. <span 
+class="cmmi-12">V</span> <sub><span 
+class="cmmi-8">CEO</span></sub>: 45 V
+</p><!--l. 50--><p class="noindent" >Max. napětí mezi bází a emit. <span 
+class="cmmi-12">V</span> <sub><span 
+class="cmmi-8">CBO</span></sub>: 6 V
+</p><!--l. 52--><p class="noindent" >Max. proud tekoucí kolektorem <span 
+class="cmmi-12">I</span><sub><span 
+class="cmmi-8">C</span></sub>: 100 mA
+</p><!--l. 54--><p class="noindent" >Maximální výkon <span 
+class="cmmi-12">P</span><sub><span 
+class="cmmi-8">C</span></sub>: 500 mW
+</p><!--l. 56--><p class="noindent" >Zesílení <span 
+class="cmmi-12">h</span><sub><span 
+class="cmmi-8">fe</span></sub>: 110 až 800
+</p><!--l. 60--><p class="noindent" ><a 
+ id="BD911"></a> <span 
+class="ecbx-1200">tranzistor BD911</span> <a 
+ id="dx1-94009"></a><a 
+ id="dx1-94010"></a>
+</p><!--l. 63--><p class="noindent" >Max. napětí mezi kol. a emit.<span 
+class="cmmi-12">V</span> <sub><span 
+class="cmmi-8">CEO</span></sub>: 100 V
+</p><!--l. 65--><p class="noindent" >Max. napětí mezi bází a emit. <span 
+class="cmmi-12">V</span> <sub><span 
+class="cmmi-8">CBO</span></sub>: 5 V
+</p><!--l. 67--><p class="noindent" >Max. proud tekoucí kolektorem <span 
+class="cmmi-12">I</span><sub><span 
+class="cmmi-8">C</span></sub>: 15 A
+</p><!--l. 69--><p class="noindent" >Maximální výkon <span 
+class="cmmi-12">P</span><sub><span 
+class="cmmi-8">C</span></sub>: 90 W
+</p><!--l. 71--><p class="noindent" >Zesílení <span 
+class="cmmi-12">h</span><sub><span 
+class="cmmi-8">fe</span></sub>: 5 až 250
+</p><!--l. 73--><p class="noindent" >Důležité je si všimnout, že minimální
+zesílení<span class="footnote-mark"><a 
+href="_dokumentace28.html#fn4x5"><sup class="textsuperscript">4</sup></a></span><a 
+ id="x1-94011f4"></a> 
+je 5. To znamená, že pokud budeme chtít tranzistorem spínat proud 10 A, tak
+budeme muset nechat bází téct řídící proud 2 A, to znamená, že ho nemůžeme
+naplno využít, pokud ho budeme řídit mikrokontrolérem, tj. musíme ho spínat
+jiným tranzistorem. Anebo přijdeme na myšlenku, že pokud budeme chtít řídit
+velké proudy, budeme potřebovat tranzistory typu MOS-FET, např.: IRF520,
+IRL3803.
+</p>
+<h3 class="sectionHead"><span class="titlemark">5.4   </span> <a 
+ id="x1-950005.4"></a> Příloha B – Poznámky a vize</h3>
+<!--l. 86--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">5.4.1   </span> <a 
+ id="x1-960005.4.1"></a>Linux</h4>
+                                                                          
+
+                                                                          
+<!--l. 88--><p class="noindent" >Drivery do tiskáren mají příponu ppd. Napřed se musí nainstalovat program
+cups.
+</p><!--l. 90--><p class="noindent" >Irfan view jede i v Linuxu<span class="footnote-mark"><a 
+href="_dokumentace29.html#fn5x5"><sup class="textsuperscript">5</sup></a></span><a 
+ id="x1-96001f5"></a> .
+</p>
+<h4 class="subsectionHead"><span class="titlemark">5.4.2   </span> <a 
+ id="x1-970005.4.2"></a>Přerušení</h4>
+<!--l. 97--><p class="noindent" >Co je přerušení? Procesor může zvládnout pouze jednu operaci na jeden tik
+krystalu, postupuje od jednoho příkazu k druhému a nemůže jen tak všeho
+nechat a věnovat se něčemu jinému, občas je to ale potřeba. Při přerušení
+procesor všeho nechá a bude se věnovat přerušení, potom co skončí se bude
+věnovat dál programu tam, kde přestal.
+</p><!--l. 101--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">5.4.3   </span> <a 
+ id="x1-980005.4.3"></a>Baterie</h4>
+<!--l. 103--><p class="noindent" >Dobíjecí: napětí 1,2 V <a 
+ id="dx1-98001"></a><a 
+ id="dx1-98002"></a>
+</p><!--l. 105--><p class="noindent" >Jednorázové: napětí 1,5 V <a 
+ id="dx1-98003"></a><a 
+ id="dx1-98004"></a>
+</p><!--l. 107--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">5.4.4   </span> <a 
+ id="x1-990005.4.4"></a>Vize – co přidat do textu</h4>
+<!--l. 109--><p class="noindent" >Github
+</p><!--l. 111--><p class="noindent" >Lorris
+</p><!--l. 113--><p class="noindent" >Adruino IDE
+</p><!--l. 115--><p class="noindent" >Laser ve Lablabu
+</p><!--l. 117--><p class="noindent" >Osciloskop
+</p><!--l. 119--><p class="noindent" >Baterie LiPol a jejich nabíjení
+                                                                          
+
+                                                                          
+</p><!--l. 121--><p class="noindent" >Převodník napěťových úrovní
+</p><!--l. 123--><p class="noindent" >Pájení
+</p><!--l. 125--><p class="noindent" >Sběrnice - USART/UART, IIC, SPI, další?
+</p>
+ 
+</body></html> 
+
+                                                                          
+
+
