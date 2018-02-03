@@ -47,8 +47,7 @@ deploy:
     skip-cleanup: true
     github-token: $GITHUB_TOKEN
     keep-history: true
-    file:
-    - ./output/_pdf/_dokumentace.pdf
+    local-dir: output/_html/
     on:
       branch: RoboticsManual
   - provider: releases
