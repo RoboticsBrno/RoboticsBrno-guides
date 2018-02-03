@@ -36,6 +36,7 @@ script:
 - cd output
 - OUTPUT_DIR="$(pwd)"
 - echo "${OUTPUT_DIR}"
+- cd ..
 #- sudo docker build -t paralj-test:0.1 .
 #- sudo docker run -v "${OUTPUT_DIR}:/output"  paralj-test:0.1
 - sudo docker pull jarekparal/rb-latex-pdf-html-build:RoboticsManual
