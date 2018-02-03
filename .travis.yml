@@ -46,6 +46,11 @@ script:
 - ls -la output/_pdf
 - ls -la output/_html
 
+before_deploy:
+  - git config --local user.name "RoboticsBrno"
+  - git config --local user.email "info@robotikabrno.cz"
+  - git tag "RoboticsManual - $(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
 deploy:
   - provider: pages
     skip-cleanup: true
@@ -57,8 +62,8 @@ deploy:
   - provider: releases
     api_key:
       secure: $GITHUB_TOKEN
-    file:
-    -  ./output/_pdf/_dokumentace.pdf
+    file_glob: true
+    file: output/_pdf/*
     skip_cleanup: true
     on:
       tags: false
