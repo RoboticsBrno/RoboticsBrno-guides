@@ -34,13 +34,12 @@ script:
 - mkdir output
 - ls -la
 - TMP_POOL=/home/travis/build/RoboticsBrno/RobotikaBrno-guides/output
-- sudo docker build -t paralj-test:0.1 .	
+- sudo docker build -t paralj-test:0.1 .
 - sudo docker run -v "${TMP_POOL}:/output"  paralj-test:0.1
 - ls -la
 - ls -la output
 - ls -la output/_pdf
 - ls -la output/_html
-#- make4ht -v
 
 deploy:
   - provider: pages
