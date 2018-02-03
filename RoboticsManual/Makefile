@@ -15,7 +15,7 @@ all:
 	makeindex ${OUTPUT_PDF}/${LATEX_MAIN_FILE}.idx
 	pdflatex -synctex=1 -interaction=nonstopmode -output-directory ${OUTPUT_PDF} ${LATEX_MAIN_FILE}.tex
 	pdflatex -synctex=1 -interaction=nonstopmode -output-directory ${OUTPUT_PDF} ${LATEX_MAIN_FILE}.tex
-	make4ht ${LATEX_MAIN_FILE}.tex -d ${OUTPUT_HTML}
+	make4ht --utf8 ${LATEX_MAIN_FILE}.tex -d ${OUTPUT_HTML}
 	mv ${OUTPUT_HTML}/${LATEX_MAIN_FILE}.html ${OUTPUT_HTML}/index.html
 	ls -la ${OUTPUT_PDF}
 	ls -la ${OUTPUT_HTML}
