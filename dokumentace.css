@@ -44,8 +44,8 @@
 .ectt-1200{ font-family: monospace;}
 .ectt-1200{ font-family: monospace;}
 .ectt-1200{ font-family: monospace;}
-.ecrm-1095{font-size:83%;}
 .ecrm-1000{font-size:83%;}
+.ecrm-1095{font-size:83%;}
 .ectt-1000{font-size:83%; font-family: monospace;}
 .ectt-1000{ font-family: monospace;}
 .ectt-1000{ font-family: monospace;}
@@ -207,6 +207,7 @@ div.lstlisting{font-family: monospace; white-space: nowrap; margin-top:0.5em; ma
 div.lstinputlisting{ font-family: monospace; white-space: nowrap; }
 .lstinputlisting .label{margin-right:0.5em;}
 .figure img.graphics {margin-left:10%;}
+div.verbatiminput {font-family: monospace; white-space: nowrap; }
 dt.enumerate-enumitem{float:left; clear:left; margin-left:1em; margin-right:1em;}
 /* end css.sty */
 
