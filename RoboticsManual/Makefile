@@ -18,14 +18,14 @@ all:
 	mkdir -p ${OUTPUT_PDF}
 	mkdir -p ${OUTPUT_HTML}
 	ls -la
-	cp  ${LATEX_FILE_ORIG}.tex ${LATEX_FILE_OUT}.tex
+	cp -f ${LATEX_FILE_ORIG}.tex ${LATEX_FILE_OUT}.tex
 	pdflatex -synctex=1 -interaction=nonstopmode ${LATEX_FILE_OUT}.tex
 	makeindex ${LATEX_FILE_OUT}.idx
 	pdflatex -synctex=1 -interaction=nonstopmode ${LATEX_FILE_OUT}.tex
 	pdflatex -synctex=1 -interaction=nonstopmode ${LATEX_FILE_OUT}.tex
 	make4ht --utf8 ${LATEX_FILE_OUT}.tex -d ${OUTPUT_HTML}
-	cp ${LATEX_FILE_OUT}.pdf ${OUTPUT_PDF}/${LATEX_FILE_OUT}.pdf
-	mv ${OUTPUT_HTML}/${LATEX_FILE_OUT}.html ${OUTPUT_HTML}/index.html
+	mv -f ${LATEX_FILE_OUT}.pdf ${OUTPUT_PDF}/${LATEX_FILE_OUT}.pdf
+	mv -f ${OUTPUT_HTML}/${LATEX_FILE_OUT}.html ${OUTPUT_HTML}/index.html
 	cat $(CUSTOMCSS) >> ${OUTPUT_HTML}/${LATEX_FILE_OUT}.css
 	ls -la ${OUTPUT_PDF}
 	ls -la ${OUTPUT_HTML}
@@ -39,6 +39,4 @@ clean: clean-make4ht
 	rm -rf ${OUTPUT_HTML}/
 
 clean-make4ht:
-	mv ${LATEX_FILE_OUT}.tex __d-o-c___.tex
 	rm -f ${LATEX_FILE_OUT}*
-	mv __d-o-c___.tex ${LATEX_FILE_OUT}.tex

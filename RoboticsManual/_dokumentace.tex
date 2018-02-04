@@ -63,10 +63,22 @@
 %\end{figure}
 %% ---------------------------
 
-% POZOR: nepodařilo se mi je zprovoznit dohromady s htlatex/make4ht (LaTeX -> HTML)
-% alternativa -> \marginpar{Poznámka 1}
+%% todonotes packagege -> POZOR: nepodařilo se mi je zprovoznit dohromady s htlatex/make4ht (LaTeX -> HTML) (Jarek Páral 2018-02-04)
+% alternativa -> \marginpar{Poznámka 1} nebo balíček fixme
 %\usepackage{todonotes} % vkládání poznámek
 %\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+\usepackage[author=,status=draft]{fixme} % vkládání poznámek - dva módy draft/final
+\fxusetheme{color}
+%% samotné vložení poznámky - varianty (rozlišené barvou textu poznámky)
+%\fxnote{Poznámka} 		% zelená
+%\fxwarning{Poznámka}	% oranžová	
+%\fxerror{Poznámka}		% červená
+%\fxfatal{Poznámka}		% sitě červená
+%\fxnote*{Text poznámky}{text v textu, který se má zvýraznit} % potřeba mít * za fxnote
+%\listoffixmes			% zobrazí seznam poznámek 
+%%
+
 
 %tohle mám hlavně kvůli kompatibilitě se staršími verzemi - mělo by postupně zmizet
 %todo předělat? 
