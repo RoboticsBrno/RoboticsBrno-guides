@@ -2,6 +2,22 @@
 
 Na této stránce naleznete odkazy na naše projekty a dokumentace k nim.
 
+## Důležité odkazy
+
+[Robotárna](www.helceletka.cz/robotarna)
+
+[Helceletka.cz](www.helceletka.cz)
+
+[Wall.RobotikaBrno.cz](wall.robotikabrno.cz)
+
+[Programovani.RobotikaBrno.cz](programovani.robotikabrno.cz)
+
+[Robotický manuál Robotárna](doc.robotikabrno.cz)
+
+[Kroužek Robotika začátečníci 2017-2018](https://github.com/RoboticsBrno/RoboticsBeginners2017-2018)
+
+[FabLab Laser: Řezání vlastních návrhů ze SolidWorks/Fusion 360](https://github.com/RoboticsBrno/RoboticsBrno-guides/blob/master/FabLab_Ze-SolidWorks-na-Laser.md)
+
 ## Nové projekty
 Akuálně ukládáme/verzujeme všechny projekty na serveru [GitHub](https://github.com/).
 
