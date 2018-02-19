@@ -10,7 +10,7 @@ měl jít použí i na Fusionu.
 ## Měření propalu laser
 
 Abys mohl vyříznout zámečky, které do sebe skutečně pěkně a na fest zapadnou, je
-třeba korigovat polomr ěpropalu laserového paprsku. Ten je zpravidla 0.1-0.2 mm.
+třeba korigovat poloměr propalu laserového paprsku. Ten je zpravidla 0.1-0.2 mm.
 Na většinu materiálů funguje korekce 0.15 mm.
 
 Pokud ji ale chceš změřit, doporučuji si stáhnout soubor
