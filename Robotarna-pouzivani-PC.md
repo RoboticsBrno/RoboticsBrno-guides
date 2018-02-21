@@ -1,4 +1,5 @@
-# Rychlý průvodce používání počítačů a notebooků na Robotárně
+# Průvodce používání počítačů na Robotárně
+## verze 1.0 (2018-02-21)
 
 Počítače a notebooky – dále jen PC
 
