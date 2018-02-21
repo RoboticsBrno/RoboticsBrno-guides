@@ -1,5 +1,6 @@
 # Průvodce používání počítačů na Robotárně
-## verze 1.0 (2018-02-21)
+## http://pc.robotikabrno.cz
+## verze 1.1 (2018-02-21)
 
 Počítače a notebooky – dále jen PC
 
