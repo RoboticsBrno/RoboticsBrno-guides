@@ -1,6 +1,6 @@
 # Průvodce používání počítačů na Robotárně
 ## http://pc.robotikabrno.cz
-## verze 1.1 (2018-02-21)
+## verze 1.2 (2018-02-22)
 
 Počítače a notebooky – dále jen PC
 
@@ -18,7 +18,7 @@ Všechny osobní soubory je potřeba ukládal na síťový disk `\\Robotarna\rob
 
 Na tomto disku je složka s aktuálním rokem (např. `2017-2018`) a v ní jsou složky pro jednotlivé kroužky (např. `_GameMakerUtery`, `_CppStreda`). V těchto složkách si vytvořte svoje osobní složky ve tvaru `JmenoPrijmeni` (např. `JarekParal`) a do nich si ukládejte veškeré vaše projekty.
 
-Výsledná cesta k vašim projektům tak bude vypadat následovně:   
+Výsledná cesta k vašim projektům na Windows tak bude vypadat následovně:   
 `\\Robotarna\robotika\2017-2018\_GameMakerUtery\JarekParal` 
 
 ### Otevření na Windows
@@ -33,7 +33,12 @@ Ve Windows se na síťové disk lze dostat buď přes ikonu na ploše (`robotika
 
 Podobně jako na Windows by měla být na ploše složka `robotika` a přes ní se dostanete na síťový disk a k vašim souborům.
 
-**Cesta na síťový disk:** `/media/robotika/`
+**Cesta na síťový disk:** `/media/robotika/` (nebo `This PC` -> `Z:/media/robotika/`)
+
+## WiFi
+Na Robotárně máme WiFi s názvem `Technika`, případně `Technika5G` (rychlejší verze, kterou podporují jen některá zařízení).
+
+**Heslo:** materidouska
 
 
 
