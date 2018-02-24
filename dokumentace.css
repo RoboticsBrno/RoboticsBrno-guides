@@ -11,7 +11,9 @@
 .ecbx-2488{ font-weight: bold;}
 .ecbx-2488{ font-weight: bold;}
 .ecbx-2488{ font-weight: bold;}
+.ecbx-2488{ font-weight: bold;}
 .ecbx-1728{font-size:141%; font-weight: bold;}
+.ecbx-1728{ font-weight: bold;}
 .ecbx-1728{ font-weight: bold;}
 .ecbx-1728{ font-weight: bold;}
 .ecbx-1728{ font-weight: bold;}
@@ -33,6 +35,8 @@
 .ectt-1728{ font-family: monospace;}
 .ectt-1728{ font-family: monospace;}
 .ectt-1728{ font-family: monospace;}
+.ectt-1728{ font-family: monospace;}
+.ectt-1200{ font-family: monospace;}
 .ectt-1200{ font-family: monospace;}
 .ectt-1200{ font-family: monospace;}
 .ectt-1200{ font-family: monospace;}
@@ -57,6 +61,7 @@
 .ectt-1000{ font-family: monospace;}
 .ectt-1000{ font-family: monospace;}
 .ectt-1000{ font-family: monospace;}
+.ectt-1000{ font-family: monospace;}
 .cmr-8{font-size:66%;}
 .cmmi-12{font-style: italic;}
 .cmmi-8{font-size:66%;font-style: italic;}
@@ -71,6 +76,8 @@
 .ecti-1200{ font-style: italic;}
 .ecti-1200{ font-style: italic;}
 .ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecbx-1200{ font-weight: bold;}
 .ecbx-1200{ font-weight: bold;}
 .ecbx-1200{ font-weight: bold;}
 .ecbx-1200{ font-weight: bold;}
@@ -93,6 +100,19 @@
 .ecti-1000{ font-style: italic;}
 .ecti-1000{ font-style: italic;}
 .ecti-1000{ font-style: italic;}
+.ecti-1000{ font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
+.ecbi-1200{ font-weight: bold;   font-style: italic;}
 p.noindent { text-indent: 0em }
 td p.noindent { text-indent: 0em; margin-top:0em; }
 p.nopar { text-indent: 0em; }
