@@ -48,8 +48,8 @@ Ukázka naskládaných dílů
 [Ulož výkres jako DXF (a nezapomeň si uložit original!)
 
 Jakmile máš výkres naskládaný, ulož je do formátu DXF. Při importu do Inkscapu
-nezapomeň vybrat měřítko 1:1. Abys mohl aplikovat kroekci propalu, je třeba dxf
-ze SolidWorks "opravit". Formát SXF totiž pouze uchovává čáry a křivky, ale už
+nezapomeň vybrat měřítko 1:1. Abys mohl aplikovat korekci propalu, je třeba dxf
+ze SolidWorks "opravit". Formát DXF totiž pouze uchovává čáry a křivky, ale už
 neuchovává informaci o tom, jak na sebe navazují. To zmenožňuje provést odsazení
 kontur. Naštěstí je to jednoduché spravit.
 
@@ -57,7 +57,7 @@ kontur. Naštěstí je to jednoduché spravit.
 Při importu do Inkscape vyber scale factor 1
 
 Prvně vyber všechno pomocí Ctrl+A, následně stiskni Ctrl+K, což seskupí všechny
-entity do jedné křivky. Poté se přepní do módu úpravy křívek (F2) a znovu
+entity do jedné křivky. Poté se přepni do módu úpravy křivek (F2) a znovu
 stiskni Ctrl+A - to vybere tentokrát všechny body v křivce. Následně stiskni
 Shift + J, což způsobí sloučení bodů, které leží přes sebe. Nyní si provizorně
 nastav výplň tvarů - měly by se korektně vyplnit díly. Pokud některé díry zmizí,
@@ -76,8 +76,8 @@ Po stisku F2 se přepneš do editace křivky
 ![Po stisku Ctrl + A vybereš všechny body a Shift + J je sloučí překrývající se](img/laser_sw/11.PNG)
 Po stisku Ctrl + A vybereš všechny body a Shift + J je sloučí překrývající se
 
-![Zkušení nastavení výplně - je špatně](img/laser_sw/12.PNG)
-Zkušení nastavení výplně - je špatně
+![Zkušební nastavení výplně - je špatně](img/laser_sw/12.PNG)
+Zkušební nastavení výplně - je špatně
 
 ![Opravení výplně tlačítkem vpravo](img/laser_sw/13.PNG)
 Opravení výplně tlačítkem vpravo
@@ -87,18 +87,18 @@ Jak znáš z původního návodu k laseru, můžeš tažením za nově objevený
 aplikovat korekci. Zkus to a zkontroluj, že všechny korekce se dějí, jak mají -
 vnější rozměry se zvětšují, vnitřní se zmenšují. Pokud ne, v předchozím kroku se
 stala chyba. Nyní dokument ulož jako SVG a otevři jej ve svém oblíbeném textovém
-editoru - WordPad ani Word není techtový editor. Vhodnými programy jsou např.
-Poznámkový blok, PSPad, VS Code, Atom nebo VIM.Nyní najdi výskyt všech položek
-`inkscape:radius=0.000" - to je hodnota korekce propalu - a nahraď ji za tebou
+editoru - WordPad ani Word není textový editor. Vhodnými programy jsou např.
+Poznámkový blok, PSPad, VS Code, Atom nebo VIM. Nyní najdi výskyt všech položek
+"inkscape:radius=0.000" - to je hodnota korekce propalu - a nahraď ji za tebou
 požadovou korekci v milimetrech - tedy např. "inkscape:radisu=0.15". Když
-dokument uůložíš a znovu otevřeš v Inkscapu, korekce správné velikosti bude
-aplikoána.
+dokument uložíš a znovu otevřeš v Inkscapu, korekce správné velikosti bude
+aplikována.
 
 ![Po stisku Ctrl + J a tažením jsme ověřili správnost směru korekcí](img/laser_sw/14.PNG)
 Po stisku Ctrl + J a tažením jsme ověřili správnost směru korekcí
 
-![Nastaváme červenou tenkou čáru](img/laser_sw/15.PNG)
-Nastaváme červenou tenkou čáru
+![Nastavíme červenou tenkou čáru](img/laser_sw/15.PNG)
+Nastavíme červenou tenkou čáru
 
 ![Otevřeme uložené SVG v textovém editoru](img/laser_sw/16.PNG)
 Otevřeme uložené SVG v textovém editoru
