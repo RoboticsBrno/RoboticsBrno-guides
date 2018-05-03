@@ -4,6 +4,9 @@ Dodavatelé a ceny materiálu
 
 ## Dřevo (překližka, MDF, HDF)
 
+### Cupák
+MDF - (cca. 1 300 x 620 mm - 0,8 m2) - 75 Kč/m2 s DPH
+
 ### [AZ WOOD](http://www.azwood.cz/)
 Brno - Slatina 
 Rozpůlení materiálu (tak aby se dal naložit do auto), dělají většinou zdarma.
@@ -27,7 +30,8 @@ Přířezy: 54 Kč/m2 (max. 29 kusů - pak příplatek) - čekací lhůta cca. 3
 Paní Nováková     
 +420 724 340 707    
 
-**Příklad na přířezy:**  MDF surová (odkaz v předešlém emailu) -  2800 x 2070 mm = 5,796 m2 (cena 348 Kč s DPH)   
+**Příklad na přířezy:**  
+[MDF surová 3 mm](http://shop.kili.cz/mdf-a-hdf-desky/mdf-surove/mdf-surova-s466766040 ) 2800 x 2070 mm = 5,796 m2 (cena 348 Kč s DPH)   
 2800 / 700 mm = 4   
 2070 / 400 mm = 5   
 5*4 = 20 ks  
