@@ -13,7 +13,7 @@ Rozpůlení materiálu (tak aby se dal naložit do auto), dělají většinou zd
 
 ### [JAF HOLZ](https://www.jafholz.cz/)
 Vyškov   
-Rozpůlení materiálu pro přepravu: 50 Kč   
+Rozpůlení materiálu pro přepravu - řez pilou, přesnost na několik milimetrů: 50 Kč  
 Formátování: 12,60 Kč/m bez DPH (15,246 Kč/m s DPH) - při menším objemu (do pár kusů) do 3 pracovních dnů    
 
 [Překližka topol 3 mm AB/AB](https://www.jafholz.cz/shop/Konstrukcni-desky/Preklizky-a-latovky/Preklizky-topolove/preklizka-truhlarska-topol-abab-if20~p1724469) (2520 x 1720 mm) - 147 Kč/m2 bez DPH - 770 Kč celkem s DPH (2018-03-13)   
@@ -21,6 +21,10 @@ Formátování: 12,60 Kč/m bez DPH (15,246 Kč/m s DPH) - při menším objemu 
 [Překližka topol 4 mm AB/AB](https://www.jafholz.cz/shop/Konstrukcni-desky/Preklizky-a-latovky/Preklizky-topolove/preklizka-truhlarska-topol-abab-if20~p1724469) (2520 x 1720 mm) - 151 Kč/m2 bez DPH - cca. 790 Kč celkem s DPH (2018-03-13)  
 
 [HDF 2,8 mm](https://www.jafholz.cz/shop/Konstrukcni-desky/DVD-a-HDF-surove-desky/hdf-surova-kronospan~p340000) (2800 x 2070 mm) - 365 Kč celkem s DPH (2018-03-13) 
+
+**Doprava do Brna:**  
+790 Kč bez DPH - cca. 955 Kč s DPH (2018-06-13)   
+Zaváží každý den. Cena není závislá na počtu kůsu, ale ujetých kilometrech.   
 
 ### [Kili](http://shop.kili.cz/)
 Brno - Slatina (cca. 30 minut jízdy autem z centra Brna)   
