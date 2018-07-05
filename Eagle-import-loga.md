@@ -1,89 +1,91 @@
 # Jak importovat loga do desky v Eagle
 
 ## Instalace software
-Je tøeba stáhnout a nainstalovat program [Inkscape](https://inkscape.org/cs/),
+Je tÅ™eba stÃ¡hnout a nainstalovat program [Inkscape](https://inkscape.org/cs/).
 
-Dále samozøejmì program [Eagle](https://www.autodesk.com/products/eagle/overview) - návod dìlán ve verzi 9.0.1
+DÃ¡le samozÅ™ejmÄ› program [Eagle](https://www.autodesk.com/products/eagle/overview) - nÃ¡vod je dÄ›lÃ¡n ve verzi 9.0.1.
 
-## Pøíprava dat
-Loga, která chceme importovat je tøeba mít pøevedeny do formátu SVG
-Dále doporuèuji, ale není to nutné, vyexportovat si náhled desky. Bude se nám potom lépe umisovat logo, napø. nám potom nehrozí umístìní loga na souèástku apod.
+## PÅ™Ã­prava dat
+Loga, kterÃ¡ chceme importovat, je tÅ™eba mÃ­t pÅ™evedeny do formÃ¡tu SVG.
+DÃ¡le doporuÄuji, ale nenÃ­ to nutnÃ©, vyexportovat si z Eaglu nÃ¡hled desky. Bude se nÃ¡m potom lÃ©pe umisÅ¥ovat logo, napÅ™. nÃ¡m potom nehrozÃ­ umÃ­stÄ›nÃ­ loga na souÄÃ¡stky.
 
 ### Export desky z Eagle a import do Inkscape
-Pro export dáme `File` -> `Print (Ctrl+P)` a otevøe se nám okno, kde musíme nastavit následující parametry:
+Pro export dÃ¡me `File` -> `Print (Ctrl+P)` a otevÅ™e se nÃ¡m okno, kde musÃ­me nastavit nÃ¡sledujÃ­cÃ­ parametry:
 
 ![Print to PDF](img/eagle_logo/1.png)
 
-Poté importujeme vzniklé PDF do Inkscape, kde jsme si vytvoøili novı dokument, `File` -> `Import Ctrl+I` a vybereme soubor PDF, odklikáme všechny dialogy a poèkáme ne se vloí
+PotÃ© importujeme vzniklÃ© PDF do Inkscape, kde jsme si vytvoÅ™ili novÃ½ dokument, `File` -> `Import Ctrl+I` a vybereme soubor PDF, odklikÃ¡me vÅ¡echny dialogy a poÄkÃ¡me neÅ¾ se PDF pÅ™evede do Inkscapu.
 
-Vısledek by mìl vypadat nìjak takto:
+VÃ½sledek by mÄ›l vypadat takto:
 
 ![PDF import Inkscape](img/eagle_logo/2.png)
 
-## Úprava dokumentu a import loga
+## Ãšprava dokumentu a import loga
 
-Abychom mohli nastavit správnou velikost dokumentu, musíme zjistit rozmìry desky. To provedeme tak, e si otevøeme desku v Eagle a vpravo klikneme na `MANAFACTURING` -> `Board` a rozklikneme roletku `Board`. Zde nás zajímají parametry Width (šíøka) a Height (vıška).
+Abychom mohli nastavit sprÃ¡vnou velikost dokumentu, musÃ­me zjistit rozmÄ›ry DPS. RozmÄ›ry zjistÃ­me tak, Å¾e si otevÅ™eme DPS v Eagle a vpravo klikneme na `MANAFACTURING` -> `Board` a rozklikneme roletku `Board`. Zde nÃ¡s zajÃ­majÃ­ parametry Width (Å¡Ã­Å™ka) a Height (vÃ½Å¡ka).
 
 ![Eagle velikost desky](img/eagle_logo/3.png)
 
-Potøebujeme upravit velikost dokumentu, abychom mìli vzor desky a loga 1:1. Otevøeme vlastnosti dokumentu `File` -> `Document Properties (Shift+Ctrl+D)`. Zde zhruba uprostøed najdeme nastavení `Custom size`, zde nastavíme hodnoty, které jsme získali v pøedchozím kroce:
+PotÅ™ebujeme upravit velikost dokumentu, abychom mÄ›li vzor DPS a loga 1:1. OtevÅ™eme vlastnosti dokumentu `File` -> `Document Properties (Shift+Ctrl+D)`. Zde zhruba uprostÅ™ed najdeme nastavenÃ­ `Custom size`. V `Custom size` nastavÃ­me hodnoty, kterÃ© jsme zÃ­skali v pÅ™edchozÃ­m kroku:
 
 ![Inkscape Document Properties](img/eagle_logo/4.png)
 
-Jakmile máme nastavenou stejnou velikost dokumentu, jaká je velikost naší desky, tak musíme desku posunout tak, aby její okraje splıvaly s okraji dokumentu. To provedeme tak, e vybereme desku a nastavíme její pozici v souøadnicovém systému na `X = 0  Y = 0`:
+Jakmile mÃ¡me nastavenou stejnou velikost dokumentu, jako je velikost DPS, musÃ­me DPS posunout tak, aby jejÃ­ okraje splÃ½valy s okraji dokumentu. To provedeme tak, Å¾e vybereme DPS a nastavÃ­me jejÃ­ pozici v souÅ™adnicovÃ©m systÃ©mu na `X = 0`,  `Y = 0`:
 
 ![Position setting](img/eagle_logo/5.png)
 
-Nyní máme správnì nastaven dokument, importovanou desku jako pøedlohu a mùeme pøistoupit k vloení samotnıch log.
+NynÃ­ mÃ¡me sprÃ¡vnÄ› nastaven dokument, importovanou DPS jako pÅ™edlohu a mÅ¯Å¾eme pÅ™istoupit k vloÅ¾enÃ­ samotnÃ½ch log.
 
-Logo vloíme kliknutím na `File` -> `Import (Ctrl+I)` a vybereme SVG soubor s logem. Jakmile máme vloeno, je tøeba nastavit vhodnou velikost loga a jeho umístìní.
+Logo vloÅ¾Ã­me kliknutÃ­m na `File` -> `Import (Ctrl+I)` a vybereme SVG soubor s logem. Jakmile mÃ¡me vloÅ¾eno, je tÅ™eba nastavit vhodnou velikost loga a jeho umÃ­stÄ›nÃ­.
 
 ![Logo Import](img/eagle_logo/6.png)
 
-Jakmile máme logo vhodnì umístìné je potøeba odstranit desku, kterou jsme pouili jako šablonu.
+Po vhodnÃ©m umÃ­stÄ›nÃ­ logo je potÅ™eba odstranit DPS, kterou jsme pouÅ¾ili jako Å¡ablonu.
 
 ![Inkscape only logo](img/eagle_logo/7.png)
 
-## Pøevod loga do scriptu pro Eagle
+NÃ¡slednÄ› si vÃ½slednÃ½ dokument uloÅ¾te s pÅ™Ã­ponou `.svg`.
 
-Logo budeme vkládat jako script do Eaglu, kterı nám vytvoøí body a následnì polygony, které budou tvoøit vısledné obrazce. Pro generování scriptu pouijeme [tuhle](https://gfwilliams.github.io/svgtoeagle/) stránku:
+## PÅ™evod loga do scriptu pro Eagle
+
+Logo budeme vklÃ¡dat jako script do Eaglu, kterÃ½ nÃ¡m vytvoÅ™Ã­ body a nÃ¡slednÄ› polygony, kterÃ© budou tvoÅ™it vÃ½slednÃ© obrazce. Pro generovÃ¡nÃ­ scriptu pouÅ¾ijeme [tuhle](https://gfwilliams.github.io/svgtoeagle/) strÃ¡nku:
 
 ![SVGToEagle](img/eagle_logo/8.png)
 
-Zde je potøeba vyplnit pole `Eagle CAD Layer`, do tohoto pole zadejte název vrstvy v Eagle, do které chcete vısledná loga vloit, já pouiji `bDocu`
+Zde je potÅ™eba vyplnit pole `Eagle CAD Layer`, do tohoto pole zadejte nÃ¡zev vrstvy v Eagle, do kterÃ© chcete vÃ½slednÃ¡ loga vloÅ¾it. BÄ›Å¾nÄ› se pouÅ¾Ã­vajÃ­ vrstvy `tDocu` (ÄÃ­slo 51) a `bDocu` (ÄÃ­slo 52), kterou budeme pouÅ¾Ã­vat v tomto nÃ¡vodÄ›.
 
-Dále je tøeba nastavit `SVG scale factor` na hodnotu `1`, ale je moné pouít i jiné hodnoty, záleí na tom, jaké jste si nastavili mìøítko dokumentu v Inkscape, já mìl 1:1 tudí volím 1
+DÃ¡le je tÅ™eba nastavit `SVG scale factor` na hodnotu `1`, ale je moÅ¾nÃ© pouÅ¾Ã­t i jinÃ© hodnoty, zÃ¡leÅ¾Ã­ na tom jakÃ© jste si nastavili mÄ›Å™Ã­tko dokumentu v Inkscape, jÃ¡ mÄ›l 1:1 tudÃ­Å¾ volÃ­m 1.
 
-Je moné zde vıslednı obrazec horizontálnì otoèit, ale nedoporuèuji to, mnohem lepší je loga otoèit ještì v Inkscapu. Potøeba otáèet loga je, kdy chceme loga vkládat na spodní stranu desky.
+Je moÅ¾nÃ© zde vÃ½slednÃ½ obrazec ozrcadlit, ale nedoporuÄuji to, protoÅ¾e dojde ke zmÄ›nÄ› pozic log. Mnohem lepÅ¡Ã­ je loga ozrcadlit pÅ™Ã­mo v Inkscapu (hlavnÄ› v pÅ™Ã­padÄ› vÃ­ce log v jednom dokumentu). OzrcadlenÃ­ je potÅ™eba provÃ©st v pÅ™Ã­padÄ›, kdy chcete loga vklÃ¡dat na spodnÃ­ stranu desky (`bDocu`,`bXY`).
 
-No a nakonec vybereme soubor SVG, ve kterém máme náš dokument, kterı má nastaveny správné rozmìry a obsahuje pouze logo.
+No a nakonec vybereme soubor SVG (`.svg`), ve kterÃ©m mÃ¡me nÃ¡Å¡ dokument, kterÃ½ mÃ¡ nastaveny sprÃ¡vnÃ© rozmÄ›ry a obsahuje pouze logo.
 
-Takhle nìjak mùe vypadat vısledek:
+Takhle mÅ¯Å¾e vypadat vÃ½sledek:
 
 ![Bad result](img/eagle_logo/9.png)
 
-Vidíme ale, e je barevnì vyplnìna i pùvodnì bílá plocha uprostøed loga, kterou by Eagle bral jako souèást loga a tudí by z celého loga byl vidìt jen kruh.
+VidÃ­me ale, Å¾e je barevnÄ› vyplnÄ›na i pÅ¯vodnÄ› bÃ­lÃ¡ plocha uprostÅ™ed loga, kterou by Eagle bral jako souÄÃ¡st loga a tudÃ­Å¾ by z celÃ©ho loga byl vidÄ›t jen kruh.
 
-Musíme tedy opravit uzavøené obrysy, které mají obsahovat nìjakou "díru". Tohoto lze nejjednodušeji dosáhnout tak, e si v Inkscapu vytvoøíme miniaturní obdélník, kterı nám vytvoøí "prùtok" do díry v uzavøeném obrysu:
+MusÃ­me tedy opravit uzavÅ™enÃ© obrysy, kterÃ© majÃ­ obsahovat nÄ›jakou "dÃ­ru". Tohoto lze nejjednoduÅ¡eji dosÃ¡hnout tak, Å¾e si v Inkscapu vytvoÅ™Ã­me miniaturnÃ­ obdÃ©lnÃ­k, kterÃ½ nÃ¡m vytvoÅ™Ã­ "prÅ¯tok" do dÃ­ry v uzavÅ™enÃ©m obrysu:
 
 ![Inkscape make rectangle](img/eagle_logo/10.png)
 
-Jakmile máme vytvoøeno, zvolíme nástroj `Edit paths by nodes (F2)` a vybereme obrys, do kterého má bıt udìlána díra a námi vytvoøenı obdélník (v tomto pøípadì èervenı) a zvolíme nástroj `Path` -> `Difference (Ctrl+-)`, tento postup samozøejmì opakujeme pro všechny uzavøené obrysy obsahující díru, které se zde vyskytují:
+Jakmile mÃ¡me vytvoÅ™eno, zvolÃ­me nÃ¡stroj `Edit paths by nodes (F2)` a vybereme obrys, do kterÃ©ho mÃ¡ bÃ½t udÄ›lÃ¡na dÃ­ra a nÃ¡mi vytvoÅ™enÃ½ obdÃ©lnÃ­k (v tomto pÅ™Ã­padÄ› ÄervenÃ½) a zvolÃ­me nÃ¡stroj `Path` -> `Difference (Ctrl+-)`, tento postup samozÅ™ejmÄ› opakujeme pro vÅ¡echny uzavÅ™enÃ© obrysy obsahujÃ­cÃ­ dÃ­ru, kterÃ© se zde vyskytujÃ­:
 
 ![Inkscape Difference](img/eagle_logo/11.png)
 
-Nyní máme v obrysu vytvoøen malı "prùtok" díky kterému u se nám vytvoøí korektní data pro Eagle:
+NynÃ­ mÃ¡me v obrysu vytvoÅ™en malÃ½ "prÅ¯tok", dÃ­ky kterÃ©mu uÅ¾ se nÃ¡m vytvoÅ™Ã­ korektnÃ­ data pro Eagle:
 
 ![Inkscape succesful difference](img/eagle_logo/12.png)
 
-Zkontrolujeme na náhledu, e se nám všechny loga korektnì pøevedly. Jestli je všechno v poøádku, tak zkopírujeme vygenerovanı text v poli nad náhledem napø. do poznámkového bloku (já pouiju [PSPad](http://www.pspad.com/cz/)) a ulote jej jako soubor s koncovkou `.scr`.
+Zkontrolujeme na nÃ¡hledu, Å¾e se nÃ¡m vÅ¡echny loga korektnÄ› pÅ™evedly. Jestli je vÅ¡echno v poÅ™Ã¡dku, tak zkopÃ­rujeme vygenerovanÃ½ text v poli nad nÃ¡hledem napÅ™. do poznÃ¡mkovÃ©ho bloku (jÃ¡ pouÅ¾Ã­vÃ¡m [PSPad](http://www.pspad.com/cz/)) a uloÅ¾te jej jako soubor s koncovkou `.scr`.
 
 ![Succesful convert](img/eagle_logo/13.png)
 
-Nyní vıslednı soubor importujeme do Eagle `File` -> `Execute Script...`, otevøe se nám následující okno:
+NynÃ­ vÃ½slednÃ½ soubor importujeme do Eagle `File` -> `Execute Script...`, otevÅ™e se nÃ¡m nÃ¡sledujÃ­cÃ­ okno:
 
 ![Eagle Execute Script](img/eagle_logo/14.png)
 
-Zde vybereme náš soubor `.scr` a potvrdíme vıbìr. Nyní ji máme naše logo v Eaglu ve vrstvì è.52 s názvem bDocu jako polygon a není problém jej pøi vırobì natisknout na desku jako popisek.
+Zde vybereme nÃ¡Å¡ soubor `.scr` a potvrdÃ­me vÃ½bÄ›r. NynÃ­ jiÅ¾ mÃ¡me naÅ¡e logo v Eaglu ve vrstvÄ› ÄÃ­slem 52 s nÃ¡zvem `bDocu` jako polygon a nenÃ­ problÃ©m jej pÅ™i vÃ½robÄ› natisknout na DPS jako popisek. SprÃ¡vnost si lze ovÄ›Å™it tak, Å¾e si DPS zkusÃ­m v Eaglu vytisknout do PDF.
 
 ![Final logo](img/eagle_logo/15.png)
