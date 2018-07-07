@@ -135,7 +135,7 @@ Tato kapitolka není úvodem do Linuxu (materiálů na toto téma je na webu spo
 	
 	\end{itemize}  
 
-\item V Linuxu se celkově mnohem víc (a účiněji) používá příkazová řádka neboli program  {\tt terminál}. \index{termiál} Spouští se klávesovou zkratkou {\tt Ctrl+Alt+T} nebo v Lubuntu spustíte správce souborů (2. ikona dole vlevo), přepnete se do požadovaného adresáře a stisknete {\tt F4}. 
+\item V Linuxu se celkově mnohem víc (a účiněji) používá příkazová řádka neboli program  {\tt terminál}. \index{terminál} Spouští se klávesovou zkratkou {\tt Ctrl+Alt+T} nebo v Lubuntu spustíte správce souborů (2. ikona dole vlevo), přepnete se do požadovaného adresáře a stisknete {\tt F4}. \label{terminal}
 
 \item Adresářová struktura Linuxu je jednotná pro všechny disky v počítači. Akce typu: {\it \uv{přepni se na disk e:} } se v terminálu provede jako {\it \uv{přepni se do adresáře /media/<uzivatel>/ ...  } }. Nebo se přepnete pomocí jiného programu, např. Správce souborů. 	
 	
@@ -174,18 +174,26 @@ Tato kapitolka není úvodem do Linuxu (materiálů na toto téma je na webu spo
 \end{itemize}
 
 
-\subsection{Github}
+\section{Git} \index{Git}
 
-%{\bf Proč a jak se používá} 
+
+\subsection{Proč a jak se používá}
 %todo udělat podrobný návod pro příkazovou řádku a pro VSCode 
 
-{\bf Repozitář} \index{repozitář} je skupina souborů nějakého projektu, která navíc obsahuje komentovanou historii všech změn projektu. Používá se pro zálohování programů a sdílení a společné týmové práci na rozsáhlejších projektech, především programátorských a textových. 
+{\bf Git} umí uchovávat jednotlivé verze souborů, zobrazovat rozdíly mezi nimi, slučovat změny více uživatelů a tak dál. Pro vývoj softwaru pro roboty je to naprosto nezbytný nástroj. 
 
-{\bf Github}\footnote{\url{www.github.com}} \index{github} je v současnosti jeden z nejpoužívanějších webů pro tvorbu a~správu repozitářů. 
+{\bf Github}\footnote{\url{www.github.com}}  je v současnosti jeden z nejpoužívanějších webů pro tvorbu a~správu repozitářů.
+
+{\bf Repozitář} \index{repozitář} je skupina souborů nějakého projektu, která navíc obsahuje komentovanou historii všech změn projektu. Používá se pro zálohování programů a sdílení a společné týmové práci na rozsáhlejších projektech, především programátorských a textových. 
+ 
 
 Podrobnější představení githubu je  \href{http://www.kutac.cz/blog/pocitace-a-internety/jak-na-git-dil-0-co-proc-jak/}{zde}.
 
-Postup práce je následující: na webu github.com si vytvořím repozitář. Na svůj počítač si nainstaluji git. Stáhnu k sobě na počítač aktuální verzi repozitáře, upravím, co potřebuji, provedu tzv. commit a upravené soubory nahraju zpět na server. Podrobněji v návodech níže. 
+Pro práci s repozitáři je důležitý pojem commit - je to jeden \uv{kus hotové práce}. Například naprogramování  nové funkce, 
+přidání kapitoly do textu a podobně. Ke každému commitu píšeme při vytvoření komentář, aby bylo jasné, čeho se daný commit týká.
+\index{commit} 
+
+Postup práce je následující: na webu github.com si vytvoříte repozitář. Na svůj počítač si nainstalujete git. Stáhnete k sobě na počítač aktuální verzi repozitáře, upravíte, co potřebujete, vyrobíte commit a upravené soubory nahrajete zpět na server. Podrobněji v návodech níže. 
 Neustálému komentovanému ukládání jednotlivých verzí se říká {\bf verzování}. 
 
 Repozitář, ve kterém je i tato dokumentace, je na adrese 
@@ -206,14 +214,27 @@ Verzování na github lze provádět i s pomocí prostředí \hyperref[vscode]{V
 %doplnit návod 
 
 
-%\subsection{Instalace githubu a stažení repozitáře} \label{instal_github}
+\subsection{Instalace githubu a stažení repozitáře} \label{instal_github}
 
-%\begin{enumerate}
-%	\item Na github.com vytvořím účet a přihlásím se. Vpravo můžu založit nový repozitář (new repository) nebo se můžu přepnout do už existujících repozitářů. 
+\begin{enumerate}
+	\item Na webu \url{https://github.com} si vytvořte účet a přihláste se. 
+	Vpravo můžete založit nový repozitář (new repository) nebo se můžete přepnout do už existujících repozitářů. 
 	
-%	\item Na svém počítači si naunstaluji github. V linuxu napíšu do terminálu: {\tt sudo apt-get install git}.  
+	\item Na svém počítači si nainstalujte github. V Linuxu napište do 
+	\hyperref[terminal]{terminálu} : {\tt sudo apt-get install git}. 
+	Ve Windows instalujete jako libovolný jiný program. 
 	
-%	\item Vytvořím si lokální adresář a stáhnu do něj repozitář. V linuxu napíšu do terminálu: {\tt git clone <cestu k repozitáři> }. 
-%	Cestu zjistím tak, že se na webu přepnu do repozitáře a kliknu na tlačítko \uv{Clone or download}. Ose bjeví 
-%\end{enumerate}
+	\item Vytvořte si lokální složku a stáhněte do ní repozitář.  
+	V Linuxu se přepněte do složky, ve které chcete repozitář mít a napište do terminálu: 
+	{\tt git clone <cesta\_k\_repozitáři\_na\_webu> }. 
+	 Git vytvoří v aktuální složce podsložku s kopií repozitáře z webu.  
+	Cestu potřebnou pro příkaz {\tt clone} zjistíte tak, 
+	že se na webu přepnete do požadovaného repozitáře a kliknete na zelené tlačítko \uv{Clone or download}. 
+\end{enumerate}
+
+\subsection{Jak vytvořit commit a nahrát změny na server pomocí terminálu}
+
+
+
+
 
