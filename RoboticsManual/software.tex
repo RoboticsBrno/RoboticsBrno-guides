@@ -222,7 +222,8 @@ Verzování na github lze provádět i s pomocí prostředí \hyperref[vscode]{V
 	
 	\item Na svém počítači si nainstalujte github. V Linuxu napište do 
 	\hyperref[terminal]{terminálu} : {\tt sudo apt-get install git}. 
-	Ve Windows instalujete jako libovolný jiný program. 
+	Ve Windows stáhnete instalační program z adresy 
+	\url{https://git-scm.com/download} a instalujete jako libovolný jiný program. 
 	
 	\item Vytvořte si lokální složku a stáhněte do ní repozitář.  
 	V Linuxu se přepněte do složky, ve které chcete repozitář mít a napište do terminálu: 
@@ -230,11 +231,27 @@ Verzování na github lze provádět i s pomocí prostředí \hyperref[vscode]{V
 	 Git vytvoří v aktuální složce podsložku s kopií repozitáře z webu.  
 	Cestu potřebnou pro příkaz {\tt clone} zjistíte tak, 
 	že se na webu přepnete do požadovaného repozitáře a kliknete na zelené tlačítko \uv{Clone or download}. 
+	\item Pokud má repozitář více tzv. větví, přepnete se do požadované větve příkazem 
+	{\tt git checkout <nazev\_vetve>}, například {\tt git checkout RoboticsManual}.
 \end{enumerate}
 
 \subsection{Jak vytvořit commit a nahrát změny na server pomocí terminálu}
 
-
+\begin{enumerate}
+	\item Změny, které chcete zahrnout do commitu,  musíte do nejprve přidat příkazem {\tt git add <vybrane\_zmeny>}. 
+	Příkaz {\tt git add .} přidá všechny nové změny.  Všimněte si, že před tečkou je 
+	v příkazu {\tt git add .} mezera. Příkaz je možné libovolně opakovat. 
+	
+	\item Pokud si nejste jistí, co vše už je nebo není přidáno, použijte příkaz {\tt git status}
+	
+	\item Příkaz {\tt git commit} vytvoří nový commit ze všech změn přidaných příkazem {\tt add}. Co nepřidáte, to v commitu nebude!
+	Protože chceme vědět, co jsme v minulosti dělali, použijeme tvar: 
+	{\tt git commit -m \uv{Tady je napsáno, co tento commit obsahuje.} } I commitů můžeme vytvořit více za sebou. Všechny zůstávají na lokálním počítači, pokud je nepošlete na server. 
+	
+	\item Příkaz {\tt git push} pošle všechny dosud vytvořené commity na server. Vyžaduje přihlášení a heslo. (Nezapomeňte, že v Linuxu se heslo nezobrazuje, ani ve formě teček). 
+	
+	
+\end{enumerate}
 
 
 
