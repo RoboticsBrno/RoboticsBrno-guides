@@ -202,28 +202,29 @@ Návody pro github jsou například zde:
 
 {\bf Repozitář} \index{repozitář} je skupina souborů nějakého projektu, která navíc obsahuje komentovanou historii všech změn projektu. Používá se pro zálohování programů a sdílení a společné týmové práci na rozsáhlejších projektech, především programátorských a textových. 
  
- Repozitář, ve kterém je i tato dokumentace, je na adrese 
+Repozitář, ve kterém je i tato dokumentace, je na adrese 
  \url{https://github.com/RoboticsBrno/RobotikaBrno-guides/tree/RoboticsManual}.   
 
 Pro práci s repozitáři je důležitý pojem {\bf commit} \index{commit} -- je to jeden \uv{kus hotové práce}. 
-Například naprogramování  nové funkce, přidání kapitoly do textu a podobně. 
+Například naprogramování  nové funkce, přidání kapitoly do textu a~podobně. 
 Ke každému commitu píšeme při vytvoření anglicky komentář, aby bylo jasné, čeho se daný commit týká.
 \index{commit} 
 
 Postup práce je následující: na webu github.com si vytvoříte repozitář. Na svůj počítač si nainstalujete git. Stáhnete k sobě na počítač aktuální verzi repozitáře, upravíte, co potřebujete, vyrobíte commit a upravené soubory nahrajete zpět na server. Podrobněji v návodech níže. 
-Neustálému komentovanému ukládání jednotlivých verzí se říká {\bf verzování}. 
+Neustálému komentovanému ukládání jednotlivých verzí se říká {\bf verzování}. Je to vlastně podstatně vylepšené zálohování.
 
 Verzování na web github lze provádět z příkazové řádky (terminálu) nebo s~pomocí různých programů, například prostředí \hyperref[vscode]{VSCode} -- viz dále. 
 
 
 
-\subsection{Instalace gitu a stažení repozitáře} \label{instal_github}
+\subsection{Instalace gitu a stažení repozitáře -- Linux} \label{instal_github}
+
 
 \begin{enumerate}
-	\item Na webu \url{https://github.com} si vytvořte účet a přihláste se. 
+	\item Na webu \url{https://github.com} si vytvořte účet a přihlaste se. 
 	Vpravo můžete založit nový repozitář (new repository) nebo se můžete přepnout do už existujících repozitářů. 
 	
-	\item Na svém počítači si nainstalujte git. V Linuxu napište do 
+	\item Na svém počítači si nainstalujte git. Napište do 
 	\hyperref[terminal]{terminálu} : {\tt sudo apt-get install git}. 
 	Ve Windows stáhnete instalační program z adresy 
 	\url{https://git-scm.com/download} a instalujete jako libovolný jiný program. 
@@ -233,12 +234,38 @@ Verzování na web github lze provádět z příkazové řádky (terminálu) neb
 	{\tt git clone <cesta\_k\_repozitáři\_na\_webu> }. 
 	 Git vytvoří v aktuální složce podsložku s~kopií repozitáře z webu.  
 	Cestu potřebnou pro příkaz {\tt clone} zjistíte tak, 
-	že se na webu přepnete do požadovaného repozitáře a kliknete na zelené tlačítko \uv{Clone or download}. 
+	že se na webu \url{github.com} přepnete do požadovaného repozitáře a~kliknete na zelené tlačítko {\tt Clone or Download}.
+	Objeví se okno s cestou k repozitáři a také s tlačítkem {\tt Download ZIP}, které umožňuje stáhnout celý repozitář jako ZIP soubor.
+		 
 	\item Pokud má repozitář více tzv. větví, přepnete se do požadované větve příkazem 
 	{\tt git checkout <nazev\_vetve>}, například {\tt git checkout RoboticsManual}.
 \end{enumerate}
 
-\subsection{Jak vytvořit commit a nahrát změny na server pomocí terminálu}
+\subsection{Instalace gitu a stažení repozitáře -- Windows}
+
+\begin{enumerate}
+	
+	\item Na webu \url{https://github.com} si vytvořte účet a přihlaste se. 
+	Vpravo můžete založit nový repozitář (new repository) nebo se můžete přepnout do už existujících repozitářů. 
+	
+	\item Na svém počítači si nainstalujete git. Stáhnete instalační program z adresy 
+	\url{https://git-scm.com/download} a instalujete jako libovolný jiný program. 
+	
+	\item Dále stáhnete a nainstalujete program \href{https://tortoisegit.org/}{TortoiseGit}.
+	
+	\item Po restartu se v programech pro práci se soubory (například 
+	{\it Průzkumník, Total Commander, Free Commander, Altap Salamander} a~podobně) objeví 
+	v~kontextovém menu (po stisku pravého tlačítka nad zvoleným souborem nebo adresářem)  
+	nabídka pro práci s Gitem. 
+	\item Klikněte pravým tlačítkem na adresář, kam chcete stáhnout repozitář, a z nabídky vyberte {\tt Git clone...}  
+	\item Do kolonky URL zadáte cestku k repozitáři. Cestu k repozitáři zjistíte tak, 
+	že se na webu \url{github.com} přepnete do požadovaného repozitáře a~kliknete na zelené tlačítko {\tt Clone or Download}. 
+	Objeví se okno s cestou k repozitáři a také s tlačítkem {\tt Download ZIP}, které umožňuje stáhnout celý repozitář jako ZIP soubor. Kliknutím na {\tt OK} stáhnete repozitář. 
+	
+	
+\end{enumerate}
+
+\subsection{Vytvoření commitu a nahrání změn na server pomocí terminálu -- Linux}
 
 \begin{enumerate}
 	\item Změny, které chcete zahrnout do commitu,  musíte do nejprve přidat příkazem {\tt git add <vybrane\_zmeny>}. 
@@ -249,12 +276,33 @@ Verzování na web github lze provádět z příkazové řádky (terminálu) neb
 	
 	\item Příkaz {\tt git commit} vytvoří nový commit ze všech změn přidaných příkazem {\tt add}. Co nepřidáte, to v commitu nebude!
 	Protože chceme vědět, co jsme v minulosti dělali, použijeme tvar: 
-	{\tt git commit -m ``Tady je napsáno, co tento commit obsahuje.'' }  I commitů můžeme vytvořit více za sebou. Všechny zůstávají na lokálním počítači, pokud je nepošlete na server. 
-	
-	\item Příkaz {\tt git push} pošle všechny dosud vytvořené commity na server. Vyžaduje přihlášení a heslo. (Nezapomeňte, že v~Linuxu se heslo nezobrazuje, ani ve formě teček). 
+	{\tt git commit -m ``Tady je napsáno, co tento commit obsahuje.'' }  I commitů můžeme vytvořit více za sebou. Všechny zůstávají na lokálním počítači, dokud je nepošlete na server. 
+	ih
+	\item Příkaz {\tt git push} pošle všechny vytvořené a dosud neposlané commity na server. Vyžaduje přihlášení a heslo. (Nezapomeňte, že v~Linuxu se heslo nezobrazuje, ani ve formě teček). 
 	
 	
 \end{enumerate}
 
 
+\subsection{Vytvoření commitu a nahrání změn na server pomocí TortoiseGit -- Windows}
 
+\begin{enumerate}
+	\item Nové soubory nebo soubory zkopírované odjinud musíte do repozitáře ručně přidat: 
+	klikněte pravým tlačítkem na nový anebo zkopírovaný soubor a zvolte {\tt <TortoiseGit><Add...>} 
+	Úpravy existujících souborů přidávat nemusíte, TortoiseGit je přidá před commitem automaticky. 
+	Smazání souboru z repozitáře také zjistí a provede automaticky.
+
+	\item Vytvořte commit: klikněte pravým tlačítkem na adresář s repozitářem a z nabídky zvolte {\tt Git Commit -> ''master'' ...}
+	Objeví se formulář pro commit. Do kolonky {\tt Message} zadejte komentář ke commitu. 
+	{\bf Komentář je povinný a nutný!} 
+	Je nutný pro orientaci ve změnách nejen pro vás, ale i pro další, kdo repozitář používají (spolužáci, učitel, vedoucí kroužku, ... )  a nevidí vám do hlavy!
+	
+	\item Dole ve formuláři klikněte na tlačítko {\tt Commit}. Commitů můžeme vytvořit více za sebou. Všechny zůstávají na lokálním počítači, dokud je nepošlete na server.
+	
+	\item Všechny vytvořené a dosud neposlané commity na server pošlete tak, že ve formuláři pro commit (viz předchozí bod) kliknete 
+	na šipku vedle tlačítka {\tt Commit} a z nabídky vyberete {\tt Commit \& Push}. Po přihlášení a~zadání hesla se commity odešlou na server.
+	
+	
+	
+	
+\end{enumerate}
