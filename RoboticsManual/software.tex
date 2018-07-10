@@ -126,7 +126,7 @@ Tato kapitolka není úvodem do Linuxu (materiálů na toto téma je na webu spo
 
 \item Linux {\bf rozlišuje velká a~malá písmena}. V terminálu, v názvech souborů, všude. 
 
-\item Když si chce uživatel nainstalovat Linux, vybírá ne operační systém, ale tzv. distribuci = operační systém + spousta předinstalovaných programů. Kritérií pro výběr je spousta, pár tipů: 
+\item Když si chce uživatel nainstalovat Linux, vybírá ne operační systém, ale tzv. distribuci = operační systém + spousta předinstalovaných programů. Kritérií pro výběr je spousta, pár tipů, které používáme na Robotárně: 
 
 	\begin{itemize}
 		\item distribuce {\it Mint} má podobné rozložení grafických ovládacích prvků jak windows a je nenáročná na hardware 
@@ -161,6 +161,8 @@ Tato kapitolka není úvodem do Linuxu (materiálů na toto téma je na webu spo
 
 \item Znak zavináč se napíše {\tt AltGr+v}, znak vlna se napíše {\tt AltGr+a}.
 
+\item Anglické znaky na české klávesnici napíšete, když použijete {\tt AltGr}. 
+
 \item Drivery do tiskáren mají příponu ppd. Před jejich použitím se musí nainstalovat program cups. 
 
 \item Snímek obrazovky uložíte stiskem klávesy {\tt PrintScreen} do adresáře 
@@ -174,33 +176,19 @@ Tato kapitolka není úvodem do Linuxu (materiálů na toto téma je na webu spo
 \end{itemize}
 
 
-\section{Git} \index{Git}
+\section{Verzování} \index{verzování}
 
 
-\subsection{Proč a jak se používá}
-%todo udělat podrobný návod pro příkazovou řádku a pro VSCode 
+\subsection{Základní pojmy}
+%todo udělat podrobný návod pro VSCode 
 
-{\bf Git} umí uchovávat jednotlivé verze souborů, zobrazovat rozdíly mezi nimi, slučovat změny více uživatelů a tak dál. Pro vývoj softwaru pro roboty je to naprosto nezbytný nástroj. 
+{\bf Git} je program, který umí uchovávat jednotlivé verze souborů, zobrazovat rozdíly mezi nimi, slučovat změny více uživatelů a tak dál. Pro vývoj softwaru pro roboty je to naprosto nezbytný nástroj. \index{git}
+
+Podrobnější představení gitu je  \href{http://www.kutac.cz/blog/pocitace-a-internety/jak-na-git-dil-0-co-proc-jak/}{zde}.
 
 {\bf Github}\footnote{\url{www.github.com}}  je v současnosti jeden z nejpoužívanějších webů pro tvorbu a~správu repozitářů.
 
-{\bf Repozitář} \index{repozitář} je skupina souborů nějakého projektu, která navíc obsahuje komentovanou historii všech změn projektu. Používá se pro zálohování programů a sdílení a společné týmové práci na rozsáhlejších projektech, především programátorských a textových. 
- 
-
-Podrobnější představení githubu je  \href{http://www.kutac.cz/blog/pocitace-a-internety/jak-na-git-dil-0-co-proc-jak/}{zde}.
-
-Pro práci s repozitáři je důležitý pojem commit - je to jeden \uv{kus hotové práce}. Například naprogramování  nové funkce, 
-přidání kapitoly do textu a podobně. Ke každému commitu píšeme při vytvoření komentář, aby bylo jasné, čeho se daný commit týká.
-\index{commit} 
-
-Postup práce je následující: na webu github.com si vytvoříte repozitář. Na svůj počítač si nainstalujete git. Stáhnete k sobě na počítač aktuální verzi repozitáře, upravíte, co potřebujete, vyrobíte commit a upravené soubory nahrajete zpět na server. Podrobněji v návodech níže. 
-Neustálému komentovanému ukládání jednotlivých verzí se říká {\bf verzování}. 
-
-Repozitář, ve kterém je i tato dokumentace, je na adrese 
-\url{https://github.com/RoboticsBrno/RobotikaBrno-guides/tree/RoboticsManual}.  
-
-
-\paragraph{Návody pro github}
+Návody pro github jsou například zde: 
 
 \begin{itemize}
 	\item \href{http://www.kutac.cz/blog/pocitace-a-internety/jak-na-git-dil-1/}{Github na příkazovém řádku v Linuxu.}
@@ -210,17 +198,32 @@ Repozitář, ve kterém je i tato dokumentace, je na adrese
 	% https://help.github.com/articles/adding-a-remote/
 \end{itemize}
 
-Verzování na github lze provádět i s pomocí prostředí \hyperref[vscode]{VSCode}.  
-%doplnit návod 
+ 
+
+{\bf Repozitář} \index{repozitář} je skupina souborů nějakého projektu, která navíc obsahuje komentovanou historii všech změn projektu. Používá se pro zálohování programů a sdílení a společné týmové práci na rozsáhlejších projektech, především programátorských a textových. 
+ 
+ Repozitář, ve kterém je i tato dokumentace, je na adrese 
+ \url{https://github.com/RoboticsBrno/RobotikaBrno-guides/tree/RoboticsManual}.   
+
+Pro práci s repozitáři je důležitý pojem {\bf commit} \index{commit} -- je to jeden \uv{kus hotové práce}. 
+Například naprogramování  nové funkce, přidání kapitoly do textu a podobně. 
+Ke každému commitu píšeme při vytvoření anglicky komentář, aby bylo jasné, čeho se daný commit týká.
+\index{commit} 
+
+Postup práce je následující: na webu github.com si vytvoříte repozitář. Na svůj počítač si nainstalujete git. Stáhnete k sobě na počítač aktuální verzi repozitáře, upravíte, co potřebujete, vyrobíte commit a upravené soubory nahrajete zpět na server. Podrobněji v návodech níže. 
+Neustálému komentovanému ukládání jednotlivých verzí se říká {\bf verzování}. 
+
+Verzování na web github lze provádět z příkazové řádky (terminálu) nebo s~pomocí různých programů, například prostředí \hyperref[vscode]{VSCode} -- viz dále. 
 
 
-\subsection{Instalace githubu a stažení repozitáře} \label{instal_github}
+
+\subsection{Instalace gitu a stažení repozitáře} \label{instal_github}
 
 \begin{enumerate}
 	\item Na webu \url{https://github.com} si vytvořte účet a přihláste se. 
 	Vpravo můžete založit nový repozitář (new repository) nebo se můžete přepnout do už existujících repozitářů. 
 	
-	\item Na svém počítači si nainstalujte github. V Linuxu napište do 
+	\item Na svém počítači si nainstalujte git. V Linuxu napište do 
 	\hyperref[terminal]{terminálu} : {\tt sudo apt-get install git}. 
 	Ve Windows stáhnete instalační program z adresy 
 	\url{https://git-scm.com/download} a instalujete jako libovolný jiný program. 
@@ -228,7 +231,7 @@ Verzování na github lze provádět i s pomocí prostředí \hyperref[vscode]{V
 	\item Vytvořte si lokální složku a stáhněte do ní repozitář.  
 	V Linuxu se přepněte do složky, ve které chcete repozitář mít a napište do terminálu: 
 	{\tt git clone <cesta\_k\_repozitáři\_na\_webu> }. 
-	 Git vytvoří v aktuální složce podsložku s kopií repozitáře z webu.  
+	 Git vytvoří v aktuální složce podsložku s~kopií repozitáře z webu.  
 	Cestu potřebnou pro příkaz {\tt clone} zjistíte tak, 
 	že se na webu přepnete do požadovaného repozitáře a kliknete na zelené tlačítko \uv{Clone or download}. 
 	\item Pokud má repozitář více tzv. větví, přepnete se do požadované větve příkazem 
@@ -246,9 +249,9 @@ Verzování na github lze provádět i s pomocí prostředí \hyperref[vscode]{V
 	
 	\item Příkaz {\tt git commit} vytvoří nový commit ze všech změn přidaných příkazem {\tt add}. Co nepřidáte, to v commitu nebude!
 	Protože chceme vědět, co jsme v minulosti dělali, použijeme tvar: 
-	{\tt git commit -m \uv{Tady je napsáno, co tento commit obsahuje.} } I commitů můžeme vytvořit více za sebou. Všechny zůstávají na lokálním počítači, pokud je nepošlete na server. 
+	{\tt git commit -m ``Tady je napsáno, co tento commit obsahuje.'' }  I commitů můžeme vytvořit více za sebou. Všechny zůstávají na lokálním počítači, pokud je nepošlete na server. 
 	
-	\item Příkaz {\tt git push} pošle všechny dosud vytvořené commity na server. Vyžaduje přihlášení a heslo. (Nezapomeňte, že v Linuxu se heslo nezobrazuje, ani ve formě teček). 
+	\item Příkaz {\tt git push} pošle všechny dosud vytvořené commity na server. Vyžaduje přihlášení a heslo. (Nezapomeňte, že v~Linuxu se heslo nezobrazuje, ani ve formě teček). 
 	
 	
 \end{enumerate}
