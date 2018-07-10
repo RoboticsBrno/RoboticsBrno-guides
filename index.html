@@ -10,7 +10,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,charset=utf-8,html --> 
 <meta name="src" content="dokumentace.tex" /> 
-<meta name="date" content="2018-07-10 12:26:00" /> 
+<meta name="date" content="2018-07-10 14:01:00" /> 
 <link rel="stylesheet" type="text/css" href="dokumentace.css" /> 
 </head><body 
 >
@@ -237,23 +237,32 @@ href="#x1-1130004.4" id="QQ2-1-124">Verzování</a></span>
 <br />  <span class="subsectionToc" >4.4.1 <a 
 href="#x1-1140004.4.1" id="QQ2-1-125">Základní pojmy</a></span>
 <br />  <span class="subsectionToc" >4.4.2 <a 
-href="#x1-1150004.4.2" id="QQ2-1-126">Instalace gitu a stažení repozitáře</a></span>
+href="#x1-1150004.4.2" id="QQ2-1-126">Instalace gitu a stažení repozitáře – Linux</a></span>
 <br />  <span class="subsectionToc" >4.4.3 <a 
-href="#x1-1160004.4.3" id="QQ2-1-127">Jak vytvořit commit a nahrát změny na server pomocí terminálu</a></span>
+href="#x1-1160004.4.3" id="QQ2-1-127">Instalace gitu a stažení repozitáře – Windows</a></span>
+<br />  <span class="subsectionToc" >4.4.4 <a 
+href="#x1-1170004.4.4" id="QQ2-1-128">Vytvoření commitu a nahrání změn na server pomocí
+terminálu – Linux</a></span>
+<br />  <span class="subsectionToc" >4.4.5 <a 
+href="#x1-1180004.4.5" id="QQ2-1-129">Vytvoření commitu a nahrání změn na server pomocí
+TortoiseGit – Windows</a></span>
 <br /><span class="chapterToc" >5 <a 
-href="#x1-1170005" id="QQ2-1-128">Ostatní</a></span>
+href="#x1-1190005" id="QQ2-1-130">Ostatní</a></span>
 <br /> <span class="sectionToc" >5.1 <a 
-href="#x1-1180005.1" id="QQ2-1-129">Mechanická konstrukce robota – doporučení</a></span>
+href="#x1-1200005.1" id="QQ2-1-131">Mechanická konstrukce robota – doporučení</a></span>
 <br />  <span class="subsectionToc" >5.1.1 <a 
-href="#x1-1210005.1.1" id="QQ2-1-132">Konstrukce velkých robotů</a></span>
+href="#x1-1230005.1.1" id="QQ2-1-134">Konstrukce velkých robotů</a></span>
 <br /> <span class="sectionToc" >5.2 <a 
-href="#x1-1220005.2" id="QQ2-1-133">Řešení některých problémů</a></span>
+href="#x1-1240005.2" id="QQ2-1-135">Řešení některých problémů</a></span>
 <br />  <span class="subsectionToc" >5.2.1 <a 
-href="#x1-1230005.2.1" id="QQ2-1-134">Chyba při uploadu programu do desky Arduino nano:</a></span>
+href="#x1-1250005.2.1" id="QQ2-1-136">Chyba při uploadu programu do desky Arduino nano:</a></span>
 <br /><span class="chapterToc" > <a 
-href="#Q1-1-136">Přílohy</a></span>
+href="#Q1-1-138">Přílohy</a></span>
+                                                                          
+
+                                                                          
 <br /><span class="chapterToc" > <a 
-href="#Q1-1-142">Rejstřík</a></span>
+href="#Q1-1-144">Rejstřík</a></span>
 </div>
                                                                           
 
@@ -558,7 +567,7 @@ class="ecti-1200">VS Code</span></span></div><!--tex4ht:label?: x1-120011 -->
 <!--l. 165--><p class="noindent" ><a 
  id="explorer"></a> Obrázek <a 
 href="#x1-120011">1.1<!--tex4ht:ref: fig:vsc_rozlozeni --></a> na straně <a 
-href="#x1-120011">13<!--tex4ht:ref: fig:vsc_rozlozeni --></a> ukazuje rozložení oken v rámci projektu. Hlavní okno
+href="#x1-120011">14<!--tex4ht:ref: fig:vsc_rozlozeni --></a> ukazuje rozložení oken v rámci projektu. Hlavní okno
 rozdělte na dvě části pro zobrazení dvou upravovaných souborů pomocí ikony
 v kroužku. Začínáme v okně <span 
 class="ecbx-1200">Explorer</span>, <a 
@@ -1596,7 +1605,7 @@ class="ectt-1200">#include</span></span></span> Příklad:
 <!--l. 447--><p class="nopar" >
 </p><!--l. 449--><p class="noindent" >Příklad takové knihovny je v kapitole <a 
 href="#x1-430002.3.7">2.3.7<!--tex4ht:ref: prog:knihovna --></a> na straně <a 
-href="#x1-430002.3.7">46<!--tex4ht:ref: prog:knihovna --></a>.
+href="#x1-430002.3.7">47<!--tex4ht:ref: prog:knihovna --></a>.
 </p><!--l. 451--><p class="noindent" >
 </p>
 <h5 class="subsubsectionHead"><a 
@@ -5898,8 +5907,8 @@ class="ectt-1200">https://github.com/RoboticsBrno/RobotikaBrno-_guides/tree/Robo
 </p><!--l. 208--><p class="noindent" >Pro práci s repozitáři je důležitý pojem <span 
 class="ecbx-1200">commit</span> <a 
  id="dx1-114004"></a>– je to jeden „kus hotové
-práce“. Například naprogramování nové funkce, přidání kapitoly do textu a
-podobně. Ke každému commitu píšeme při vytvoření anglicky komentář, aby
+práce“. Například naprogramování nové funkce, přidání kapitoly do textu
+a podobně. Ke každému commitu píšeme při vytvoření anglicky komentář, aby
 bylo jasné, čeho se daný commit týká. <a 
  id="dx1-114005"></a>
 </p><!--l. 213--><p class="noindent" >Postup práce je následující: na webu github.com si vytvoříte repozitář. Na
@@ -5909,48 +5918,56 @@ soubory nahrajete zpět na server. Podrobněji v návodech níže. Neustálému
 komentovanému ukládání jednotlivých verzí se říká <span 
 class="ecbx-1200">verzov</span><span 
 class="ecbx-1200">án</span><span 
-class="ecbx-1200">í</span>.
+class="ecbx-1200">í</span>. Je to vlastně
                                                                           
 
                                                                           
+podstatně vylepšené zálohování.
 </p><!--l. 216--><p class="noindent" >Verzování na web github lze provádět z příkazové řádky (terminálu)
 nebo s pomocí různých programů, například prostředí <a 
 href="#x1-90001.1.4">VSCode</a> – viz
 dále.
 </p>
 <h4 class="subsectionHead"><span class="titlemark">4.4.2   </span> <a 
- id="x1-1150004.4.2"></a>Instalace gitu a stažení repozitáře</h4>
-<!--l. 223--><p class="noindent" >
+ id="x1-1150004.4.2"></a>Instalace gitu a stažení repozitáře – Linux</h4>
+<!--l. 224--><p class="noindent" >
       </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
    1. </dt><dd 
 class="enumerate-enumitem">Na webu <a 
 href="https://github.com" class="url" ><span 
-class="ectt-1200">https://github.com</span></a> si vytvořte účet a přihláste se. Vpravo
+class="ectt-1200">https://github.com</span></a> si vytvořte účet a přihlaste se. Vpravo
       můžete  založit  nový  repozitář  (new  repository)  nebo  se  můžete
       přepnout do už existujících repozitářů.
       </dd><dt class="enumerate-enumitem">
    2. </dt><dd 
-class="enumerate-enumitem">Na svém počítači si nainstalujte git. V Linuxu napište do <a 
-href="#x1-1110004.3.3">terminálu</a>
-      :   <span 
-class="ectt-1200">sudo apt-get install git</span>.   Ve   Windows   stáhnete   instalační
-      program z adresy <a 
+class="enumerate-enumitem">Na svém počítači si nainstalujte git. Napište do <a 
+href="#x1-1110004.3.3">terminálu</a> : <span 
+class="ectt-1200">sudo</span>
+      <span 
+class="ectt-1200">apt-get install git</span>.  Ve  Windows  stáhnete  instalační  program  z
+      adresy <a 
 href="https://git-scm.com/download" class="url" ><span 
-class="ectt-1200">https://git-_scm.com/download</span></a> a instalujete jako
-      libovolný jiný program.
+class="ectt-1200">https://git-_scm.com/download</span></a> a instalujete jako libovolný
+      jiný program.
       </dd><dt class="enumerate-enumitem">
    3. </dt><dd 
 class="enumerate-enumitem">Vytvořte   si   lokální   složku   a   stáhněte   do   ní   repozitář.   V
       Linuxu  se  přepněte  do  složky,  ve  které  chcete  repozitář  mít  a
-      napište do terminálu: <span 
+      napište  do  terminálu:  <span 
 class="ectt-1200">git clone &#x003C;cesta_k_repozit</span><span 
 class="ectt-1200">á</span><span 
-class="ectt-1200">ři_na_webu&#x003E; </span>.
-      Git vytvoří v aktuální složce podsložku s kopií repozitáře z webu.
-      Cestu potřebnou pro příkaz <span 
-class="ectt-1200">clone </span>zjistíte tak, že se na webu přepnete
-      do požadovaného repozitáře a kliknete na zelené tlačítko „Clone or
-      download“.
+class="ectt-1200">ři_na_webu&#x003E;</span>
+      .  Git  vytvoří  v  aktuální  složce  podsložku  s kopií  repozitáře  z
+      webu.  Cestu  potřebnou  pro  příkaz  <span 
+class="ectt-1200">clone </span>zjistíte  tak,  že  se  na
+      webu <a 
+href="github.com" class="url" ><span 
+class="ectt-1200">github.com</span></a> přepnete do požadovaného repozitáře a kliknete
+      na zelené tlačítko <span 
+class="ectt-1200">Clone or Download</span>. Objeví se okno s cestou k
+      repozitáři a také s tlačítkem <span 
+class="ectt-1200">Download ZIP</span>, které umožňuje stáhnout
+      celý repozitář jako ZIP soubor.
       </dd><dt class="enumerate-enumitem">
    4. </dt><dd 
 class="enumerate-enumitem">Pokud má repozitář více tzv. větví, přepnete se do požadované větve
@@ -5959,14 +5976,68 @@ class="ectt-1200">git checkout &#x003C;nazev_vetve&#x003E;</span>,  například 
 class="ectt-1200">git checkout</span>
       <span 
 class="ectt-1200">RoboticsManual</span>.</dd></dl>
-<!--l. 241--><p class="noindent" >
-</p>
-<h4 class="subsectionHead"><span class="titlemark">4.4.3   </span> <a 
- id="x1-1160004.4.3"></a>Jak vytvořit commit a nahrát změny na server pomocí terminálu</h4>
-<!--l. 244--><p class="noindent" >
                                                                           
 
                                                                           
+<!--l. 244--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">4.4.3   </span> <a 
+ id="x1-1160004.4.3"></a>Instalace gitu a stažení repozitáře – Windows</h4>
+<!--l. 247--><p class="noindent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Na webu <a 
+href="https://github.com" class="url" ><span 
+class="ectt-1200">https://github.com</span></a> si vytvořte účet a přihlaste se. Vpravo
+      můžete  založit  nový  repozitář  (new  repository)  nebo  se  můžete
+      přepnout do už existujících repozitářů.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">Na svém počítači si nainstalujete git. Stáhnete instalační program z
+      adresy <a 
+href="https://git-scm.com/download" class="url" ><span 
+class="ectt-1200">https://git-_scm.com/download</span></a> a instalujete jako libovolný
+      jiný program.
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">Dále stáhnete a nainstalujete program <a 
+href="https://tortoisegit.org/" >TortoiseGit</a>.
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">Po  restartu  se  v  programech  pro  práci  se  soubory  (například
+      <span 
+class="ecti-1200">Průzkumn</span><span 
+class="ecti-1200">ík, Total Commander, Free Commander, Altap Salamander</span>
+      a podobně) objeví v kontextovém menu (po stisku pravého tlačítka
+      nad zvoleným souborem nebo adresářem) nabídka pro práci s Gitem.
+      </dd><dt class="enumerate-enumitem">
+   5. </dt><dd 
+class="enumerate-enumitem">Klikněte pravým tlačítkem na adresář, kam chcete stáhnout repozitář,
+      a z nabídky vyberte <span 
+class="ectt-1200">Git clone...</span>
+      </dd><dt class="enumerate-enumitem">
+   6. </dt><dd 
+class="enumerate-enumitem">Do kolonky URL zadáte cestku k repozitáři. Cestu k repozitáři zjistíte
+      tak, že se na webu <a 
+href="github.com" class="url" ><span 
+class="ectt-1200">github.com</span></a> přepnete do požadovaného repozitáře
+      a kliknete na zelené tlačítko <span 
+class="ectt-1200">Clone or Download</span>. Objeví se okno s
+      cestou k repozitáři a také s tlačítkem <span 
+class="ectt-1200">Download ZIP</span>, které umožňuje
+      stáhnout celý repozitář jako ZIP soubor. Kliknutím na <span 
+class="ectt-1200">OK </span>stáhnete
+      repozitář.
+      </dd></dl>
+<!--l. 268--><p class="noindent" >
+</p>
+                                                                          
+
+                                                                          
+<h4 class="subsectionHead"><span class="titlemark">4.4.4   </span> <a 
+ id="x1-1170004.4.4"></a>Vytvoření commitu a nahrání změn na server pomocí terminálu –
+Linux</h4>
+<!--l. 271--><p class="noindent" >
       </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
    1. </dt><dd 
 class="enumerate-enumitem">Změny,  které  chcete  zahrnout  do  commitu,  musíte  do  nejprve
@@ -5993,30 +6064,77 @@ class="ectt-1200">git commit</span>
 class="ectt-1200">-m “Tady je naps</span><span 
 class="ectt-1200">áno, co tento commit obsahuje.”  </span>I  commitů
       můžeme  vytvořit  více  za  sebou.  Všechny  zůstávají  na  lokálním
-      počítači, pokud je nepošlete na server.
+      počítači, dokud je nepošlete na server. ih
       </dd><dt class="enumerate-enumitem">
    4. </dt><dd 
 class="enumerate-enumitem">Příkaz <span 
-class="ectt-1200">git push </span>pošle všechny dosud vytvořené commity na server.
-      Vyžaduje  přihlášení  a  heslo.  (Nezapomeňte,  že  v Linuxu  se  heslo
-      nezobrazuje, ani ve formě teček).
+class="ectt-1200">git push </span>pošle všechny vytvořené a dosud neposlané commity
+      na server. Vyžaduje přihlášení a heslo. (Nezapomeňte, že v Linuxu se
+      heslo nezobrazuje, ani ve formě teček).
+      </dd></dl>
+<!--l. 287--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">4.4.5   </span> <a 
+ id="x1-1180004.4.5"></a>Vytvoření commitu a nahrání změn na server pomocí TortoiseGit –
+Windows</h4>
+<!--l. 290--><p class="noindent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">Nové soubory nebo soubory zkopírované odjinud musíte do repozitáře
+      ručně přidat: klikněte pravým tlačítkem na nový anebo zkopírovaný
+      soubor a zvolte <span 
+class="ectt-1200">&#x003C;TortoiseGit&#x003E;&#x003C;Add...&#x003E; </span>Úpravy existujících souborů
+                                                                          
+
+                                                                          
+      přidávat nemusíte, TortoiseGit je přidá před commitem automaticky.
+      Smazání souboru z repozitáře také zjistí a provede automaticky.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">Vytvořte commit: klikněte pravým tlačítkem na adresář s repozitářem
+      a z nabídky zvolte <span 
+class="ectt-1200">Git Commit -&#x003E; ”master” ... </span>Objeví se formulář
+      pro  commit.  Do  kolonky  <span 
+class="ectt-1200">Message </span>zadejte  komentář  ke  commitu.
+      <span 
+class="ecbx-1200">Koment</span><span 
+class="ecbx-1200">á</span><span 
+class="ecbx-1200">ř je povinn</span><span 
+class="ecbx-1200">ý a nutn</span><span 
+class="ecbx-1200">ý! </span>Je nutný pro orientaci ve změnách
+      nejen pro vás, ale i pro další, kdo repozitář používají (spolužáci,
+      učitel, vedoucí kroužku, ... ) a nevidí vám do hlavy!
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">Dole  ve  formuláři  klikněte  na  tlačítko  <span 
+class="ectt-1200">Commit</span>.  Commitů  můžeme
+      vytvořit  více  za  sebou.  Všechny  zůstávají  na  lokálním  počítači,
+      dokud je nepošlete na server.
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">Všechny vytvořené a dosud neposlané commity na server pošlete tak,
+      že ve formuláři pro commit (viz předchozí bod) kliknete na šipku vedle
+      tlačítka <span 
+class="ectt-1200">Commit </span>a z nabídky vyberete <span 
+class="ectt-1200">Commit &#x0026; Push</span>. Po přihlášení
+      a zadání hesla se commity odešlou na server.
       </dd></dl>
                                                                           
 
                                                                           
 <h2 class="chapterHead"><span class="titlemark">Kapitola 5</span><br /><a 
- id="x1-1170005"></a>Ostatní</h2>
+ id="x1-1190005"></a>Ostatní</h2>
 <h3 class="sectionHead"><span class="titlemark">5.1   </span> <a 
- id="x1-1180005.1"></a>Mechanická konstrukce robota – doporučení</h3>
+ id="x1-1200005.1"></a>Mechanická konstrukce robota – doporučení</h3>
 <a 
- id="dx1-118001"></a>
+ id="dx1-120001"></a>
 <a 
- id="dx1-118002"></a>
+ id="dx1-120002"></a>
 <!--l. 6--><p class="noindent" >Roboty rozlišujeme podle způsobu ovládání a podle velikosti.
 </p><!--l. 8--><p class="noindent" >
 </p>
 <h5 class="likesubsubsectionHead"><a 
- id="x1-1190005.1"></a>Ovládání robotů</h5>
+ id="x1-1210005.1"></a>Ovládání robotů</h5>
 <!--l. 10--><p class="noindent" ><a 
  id="autonomni"></a>
 </p><!--l. 12--><p class="noindent" >Každý robot může být buď řízený nebo autonomní. <span 
@@ -6024,13 +6142,13 @@ class="ecbx-1200">Autonomn</span><span
 class="ecbx-1200">í </span>znamená, že
 je naprogramovaný a během soutěže nebo prezentace se pohybuje samostatně.
 <a 
- id="dx1-119001"></a>
+ id="dx1-121001"></a>
 </p><!--l. 15--><p class="noindent" >Roboty můžeme řídit po kabelu nebo bezdrátově, například přes <a 
 href="#bluetooth">bluetooth</a>.
 </p><!--l. 18--><p class="noindent" >
 </p>
 <h5 class="likesubsubsectionHead"><a 
- id="x1-1200005.1"></a>Velikost robotů</h5>
+ id="x1-1220005.1"></a>Velikost robotů</h5>
 <!--l. 20--><p class="noindent" >Na škole a v DDM stavíme a programujeme hlavně roboty dvojího typu :
 „střední“ a „velké“.
 </p><!--l. 23--><p class="noindent" >Jako střední používáme roboty <span 
@@ -6049,22 +6167,22 @@ konstruktérů.
 </p><!--l. 31--><p class="noindent" >
 </p>
 <h4 class="subsectionHead"><span class="titlemark">5.1.1   </span> <a 
- id="x1-1210005.1.1"></a>Konstrukce velkých robotů</h4>
+ id="x1-1230005.1.1"></a>Konstrukce velkých robotů</h4>
 <!--l. 33--><p class="noindent" >Celého robota nejprve navrhneme ve vhodném <a 
- id="dx1-121001"></a>CAD programu:
+ id="dx1-123001"></a>CAD programu:
 Solidworks<span class="footnote-mark"><a 
 href="dokumentace41.html#fn1x5"><sup class="textsuperscript">1</sup></a></span><a 
- id="x1-121002f1"></a> ,
+ id="x1-123002f1"></a> ,
 onshape<span class="footnote-mark"><a 
 href="dokumentace42.html#fn2x5"><sup class="textsuperscript">2</sup></a></span><a 
- id="x1-121003f2"></a> , . <a 
- id="dx1-121004"></a><a 
- id="dx1-121005"></a>
+ id="x1-123003f2"></a> , . <a 
+ id="dx1-123004"></a><a 
+ id="dx1-123005"></a>
 Pokud jako základní materiál zvolíme překližku nebo například plexisklo (kombinované
 s díly z lega), můžeme díly vymodelované v CADu nechat vyřezat na laseru na pracovišti
 Fablab.<span class="footnote-mark"><a 
 href="dokumentace43.html#fn3x5"><sup class="textsuperscript">3</sup></a></span><a 
- id="x1-121006f3"></a> 
+ id="x1-123006f3"></a> 
 To dramaticky urychluje práci. Pro konstrukci prototypů se také hodí měkčené
 PVC.
 </p><!--l. 41--><p class="noindent" >Při stavbě velkých robotů se držíme osvědčeného schématu:
@@ -6085,11 +6203,11 @@ neosvědčily.
                                                                           
 </p>
 <h3 class="sectionHead"><span class="titlemark">5.2   </span> <a 
- id="x1-1220005.2"></a>Řešení některých problémů</h3>
+ id="x1-1240005.2"></a>Řešení některých problémů</h3>
 <!--l. 2--><p class="noindent" >
 </p>
 <h4 class="subsectionHead"><span class="titlemark">5.2.1   </span> <a 
- id="x1-1230005.2.1"></a>Chyba při uploadu programu do desky Arduino nano:</h4>
+ id="x1-1250005.2.1"></a>Chyba při uploadu programu do desky Arduino nano:</h4>
 <!--l. 4--><p class="noindent" >Chyba: <br 
 class="newline" /><span 
 class="ectt-1200">Please specify &#x2019;upload_port&#x2019; environment or use global &#x2019;–upload-port&#x2019;</span>
@@ -6103,15 +6221,15 @@ code a odpojit a připojit desku.
                                                                           
 </p>
 <h2 class="likechapterHead"><a 
- id="x1-1240005.2.1"></a>Přílohy</h2> <a 
- id="Q1-1-136"></a>
+ id="x1-1260005.2.1"></a>Přílohy</h2> <a 
+ id="Q1-1-138"></a>
 <h3 class="likesectionHead"><a 
- id="x1-1250005.2.1"></a>Příloha A – Hodnoty vybraných součástek</h3>
+ id="x1-1270005.2.1"></a>Příloha A – Hodnoty vybraných součástek</h3>
 <!--l. 4--><p class="noindent" ><a 
  id="1N4148"></a> <span 
 class="ecbx-1200">Dioda 1N4148</span> <a 
- id="dx1-125001"></a><a 
- id="dx1-125002"></a>
+ id="dx1-127001"></a><a 
+ id="dx1-127002"></a>
 </p><!--l. 7--><p class="noindent" >Maximální napětí: 100 V
 </p><!--l. 9--><p class="noindent" >Maximální proud: 200 mA
 </p><!--l. 11--><p class="noindent" >Maximální výkon: 500 mW
@@ -6119,8 +6237,8 @@ class="ecbx-1200">Dioda 1N4148</span> <a
 </p><!--l. 17--><p class="noindent" ><a 
  id="1N4007"></a> <span 
 class="ecbx-1200">Dioda 1N4007</span> <a 
- id="dx1-125003"></a><a 
- id="dx1-125004"></a>
+ id="dx1-127003"></a><a 
+ id="dx1-127004"></a>
 </p><!--l. 20--><p class="noindent" >Maximální napětí: 1000 V
 </p><!--l. 22--><p class="noindent" >Maximální proud: 1 A
 </p><!--l. 24--><p class="noindent" >Maximální výkon: 3 W
@@ -6128,8 +6246,8 @@ class="ecbx-1200">Dioda 1N4007</span> <a
 </p><!--l. 30--><p class="noindent" ><a 
  id="BCC337"></a> <span 
 class="ecbx-1200">tranzistor BC337</span> <a 
- id="dx1-125005"></a><a 
- id="dx1-125006"></a>
+ id="dx1-127005"></a><a 
+ id="dx1-127006"></a>
 </p><!--l. 33--><p class="noindent" >Max. napětí mezi kol. a emit. <span 
 class="cmmi-12">V</span> <sub><span 
 class="cmmi-8">CEO</span></sub>:50 V
@@ -6148,8 +6266,8 @@ class="cmmi-8">fe</span></sub>: 100 až 600
 </p><!--l. 45--><p class="noindent" ><a 
  id="BCC547"></a> <span 
 class="ecbx-1200">tranzistor BC547</span> <a 
- id="dx1-125007"></a><a 
- id="dx1-125008"></a>
+ id="dx1-127007"></a><a 
+ id="dx1-127008"></a>
 </p><!--l. 48--><p class="noindent" >Max. napětí mezi kol. a emit. <span 
 class="cmmi-12">V</span> <sub><span 
 class="cmmi-8">CEO</span></sub>: 45 V
@@ -6171,8 +6289,8 @@ class="cmmi-8">fe</span></sub>: 110 až 800
 </p><!--l. 60--><p class="noindent" ><a 
  id="BD911"></a> <span 
 class="ecbx-1200">tranzistor BD911</span> <a 
- id="dx1-125009"></a><a 
- id="dx1-125010"></a>
+ id="dx1-127009"></a><a 
+ id="dx1-127010"></a>
 </p><!--l. 63--><p class="noindent" >Max. napětí mezi kol. a emit.<span 
 class="cmmi-12">V</span> <sub><span 
 class="cmmi-8">CEO</span></sub>: 100 V
@@ -6191,7 +6309,7 @@ class="cmmi-8">fe</span></sub>: 5 až 250
 </p><!--l. 73--><p class="noindent" >Důležité je si všimnout, že minimální
 zesílení<span class="footnote-mark"><a 
 href="dokumentace44.html#fn4x5"><sup class="textsuperscript">4</sup></a></span><a 
- id="x1-125011f4"></a> 
+ id="x1-127011f4"></a> 
 je 5. To znamená, že pokud budeme chtít tranzistorem spínat proud 10 A, tak
 budeme muset nechat bází téct řídící proud 2 A, to znamená, že ho nemůžeme
 naplno využít, pokud ho budeme řídit mikrokontrolérem, tj. musíme ho spínat
@@ -6200,11 +6318,11 @@ velké proudy, budeme potřebovat tranzistory typu MOS-FET, např.: IRF520,
 IRL3803.
 </p>
 <h3 class="likesectionHead"><a 
- id="x1-1260005.2.1"></a>Příloha B – Poznámky a vize</h3>
+ id="x1-1280005.2.1"></a>Příloha B – Poznámky a vize</h3>
 <!--l. 88--><p class="noindent" >
 </p>
 <h4 class="likesubsectionHead"><a 
- id="x1-1270005.2.1"></a>Přerušení</h4>
+ id="x1-1290005.2.1"></a>Přerušení</h4>
 <!--l. 90--><p class="noindent" >Co je přerušení? Procesor může zvládnout pouze jednu operaci na jeden tik
 krystalu, postupuje od jednoho příkazu k druhému a nemůže jen tak všeho
 nechat a věnovat se něčemu jinému, občas je to ale potřeba. Při přerušení
@@ -6216,17 +6334,17 @@ věnovat dál programu tam, kde přestal.
 </p><!--l. 94--><p class="noindent" >
 </p>
 <h4 class="likesubsectionHead"><a 
- id="x1-1280005.2.1"></a>Baterie</h4>
+ id="x1-1300005.2.1"></a>Baterie</h4>
 <!--l. 96--><p class="noindent" >Dobíjecí: napětí 1,2 V <a 
- id="dx1-128001"></a><a 
- id="dx1-128002"></a>
+ id="dx1-130001"></a><a 
+ id="dx1-130002"></a>
 </p><!--l. 98--><p class="noindent" >Jednorázové: napětí 1,5 V <a 
- id="dx1-128003"></a><a 
- id="dx1-128004"></a>
+ id="dx1-130003"></a><a 
+ id="dx1-130004"></a>
 </p><!--l. 100--><p class="noindent" >
 </p>
 <h4 class="likesubsectionHead"><a 
- id="x1-1290005.2.1"></a>Vize – co přidat do textu</h4>
+ id="x1-1310005.2.1"></a>Vize – co přidat do textu</h4>
 <!--l. 102--><p class="noindent" >Adruino IDE
 </p><!--l. 104--><p class="noindent" >Laser ve Lablabu
 </p><!--l. 106--><p class="noindent" >Osciloskop
@@ -6235,38 +6353,38 @@ věnovat dál programu tam, kde přestal.
 </p><!--l. 112--><p class="noindent" >Pájení
 </p><!--l. 114--><p class="noindent" >Sběrnice - USART/UART, IIC, SPI, další?
 <a 
- id="Q1-1-142"></a>
+ id="Q1-1-144"></a>
                                                                           
 
                                                                           
 </p>
 <h2 class="likechapterHead"><a 
- id="x1-1300005.2.1"></a>Rejstřík</h2>
+ id="x1-1320005.2.1"></a>Rejstřík</h2>
 <div class="theindex"><span class="index-item">čip, 8 <br /></span>
 <span class="index-item">1N4007 <br /></span>
-<span class="index-subitem">    dioda, 59 <br /></span>
+<span class="index-subitem">    dioda, 60 <br /></span>
 <span class="index-item">1N4148 <br /></span>
-<span class="index-subitem">    dioda, 59 <br /></span>
+<span class="index-subitem">    dioda, 60 <br /></span>
 <p class="theindex">
 <span class="index-item">ALKS/deska, 40 <br /></span>
 </p><p class="theindex">
 <span class="index-item">báze, 32 <br /></span>
 <span class="index-item">bajt, 8 <br /></span>
 <span class="index-item">baterie <br /></span>
-<span class="index-subitem">    dobíjecí, 60 <br /></span>
-<span class="index-subitem">    jednorázové, 60 <br /></span>
+<span class="index-subitem">    dobíjecí, 61 <br /></span>
+<span class="index-subitem">    jednorázové, 61 <br /></span>
 <span class="index-item">BCC337 <br /></span>
-<span class="index-subitem">    tranzistor, 59 <br /></span>
-<span class="index-item">BCC547 <br /></span>
-<span class="index-subitem">    tranzistor, 59 <br /></span>
-<span class="index-item">BD911 <br /></span>
 <span class="index-subitem">    tranzistor, 60 <br /></span>
+<span class="index-item">BCC547 <br /></span>
+<span class="index-subitem">    tranzistor, 60 <br /></span>
+<span class="index-item">BD911 <br /></span>
+<span class="index-subitem">    tranzistor, 61 <br /></span>
 <span class="index-item">bit, 8 <br /></span>
 <span class="index-subitem">    nultý, 8 <br /></span>
 </p><p class="theindex">
 <span class="index-item">cín, 29 <br /></span>
 <span class="index-item">cívka, 32 <br /></span>
-<span class="index-item">CAD, 58 <br /></span>
+<span class="index-item">CAD, 59 <br /></span>
                                                                           
 
                                                                           
@@ -6279,12 +6397,12 @@ věnovat dál programu tam, kde přestal.
 <span class="index-subitem">    ESP 32, 39 <br /></span>
 <span class="index-item">deska/ALKS, 40 <br /></span>
 <span class="index-item">dioda, 31 <br /></span>
-<span class="index-subitem">    1N4007, 59 <br /></span>
-<span class="index-subitem">    1N4148, 59 <br /></span>
+<span class="index-subitem">    1N4007, 60 <br /></span>
+<span class="index-subitem">    1N4148, 60 <br /></span>
 <span class="index-subitem">    LED, 32, 36 <br /></span>
 <span class="index-item">direktiva preprocesoru, 9 <br /></span>
 <span class="index-item">dobíjecí <br /></span>
-<span class="index-subitem">    baterie, 60 <br /></span>
+<span class="index-subitem">    baterie, 61 <br /></span>
 <span class="index-item">driver, 33 <br /></span>
 <span class="index-item">dvojková soustava, 42 <br /></span>
 </p><p class="theindex">
@@ -6308,7 +6426,7 @@ věnovat dál programu tam, kde přestal.
 <span class="index-subitem">    odrazový, 34 <br /></span>
 </p><p class="theindex">
 <span class="index-item">jednorázové <br /></span>
-<span class="index-subitem">    baterie, 60 <br /></span>
+<span class="index-subitem">    baterie, 61 <br /></span>
 </p><p class="theindex">
 <span class="index-item">kalafuna, 29 <br /></span>
 <span class="index-item">knihovna, 20 <br /></span>
@@ -6317,7 +6435,7 @@ věnovat dál programu tam, kde přestal.
 <span class="index-subitem">    elektrolytický, 31 <br /></span>
 <span class="index-subitem">    keramický, 31 <br /></span>
 <span class="index-subitem">    tantalový, 31 <br /></span>
-<span class="index-item">konstrukce robota, 57 <br /></span>
+<span class="index-item">konstrukce robota, 58 <br /></span>
 <span class="index-item">krystal, 34 <br /></span>
 </p><p class="theindex">
 <span class="index-item">LaTeX, 50 <br /></span>
@@ -6346,7 +6464,7 @@ věnovat dál programu tam, kde přestal.
 <span class="index-subitem">    přepolóvání, 31 <br /></span>
 <span class="index-item">Ohmův <br /></span>
 <span class="index-subitem">    zákon, 35 <br /></span>
-<span class="index-item">onshape, 58 <br /></span>
+<span class="index-item">onshape, 59 <br /></span>
 <span class="index-item">operace <br /></span>
 <span class="index-subitem">    logická, 11 <br /></span>
 </p><p class="theindex">
@@ -6371,8 +6489,8 @@ věnovat dál programu tam, kde přestal.
 <span class="index-item">repozitář, 54 <br /></span>
 <span class="index-item">rezistor, 30, 36 <br /></span>
 <span class="index-item">robot <br /></span>
-<span class="index-subitem">    autonomní, 57 <br /></span>
-<span class="index-subitem">    konstrukce, 57 <br /></span>
+<span class="index-subitem">    autonomní, 58 <br /></span>
+<span class="index-subitem">    konstrukce, 58 <br /></span>
 </p><p class="theindex">
                                                                           
 
@@ -6385,7 +6503,7 @@ věnovat dál programu tam, kde přestal.
 <span class="index-item">Serial.println(), 23 <br /></span>
 <span class="index-item">Serial.write(), 23 <br /></span>
 <span class="index-item">servo, 38, 39 <br /></span>
-<span class="index-item">Solidworks, 58 <br /></span>
+<span class="index-item">Solidworks, 59 <br /></span>
 <span class="index-item">soustava <br /></span>
 <span class="index-subitem">    desítková, 41 <br /></span>
 <span class="index-subitem">    dvojková, 42 <br /></span>
@@ -6400,9 +6518,9 @@ věnovat dál programu tam, kde přestal.
 <span class="index-item">TeXstudio, 51 <br /></span>
 <span class="index-item">tlumivka, 32 <br /></span>
 <span class="index-item">tranzistor, 32 <br /></span>
-<span class="index-subitem">    BCC337, 59 <br /></span>
-<span class="index-subitem">    BCC547, 59 <br /></span>
-<span class="index-subitem">    BD911, 60 <br /></span>
+<span class="index-subitem">    BCC337, 60 <br /></span>
+<span class="index-subitem">    BCC547, 60 <br /></span>
+<span class="index-subitem">    BD911, 61 <br /></span>
 </p><p class="theindex">
 <span class="index-item">ultrazvukový senzor, 41 <br /></span>
 <span class="index-item">USB, 39 <br /></span>
