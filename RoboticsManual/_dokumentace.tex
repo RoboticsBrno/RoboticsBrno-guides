@@ -85,12 +85,6 @@
 %%
 
 
-%tohle mám hlavně kvůli kompatibilitě se staršími verzemi - mělo by postupně zmizet
-%todo předělat? 
-\newcommand{\I}{\index}  % vytváří položku indexu (asi nepoužijete)  
-\newcommand{\It}{\textit}  % kurzíva
-\newcommand{\B}{\textbf} %tučné písmo
-
 %opening
 %\title{}
 %\author{}
@@ -102,10 +96,6 @@
 \usepackage{enumitem} % pro příkaz \setlist
 \setlist{itemsep = -1pt, topsep=3pt} % nastavuje mezery mezi a před výčtovým prosředím (enumerate, itemize ...)
 
-
-%todo určitě je pro to v LaTeXu alternativa -> OK, prosím o její nalezení 
-%zatím používám skupinu %todo protože se v texstudiu zvýrazňuje a objeví se vlevo ve struktuře
-% \draft % tiskne na poslední stranu seznam komentářů, co se má dodělat , viz opmac.tex ř. 889
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,7 +135,13 @@
 	\input prilohy.tex
 	
  \addcontentsline{toc}{chapter}{Rejstřík} \printindex % vytiske rejstřík 
-%todo doplnit velká počáteční písmena a seřadit podle české abecedy
+%todo doplnit velká počáteční písmena a seřadit podle české abecedy 
+%todo vytvořit proklikávací rejstřík 
+%todo doplnit pájení
+%todo doplnit pull do gitu 
+%todo udělat podrobný návod pro VSCode do gitu
+%todo doplnit sekci \section{Příkazy C++ pro čipy}
+
 
 
 \end{document}
