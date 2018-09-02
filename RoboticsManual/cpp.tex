@@ -2,7 +2,7 @@
 
 \subsection{Základní pojmy}
 
-\label{cpp} Upozornění: V~jazyce C++ se {\bf rozlišují velká a~malá písmena}.  
+\label{cpp} Upozornění: V~jazyce C++ se {\bf rozlišují velká a~malá písmena -- jazyk je case sensitive}.  
 
 \begin{description}
 
@@ -12,7 +12,7 @@ Za příkazy dáváme středník (;).
 
 \item[syntaxe]\index{syntaxe} -- \uv{pravopis} programovacího jazyka, říká, jak psát příkazy programovacího jazyka tak, aby nám počítač rozuměl 
 
-\item[preprocesor]\index{preprocesor} -- před samotným překladem programu do \textit{*.hex} souboru proběhnou tzv. direktivy preprocesoru (něco jako příkazy, podrobně . \index{direktiva preprocesoru} 
+\item[preprocesor]\index{preprocesor} -- před samotným překladem programu do \textit{*.hex} souboru proběhnou tzv. direktivy preprocesoru (něco jako příkazy, podrobně \index{direktiva preprocesoru})
 
 %\footnote{něco jako příkazy, podrobně viz např. Kadlec: Programování v~jazyce C, str. 18 }
 
@@ -22,7 +22,7 @@ Příklady: \verb@#include <>@ -- pro vkládání hlavičkových souborů \\
 
 \item[proměnná] \index{proměnná}  -- je místo v paměti, kde jsou uložena nějaké data
 
-\item[datový typ]\index{datový typ}\label{data1}   -- říká nám, v jaké podobě jsou data v proměnné uložena. V proměnné jsou pouze jedničky a nuly, Pomocí datového typu mikrokontrolér pozná, jestli ta data jsou čísla, nebo znak, v jakém rozsahu jsou čísla, atd...
+\item[datový typ]\index{datový typ}\label{data1}  -- říká nám, v jaké podobě jsou data v proměnné uložena. V proměnné jsou pouze jedničky a nuly, pomocí datového typu mikrokontrolér pozná, jestli ta data jsou čísla, nebo znak, v jakém rozsahu jsou čísla, atd...
 používané datové typy:   \\
 \verb@uint8_t@ -- celá čísla od 0 do 255  \\  
 \verb@int8_t@ -- celá čísla od -127 do 127 \\
@@ -31,7 +31,8 @@ používané datové typy:   \\
 \verb@uint32_t@ -- celá čísla od 0 do 4294967296 \\
 \verb@int32_t@ -- celá čísla od -2147483647 do 2147483647 \\
 
-\item[operandy] -- jsou čísla nebo výrazy, které \uv{vstupují do operace} 
+\item[operandy] -- jsou čísla nebo výrazy, které \uv{vstupují do %výpočetních operací?
+	 operace} 
 
 \item[operátory] -- nám říká, jaké operace provedeme s operandy (co s nimi uděláme) 
 
@@ -44,25 +45,24 @@ Pokud chceme zapoznámkovat pouze jeden řádek, použijeme \verb@//@
 
 Příklady:
 
-\lstinputlisting{priklady_c/poznamky.cpp}
+%\lstinputlisting{priklady_c/poznamky.cpp}
 
-%\begin{verbatim}
-%/* Vše co je napsáno zde
-%je poznámka a nebude překládáno
-%*/
-%\end{verbatim}
+\begin{verbatim}
+/* Vše co je napsáno zde
+je poznámka a nebude překládáno
+*/
+\end{verbatim}
 
-%\begin{verbatim}
-%// Toto je poznámka, která může popsat funkci nějakého úseku kódu
-%\end{verbatim}
-
+\begin{verbatim}
+// Toto je poznámka, která může popsat funkci nějakého úseku kódu
+\end{verbatim}
 
 \end{description}
 
 
 \subsection{Výrazy a operátory}
 
-Výraz je něco co nabývá nějaké hodnoty, např.: \verb@5 + 3@ je výraz, 
+Výraz je něco, co nabývá nějaké hodnoty, např.: \verb@5 + 3@ je výraz, 
 který nabývá hodnoty \verb@8@. \verb@5 > 3@ je výraz nabývající hodnoty \verb@true@ neboli pravda, 
 \verb@x <= 10@ je výraz který je pravdivý, pokud proměnná \verb@x@(kterou musíme mít deklarovanou) menší nebo rovna číslu \verb@10@. 
 
@@ -117,19 +117,19 @@ lze to napsat i konkrétněji, např.: \verb@a != 5@, výraz je pravda pokud se 
 \verb@b >= d@ výraz je pravdivý, pokud je \verb@b@ větší nebo rovný \verb@d@ \\
 
 \verb@!(a > b)@ výraz v závorce je pravdivý, pokud je \verb@a@ větší než \verb@b@, 
-ale pak je negováno(z pravdy se stává nepravda a naopak ), tj. celý výraz je nepravdivý, 
+ale pak je negováno (z pravdy se stává nepravda a naopak), tj. celý výraz je nepravdivý, 
 pokud je \verb@a@ větší než \verb@b@, pokud je a menší nebo rovno, tak je výraz pravdivý. \\
 
 \verb@!(a == b)@ výraz \verb@(a == b)@ je negován znaménkem \verb@!@, to znamená, že výraz je pravdivý, 
 pokud se výraz \verb@a@ nerovná výrazu \verb@b@, v podstatě se to dá napsat i takto: \verb@a != b@ \\
 Pozor: negace výrazu \verb@(a > b)@, tj. \verb@!(a > b)@ není to samé jako výraz \verb@(a < b)@, 
-ale správně je to \verb@(a <= b)@ \footnote{Platí zde určité zákonitosti viz De Morganovy zákony} \\
+ale správně je to \verb@(a <= b)@ \footnote{Platí zde určité zákonitosti viz De~Morganovy zákony} \\
 
 Logický součin \verb@&&@ se používá, pokud budeme potřebovat spojit dva nebo více výrazů dohromady,
  např.: \verb@(a > b)&&(c == d)@, výsledkem tohoto výrazu bude logický součin výrazů v závorkách,
   pro logický součin platí, že je pravda pokud oba výrazy jsou pravdivé, jinak je výsledek nepravda, 
   tj. zde bude pravda pouze pokud bude \verb@a@ větší než \verb@b@ a zároveň bude platit, že \verb@c@ se rovná \verb@d@.
-Logický součin použijeme, pokud musí všechny výryzy být pravda.
+Logický součin použijeme, pokud musí všechny výrazy být pravda.
 
 Logický součet \verb@||@ je pravdivý, pokud alespoň jeden výraz je pravdivý. 
 Např.: \verb@(e <= f)||(g != 3)@ výraz bude pravda, pokud bude platit, že \verb@e@ je menší
