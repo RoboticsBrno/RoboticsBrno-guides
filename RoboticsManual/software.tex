@@ -100,18 +100,6 @@ Podrobnější představení gitu je  \href{http://www.kutac.cz/blog/pocitace-a-
 
 {\bf Github}\footnote{\url{www.github.com}}  je v současnosti jeden z nejpoužívanějších webů pro tvorbu a~správu repozitářů.
 
-Návody pro github jsou například zde: 
-
-\begin{itemize}
-	\item \href{http://www.kutac.cz/blog/pocitace-a-internety/jak-na-git-dil-1/}{Github na příkazovém řádku v Linuxu.}
-	\item \url{https://help.github.com}
-	
-	% https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/	
-	% https://help.github.com/articles/adding-a-remote/
-\end{itemize}
-
-
-
 {\bf Repozitář} \index{repozitář} je skupina souborů nějakého projektu, která navíc obsahuje komentovanou historii všech změn projektu. Používá se pro zálohování programů a sdílení a společné týmové práci na rozsáhlejších projektech, především programátorských a textových. 
 
 Repozitář, ve kterém je i tato dokumentace, je na adrese 
@@ -126,6 +114,25 @@ Postup práce je následující: na webu github.com si vytvoříte repozitář. 
 Neustálému komentovanému ukládání jednotlivých verzí se říká {\bf verzování}. Je to vlastně podstatně vylepšené zálohování.
 
 Verzování na web github lze provádět z příkazové řádky (terminálu) nebo s~pomocí různých programů, například prostředí \hyperref[vscode]{VSCode} -- viz dále. 
+Také lze soubory upravovat přímo na serveru github.com pomocí ikony \uv{tužka}.
+
+Návody pro github jsou například zde: 
+
+\begin{itemize}
+	\item \href{http://www.kutac.cz/blog/pocitace-a-internety/jak-na-git-dil-1/}{Github na příkazovém řádku v Linuxu -- článek o základech}
+	\item \href{https://help.github.com}{Oficiální help (EN)}
+	\item \href{https://knihy.nic.cz/files/edice/pro_git.pdf}{Podrobná knížka o gitu (CZ)}
+	\item \href{https://git-scm.com/book/cs/v1/\%C3\%9Avod}{Další knížka o gitu (CZ)}
+	\item \href{https://learngitbranching.js.org/}{Velmi názorný web a tutoriál o gitu (EN) }
+	\item \href{https://www.atlassian.com/git/tutorials/setting-up-a-repository}{Nastavení repozitáře (EN)}
+	
+	%	návod jsem si prošel a je pěkný. Ale nevím, na kolik bude pro naše lidi přínosný - soustředí se totiž jenom na tu high-level stránku věci, která mi přijde v momentě kdy mám vedle sebe obrázek intuitivní. S čím si ale myslím většina lidí zápasí předem je to, co to vlastně je commit a jak je můžu skládat na sebe a to, proč vznikají konflikty a jak se správně resolvují. Škoda, že to v tom návodu není (třeba jako třetí kapitola) 
+	%todo -- nějak dopsat?
+	
+	% https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/	
+	% https://help.github.com/articles/adding-a-remote/
+\end{itemize}
+
 
 
 
@@ -188,8 +195,11 @@ Verzování na web github lze provádět z příkazové řádky (terminálu) neb
 	Protože chceme vědět, co jsme v minulosti dělali, použijeme tvar: 
 	{\tt git commit -m ``Tady je napsáno, co tento commit obsahuje.'' }  I commitů můžeme vytvořit více za sebou. Všechny zůstávají na lokálním počítači, dokud je nepošlete na server. 
 	ih
-	\item Příkaz {\tt git push} pošle všechny vytvořené a dosud neposlané commity na server. Vyžaduje přihlášení a heslo. (Nezapomeňte, že v~Linuxu se heslo nezobrazuje, ani ve formě teček). 
+	\item Příkaz {\tt git push} pošle všechny vytvořené a dosud neposlané commity na server. 
+	Vyžaduje přihlášení a heslo. 
+	Nezapomeňte, že v~Linuxu se heslo nezobrazuje, ani ve formě teček. 
 	
+	\item Pokud už na serveru provedl změny někdo jiný a potřebujete je stáhnout na svůj počítač, použijete {\tt git pull}.
 	
 \end{enumerate}
 
@@ -214,6 +224,13 @@ Verzování na web github lze provádět z příkazové řádky (terminálu) neb
 \end{enumerate}
 
  
+ \subsection{Formát Markdown (*.md) } \index{*.md} \index{.md} \index{markdown}
+ 
+Formát \textbf{Markdown (*.md) } umožňuje velmi snadné a rychlé základní formátování textů. 
+Web Github podporuje psaní textů v tomto formátu. 
+Pokud jej použijete, zobrazí se text na webu už zformátovaný. 
+Přehled příkazů formátu *.md je například \href{https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf}{zde}.
+ Mimochodem, toto formátování podporuje i editor Visual Studio Code.
  
 \section{Další software}
 
