@@ -56,7 +56,7 @@ Jestliže budeme potřebovat jiný úhel natočení, nastavíme logickou jednič
 Jednoduchý program pro řízení serva je v kapitole \ref{prog:servo}.
 
 
-\section{ALKS, další desky a další zařízení}
+\section{Řídící desky}
 
 \label{esp32} \subsection{ESP 32}
 
@@ -66,7 +66,7 @@ Deska se napájí z~\index{USB} USB (5~V) a~je na ní napěťový převodník
 %todo\rfc{? napěťový převodník} 
 na 3,3~V. Přitom USB může dodávat oficiálně 100~mA, v~reálu ale běžně dodává 500~mA až 1 A. USB porty jsou také vcelku odolné proti zkratu.   
 
-\label{alks} \subsection{ALKS}
+\label{alks} \subsection{ALKS} 
 
 Deska ALKS\footnote{Arduion Learning Kit Starter} byla navržena přímo na Robotárně Brno právě proto, že 
 hotová\index{ALKS/deska}\index{deska/ALKS} deska   
@@ -109,7 +109,45 @@ Zapojení desky ALKS je \href{https://github.com/RoboticsBrno/ArduinoLearningKit
 Zapojení pinů desky ALKS \href{https://github.com/RoboticsBrno/ArduinoLearningKitStarter/blob/master/docs/pinout.pdf}{zde}. 
 
 
-\label{hcsr04} \subsection{Ultrazvukový senzor HC-SR04}
+\subsection{RBControl} \index{RBControl}
+
+\subsubsection*{Určení a cíl}
+
+RB3201 - RBControl (RBC) je univerzální deska pro stavbu hobby robotů, vyvinutá na Robotárně Brno. 
+Jde v podstatě o shield k desce ESP32 dev kit, který má dva hlavní cíle: 
+rozšířit počet pinů desky ESP32 a umožnit snadné připojení velkého množství různých periférií.
+
+\subsubsection*{Hlavní vlastnosti}
+
+Deska RBC umožňuje současně ovládat až 8 DC motorů (1,5 A trvale, 2A špičkově každý). 
+Dále umí po osazení spínanými zdroji napájet a ovládat 4 serva nebo 8 mikroserv. 
+Má vyvedenou I2C sběrnici celkem 6x na 3,3 V a 2x na 5 V. 
+Dále je na desce expandér pinů, který je připojený na I2C a obsluhuje další dva porty A,B po 8 pinech. 
+Na desce jsou vyvedená tři tlačítka, 4 LED a piezo.
+
+Podrobnější popis desky je zde %todo 
+
+\subsection{Arduino Mega}
+
+Největší deska z rodiny Arduino. Má vyvedených 100 pinů a může obsluhovat tři sériové linky. 
+Hodí se pro větší projekty a jako hlavní řídící deska na robota. 
+Hlavní výhoda (stejně jako ostatních desek rodiny Arduino) je, že se dá koupit levně hotová.
+Schéma zapojení pinů je například \href{https://arduino-info.wikispaces.com/MegaQuickRef}{zde}.
+
+\subsection{Arduino Uno}
+
+Základní deska z rodiny Arduino. Vhodná na testování různých zapojení a jako řídící pro jednodušší projekty.
+Schéma zapojení pinů je například \href{http://forum.arduino.cc/index.php?topic=146315.0}{zde}.
+
+\subsection{Arduino Nano}
+
+Nejmenší deska z rodiny Arduino. 
+Hodí se tam, kde je je málo místa a pro řešení jednodušších, relativně samostatných úloh. 
+Schéma zapojení pinů je například \href{https://simba-os.readthedocs.io/en/latest/_images/arduino-nano-pinout.png}{zde}.
+
+\section{Senzory a malé desky}
+
+\label{hcsr04} \subsection{Ultrazvukový senzor HC-SR04} \index{HC-SR04}
 
 Ultrazvukový senzor {\bf HC-SR04}\footnote{\url{https://www.sparkfun.com/products/13959}} \index{HC-SR04} je cenově dostupný a běžně používaný při amatérské stavbě robotů. \index{senzor!ultrazvukový}
 \index{ultrazvukový senzor} 
@@ -121,16 +159,16 @@ Jeho zapojení a oživení je
 
 %lit: http://www.instructables.com/id/Simple-Arduino-and-HC-SR04-Example/
 
-\subsection{Bluetooth}
+\subsection{Bluetooth} \index{bluetooth}
 
 
 \hypertarget{bluetooth}{} Moduly {\bf bluetooth} slouží ke komunikaci mezi dvěma čipy nebo počítačem a čipem (nebo jiným zařízením).
 Mohou být napájeny 5~V nebo 3,3~V. 
-%todo \rfc{bluetooth}
+\label{bluetooth} 
 
 Propojujeme vždy pin Rx na jednom čipu s pinem Tx na druhém čipu. 
 
-\subsection{Připojení k počítači pomocí bluetooth}
+\subsubsection*{Připojení k počítači pomocí bluetooth}
 
 Nový bluetooth (zub) se musí napoprvé vyhledat a aktivovat v počítači. 
 Pokaždé se musí připojit a zkontrolovat -- když je komunikace v~pořádku (aktivována, ale nemusí se přenášet data ), svítí LED na zubu. 
