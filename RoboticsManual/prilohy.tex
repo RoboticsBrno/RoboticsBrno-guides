@@ -82,43 +82,89 @@ To znamená, že pokud budeme chtít tranzistorem spínat proud 10~A, tak budeme
 %Zesílení $h_{fe}$\footnote{Ang.: DC Current Gain}
 
 
-\section*{Příloha B -- Vývojový deník robota pro Ketchup House - zpětná rekonstrukce }
+\section*{Příloha B -- Vývojový deník robota pro Ketchup House - stručná historie výroby }
 
 \begin{description}
-	\item[září - říjen:]  první návrh strategie, návrh mechaniky a konstrukce, vize ohledně senzorů, 
-	jako řídící jednotka byla zvolena deska Arduino Mega, především kvůli velkému počtu pinů, cíl: vystačit si s jednou deskou  
+	\item[září - říjen:] 
 	
-	\item[listopad:]  druhý návrh strategie, výroba první konstrukce, jsou použity vrtačkové motory, 
-	pokusy o zprovoznění/naprogramování driverů pro motory, byly použity VNH32, které známe ze starších strojů, 
-	tyto drivery se vypínaly kvůli nízkému napětí baterií + byla potřeba úprava driverů (odpájení Zenerovy diody)  
-	motory se ukazují jako příliš silné a obtížně řiditelné 
+	\begin{itemize}
+		\item první návrh strategie
+		\item návrh mechaniky a konstrukce
+		\item  vize ohledně senzorů
+		\item jako řídící jednotka byla zvolena deska Arduino Mega, především kvůli velkému počtu pinů, cíl: vystačit si s jednou deskou  
+		
+	\end{itemize} 
 	
-	\item[prosinec:] druhá konstrukce, místo vrtačkových byly použity čínské modelářské motory
+	\item[listopad:] 
 	
-	\item[leden:]  pololetní klasifikace 
+	\begin{itemize}
+		\item druhý návrh strategie
+		\item výroba první konstrukce, jsou použity vrtačkové motory
+		\item pokusy o zprovoznění/naprogramování driverů pro motory, byly použity VNH32, které známe ze starších strojů, 
+		tyto drivery se vypínaly kvůli nízkému napětí baterií + byla potřeba úprava driverů (odpájení Zenerovy diody)  
+		\item motory se ukazují jako příliš silné a obtížně řiditelné 
+	\end{itemize}
 	
-	\item[únor:]  osazování senzorů QRD1114 pro čáry, první verze programu, 
-	řešení problémů s chybným zapojením senzorů, 
-	kalibrace senzorů, QRD1114 z Číny se neosvědčily $\rightarrow$ znova koupit a zapájet senzory z GM Electonic
+	\item[prosinec:]
+	\begin{itemize}
+		\item druhá konstrukce, místo vrtačkových byly použity čínské modelářské motory
+	\end{itemize} 
 	
-
-	\item[březen:]  zprovoznění serva pro vypouštění plechovek, 
-	testování senzorů HS-04 pro ultrazvukovou detekci soupeře 
+	\item[leden:]
+	\begin{itemize}
+		\item  pololetní klasifikace
+	\end{itemize}  
 	
-	\item[duben:] čtení z ultrazvuků je příliš pomalé $\rightarrow$
-	přidání druhé ATmega desky pro čtení ultrazvuků a enkodérů, 
-	rozchození komunikace mezi deskami,
-	rozchození enkodérů $\rightarrow$ robot konečně jede rovně,
+	\item[únor:] 
+	\begin{itemize}
+		\item osazování senzorů QRD1114 pro čáry
+		\item první verze programuQRD1114 z Číny se neosvědčily $\rightarrow$ znova koupit a zapájet senzory z GM Electonic
+		
+		\item řešení problémů s chybným zapojením senzorů 
+		\item kalibrace senzorů 
+		\item QRD1114 z Číny se neosvědčily $\rightarrow$ znova koupit a zapájet senzory z GM Electonic		
+	\end{itemize} 
 	
-	\item[květen:] QRD nečtou správně $\rightarrow$ posun QRD níž, přechod na algoritmus typu stavový automat, robot pořád nechce jet po čáře  
-	taky se hodně zpomaluje, pokud veze více plechovek najednou (se čtyřmi plechovkami už stojí), snaha o programové řešení 
+	\item[březen:] 
+	\begin{itemize}
+		\item zprovoznění serva pro vypouštění plechovek
+		\item testování senzorů HS-04 pro ultrazvukovou detekci soupeře 
+	\end{itemize}  
 	
-	\item[červen:] zoufalá snaha dodělat a naprogramovat robota, provázená průběžně poruchami,
-	především na kabeláži, skončila neúspěchem, nedokázali jsme do termínu soutěže (10.6.) naprogramovat jízdu po čáře přiměřenou rychlostí
-	s proměnným výkonem na motorech podle počtu plechovek 
-	v den soutěže se spálila základní deska a její výměna vzala skoro veškerý zbývající čas 	
+	\item[duben:] 
+	\begin{itemize}
+		\item čtení z ultrazvuků je příliš pomalé a robot nestíhá detekovat čáru $\rightarrow$
+		přidání druhé ATmega desky pro čtení ultrazvuků a enkodérů
+		\item rozchození komunikace mezi deskami 
+		\item rozchození enkodérů $\rightarrow$ robot konečně jede rovně 
+	\end{itemize}  
+	
+	\item[květen:] 
+	\begin{itemize}
+		\item QRD nečtou správně $\rightarrow$ posun QRD níž
+		\item přechod na algoritmus typu stavový automat
+		\item robot pořád nechce jet po čáře
+		\item robot  se hodně zpomaluje, pokud veze více plechovek najednou (se čtyřmi plechovkami už stojí) $\rightarrow$ snaha o programové řešení pomocí zvýšení výkonu motorů při zpomalení robota
+	\end{itemize}
+	
+	
+	\item[červen:] 
+	\begin{itemize}
+		\item 
+	\end{itemize} intenzivní snaha dodělat a naprogramovat robota, provázená průběžně poruchami všeho druhu;
+	tyto poruchy byly často způsobeny nezkušeností a nedotaženými detaily z předchozích měsíců  
+	do termínu soutěže 10.6. se nepodařilo naprogramovat potřebné schopnosti robota, robot se přesto soutěže zúčastnil
+	v den soutěže se spálila základní deska a její výměna vzala skoro veškerý zbývající čas 
+	
+	\item[zkušenosti a závěry]:
+	\begin{itemize}
+		\item  skutečná stavba a programování trvá nejméně 2x tak dlouho, než předpokládá plán 
+		\item (ze zkušenosti i s jinými roboty): vždy se naplánuje několik verzí obtížnosti a prakticky vždy se postaví a zprovozní pouze ta nejjednodušší, více se nestihne, především naprogramovat  
+		\item je potřeba buď mít dva stejné roboty nebo vézt celého robota s sebou na soutěž ještě jednou v náhradních dílech; kdybychom neměli náhradní základní desku, tak jsme skončili, ještě než soutěž začala  
+	\end{itemize}
 	
 \end{description}
+
 
 
 
