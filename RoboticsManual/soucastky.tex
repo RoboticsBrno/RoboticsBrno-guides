@@ -1,7 +1,18 @@
 
 \label{elektronika}
 
-\section{Základní součástky} 
+%\subsubsection{Datasheet}
+
+{\bf Datasheet} \index{datasheet} je dokument, ve kterém jsou detailně popsány vlastnosti a možnosti dané elektronické součástky.
+Každá součástka má svůj datasheet. 
+
+Datasheet pro každou součástku je možné najít na webu, například na stránce \url{www.datasheetcatalog.com}
+nebo na stránkách výrobce/prodejce součástky. 
+Všechny datasheety jsou anglicky.  
+
+
+\section{Jednoduché součástky} 
+
 
 \subsection{Rezistor} \label{rezistor}
 
@@ -59,11 +70,10 @@ Ze začátku nám bude stačit, pokud budeme používat diody
 {\bf LED}\footnote{Light emitting diode -- světlo vysílající dioda}
 \index{LED}\index{dioda!LED}\index{LED!dioda}   
 je součástka, která není primárně určená k~usměrnění proudu, ale k~signalizaci, zda obvodem protéká proud.
-K~LED se vždy musí připojit rezistor. 
+K~LED se vždy musí připojit  \hyperref[vypocet_rezistor]{vhodný} rezistor. 
 
-\subsection{Tranzistor}
+\subsection{Tranzistor} \label{tranzistor}
 
-\hypertarget{tranzistor}{}
 {\bf Tranzistor}\index{tranzistor} je součástka, která umožňuje pomocí malých proudů z~čipu řídit větší proudy, například do reproduktoru nebo motorku. 
 
 Tranzistor má tři nožičky:\index{báze} {\bf báze},\index{kolektor} {\bf kolektor} a\index{emitor} {\bf emitor}. 
@@ -87,7 +97,23 @@ Ze začátku nám bude stačit používat tranzistory
 jejíž hlavní vlastností je indukčnost, jednotka henry, značka H.
  V~praxi se používají milihenry (mH) a~mikrohenry ( $\mu$H).
 
-\section{Další součástky}
+\section{Složitější součástky}
+
+\subsubsection{Mikroprocesor, mikrokontrolér} 
+
+{\bf Mikroprocesor, mikrokontrolér, čip} \index{mikroprocesor} \index{mikrokontrolér} \index{čip} 
+znamenají totéž -- integrovaný obvod, který se snažíme naprogramovat, aby řídil robota nebo jeho část. \label{cip}
+
+{\bf Pin} \index{pin} \label{pin} je vývod (nožička) čipu. Jednoduché čipy (např. ATtiny) mají osm pinů, složitější čipy mají 32, 40, nebo také 100 pinů.
+
+Pin může být nastavený jako vstupní nebo jako výstupní. 
+
+Pokud je pin nastavený jako {\bf vstupní}, umí určit, zda na něm je napětí odpovídající logické jedničce\index{logická~jednička} (5~V nebo 3,3~V podle typu čipu) nebo logické nule (0~V)\index{logická~nula} . 
+U některých pinů lze i přečíst, jaké je na něm analogové napětí (např. v rozsahu 0 - 1023 => 0~V - 3,3~V). 
+%todo \rfc{analogové} 
+
+Pokud je pin nastavený jako {\bf výstupní},  umí se nastavit na logickou jedničku nebo logickou nulu. 
+%todo rfc{odpovídající funce čipu} 
 
 \subsection{Driver} \label{driver}
 
@@ -102,17 +128,17 @@ Většina motorů potřebuje mnohem větší proud.
  Driver umí pomocí PWM jízdu vpřed, vzad, brždění (motory jsou ve zkratu, když je na ně přiváděna logická 1 z PWM) a signál stop. Příklad programu pro použití tohoto driveru je v kapitole \ref{prog:vnh2sp30}. 
  
 
-\subsection{Stabilizátor}
+\subsection{Stabilizátor} \index{stabilizator} \label{stabilizator}
 
 Většinu čipů je potřeba napájet přesně 5~V~nebo 3,3~V. Jak toho docílit z~baterií, na kterých je například 9~V~nebo 12~V, zkrátka více než 5~V? 
 Navíc napětí na bateriích kolísá podle toho, jak moc proudu zrovna odebírají motory. 
 Pro napájení čipů je proto nutné použít stabilizátor. 
 
-{\bf Stabilizátor}\index{stabilizátor} je součástka, která z~kolísavého vyššího napětí vyrobí přesné napětí nižší. %Přitom nějaké napětí také sama spotřebuje. 
-Nejčastěji se používají stabilizátory řady 78XX, kde XX značí, na kolik voltů součástka stabilizuje, například 7805 stabilizuje na 5~V. 
+{\bf Stabilizátor}\index{stabilizátor} je součástka, která z~kolísavého vyššího napětí vyrobí přesné napětí nižší. Přitom nějaké napětí také sama spotřebuje. 
+Nejčastěji se používají stabilizátory řady 78XX, kde XX značí, na kolik voltů součástka stabilizuje, například 7805 stabilizuje na 5~V. \index{7805} \label{7805}
 
 Aby stabilizátor mohl pracovat správně, je potřeba, aby napětí, které přivedeme na jeho vstup,
- bylo aspoň o 2~V~vyšší než které potřebujeme, tj. pokud budu chtít stabilizovat napětí na 5~V, 
+ bylo obvykle aspoň o 2~V~vyšší než které potřebujeme, tj. pokud budu chtít stabilizovat napětí na 5~V, 
  musím stabilizátor napájet aspoň 7~V. Přesné hodnoty pro každý stabilizátor jsou v~jeho datasheetu. 
 
 Stabilizátor má tři piny (vstup, zem, výstup). Zapojí se takto: kladný pól baterie (+) se napojí na vstup, záporný pól na zem ($-$). 
@@ -135,11 +161,5 @@ Krystal zapojíme takto: Jeden pin krystalu (je jedno, který) připojíme na pi
 Dále na pin XTAL1 připojíme jednu nožičku kondenzátoru a~druhou na digitální zem (11-GND). 
 To samé u~pinu XTAL2. Hodnotu kondenzátoru můžeme volit od 12~pF do 22~pF.
 
-\subsection{Odrazový infrasenzor}
-
-\index{infrasenzor!odrazový} \index{QRD1114} \label{qrd1114} Tato součástka má v jednom pouzdře vysílací infračervenou LED a přijímací fototranzistor\footnote{Fototranzistor je součástka, která zesiluje signál podle toho, jak je osvětlená}. Umístěná několik mm nad hřiště a zastíněná od okolí je ideální pro rozpoznázní  černé čáry na bílém podkladu a podobně. Dá se také použít pro detekci blízkého předmětu (dojde k zastínění).
-Můžeme použít například QRD1114. Může rozlišit vzdálenosti v rozsahu 0.75--10~mm nebo rozlišit černý a bílý povrch.  
-Na adrese
-\url{https://learn.sparkfun.com/tutorials/qrd1114-optical-detector-hookup-guide} najdeme schéma zapojení i příklad kódu pro Arduino. Ještě jednodušší \hyperref[prog:qrd1114]{příklad kódu}.
 
 

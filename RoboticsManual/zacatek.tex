@@ -1,13 +1,12 @@
 \section{Cíl: první robot}
 
 
-Tento text je určen pro začátečníky a~mírně pokročilé v~oblasti stavby autonomních robotů -- převážně středoškoláky v~prvním ročníku, kteří se pokoušejí postavit svého prvního \hyperlink{autonomni}{autonomního}
-%% co přesně dělá \link - reference do textu?
- %\link[ref:autonomni]{\color{blue}}{autonomního }\Black 
-%\color{magenta} autonomního \color{black} 
-robota, nejčastěji pro nějakou soutěž\footnote{Robotiáda v~Brně: 
-\url{http://www.robotiada.cz/}, Robotický den v Praze \url{http://robotickyden.cz/} }. 
-Protože byl sepsán na pracovišti Robotárna\footnote{\url{http://www.helceletka.cz/robotarna}} (pobočka DDM Helceletka Brno), jsou některé části určené především členům jeho kroužků. Ale většina textu je použitelná všeobecně.
+Tento text je určen pro začátečníky a~mírně pokročilé v~oblasti stavby autonomních robotů -- převážně středoškoláky v~prvním ročníku, kteří se pokoušejí postavit svého prvního \hyperref[autonomni]{autonomního}
+robota, nejčastěji pro nějakou \hyperref[prehled_soutezi]{soutěž}.
+
+Protože byl sepsán na pracovištích \href{http://www.helceletka.cz/robotarna}{Robotárna}\footnote{pobočka DDM Helceletka Brno}  a 
+ \href{http://www.sokolska.cz/}{SPŠ Sokolská}\footnote{Střední průmyslová škola a Vyšší odborná škola Brno, Sokolská, příspěvková organizace},
+ jsou některé části určené především členům jejich kroužků. Ale většina textu je použitelná všeobecně.
 
 Každý robot se musí 
 \begin{itemize} 	% \itemsep = 0ex   
@@ -21,13 +20,13 @@ Přitom můžou nastat zhruba dvě situace:
 \begin{itemize} % \style O
 \item  Nemám žádné znalosti a~zkušenosti $\rightarrow$ doporučený 
 postup je začít ve školním kroužku nebo samostatně stavět a~programovat 
-robota z~{\it LEGO MINDSTORMS}\footnote{\url{https://www.lego.com/cs-cz/mindstorms}}.
+robota z~\href{https://www.lego.com/cs-cz/mindstorms}{LEGO MINDSTORMS} -- viz kapitola \ref{lego:stavba}. 
 Je to daleko nejjednodušší a~nejrychlejší cesta, omezení jste cenou stavebnice a~jejími možnostmi.
 \item  Už jsem někdy něco naprogramoval, zapojil nebo postavil a~chci jít dál $\rightarrow$ potom je pro vás určen tento text.
 Jednotlivé kapitoly se věnují různým oblastem, které je postupně potřeba zvládnout (nebo jimi pověřit jiného člena týmu) s~důrazem na začátečnické problémy.
 \end{itemize}
 
-\subsection{Týmy pro stavbu robotů}
+\section{Týmy pro stavbu robotů}
 
 Už bylo zmíněno, že stavba robotů zahrnuje tři propojené, 
 ale relativně nezávislé okruhy: návrh a~výrobu mechanické konstrukce, 
@@ -43,48 +42,39 @@ To se ale v~praxi téměř nikdy nepodaří.
 
 V~každém případě ale platí, že je výhoda, pokud lidé v~týmu znají i~věci mimo jejich \uv{hlavní obor}, tj. když například programátor zná základy elektroniky.
 
-\subsection{Postup návrhu robota}
+\section{Postup návrhu robota}
 
 \begin{enumerate} % \style n
+\item  vybrat \hyperref[prehled_soutezi]{soutěž}, které se chcete zúčastnit nebo mít jiný cíl, proč stavět robota 
 \item  stanovit, co by měl robot splnit -- přibližně 
 \item  sepsat, co by měl robot splnit -- podrobně (klidně i~více stran A4), z~toho vyplyne
 \item  zjištění, jaké senzory a~pohony robot potřebuje a~kde budou na robotovi umístěné
-\item  návrh první konstrukce robota včetně umístění senzorů a~pohonů
+\item  návrh první konstrukce robota včetně umístění senzorů a~pohonů \label{robot:postup:navrh}
 \item  zprovoznění toho všeho -- {\bf hlavní cíl tohoto textu }
 \end{enumerate}
 
 
-Začátečníci obvykle tuto posloupnost nedodrží a~pak staví mechaniku pro 
+Začátečníci obvykle tuto posloupnost nedodrží, začnou bodem \ref{robot:postup:navrh} a~pak staví mechaniku pro 
 3 a~více verzí robota (někdy tak odlišných, že už se vlastně jedná o různé roboty). Až potom zjistí, že je to dost práce navíc.
-A~taky dost času navíc, který potom před soutěží může chybět. 
+A~taky dost času navíc, který potom před soutěží chybí. 
 
-\subsection{Co potřebujete na začátku}
+\section{Co potřebujete na začátku}
 
 {\bf Hardware: }
 
 \begin{itemize} 
-\item  notebook nebo počítač s~operačním systémem Windows 7 a~novějším nebo Linux (pro starší počítače např. aktuální distribuci Xubuntu, Lubuntu, Mint)
-\item  \fxnote*[author=JP]{Kdybych četl text poprvé, tak mi není jasné, jestli mám mít jak ESP32 DevKitC tak ALKS nebo stačí jen jedna z desek}{desku s~čipe}, např. ESP32 DevKitC, \footnote{varianta: jinou vývojovou desku, např. Arduino Uno, Arduino Nano, Arduino Mega, ...}
-\item  vývojovou desku ALKS\footnote{\url{https://github.com/RoboticsBrno/ArduinoLearningKitStarter} \newline {\color{red} NUTNÁ AKTUALIZACE} %todo NUTNÁ AKTUALIZACE desky na webu 
-Hotová deska vás hlavně ze začátku zbavuje nutnosti vědět, co si můžete dovolit kam připojit a~hlavně nutnosti vůbec nějaké připojování čehokoliv řešit. }
-\item výhledově cokoli dalšího, co chcete tím čipem řídit (serva, ultrazvuk, senzory a~motory všeho druhu ... )
+\item  \hyperref[pocitac]{notebook nebo počítač} s~operačním systémem Windows 7 a~novějším nebo s operačním systémem Linux (pro starší počítače např. aktuální distribuci Xubuntu, Lubuntu, Mint)
+\item \hyperref[ridici_desky]{řídící desku}, pro první učení je nejlepší \hyperref[alks]{ALKS}, pro vlastní stavbu robota potom vyberete desku podle požadavků na elektroniku  
+\item výhledově cokoli dalšího, co chcete připojit na robota (serva, ultrazvuk, senzory a~motory všeho druhu ... )
 \end{itemize}
 
-\noindent {\bf Software: }
-\begin{itemize} 
-\item  {\it Visual Studio Code} -- viz kapitola \ref{vsc}
-\item  {\it PlatformIO }-- viz kapitola \ref{platformio}
-\end{itemize}
-Veškerý zde popisovaný a~doporučovaný software je freeware.
 
 \vspace*{1ex}
 
 \noindent {\bf Znalosti:  }
 \begin{itemize} 
 \item  běžná práce se soubory ve vašem operačním systému (hledání, kopírování, mazání, ... )
-\item  základy programování C++ (viz kapitola \ref{cpp}) a~příkazy C++ pro čipy (viz kapitola \ref{cppcipy})
-\item  velmi se hodí schopnost porozumět textu psanému v~jednoduché angličtině)
-\item  základy elektroniky -- viz kapitola \ref{elektronika}
+\item  velmi se hodí schopnost porozumět textu psanému v~jednoduché angličtině
 \end{itemize}
 
 \vspace*{1ex}
@@ -94,97 +84,57 @@ Veškerý zde popisovaný a~doporučovaný software je freeware.
 \item veškeré \color{mygreen} zelené\color{black} \ a~\color{blue} modré \color{black} 
  \color{black} odkazy a~slova jsou proklikávací (s~výjimkou barevného zvýraznění 
 syntaxe\footnote{syntaxe -- způsob zápisu daného jazyka, barevný zápis je mnohem přehlednější} ve zdrojových textech jazyka C++)
-\item na konci textu je (klikací) obsah 
-\item těsně před obsahem je (také \fxnote*[author=JP]{TODO: zatím klikací není}{klikací}) rejstřík
-\item v žádném textu o elektronice a robotice nemůže být všechno, pokud zde něco nenajdete, použijte např. Google
+\item na začátku textu je (klikací) \hyperref[obsah]{obsah} 
+\item na konci textu je   \hyperref[rejstrik]{rejstřík} %(také \fxnote*[author=JP]{TODO: zatím klikací není}{klikací})
+\item v žádném textu o elektronice a robotice nemůže být všechno, pokud zde něco nenajdete, použijte např. Google; také může pomoci další   \hyperref[literatura]{literatura}
 %\item tento text slouží pro \uv{začátečnický rozjezd}, pravděpodobně vám proto časem přestane stačit
 \end{itemize}
 
 
-\subsection{První projekt}
+\section{Přehled soutěží} \label{prehled_soutezi}  \index{Přehled soutěží} 
+
+Plán účastnit se se svým robotem soutěže je nejen motivací pro začátek stavění robota, ale hlavně motivací pro jeho dokončení, protože soutěž nepočká.  
+V současné době se soustředíme na tyto soutěžní dny: \href{http://www.robotiada.cz/}{Robotiáda}  v~Brně a \href{http://robotickyden.cz}{Robotický den}  v Praze. 
+Dále existuje \href{http://www.robotika.sk/contest/2018/index.php}{Istrobot} v Bratislavě, kam téměř nejezdíme. 
+Hlavní důvod je, že soutěž bývá v dubnu, kdy roboti ještě nejsou hotoví. 
+
+U všech soutěží, kterých se rozhodnete zúčastnit, je potřeba důkladně nastudovat pravidla. Hlavní členové týmu by je měli znát víceméně zpaměti. 
+
+Na \textbf{Robotiádě} \index{Robotiáda} je podmínka, že hlavní části robota (řídící systém, pohony, senzory) musí být z \hyperref[lego:stavba]{Lega}.  
+
+ Robotiáda probíhá obvykle na začátku února a obsahuje několik soutěží. Každá z nich je rozdělená na kategorii ZŠ a SŠ. 
+Které soutěže se zúčastníte, je v podstatě na vás, s vyjímkou Freestyle, kterou příliš nedoporučuji kvůli velmi nejistému výsledku. Pokud začnete v září, je potřeba se přípravě, stavbě a programování robota věnovat alespoň jedno odpoledne týdně. 
+
+\textbf{Robotický den} \index{Robotický den} probíhá obvykle na začátku června a obsahuje také několik soutěží, které jsou rozdělené na kategorie \uv{Roboti pouze z dané stavebnice (např. z Lega)} a \uv{Roboti z čehokoliv}. 
+Není zde dělení podle věku, takže ZŠ a SŠ soutěží v jedné skupině s VŠ a dospělými podle toho, jak se kdo přihlásí. 
+Výběr vhodné soutěže je pro úspěch zásadní a je nezbytné jej konzultovat s~vedoucím kroužku.  
+Pro stavbu funkčního robota je potřeba věnovat přípravě, studiu a stavbě minimálně jedno odpoledne týdně, pokud jste pomocný člen týmu a dvě odpoledne  týdně, pokud jste např. hlavní mechanik nebo hlavní programátor týmu. Čím víc, tím líp, protože \hyperref[denik]{zkušenosti} ukazují jasně, že času není nikdy dost. 
+
+\subsubsection*{Přehled soutěží Robotického dne:}
+\vspace{-0.7cm} 
+\begin{description}
+	\item[]
+	\item[Doporučené soutěže:] Toy Cleanup Beginner (pokud se Robotického dne účastníte poprvé), Ketchup House, Bear Rescue Advanced, Line Follower, 
+	\item[Težko říct:] Puck Collect, Roadside Assistance, Toy Cleanup Advanced
+	\item[NEdoporučené soutěže:] RoboCarts, Free Style, Mini Sumo
+\end{description}
+
+Tato (ne)doporučení vycházejí ze zkušeností z předchozích let a odhadu reálných možností středoškolských studentů. 
  
-\fxnote*[author=JP]{Chybí mi tu nějaký úvod, jak bude tedy vypadat první projekt -- co se bude v této kapitole dít. Částečně je to v další podkapitole, ale zde by měl být ještě základní úvod: V této kapitole se zaměříme na naprogramování ...}{První projekt}
-%\nonum \notoc 
-\subsubsection*{Postup}
+\section{Stavba robota z Lego Mindstorms -- doporučení} \label{lego:stavba}
 
-Pokud s~programováním čipů začínáme, čekají nás tyto úkoly:
-\begin{enumerate}
-\item  nainstalovat prostředí {\it Visual Studio Code}
-\item  do Visual Studio Code nainstalovat doplněk {\it PlatformIO }
-\item  přes PlatformIO založit nový projekt
-\item  napsat zdrojový kód, přeložit a~dostat jej do čipu 
-\end{enumerate}
-Toto vše podrobněji probereme na dalších řádcích. 
+Na Robotický den můžete stavět pouze z \uv{čistého} Lega. 
+Na Robotiádě můžete využít do konstrukce například díly z překližky  pro větší tuhost a snazší montáž. 
+Překližkové díly se dají navhrnout například v modelovacím systému \href{https://www.onshape.com/}{Onshape}  a následně je možné je vyřezat na laseru na pracovišti \href{https://www.fablabbrno.cz}{Fablab}.
 
-\label{vsc} \subsubsection{Nainstalovat  Visual Studio Code} \label{vscode}
+Pro programování robota z Lega máte dvě možnosti: 
 
-%% \index{neco} % pokud chci mít slovo v indexu a v textu, musím jej zopakovat - nenašel jsem v LaTeXu jinou možnost
-{\it Visual Studio Code} \index{Visual~Studio~Code} (zkráceně VS Code) 
-je vylepšený textový editor od Microsoftu, speciálně navržený pro programátory čehokoliv.
-Instalujte podobně jako každý jiný program, stahujte zde: \url{https://code.visualstudio.com/}  
+-- použít nativní obrázkové programování, ke stažení \href{https://www.lego.com/en-us/mindstorms/downloads}{zde} 
 
+-- použít prostředí, které vám umožní programovat robota v C++, například \href{}{zde} %todo doplnit + postup, jak se prostředí instaluje 
 
-\subsubsection{Nainstalovat PlatformIO} \label{platformio}
-
-\index{PlatformIO} PlatformIO (zkráceně PIO) je ten software, který umožní program v~C++ 
-přeložit tak, aby ho čip pochopil a~taky ho do čipu umí nahrát. 
-Instalace podle návodu zde: \url{http://docs.platformio.org/en/latest/ide/vscode.html\#installation}
-
-\label{vsc:newproject} \subsubsection{Založit nový projekt}
-
-Program (ne)píšete jen do jednoho souboru, ale aby vše fungovalo, potřebujete vícero dalších souborů, které dohromady tvoří tzv. {\bf projekt}\index{projekt}.
-Tyto soubory jsou mezi sebou hodně provázané a~navíc vázané na konkrétní místo uložení, 
-takže vám po překopírování na jiný počítač pravděpodobně program nepůjde přeložit a~nebo 
-nahrát do čipu. Řešení: \fxnote*[author=JP]{Opravdu jsou s tím pořád tak velké problémy? Nestačí si prostě uložit (flash disk, mail, Google Drive)/zaverzovat (Git) celou složku s projektem a fungovat?}{uložit celý projekt na flash disk}. 
-Na novém počítači založit nový projekt a~potřebné části zdrojového kódu kopírovat pomocí {\it Ctrl+C}, {\it Ctrl+V}. 
-
-
-
-\begin{enumerate}
-\item Založte nový projekt z~ikonky \uv{domeček} -- viz \url{http://docs.platformio.org/en/latest/ide/vscode.html\#quick-start}.
-\item \fxnote*[author=JP]{Nevim jestli tuto část nezjednodušit. Nevím jestli je potřeba rozebírat sekce a podsekce, když stačí napsat, aby při volbě Board napsal ESP32 Dev Module a on se automaticky vybere. PS: V brzké době by mohla být v PIO i dostupná Board ALKS :-).}{ Do kolonky {\it Board} se musí vybrat správná deska.
-Desek je přes 400 a~jsou rozdělené do sekcí řazených podle abecedy vyznačených šedivou barvou.
-V~sekcích jsou potom jednotlivé desky řazené taky abecedně.
-Pro čip ESP32 najdete sekci {\it Espressif32} a~v~ní položku {\it Espressif ESP32 Dev Module}.}
-Kolonka {\it Framework } se potom vyplní automaticky. 
-\item  Zbývá vybrat adresář, do kterého bude projekt uložen.
-Tento adresář si předem vytvořte, s~adresářem vytvářeným za pochodu má VS Code kdovíproč problém.
-Odškrtněte zatržítko {\it Use defalut folder} a~zvolte vámi vytvořený adresář. Pokud si zapomenete nastav vlastní složku pro projekt, PIO projekt vytvoří někde v rámci složky Dokumenty. Nejjednodušší je vytvořit znovu nový projekt.
-\end{enumerate}
-
-Pro Linux Lubuntu: projekt musí být uložen na pevném disku, ne na flešce, jinak prostě nepojede, netuším proč.  
-
-\subsubsection{Napsat zdrojový kód, přeložit a~dostat jej do čipu}
-
-\begin{figure}[h]
-	\includegraphics[width=\textwidth]{soubory/rozlozeni2.jpg}
-	\caption{Rozložení oken v~programu {\it VS Code}} 
-	\label{fig:vsc_rozlozeni}
-\end{figure}	
-
-\hypertarget{explorer}{}
-Obrázek \ref{fig:vsc_rozlozeni} na straně~\pageref{fig:vsc_rozlozeni} ukazuje rozložení oken v~rámci projektu.
-Hlavní okno  rozdělte na dvě části pro zobrazení dvou upravovaných souborů pomocí ikony v~kroužku.
-Začínáme v~okně {\bf Explorer}, \index{Explorer}
- kde je umístěna adresářová struktura projektu\footnote{Pokud toto okno není vidět, zobrazíte ho v~menu {\it View} položka {\it Explorer} }.
-Otevřete soubory {\it platformio.ini} a~v~adresáři {\it src} soubor {\it main.cpp}. 
+Základní informace pro programování oběma způsoby jsou v kapitole \ref{programovani:zaklady}.
  
-Pro pohodlnou práci s~deskou \hyperref[alks]{ALKS} byla napsaná tzv. knihovna {\it ArduinoLearningKitStarter}. 
-Aby fungovala, musí být do souboru {\it platformio.ini} dopsán řádek {\tt lib\_deps = 1745} (bez mezery na začátku řádku) a~do záhlaví souboru {\it main.cpp} doplňte
-% {\tt include "LearningKit.h\"}.  
-%% nahrazeno \verb| include "LearningKit.h"|
-\verb| include "ALKS.h"|
-Dále dopište do souboru {\it main.cpp} kód, který bliká červenou LED.
-Vše je vidět na obrázku \ref{fig:vsc_rozlozeni}.
-Celý zdrojový kód tohoto prvního programu (obsah souboru {\it main.cpp}) je uveden v~kapitole \ref{cpppr1}.
  
-Teď budou potřeba další dvě části VS Code: terminál \index{terminál} (okno vpravo dole) a~stavový řádek (Status~bar\index{Status~bar} -- proužek pod terminálem). 
-Na stavovém řádku klikněte na ikonu šipky\footnote{totéž provede {\it Ctrl+Alt+U}} (pátá zprava) a~{\it PlatformIO} se pokusí váš program přeložit a~nahrát do čipu. 
-Pokud chcete program pouze přeložit, klikněte na ikonu zatržítko\footnote{totéž provede {\it Ctrl+Alt+B}} hned vedle. 
 
-Při prvním pokusu nahrát program do čipu na Linuxu může mít {\it PlatformIO} problém, že nenajde USB spojení na desku s~čipem a~vyžaduje ho doistalovat. 
-Zpráva\footnote{\tt Warning! Please install `99-platformio-udev.rules`} se objeví v~terminálu včetně nápovědy,\footnote{\url{https://raw.githubusercontent.com/platformio/platformio/develop/scripts/99-platformio-udev.rules}} jak to udělat.
-Nápověda je ale tak podrobná, že to středně poučený linuxový laik s~pomocí internetu zvládne.
-Při všech dalších překladech už to nebude problém.  
 
-Další programy budou uvedeny v~kapitole \ref{cpppr}. 

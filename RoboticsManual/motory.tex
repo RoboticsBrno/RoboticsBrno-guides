@@ -1,26 +1,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Motorky, serva a~PWM}
+\section{Motory, serva a~PWM}
 
-\subsection{Motorky}
+\subsection{Motory} \label{motor}
 
-Motorek připojujeme vždy přes    \hyperlink{tranzistor}{tranzistor}. 
-Pokud chceme řídit motorek z~čipu stylem start -- stop, postačí přes odpor 
+Pokud není přímo napsáno něco jiného, znamená motor všude v tomto textu elektromotor na stejnosměrný proud.
+
+Motor připojujeme vždy přes \hyperlink{tranzistor}{tranzistor}. 
+Pokud chceme řídit motor z~čipu stylem start -- stop, postačí přes odpor 
 např. 1~k$\Omega$ spojit výstupní pin čipu s~bází tranzistoru a~na emitor a~kolektor připojit baterii a motorek zapojený do série. 
 
 Dále je potřeba bázi tranzistoru propojit pomocí např. 10~k$\Omega$ se zemí. 
 Jinak totiž při vypnutém signálu z čipu báze \uv{visí v luftě} a chová se jako 
-anténa -- indukují se na ní různé signály a většinou se díky tomu motorek samovolně slabě otáčí.   
+anténa -- indukují se na ní různé signály a většinou se díky tomu motor samovolně slabě otáčí.   
 
-Nakonec je potřeba mít společnou zem pro čip i pro motorek -- pokud to není splněno, obvykle motorek nejede. 
+Nakonec je potřeba mít společnou zem pro čip i pro motor -- pokud to není splněno, obvykle motor nejede. 
 
-Pro větší motorky potřebujeme lepší tranzitor nebo dva tranzistory v tzv. Darlingtonově zapojení (viz web). 
+Pro větší motory potřebujeme lepší tranzitor nebo dva tranzistory v tzv. Darlingtonově zapojení (viz web). 
 Další možností jsou speciální integrované obvody pro řízení motorů, tzv.  
  \hyperref[driver]{drivery}, které jsou složeny z mnoha tranzistorů a dalších prvků. 
 
 Pokud chceme řídit motory programově pomocí PWM (viz další kapitola), 
 musíme navíc mezi emitor a kolektor tranzistoru vložit (obyčejnou) diodu pólovanou závěrně vůči baterii. 
 Při vypnutí tranzistoru vznikají totiž na cívkách motorku napěťové špičky, které deformují tvar PWM signálu.  
-Další proudy se indukují, když se motorek po vypnutí proudu setrvačností otáčí dál. 
+Další proudy se v motoru indukují, když se motor po vypnutí proudu setrvačností otáčí dál. 
 
 \subsection{PWM} \label{PWM}  \index{PWM} 
 
@@ -29,14 +31,20 @@ Další proudy se indukují, když se motorek po vypnutí proudu setrvačností 
  Proč zrovna obdélník? Protože na tranzistorech i driverech jsou při řízení motoru nejmenší ztráty, když jsou zcela otevřené (přenáší maximum napětí nebo proudu) nebo zcela zavřené (nepřenáší nic). Nejmenší ztráty znamenají také nejsnazší možné chlazení. Proto se snažíme stavům mezi oběma krajními mezemi vyhnout a zkrátit je na minimum. 
 
 
-\label{servo} \subsection{Servo}
+ \subsection{Servo} \label{servo} \index{servo} 
 
-{\bf (Modelářské) servo} je krabička, která obsahuje motorek s převodovkou do pomala a řídící elektroniku, která se stará o jeho správné natočení. Obvykle se umí otočit v úhlu 180 stupňů s velkou přesností. Jeho klíčová vlastnost je, že polohu, do které se otočil, se snaží udržet. \index{servo} 
+{\bf (Modelářské) servo} je krabička, která obsahuje motorek s převodovkou do pomala a řídící elektroniku, která se stará o jeho správné natočení. Obvykle se umí otočit v úhlu 180 stupňů s velkou přesností. Jeho klíčová vlastnost je, že polohu, do které se otočil, se snaží udržet. 
 
 Na desce \hyperref[alks]{ALKS} jsou zapojeny vývody pro pět serv, která lze z desky přímo napájet a řídit. 
 Protože servo (jako každý motor) potřebuje hodně proudu, lze přímo z desky napájet pouze nejmenší serva každé zvlášť. Pro větší serva je na desce připraven mini-USB konektor, do kterého je možné připojit samostatné napájení pro serva. 
 
 Pro připojení serv na desku ALKS platí, že GND (zem, mínus) je na okraji desky, 5~V je uprostřed a datový pin je nejblíže čipu. 
+
+Deska \hyperref[rbcontrol]{RBControl} umí po osazení spínanými zdroji napájet a ovládat 4~serva nebo 8~mikroserv, která pracují současně.
+Maximálně je možné připojit až 32 serv nebo mikroserv. 
+
+Běžné servo odebírá při provozu 1~A i více, podle velikosti, a to i když se nehýbe. Spotřebuje tento proud na to, aby se udrželo v zadané poloze. 
+\textbf{Mikroservo} je malý typ serva, kterému stačí proud cca 0,5~A. \index{mikroservo} \label{mikroservo} %todo doplnit typ 
 
 {\bf Pozor!} Servo nesnáší přepólování napětí, když se přepóluje, tak shoří (když se přepóluje signál, tak to tolik nevadí).
 
@@ -56,21 +64,22 @@ Jestliže budeme potřebovat jiný úhel natočení, nastavíme logickou jednič
 Jednoduchý program pro řízení serva je v kapitole \ref{prog:servo}.
 
 
-\section{Řídící desky}
+\section{Řídící desky} \label{ridici_desky}
 
-\label{esp32} \subsection{ESP 32}
+ \subsection{ESP 32} \label{esp32}
 
-Deska\index{ESP~32!deska}\index{deska!ESP~32} {\bf ESP~32}  je vývojová deska osazená čipem {\tt ESP-WROOM-32}, který má řadu výborných vlastností.\footnote{\url{http://navody.arduino-shop.cz/navody-k-produktum/vyvojova-deska-esp32.html} }
+Deska\index{ESP~32!deska}\index{deska!ESP~32} {\bf ESP32-DevKitC}  je vývojová deska osazená čipem {\tt ESP-WROOM-32}, který má řadu výborných \href{https://en.wikipedia.org/wiki/ESP32}{vlastností}.
 
 Deska se napájí z~\index{USB} USB (5~V) a~je na ní napěťový převodník
 %todo\rfc{? napěťový převodník} 
 na 3,3~V. Přitom USB může dodávat oficiálně 100~mA, v~reálu ale běžně dodává 500~mA až 1 A. USB porty jsou také vcelku odolné proti zkratu.   
 
-\label{alks} \subsection{ALKS} 
+ \subsection{ALKS} \label{alks}  
 
 Deska ALKS\footnote{Arduion Learning Kit Starter} byla navržena přímo na Robotárně Brno právě proto, že 
 hotová\index{ALKS/deska}\index{deska/ALKS} deska   
 vás hlavně ze začátku zbavuje nutnosti vědět, co si můžete dovolit kam připojit a~jestli to bude fungovat. 
+Na webu je k ALKS další \href{https://github.com/RoboticsBrno/ArduinoLearningKitStarter}{dokumentace}.
 
 Na ALKS se dají nasadit desky ESP~32, Arduino uno  a~Arduino nano, které jí také poskytují napájení.  
 
@@ -115,17 +124,9 @@ Zapojení pinů desky ALKS \href{https://github.com/RoboticsBrno/ArduinoLearning
 
 RB3201 - RBControl (RBC) je univerzální deska pro stavbu hobby robotů, vyvinutá na Robotárně Brno. 
 Jde v podstatě o shield k desce ESP32 dev kit, který má dva hlavní cíle: 
-rozšířit počet pinů desky ESP32 a umožnit snadné připojení velkého množství různých periférií.
+rozšířit počet pinů desky ESP32 a umožnit snadné připojení velkého množství různých periférií, především robotických. 
 
-\subsubsection*{Hlavní vlastnosti}
-
-Deska RBC umožňuje současně ovládat až 8 DC motorů (1,5 A trvale, 2A špičkově každý). 
-Dále umí po osazení spínanými zdroji napájet a ovládat 4 serva nebo 8 mikroserv. 
-Má vyvedenou I2C sběrnici celkem 6x na 3,3 V a 2x na 5 V. 
-Dále je na desce expandér pinů, který je připojený na I2C a obsluhuje další dva porty A,B po 8 pinech. 
-Na desce jsou vyvedená tři tlačítka, 4 LED a piezo.
-
-Podrobnější popis desky je zde %todo 
+Podrobnější popis desky je v kapitole \ref{rbcontrol}.
 
 \subsection{Arduino Mega}
 
@@ -153,9 +154,16 @@ Ultrazvukový senzor {\bf HC-SR04}\footnote{\url{https://www.sparkfun.com/produc
 \index{ultrazvukový senzor} 
 Jeho zapojení a oživení je 
   \href{https://randomnerdtutorials.com/complete-guide-for-ultrasonic-sensor-hc-sr04/}{zde}.
-
-
 %lit: http://www.instructables.com/id/Simple-Arduino-and-HC-SR04-Example/
+
+\subsection{Odrazový infrasenzor QRD1114}
+
+\index{infrasenzor!odrazový} \index{QRD1114} \label{qrd1114} Tato součástka má v jednom pouzdře vysílací infračervenou LED a přijímací fototranzistor\footnote{Fototranzistor je součástka, která zesiluje signál podle toho, jak je osvětlená.}. Umístěná několik mm nad hřiště a zastíněná od okolí je ideální pro rozpoznázní  černé čáry na bílém podkladu a podobně. Dá se také použít pro detekci blízkého předmětu (dojde k zastínění).
+Můžeme použít například QRD1114. Může rozlišit vzdálenosti v rozsahu 0.75--10~mm nebo rozlišit černý a bílý povrch.  
+Na adrese
+\url{https://learn.sparkfun.com/tutorials/qrd1114-optical-detector-hookup-guide} najdeme schéma zapojení i příklad kódu pro Arduino. Ještě jednodušší \hyperref[prog:qrd1114]{příklad kódu}.
+
+
 
 \subsection{Bluetooth} \index{bluetooth}
 
@@ -176,4 +184,14 @@ Dále musí být spojená země zubu a čipu.
 
 %todo Kód zubů: 0007 - uvádět do veřejného textu?
 
+
+\section{Napájení} %todo dodělat 
+
+Napájení robota je obvykle složitější, než by se mohlo zdát. 
+
+\subsection{Baterie}
+
+Dobíjecí: napětí 1,2 V~\index{baterie!dobíjecí}\index{dobíjecí!baterie}
+
+Jednorázové: napětí 1,5 V~\index{baterie!jednorázové}\index{jednorázové!baterie}
 

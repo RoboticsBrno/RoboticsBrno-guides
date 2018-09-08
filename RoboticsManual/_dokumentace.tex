@@ -104,11 +104,10 @@
 
 \input prvnistrana.tex
 
-\tableofcontents % zobrazí obsah
+\tableofcontents  \label{obsah}  % zobrazí obsah
 
 \chapter{Začínáme}
 	\input zacatek.tex
-	\input zacpojmy
 	
 \chapter{Mechanika}
 	\input mechanika.tex
@@ -122,27 +121,27 @@
 	\input osciloskop.tex	
 	
 \chapter{Software}
+	Veškerý zde popisovaný a~doporučovaný software je (minimálně pro vzdělávací účely) freeware.
 	\input onshape.tex
+	\input vscode.tex
 	\input software.tex
 
-\chapter{Programovací jazyk C++}
+\chapter{Programování čipů v C++}
 	\input cpp.tex
 	\input cppcipy.tex
 	\input cpppr.tex
 	\input bitybajty.tex
 
+\chapter{Přílohy}  \addcontentsline{toc}{chapter}{Přílohy}
+	\input prilohy.tex 
+		 
+ \addcontentsline{toc}{chapter}{Rejstřík} 
+
+ \printindex   
+ \label{rejstrik}
  
-\chapter{Ostatní}
-	\input mechanika.tex
-	\input problemy.tex
-
-
-\chapter*{Přílohy}  \addcontentsline{toc}{chapter}{Přílohy}
-	\input prilohy.tex
-	
- \addcontentsline{toc}{chapter}{Rejstřík} \printindex % vytiske rejstřík 
-%todo doplnit velká počáteční písmena a seřadit podle české abecedy 
-%todo vytvořit proklikávací rejstřík 
+%todo doplnit do rejstříku velká počáteční písmena a seřadit ho podle české abecedy 
+%todo vytvořit proklikávání v  rejstříku 
 %todo software pro videonávody?
 
 %todo doplnit pájení
@@ -150,7 +149,20 @@
 %todo doplnit sekci \section{Příkazy C++ pro čipy}
 %todo do kapitoly Onshape doplnit fotky s popisy + \index , taky do osciloskopu
 %todo nepájivé kontaktní pole
-
+% stavový automat 
+% program vlna 
+% Adruino IDE 
+% Laser ve Lablabu - ovládání
+% Baterie LiON a~jejich nabíjení 
+% Převodník napěťových úrovní 
+% Sběrnice - USART/UART, IIC, SPI, další?
+% propojení čipů s mobilem 
+% součástky: tlačítko včetně zapojení, barevný senzor 
+% pokud nemáte hodně vývodů na desce, potřebujete nepájivé pole po rozvedení napájení (GND, 5V nebo 3V3). 
+% verzování do VSCode 
+% jak přesně funguje funkce map 
+% otestovat řízení serva a zkontrolovat piny GND a data 
+% enkodéry 
 
 \end{document}
 
@@ -159,5 +171,5 @@ Centrum softwaru pro Ubuntu. Alternativně můžete Centrum spustit příkazem s
 https://github.com/RoboticsBrno/Robotarna-service/blob/master/install_arduino-esp32.md
 
 nainstalování ESP32 pro Arduino IDE -> problém 
-
+%todo návod do Arduino IDE: http://navody.arduino-shop.cz/navody-k-produktum/vyvojova-deska-esp32.html
 
