@@ -5,24 +5,40 @@
 
 Pokud není přímo napsáno něco jiného, znamená motor všude v tomto textu elektromotor na stejnosměrný proud.
 
-Motor připojujeme vždy přes \hyperlink{tranzistor}{tranzistor}. 
+Motor připojujeme k řídící desce přes tzv. \hyperref[driver]{drivery} na ty piny desky, které umožňují vysílat \hyperref[PWM]{PWM} signál. 
+
+
+\subsubsection{Rotační enkodéry} \index{enkodér!rotační} \label{enkoder}
+
+Abychom věděli, co se s motorem (a tím i s robotem -- pokud mu zrovna neprokluzují kola) v průběhu času děje, 
+používáme součástku, která se jmenuje \href{https://robotika.cz/guide/encoders/en}{(rotační) enkodér} a zjišťuje, jak se motor otáčí. 
+Mít motory, na kterých nebo ve kterých je enkodér rovnou zabudovaný je při stavbě robotů velká výhoda. 
+
+%https://maly.gitbooks.io/hradla-volty-jednocipy/20_citace/206_rotacni_enkoder.html
+
+Tzv. pomalé enkodéry, např.  \href{https://navody.arduino-shop.cz/navody-k-produktum/rotacni-enkoder-ky-040.html}{KY-040} se dají také používat například při zjištění otočení volantu nebo páčky při řízení robota a pod. 
+
+
+
+\subsubsection*{Řízení motorů pomocí tranzistorů}
+
+Malé motory stačí k desce připojit pomocí tranzistorů. %todo dopsat variantu pro unipoární tranzistor
+
 Pokud chceme řídit motor z~čipu stylem start -- stop, postačí přes odpor 
 např. 1~k$\Omega$ spojit výstupní pin čipu s~bází tranzistoru a~na emitor a~kolektor připojit baterii a motorek zapojený do série. 
 
 Dále je potřeba bázi tranzistoru propojit pomocí např. 10~k$\Omega$ se zemí. 
-Jinak totiž při vypnutém signálu z čipu báze \uv{visí v luftě} a chová se jako 
-anténa -- indukují se na ní různé signály a většinou se díky tomu motor samovolně slabě otáčí.   
+Jinak totiž při vypnutém signálu z čipu báze \uv{visí v luftě} a chová se jako anténa -- indukují se na ní různé signály a většinou se díky tomu motor samovolně slabě otáčí.   
 
 Nakonec je potřeba mít společnou zem pro čip i pro motor -- pokud to není splněno, obvykle motor nejede. 
-
-Pro větší motory potřebujeme lepší tranzitor nebo dva tranzistory v tzv. Darlingtonově zapojení (viz web). 
-Další možností jsou speciální integrované obvody pro řízení motorů, tzv.  
- \hyperref[driver]{drivery}, které jsou složeny z mnoha tranzistorů a dalších prvků. 
-
-Pokud chceme řídit motory programově pomocí PWM (viz další kapitola), 
+Pokud chceme řídit motor programově pomocí (viz kapitola \ref{PWM}), 
 musíme navíc mezi emitor a kolektor tranzistoru vložit (obyčejnou) diodu pólovanou závěrně vůči baterii. 
 Při vypnutí tranzistoru vznikají totiž na cívkách motorku napěťové špičky, které deformují tvar PWM signálu.  
 Další proudy se v motoru indukují, když se motor po vypnutí proudu setrvačností otáčí dál. 
+
+
+
+
 
 \subsection{PWM} \label{PWM}  \index{PWM} 
 
@@ -79,7 +95,9 @@ na 3,3~V. Přitom USB může dodávat oficiálně 100~mA, v~reálu ale běžně 
 Deska ALKS\footnote{Arduion Learning Kit Starter} byla navržena přímo na Robotárně Brno právě proto, že 
 hotová\index{ALKS/deska}\index{deska/ALKS} deska   
 vás hlavně ze začátku zbavuje nutnosti vědět, co si můžete dovolit kam připojit a~jestli to bude fungovat. 
-Na webu je k ALKS další \href{https://github.com/RoboticsBrno/ArduinoLearningKitStarter}{dokumentace}.
+Na webu má ALKS vlastní \href{https://github.com/RoboticsBrno/ArduinoLearningKitStarter/wiki}{wiki stránky}.
+Zde najdete zapojení desky ALKS, její pinout\footnote{přehled zapojení pinů \index{pinout}}  a spoustu dalších informací. 
+
 
 Na ALKS se dají nasadit desky ESP~32, Arduino uno  a~Arduino nano, které jí také poskytují napájení.  
 
@@ -106,16 +124,6 @@ Aby fungovala, musí být v záhlaví souboru {\it main.cpp} doplněno
 \verb| include "LearningKit_nano.h"|. Protože knihovna \newline {\tt LearningKit\_nano.h} využívá 
 knihovnu {\tt LearningKit.h}, musí být také do souboru {\it platformio.ini} dopsán řádek {\tt lib\_deps = 1745} (bez mezery na začátku řádku)  -- viz obrázek \ref{fig:vsc_rozlozeni} vpravo.
 
-
-
-\subsubsection*{Dokumentace k ALKS}
-
-Stránky  věnované desce ALKS jsou
- \href{https://github.com/RoboticsBrno/ArduinoLearningKitStarter}{zde}.
-
-Zapojení desky ALKS je \href{https://github.com/RoboticsBrno/ArduinoLearningKitStarter/blob/master/docs/ArduinoLearningKitStarter.pdf}{zde}.
-
-Zapojení pinů desky ALKS \href{https://github.com/RoboticsBrno/ArduinoLearningKitStarter/blob/master/docs/pinout.pdf}{zde}. 
 
 
 \subsection{RBControl} \index{RBControl}

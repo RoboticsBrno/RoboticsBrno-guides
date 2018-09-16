@@ -20,29 +20,32 @@ Pro řídící desky {\bf musí}  být určené samostatné články, jiné než
 
 \begin{description}
 	
-\item[AAA nabíjecí baterie (mikrotužky)]~\\
+\item[AAA nabíjecí baterie (mikrotužky)]~\\ \index{baterie!AAA}
 Jeden článek má napětí 1,2~V, plně nabitý i 1,4~V. 
 Používáme pro pohon malých motorků a malých robotů (3pi). 
+Nabíjíme klasickými nabíječkami. 
 
-\item[AA nabíjecí baterie (tužky)]~\\
+\item[AA nabíjecí baterie (tužky)]~\\ \index{baterie!AA}
 Jeden článek má napětí 1,2~V, plně nabitý i 1,4~V. 
 Používáme pro pohon malých motorků a malých robotů, když je na robotovi dost místa na baterie. 
+Nabíjíme také klasickými nabíječkami.
 
-\item[Li-On články]~\\
-Nejčastěji se používají ve velikost 18650. Jeden článek má 3,7~V. 
+\item[Li-On články]~\\ \index{baterie!Li-On} \index{baterie!18650}
+Nejčastěji se používají ve velikosti 18650. Jeden článek má asi 3,7~V, plně nabitý i 4,2~V. 
+Nabíjíme je například nabíjecí deskou \href{https://laskarduino.cz/napajeni-zdroje/230501-nabijecka-li-ion-clanku-tp4056.html?gclid=EAIaIQobChMI5_DTrqTA3QIVUeR3Ch1GTwayEAQYASABEgJGz_D_BwE}{TP4056}, kterou na jedné straně připojíme k USB portu a na druhé straně pomocí drátků připájíme k držáku baterie. 
+Používáme 2 články zapojené \hyperref[seriove]{do série} pro pohon středních robotů a napájení řídících desek, které mají vlastní stabilizaci napětí (RBControl).   
 
-Používáme 2 články v sérii pro pohon středních robotů a napájení řídících desek, které mají vlastní stabilizaci napětí (RBControl).   
-
-\item[Ni-Cd články]~\\ 
+\item[Ni-Cd články]~\\ \index{baterie!Ni-Cd}
 Jeden článek má napětí 1,2~V, plně nabitý i 1,4~V.
 Mohou dodávat desítky ampér a nelze je snadno zničit velkým odběrem.
 Používáme obvykle 6 nebo 10 článků v baterii pro pohon velkých robotů.  
 
-\item[Li-Pol články]~\\
+\item[Li-Pol články]~\\ \index{baterie!Li-Pol}
 Jejich výhody (nízká hmotnost a malé rozměry) při stavbě robotů obvykle nevyužijeme a kvůli relativně složitému nabíjení, určité nebezpečnosti a snadnému zničení podvybitím je nepoužíváme. 
 
 \item[Power-banky]~\\ 
 Poskytují stabilizované napětí 5~V a proto jsou ideální pro napájení řídících desek. 
+Nabíjejí se přímo z USB portu. 
 
 
 \item[USB port]~\\ 
