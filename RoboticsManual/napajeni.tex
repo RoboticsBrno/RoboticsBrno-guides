@@ -1,0 +1,84 @@
+\section{Napájení a baterie}
+
+
+ Napájení robota je obvykle složitější, než by se mohlo zdát. 
+
+Vše na robotovi napájíme stejnosměrným proudem. Pro jeho zajištění používáme různé typy článků baterií.
+
+Všechny tyto články jsou nabíjecí a pro každý typ potřebujeme nabíječku.
+
+Používají se obvykle zapojené do série podle výše potřebného napětí. 
+
+
+{\bf  Všechny obvody robota (řídící deska, motory, serva, další desky) musí mít společnou zem. }  
+
+
+Pro řídící desky {\bf musí}  být určené samostatné články, jiné než pro pohony motorů a serv. Důvod je ten, že motory při práci produkují napěťové špičky, které by se přes společné kabely dostaly do čipu a způsobily by, že čip přestane fungovat.  
+
+
+\subsection{Přehled typů článků}
+
+\begin{description}
+	
+\item[AAA nabíjecí baterie (mikrotužky)]~\\
+Jeden článek má napětí 1,2~V, plně nabitý i 1,4~V. 
+Používáme pro pohon malých motorků a malých robotů (3pi). 
+
+\item[AA nabíjecí baterie (tužky)]~\\
+Jeden článek má napětí 1,2~V, plně nabitý i 1,4~V. 
+Používáme pro pohon malých motorků a malých robotů, když je na robotovi dost místa na baterie. 
+
+\item[Li-On články]~\\
+Nejčastěji se používají ve velikost 18650. Jeden článek má 3,7~V. 
+
+Používáme 2 články v sérii pro pohon středních robotů a napájení řídících desek, které mají vlastní stabilizaci napětí (RBControl).   
+
+\item[Ni-Cd články]~\\ 
+Jeden článek má napětí 1,2~V, plně nabitý i 1,4~V.
+Mohou dodávat desítky ampér a nelze je snadno zničit velkým odběrem.
+Používáme obvykle 6 nebo 10 článků v baterii pro pohon velkých robotů.  
+
+\item[Li-Pol články]~\\
+Jejich výhody (nízká hmotnost a malé rozměry) při stavbě robotů obvykle nevyužijeme a kvůli relativně složitému nabíjení, určité nebezpečnosti a snadnému zničení podvybitím je nepoužíváme. 
+
+\item[Power-banky]~\\ 
+Poskytují stabilizované napětí 5~V a proto jsou ideální pro napájení řídících desek. 
+
+
+\item[USB port]~\\ 
+Při stavbě a tréninku často nabíjíme řídící desky přímo z USB portu, který poskytuje stabilizovaných 5~V. 
+Podle specifikace má poskytovat 100~mA, ale běžně z něj lze odebírat 500~mV, aniž by mu to vadilo. 
+Některé porty zvládnou i 1000~mA, ale to doporučujeme zkoušet pouze tam, kde vám nevadí, že port shoří. 
+On by tedy shořet neměl, měl by mít ochranné pojistky, ale jeden nikdy neví ... 
+
+\end{description}
+
+\section{Napětí potřebná pro různé části robota~a doporučené baterie}
+
+
+Motory potřebují cca 6~--~12~V podle toho, jaký výkon po nich chceme. 
+Obvykle se používá 7,2~V pro pohon středních robotů a 12~V pro pohon velkých robotů. 
+
+Servomotory se napájí 5~V, snesou i 6~V, při vyšším napětí nejspíš shoří.  
+
+Pro řídící desky obecně potřebujeme {\bf stabilizované} napětí.   
+
+Rídící desky klonu Adruino potřebují 5~V stabilizovaného napětí. Tomu vyhovuje běžná Power-banka nebo USB port. 
+
+
+ESP32 a jeho shieldy (ALKS) potřebují 3,3~V stabilizovaného napětí, ale protože mají na sobě stabilizátor z 5~V na 3,3~V, můžeme je také napájet z Power-banky nebo USB portu. 
+
+
+Pokud bychom chtěli kvůli komunikaci (například přes sériovou linku) propojit desky ESP32 a Arduino, musíme mezi ně zařadit tzv. převodník napěťových úrovní, který zajistí převod signálu z 3,3~V na 5~V a zpět.  
+
+
+Deska RBControl má na sobě stabilizátor 7805 a tzv. step-downy  pro serva, takže stačí ji připojit na 2 Li-On články zapojené do série, případně na jiný zdroj napětí 8~--~10~V.      %todo doplnit step-down 
+
+
+
+
+
+
+
+
+

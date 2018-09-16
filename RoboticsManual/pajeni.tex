@@ -4,13 +4,14 @@
 
 \begin{enumerate}
 \item {\bf  Páječka} \index{páječka} je to zařízení, se kterým se pájí. {\bf Pájka} \index{pájka} je ten materiál, kterým se snažíme vodivě spojit součástky. Často se pájce říká {\bf cín}, \index{cín} i když je to slitina více kovů. 
-\item Teplota hrotu páječky pro běžné pájení je asi 310 stupňů. 
-\item Pokud pájka nechce přilnout k nožičkám součástek nebo desce plošného spoje (DPS), pomůže pájecí kapalina 
-nebo pájecí želé (funguje líp, ale je dražší). Pájecí kapalina i pájecí želé se musí po dokončení pájení z DPS umýt. Obojí  se umývá lihem a nebo izopropanolem (izopropyl alkohol). 
-\item {\bf Kalafuna} \index{kalafuna} se používala u trafopáječek, které měly pájecí špičky o teplotě přibližně 220 stupňů. 
-Na hrotech o teplotě přes 300 stupňů se velmi rychle vypaří, proto se pro použití s nimi nehodí.           
+\item Teplota hrotu páječky pro běžné pájení je asi 285 stupňů. Pokud máte součástku s větším odvodem tepla (např. stabilizátory a tranzistory v pouzdře TO220) můžete zvednou teplotu na 310 stupňů, případně použít mohutnější hrot (větší tepelná kapacita). Zvýšit teplotu pájky můžete i v případě pájení na části DPS, kde je např. rozlitá zem (= velký odvod tepla). Pak je občas potřeba zvýšit teplotu někdy až k 350 stupňům.
+\item Pokud pájka nechce přilnout k nožičkám součástek nebo desce plošného spoje (DPS), pomůže pájecí kapalina (\href{https://www.gme.cz/tavidlo-r-30ml}{Tekuté tavidlo TAVIDLO R} - hůř se z DPS umývá)
+nebo pájecí želé (\href{https://www.gme.cz/gelove-tavidlo-future-rework-jelly-30-g}{Gelové tavidlo FUTURE REWORK JELLY} - je výrazně dražší, ale funguje mnohem líp, jde lépe  nanášet i umývat a vydrží vám velmi dlouho - lze koupit i ve více lidech a rozdělit se). Pájecí kapalina i pájecí želé se musí po dokončení pájení z DPS umýt. Obojí  se umývá lihem a nebo izopropanolem (izopropyl alkohol - \href{https://www.gme.cz/cistici-pripravek-izopropanol-400ml}{Čistící přípravek IZOPROPANOL 400 ml ve spreji}, \href{https://www.gme.cz/cistici-pripravek-izopropanol-1000ml}{Čistící přípravek IZOPROPANOL 1000 ml v plechovce}). 
+\item {\bf Kalafuna} \index{kalafuna} se používala u trafopáječek za stejným účelem jako pájecí kapalina. Trafopájky ovšem měly pájecí špičky o teplotě přibližně 220 stupňů. % TODO: (JP) Opravdu měli tak nízké teploty?
+Na hrotech o teplotě přes 300 stupňů se velmi rychle vypaří, proto se pro použití s nimi nehodí. V nouzových případech lze ale použít i kalafunu.
 \item S páječkou se obvykle prodávají kulaté tenké pájecí hroty, které jsou pro pájení běžných součástek naprosto nevhodné, protože nedokážou přenést dost tepla. Tenký hrot se použije hlavně tam, kde se silnější hrot nevejde. Pro běžnou práci je vhodný hrot tvaru dláta o šířce asi 2 mm. Takový hrot také velmi dobře prohřívá pájecí plošky pro SMD součástky (viz další kapitola). Platí, že hrot by měl být silnější, než je pájený předmět, aby dokázal přenést přiměřeně rychle dostatek tepla. Potřebné hroty se dají koupit samostatně v prodejnách elektro součástek a dají se na páječce vyměnit. 
-\item Pokud se vám při pájení chvějí ruce, opřete si je o zápěstí. Hodně taky dělá cvik.   
+\item Pokud se vám při pájení chvějí ruce, opřete si je o zápěstí. Hodně taky dělá cvik.
+Zároveň je vhodně mít DPS dobře položenou (aby se vám pří pájení nepohybovala) a nebo upevněnou ve \href{https://www.gme.cz/drzak-treti-ruka-s-lupou-proskit-608-391a}{třetí ruce}.   
 	
 \end{enumerate}
 
@@ -20,7 +21,7 @@ Na hrotech o teplotě přes 300 stupňů se velmi rychle vypaří, proto se pro 
 
 Součástky SMD (surface mount device) nemají nožičky, ale pájí se přímo k ploškám na desku. 
 Postup je podobný jako nožičkových součástek, liší se v tom, že součástka nedrží za nožičky v DPS, 
-takže se napřed jednou rukou přidrží nebo přitlačí pinzetou k desce. Druhou rukou se trochou 
+takže je potřeba je přidržovat pinzetou na správné pozici na DPS ({\bf nikdy ne prstem - mohli byste se spálit}). Druhou rukou se trochou 
 pájky součástka přichytí k desce. Potom se pořádně zapájí druhá ploška a poté se opraví zapájení první plošky.   
 
 \subsection{Pájení integrovaných obvodů} 
@@ -32,9 +33,10 @@ Postup:
 \item Naneste pájecí želé  nebo pájecí kapalinu na štěteček a potřete kontakty, na které chcete pájet.     
 \item Přiložte integrovaný obvod (IO) a zkontrolujte jeho orientaci na desce. Každý IO 
 má na sobě zobáček nebo kolečko, které označuje pin č.1. Čip také může být zkosený na straně pinu č.1.
-\item Naberte na páječku malinko cínu, držte hrot páječky na jednom krajním pinu a rukou nebo 
+\item Naberte na páječku malinko cínu, držte hrot páječky na jednom krajním pinu a 
 pinzetou dolaďte polohu čipu. Jako první odložte páječku, cín za cca sekundu vychladne a potom pusťte čip.  
 \item Naberte na páječku více cínu a projeďte celou řadu pinů. Díky pájecí kapalině cín přilne přesně tam, kam má.  
 
 \end{enumerate}
-                                                                                                    
+                        
+Další zajímavé informace k pájení: \url{https://technika.tasemnice.eu/trac/wiki/SMDkecy}                                                                      
