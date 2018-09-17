@@ -117,7 +117,7 @@ Aby fungovala, musí být do souboru {\it platformio.ini} dopsán řádek
 
 \label{alks:nano} \subsubsection*{ALKS a Arduino nano}
 
-Pro nasazení desky Arduino nano\footnote{\url{https://store.arduino.cc/usa/arduino-nano}} 
+Pro nasazení desky   \hyperref[nano]{Arduino nano}  
 na ALKS byla \index{LearningKit} napsaná knihovna \newline
 {\tt LearningKit\_nano.h}. 
 Aby fungovala, musí být v záhlaví souboru {\it main.cpp} doplněno
@@ -136,21 +136,34 @@ rozšířit počet pinů desky ESP32 a umožnit snadné připojení velkého mno
 
 Podrobnější popis desky je v kapitole \ref{rbcontrol}.
 
-\subsection{Arduino Mega}
+\subsection{Arduino} \index{Arduino}
 
-Největší deska z rodiny Arduino. Má vyvedených 100 pinů a může obsluhovat tři sériové linky. 
+Arduino je otevřený projekt pro snadné programování čipů a snadné připojování periferií k čipům.
+Klíčová výhoda všech desek rodiny Arduino je, že se dají koupit levně už hotové. 
+Hlavní web projektu je \href{https://www.arduino.cc/}{zde} (EN). 
+Český rozcestník pro Arduino je \href{https://robotikabrno.cz/robotika-brno/navody/arduino}{zde}.
+Všechny tři následující desky pracují s napětím 5~V. Na desky Arduino existuje řada rozšíření, 
+tzv. \textbf{shieldů}, \index{shield} stačí do Google zadat \textit{arduino shield}.
+Protože jde o otevřený projekt, existuje řada kopií jak desek, tak shieldů Arduina, obvykle s totožnými 
+vlastnostmi, ale často (především z Číny) s výrazně nižší cenou. 
+
+Řídících desek Arduino je více \cite[strana 3--10]{ard}, my používáme následující: 
+
+\subsubsection*{Arduino Mega} \label{mega} \index{Arduino!Mega}
+
+\href{https://store.arduino.cc/arduino-mega-2560-rev3}{Arduino Mega} patří mezi velké desky z rodiny Arduino. 
+Má vyvedených 100 pinů a může obsluhovat tři sériové linky. 
 Hodí se pro větší projekty a jako hlavní řídící deska na robota. 
-Hlavní výhoda (stejně jako ostatních desek rodiny Arduino) je, že se dá koupit levně hotová.
 Schéma zapojení pinů je například \href{https://arduino-info.wikispaces.com/MegaQuickRef}{zde}.
 
-\subsection{Arduino Uno}
+\subsubsection*{Arduino Uno} \label{uno} \index{Arduino!Uno}
 
-Základní deska z rodiny Arduino. Vhodná na testování různých zapojení a jako řídící pro jednodušší projekty.
+\href{https://store.arduino.cc/arduino-uno-rev3}{Arduino Uno} je základní deska z rodiny Arduino. Je vhodná na testování různých zapojení a jako řídící pro jednodušší projekty.
 Schéma zapojení pinů je například \href{http://forum.arduino.cc/index.php?topic=146315.0}{zde}.
 
-\subsection{Arduino Nano}
+\subsubsection*{Arduino Nano} \label{nano} \index{Arduino!Nano}
 
-Nejmenší deska z rodiny Arduino. 
+\href{https://store.arduino.cc/usa/arduino-nano}{Arduino Nano} je nejmenší deska z rodiny Arduino (z námi používaných). 
 Hodí se tam, kde je je málo místa a pro řešení jednodušších, relativně samostatných úloh. 
 Schéma zapojení pinů je například \href{https://simba-os.readthedocs.io/en/latest/_images/arduino-nano-pinout.png}{zde}.
 
@@ -188,3 +201,10 @@ Když je v pořádku modul v počítači, tak bliká.
 Dále musí být spojená země zubu a čipu.
 
 %todo Kód zubů: 0007 - uvádět do veřejného textu?
+
+\subsection{Převodník napěťových úrovní} \label{prevodnik}
+
+\textbf{Převodník napěťových úrovní} \index{Převodník napěťových úrovní}  je sympatická věcička,
+které umožňuje propojit zařízení pracující na 5~V se zařízením, které pracuje na 3,3~V. Například připojení některých bluetooth nebo serv k ESP32, propojení ESP32  s Arduinem Uno nebo Mega a podobně. 
+Vypadá \href{https://www.gme.cz/obousmerny-prevodnik-urovni-5v-3-3v}{takhle}. 
+Podrobný výklad k převodníku včetně schématu zapojení je \href{https://www.arduinotech.cz/inpage/arduino-v-prikladech-v-dil-menu-na-lcd/}{zde}.

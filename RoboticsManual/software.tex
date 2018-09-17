@@ -1,4 +1,25 @@
  
+ \section{Cpp4Robots} \index{Cpp4Robots} \label{Cpp4Robots}
+ 
+ \textbf{Cpp4robots} je rozšíření programu \textit{Microsoft Visual Studio} (to není \textit{ \hyperref[vscode]{Visual Studio Code}}) určené pro programování robotů řízených \uv{Lego kostkou} EV3 v jazyce C++.
+ 
+ Instaluje se takto: 
+ 
+ \begin{itemize}
+ 	\item nainstalujte \href{https://visualstudio.microsoft.com/cs/thank-you-downloading-visual-studio/?sku=Community&rel=15}{Microsoft Visual Studio Community 2017}
+ 	\item pokud nemáte, nainstalujte \href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{Javu}
+ 	\item  \href{http://www.cpp4robots.cz/Cpp4Robots_Install_Extension.html}{nainstalujte Cpp4Robots}
+ 	\item  \href{http://www.cpp4robots.cz/Cpp4Robots_Extension_Enable.html}{zprovozněte Cpp4Robots}
+ 	\item \href{http://www.cpp4robots.cz/LegoEV3_ShowToolbar.html}{zapněte} zobrazení nástrojové lišty pro Cpp4Robots; součástí této lišty je také ikona nápovědy
+ \end{itemize}
+ 
+ Kostka EV3 se programuje pomocí USB kabelu. 
+ Aby robot fungoval autonomně i bez kabelu, musí být v kostce SD micro karta, doporučená velikost je 8~--~32~GB. 
+ 
+ 
+ 
+ 
+ 
  \section{Lorris} \label{lorris}
  
  {\bf Lorris}\footnote{\url{http://tasssadar.github.io/Lorris/cz/index.html}} \index{Lorris} je rozsáhlá sada nástrojů, které mají společný cíl -- pomáhat při vývoji, ladění a řízení zejména robotů, ale i jiných elektronických zařízení. V současnosti neexistuje jiná volně dostupná aplikace, která by umožňovala dostatečně jednoduše v téměř libovolném formátu zobrazit data přicházející z čipů nebo i data ze souborů. 
@@ -234,15 +255,38 @@ Přehled příkazů formátu *.md je například \href{https://guides.github.com
  
 \section{Další software}
 
-\subsection{Atom} \index{Atom}
 
-\textbf{Atom} je výkonný textový editor, hodně podobný programu Visual Studio Code. %todo doplnit
+\subsection{Arduino IDE} \index{Arduino IDE} \label{arduino:ide}
 
-\subsection{Arduino IDE} \index{Arduino IDE}
+\textbf{Arduino IDE}\footnote{IDE -- Integrated Development Environment -- integrované vývojové prostředí \index{IDE}} je textový editor vhodný pro začátky v programování řídících desek klonu Arduino. Je přímo od tvůrců Arduina. Integruje všechny základní funkce a je používán u většiny tutoriálů (návodů), ovšem většinou není problém použít jiné IDE (Atom, VSCode) s danými tutoriály.
+Instaluje se \href{https://www.arduino.cc/en/Main/Software}{standardně},
+po \href{https://github.com/RoboticsBrno/ArduinoLearningKitStarter/wiki/Instalace-s-Arduino-IDE
+}{doinstalování}  zvládne i desky ESP32. 
+Jiný návod pro doinstalování ESP32 do Arduino IDE je \href{http://navody.arduino-shop.cz/navody-k-produktum/vyvojova-deska-esp32.html}{zde} nebo 
+\href{https://github.com/RoboticsBrno/Robotarna-service/blob/master/install_arduino-esp32.md}{zde}.
 
-\textbf{Arduino IDE} je jednoduchý textový editor určený pro začátky v programování řídících desek klonu Arduino. %todo doplnit
+\subsection{Atom} \index{Atom} \label{atom}
 
+ \href{https://atom.io/}{Atom} je výkonný textový editor (IDE), hodně podobný programu \hyperref[vscode]{Visual Studio Code}. 
+ Také se podobně instaluje, napřed nainstalujte samotný program a potom rozšíření 
+ \href{https://docs.platformio.org/en/latest/ide/atom.html#installation}{PlatformIO}, které je určené pro samotné programování čipů. 
 
+\subsection{Cpp4Robots} \index{Cpp4Robots} \label{Cpp4Robots}
+
+\textbf{Cpp4robots} je rozšíření programu \textit{Microsoft Visual Studio} (to není \textit{ \hyperref[vscode]{Visual Studio Code}}) určené pro programování robotů řízených \uv{Lego kostkou} EV3 v jazyce C++.
+
+Instaluje se takto: 
+
+\begin{itemize}
+	\item nainstalujte \href{https://visualstudio.microsoft.com/cs/thank-you-downloading-visual-studio/?sku=Community&rel=15}{Microsoft Visual Studio Community 2017}
+	\item pokud nemáte, nainstalujte \href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{Javu}
+	\item  \href{http://www.cpp4robots.cz/Cpp4Robots_Install_Extension.html}{nainstalujte Cpp4Robots}
+	\item  \href{http://www.cpp4robots.cz/Cpp4Robots_Extension_Enable.html}{zprovozněte Cpp4Robots}
+	\item \href{http://www.cpp4robots.cz/LegoEV3_ShowToolbar.html}{zapněte} zobrazení nástrojové lišty pro Cpp4Robots; součástí této lišty je také ikona nápovědy
+\end{itemize}
+
+Kostka EV3 se programuje pomocí USB kabelu. 
+Aby robot fungoval autonomně i bez kabelu, musí být v kostce SD micro karta, doporučená velikost karty je 8~--~32~GB. 
 
 \subsection{Proficad}
 
@@ -322,6 +366,8 @@ Tato kapitolka není úvodem do Linuxu (materiálů na toto téma je na webu spo
 
 \item Zkratka {\tt Ctrl+C} v terminálu není pro kopírování, ale ukončení běžícího programu. (Mimo terminál kopírování funguje jako ve windows). Pokud chceme v terminálu kopírovat a vkládat, použijeme {\tt Ctrl+Shift+c}  {\tt Ctrl+Shift+v}.
 
+\item V nabídce Start je také tzv.  \textit{Centrum softwaru pro Ubuntu}. 
+Alternativně můžete Centrum spustit z příkazové řádky příkazem \texttt{software-center}.
 	
 \end{itemize}
 
