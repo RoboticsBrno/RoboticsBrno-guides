@@ -5,7 +5,7 @@ services:
 
 branches:
   only:
-  - RoboticsManual
+  - master
   
 before_install:
 # MikTeX
