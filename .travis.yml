@@ -3,9 +3,9 @@ sudo: required
 services:
   - docker
 
-branches:
-  only:
-  - master
+#branches:
+# only:
+#  - master
   
 before_install:
 # MikTeX
@@ -58,8 +58,7 @@ deploy:
     github-token: $GITHUB_TOKEN
     keep-history: true
     local-dir: output/_html/
-    on:
-      branch: RoboticsManual
+    all_branches: true
   - provider: releases
     api_key:
       secure: $GITHUB_TOKEN
@@ -68,4 +67,8 @@ deploy:
     skip_cleanup: true
     on:
       tags: false
-      branch: RoboticsManual
+      branch: 
+       - master
+       - RoboticsManual
+       - RoboticsManualWithoutPdf
+       
