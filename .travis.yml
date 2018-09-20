@@ -28,6 +28,9 @@ before_install:
 #- ls -la
 #- make
 
+before_install:
+- export TZ=Europe/Prague
+
 script:
 - pwd
 - ls -la
@@ -58,7 +61,8 @@ deploy:
     github-token: $GITHUB_TOKEN
     keep-history: true
     local-dir: output/_html/
-    all_branches: true
+    on:
+      branch: RoboticsManual
   - provider: releases
     api_key:
       secure: $GITHUB_TOKEN
