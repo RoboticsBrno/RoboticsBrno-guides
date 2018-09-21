@@ -59,13 +59,17 @@ deploy:
     keep-history: true
     local-dir: output/_html/
     on:
-      branch: RoboticsManual
+      branch: 
+      - master
+      - RoboticsManual
+      - RoboticsManualWithoutPdf
   - provider: releases
     api_key:
       secure: $GITHUB_TOKEN
     file_glob: true
     file: output/_pdf/*
     skip_cleanup: true
+    body: "**In this release, the time of build is different then the time of the commit.** The difference is two hours due to different time zone on Travis server. That is the reason why time in the name of PDF file differs."
     on:
       tags: false
       branch: 
