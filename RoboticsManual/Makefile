@@ -14,13 +14,6 @@ OUTPUT_HTML     = _html
 CUSTOMCSS       = custom.css
 
 all:
-	date
-	export TZ=Europe/Prague
-	date
-	echo 'Europe/Prague' | tee /etc/timezone
-	dpkg-reconfigure --frontend noninteractive tzdata
-	ntpdate ntp.ubuntu.com
-	date
 	ls -la
 	mkdir -p ${OUTPUT_PDF}
 	mkdir -p ${OUTPUT_HTML}

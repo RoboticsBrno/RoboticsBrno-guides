@@ -28,9 +28,6 @@ before_install:
 #- ls -la
 #- make
 
-before_install:
-- export TZ=Europe/Prague
-
 script:
 - pwd
 - ls -la
