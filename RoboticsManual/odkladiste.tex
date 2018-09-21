@@ -1,0 +1,132 @@
+\noindent {\bf Software: }
+\begin{itemize} 
+	\item  {\it Visual Studio Code} -- viz kapitola \ref{vsc}
+	\item  {\it PlatformIO }-- viz kapitola \ref{platformio}
+\end{itemize}
+
+
+Jako střední používáme roboty {\it yunimin} a~{\it 3pi} - jsou v~zásadě hotové
+a~\uv{pouze} se programují, jsou určené pro soutěže typu sledování čáry (Robotický den v~Praze, Istrobot), minisumo a~další. 
+Pro střední roboty neexistuje soutěž, kde by se ovládali po kabelu, musí proto být autonomní.    
+
+Velké roboty (typicky pro soutěž Eurobot a~Robotický den) si stavíme sami. 
+Mohou být dálkově řízené i~autonomní. 
+Začátečníkům se silně doporučuje začít s~dálkově řízeným robotem a~nebo se přidat k~týmu zkušenějších konstruktérů.   
+
+
+jízdu po čáře přiměřenou rychlostí
+s proměnným výkonem na motorech podle počtu plechovek 
+
+
+ \section{Věci okolo programování v C}
+  
+  není rovno se píše != (ne <>)
+  
+  řetězcové pole se píše proměnná[] při deklaraci, proměnná (bez závorek) potom 
+  
+ znak dělení /   pokud jsou oba operandy celočíselné, tak se provede CELOČÍSELNÉ dělení, pokud je alespoň jeden operand desetinný, pak se provede normální dělení
+ 
+ \verb#&&# - znak pro and; ostatní logické operátory  mají taky svoje znaky 
+ 
+ \verb#||# -- znak pro or;
+ 
+ číslo a znak je to samé 
+ 
+ řetězec je pole znaků - znaky do něj musím vkládat na danou pozici 
+ délka řetězce je daná při deklaraci vyjímka je přiřazení typu   
+ 
+ apostrofy 'r' označují jeden znak, "x" uvozovky označují řetězec - to je rozdíl 
+ 
+ při zadávání konstant ta konstanta nesmí začínat nulou, jinak ji bere, že je v osmičkové soustavě - a výsledek je chyba, která se moc blbě hledá
+ 
+poslední znak řetězce je 0, je tam navíc, takže délka desetiznakového řetězce je 11 znaků 
+
+všechny registy jsou volatile -- program nemůže v podmínce while ignorovat čtení registrů, i když ta podmínka nic potom nedělá, protože hodnoty v registru se můžou změnit  
+-----------------------------------------------------------
+
+\section{USART}
+
+
+Sběrnice -- umožňuje posílat data mezi různými zařízeními.   
+
+\subsection{Typy sběrnic}
+
+USART - minimum drátů, rychý, jednoduchý, dvě zařízení 
+
+SPI - libovolný počet zařízení, jednoduchá adresace, pouze synchoní přenos 
+
+IIC - víc zařízení v rámci jednoho malého systému, dva dráty, hodiny a data 
+v jednom systému může být více masters 
+ 
+\subsection{Výbět typu přenosu }
+
+
+přenos devíti bitů - devátý bit rozlišuje, jestli je to adresa, nebo data. 
+Používá se pro multiprocesorovou komunikaci -- nepoužijeme to  
+
+? Multi-processor Communication Mode str 163 - nepoužívat 
+
+jeden nebo dva stop bity - jeden stačí, kdyby byly dva, může se to hodit pro 
+1) delší čas na zpracování signálu, 
+2) líp se chytá konec bajtu -- lepší v případě poruchových přenosů 
+> budeme používat jeden, nemusí se to nastavovat 
+
+
+ Parita - kontrolní proces - zahlásí chyby v přenosu - str 169 při zapojení na jedné desce a v blízkém okolí není potřeba, data se neztrácí 
+ 
+ zvolit 38.4 kb/s - je to osvědčená rychlost, malá chybovost a Junior na ní komunikuje - budeme kompatibilní 
+ 
+ synchronní komunikace -- jsou potřeba hodiny (hodinový signál na pinu SCK) 
+ hodí se pro dlouhé kusy dat a hlavně pro komunikaci s periferiemi, které jinou možnost neposkytují 
+ 
+ asynchronní komunikace -- stačí propojit Rx a Tx na obou stranách a stejně nastavit oba čipy. není nutné řešit hodiny --  doporučeno   
+ 
+ je to taky jediný způsob, jak komunikovat s počítačem, je to úplně stejný protokol jako RS 232 (sériový port) a liší se to pouze napěťovou úrovní -- MAX232 pouze převádí napěťové úrovně a nic jiného (vlastně je MAX232 DC/DC měnič)
+ 
+ data overrun? 
+ 
+Chceme: asynchronní přenos na 38.4 kb/s bez kontrol  
+
+
+\subsection{Nastavení}
+
+(žádná knihovna pro usart není)
+Je potřeba nastavit: 
+- spustit USART (inicializace):  (str 152)
+   - nastavit frekvenci přenosu (baud rate)  --- 38.4 kb/s 
+   - nastavit, že přenášíme 8-mi bitové znaky bez kontrol  (frame format ) (UCSRB,C)
+   - nastavit piny 14 a 15 jako Rx a Tx 
+   - že je to  asynchronní přenos (mode of operation), je nastaveno implicitně 
+   - pokud chceme používat přerušení od usart, musí být během inicializace 
+     globální přerušení vypnuto 
+   - přitom musí být URSEL = 1 v registru UCSRC (implicitně je)
+   
+   
+  
+  -----------------------------------------------------
+  
+   Osciloskop: 
+   
+   /Keysight tech.
+   
+   
+   - Data na sériové lince 
+   - propojka pro přivádějí signálu z generátoru 
+
+   Každá sonda by měla mít  připojenou svoji vlastní zem na zem měřeného signálu, aby byl minimalizovaný šum.
+   
+   např. SPI má 4 kabely 
+   
+   Proto je zde řada možností: 
+ 
+
+
+ 
+ 
+
+
+
+ 
+
+ 
+

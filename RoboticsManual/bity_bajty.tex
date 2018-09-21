@@ -1,0 +1,260 @@
+\section{Bity a~bajty}
+
+\subsection{Desítková soustava a~dvojková soustava }
+
+V~počítači jsou všechna data uložena pouze v~podobě jedniček a~nul. A~proto se nám bude hodit, když se budeme aspoň trochu orientovat v~převodech mezi dvojkovou a~desítkovou soustavou.
+
+\subsubsection{Desítková soustava}
+V~\B{desítkové soustavě}\I{desítková soustava}\I{soustava!desítková} je základem číslo deset. 
+
+\D Příklad: číslo 156 si můžeme rozložit jako \verb@1*10^2 + 5*10^1 + 6*10^0@, přitom
+\verb@10^0=1, 10^1=10, 10^2=10*10=100, 10^3=10*10*10=1000@ atd ...,
+takže naše číslo potom vypadá takto: \verb@ 1*100 + 5*10 + 6*1 = 156@.
+
+\subsubsection{Dvojková soustava}
+Ve \B{dvojkové soustavě}\I{dvojková soustava}\I{soustava!dvojková} je základem číslo dva. 
+
+\D Příklad: číslo \verb@11001010@ rozložíme na \\
+\verb@1*2^7 + 1*2^6 + 0*2^5 + 0*2^4 + 1*2^3 + 0*2^2 + 1*2^1 + 0*2^0@, přitom \\
+\verb@2^0=1, 2^1=2, 2^2=2*2=4, 2^3=2*2*2=8, 2^4=2*2*2*2=16, 2^5=32@, \\
+ atd..., proto naše číslo má hodnotu: \\
+\verb@1*128 + 1*64 + 0*32 + 0*16 + 1*8 + 0*4 + 1*2 + 0*1 = 202@.   
+
+\subsubsection{Převod z~desítkové soustavy do dvojkové}
+Jak na to, když chceme převádět číslo z~desítkové soustavy do dvojkové?
+
+\D Například převedeme číslo \verb@97@. \\ 
+\noindent Nejprve je potřeba, abychom znali násobky čísla dva: \\ 
+\verb@2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048@, atd... \\
+Napíšeme jedničku. \\
+\verb@1@ \\ 
+Najdeme nejbližší nižší násobek dvou k~našemu číslu, v~našem případě je nejblíže \verb@64@.  Odečteme si od \verb@97@ číslo \verb@64@, \verb@97-64=33@. Odečítali jsme číslo \verb@64@, další v~pořadí je číslo \verb@32@, je \verb@32@ obsaženo v~\verb@33@? Ano, proto napíšeme další jedničku. \\ 
+\verb@11@ \\ 
+Dále \verb@33-32=1@, další číslo je \verb@16@, je \verb@16@ obsaženo v~\verb@1@? Ne, proto napíšeme nulu.
+\verb@110@ \\ 
+Další číslo je \verb@8@, také není obsaženo v~\verb@1@, takže napíšeme nulu. \\ 
+\verb@1100@ \\ 
+Čísla \verb@4@ a~\verb@2@ také nejsou obsažena v~čísle \verb@1@, proto napíšeme nuly. \\
+\verb@110000@ \\
+A~nakonec, je číslo jedna obsaženo v~čísle jedna? Ano, napíšeme jedničku.
+Náš binární zápis čísla \verb@97@ vypadá takto:\verb@1100001@. 
+Čísla v~binární soustavě by měla mít počet cifer rovno 8, 16, 32, podle toho s~kolika bitovými čísly počítáme. V~našem případě musíme doplnit jednu nulu. Pokud bychom počítali s~16 bitovými čísly doplníme o 8 nul více. Nuly doplňujeme zleva. Zapamatujeme si to snadno v~desítkové soustavě se číslo \verb@128@ také nezmění pokud před něj dáme nuly, \verb@000128@. Nuly navíc nebudeme psát v~desítkové soustavě, ale v~dvojkové nám to pomůže se lépe orientovat. Takže to bude vypadat:
+\verb@01100001@ 
+No a~to ještě není všechno. Aby mělo číslo správný tvar musí mít před číslem uvedeno \verb@0b@(nula a~malé B), tím říkáme v~jazyce C, že číslo je v~(binární) dvojkové soustavě. 
+
+Pozor: Čísla \verb@101@ a~\verb@0b101@ nejsou to samé!Je to jednoduché, pokud \verb@0b@ neuvedeme bude překladač číslo brát jakože je v~desítkové soustavě. Tj. \verb@101 =>@ číslo sto jedna, \verb@0b101 =>@ číslo pět.
+
+\D \B{Další příklad:}\\
+Převedeme číslo \verb@237@. \\ 
+Nejbližší nižší číslo je \verb@128@. \\ 
+ \verb@1@  \\
+\verb@237-128=109@ je číslo \verb@64@ obsaženo v~čísle \verb@109@? ANO, další jednička. \\
+\verb@11@ \\ 
+\verb@109-64=45@ je číslo \verb@32@ obsaženo v~\verb@45@? ANO, jednička. \\
+\verb@111@  \\ 
+\verb@45-32=13@ je \verb@16@ obsaženo v~čísle \verb@13@? NE, nula. \\ 
+\verb@1110@  \\ 
+je číslo \verb@8@ obsaženo v~\verb@13@? ANO, jednička. \\
+\verb@11101@ \\ 
+\verb@13-8=5@ je \verb@4@ obsaženo v~\verb@5@? ANO, jednička. \\
+\verb@111011@ \\ 
+\verb@5-4=1@ je  obsažena v~\verb@1@? NE, nula. \\
+\verb@1110110@ \\
+je \verb@1@ obsažena v~\verb@1@? ANO, jednička. \\
+\verb@11101101@
+Binární zápis čísla \verb@237@ vypadá takto:\verb@11101101@.
+
+\subsubsection{Bity a~bajty}
+
+Každá číslice ve dvojkové soustavě reprezentuje jeden \B{bit}\I{bit} (nabývá hodnot \verb@0@ nebo \verb@1@). 
+
+\D Osm bitů dohromady tvoří \B{bajt}\I{bajt}. Nejnižší bit v~bajtu leží vpravo (tzv \B{nultý bit}\I{nultý bit}\I{bit!nultý}), další je nalevo od něj (první bit), až do sedmého bitu, který je nejvíce vlevo.  
+
+\subsubsection{Převod z~dvojkové soustavy do desítkové}
+
+Vezmeme si například binární číslo \verb@1011@. Očíslujeme si pozice zprava doleva od nuly, tj.:
+\begin{verbatim}
+1 0 1 1
+3 2 1 0
+\end{verbatim}
+Pohybujeme se v~dvojkové soustavě, tj. základ bude \verb@2@. Vezmeme nultou číslici a~vynásobíme s~ní číslo \verb@2^0@. 
+Dostáváme \verb@1*2^0 = 1@.
+Dále první číslici vynásobíme číslem \verb@2^1@, tj. \verb@1*2^1 = 2@.
+Dále druhou číslici vynásobíme číslem \verb@2^2@, tj. \verb@0*2^2 = 0@.
+A~to samé provedeme s~číslicí na třetí pozici: \verb@1*2^3 = 8@.
+A~nyní čísla sečteme \verb@8 + 0 + 2 + 1 = 11@, takže binární číslo \verb@1011@ převedené do desítkové soustavy je \verb@11@.
+
+Příklad 2: Převeďte binární číslo \verb@11101001@ do desítkové soustavy.\\
+\verb@1*2^0 + 0*2^1 + 0*2^2 + 1*2^3 + 0*2^4 + 1*2^5 + 1*2^6 + 1*2^7@
+To je: \\
+\verb@1 + 0 + 0 + 8 + 0 + 32 + 64 + 128 = 233@
+Binární číslo \verb@11101001@ převedeno do desítkové soustavy je \verb@233@.
+
+Příklad 3: Převeďte binární číslo \verb@00010101@. \\
+\verb@1*2^0 + 0*2^1 + 1*2^2 + 0*2^3 + 1*2^4 + 0*2^5 + 0*2^6 + 0*2^7@, samozřejmě členy \verb@2^x@, které násobíme nulou budou nulové a~tudíž je můžeme beztrestně vynechat, tj. \\
+\verb@1*2^0 + 1*2^2 + 1*2^4 = 1 + 4 + 16 = 21@
+Binární číslo \verb@00010101@ má v~desítkové soustavě hodnotu \verb@21@. 
+
+\subsection{Bitové výrazy a~práce s~nimi}
+
+Bitové operace se od logických operací (viz \ref{logika1}) liší tím, že se neaplikují na číslo jako celek, ale bit po bitu, viz níže. 
+
+My budeme potřebovat následující bitové operace: bitový součet, bitový součin, bitovou negaci, bitový posun doleva.
+
+\subsubsection{Bitové operátory}
+\verb@|@ bitový součet \\
+\verb@&@ bitový součin \\
+\verb@~@ bitová negace \\
+\verb@^@ bitový exluzivní součet \\
+\verb@<<@ bitový posuv doleva \\
+\verb@>>@ bitový posuv doprava \\ 
+
+\subsubsection{Bitový součet} Platí, že \verb@0|0=0, 0|1=1, 1|0=1, 1|1=1@, sčítají se vždy pouze bity, které leží pod sebou. Zkrátka pokud je aspoň jeden bit jedna, výsledek je také jedna. 
+
+Příklad: máme dvě binární čísla \verb@00000100@ a~\verb@01100001@ a~chceme je bitově sečíst. 
+
+\D Když sečteme nulté bity zadaných čísel, dostamene 0|1=1. Pak provedeme bitový součet i~pro první, druhé a~další bity.
+Zapíšeme:
+\verb@(0b00000100 | 0b01100001);@
+Nebo pokud budeme mít čísla v~proměnných:
+\begin{verbatim}
+uint8_t a~= 0b00000100;
+uint8_t b = 0b01100001;
+uint8_t c;
+c = (a|b);
+\end{verbatim}
+Do proměnné \verb@c@ se zapíše výsledná hodnota.
+
+\begin{verbatim}
+00000100 - první číslo
+01100001 - druhé číslo
+--------
+01100101 - výsledek po bitovém logickém součtu 
+\end{verbatim}
+
+Výsledek: \verb@01100101@.
+
+\subsubsection{Bitový součin} 
+Platí, že \verb@0&0=0, 0&1=0, 1&0=0, 1&1=1@, tady platí, že výsledek je jedna, pokud oba bity jsou jedna.
+Příklad: bitový součin čísel \verb@00110011@ a~\verb@01000001@
+Zapíšeme:
+\verb@(0b00110011 & 0b01000001);@
+Nebo pokud budeme mít čísla v~proměnných:
+\begin{verbatim}
+uint8_t c = 0b00110011;
+uint8_t d = 0b01000001;
+uint8_t e;
+e = (c&d);
+\end{verbatim}
+Výsledná hodnota se zapíše do proměnné \verb@e@.
+\begin{verbatim}
+00110011 - první číslo
+01000001 - druhé číslo
+--------
+00000001 - výsledek bitového logického součinu
+\end{verbatim}
+
+\subsubsection{Bitová negace}
+Tam, kde byla jednička, bude nula, a~kde byla nula, bude jednička.
+Příklad: znegujte číslo \verb@00110101@
+Zapíšeme:
+\verb@~(0b00110101);@
+Nebo pokud budeme mít číslo v~proměnné:
+\begin{verbatim}
+uint8_t a~= 0b00110101;
+uint8_t b;
+b = ~a;
+\end{verbatim}
+Do proměnné \verb@b@ se zapíše výsledná hodnota.
+\begin{verbatim}
+00110101 - číslo, které bude logicky znegováno
+--------
+11001010 - výsledek
+\end{verbatim}
+
+
+\subsubsection{Bitový exklusivní součet}
+Výsledkem exklusivního součinu je pravda, pokud se hodnoty liší, tj. nejsou stejné. Takže platí \verb@0^0=0, 0^1=1, 1^0=1, 1^1=0@
+
+Zapíšeme:
+\verb@(0b00110011 ^ 0b01000001);@
+Nebo pokud budeme mít čísla v~proměnných:
+\begin{verbatim}
+uint8_t c = 0b00110011;
+uint8_t d = 0b01000001;
+uint8_t e;
+e = (c^d);
+\end{verbatim}
+Výsledná hodnota se zapíše do proměnné \verb@e@.
+\begin{verbatim}
+00110011 - první číslo
+01000001 - druhé číslo
+--------
+01110010 - výsledek bitového exklusivního součtu
+\end{verbatim}
+
+\subsubsection{Bitový posun doleva} 
+Vezmeme celé osmibitové číslo a~posuneme ho o určitý počet míst doleva. Přitom čísla vlevo zmizí a~na na uprázdněné místo vpravo přijdou vždy nuly.
+Zapíšeme:
+\verb@(0b01000101 << 3);@
+Nebo pokud budeme mít číslo v~proměnné:
+\begin{verbatim}
+uint8_t c = 0b01000101;
+uint8_t d;
+d = (c << 3);
+\end{verbatim}
+Do proměnné \verb@d@ se přiřadí výsledek operace.
+Pokud například už nebudeme potřebovat původní hodnotu proměnné \verb@c@, lze to napsat i~takto:
+\begin{verbatim}
+uint8_t c = 0b01000101;
+c = (c << 3);
+\end{verbatim}
+Hodnota v~proměnné \verb@c@ se nejprve posune o tři pozice a~pak se výsledná pozice zapíše na stejnou pozici v~paměti mikrokontroléru.
+
+Příklad: proveďte bitový posun doleva o tři s~číslem \verb@00000101@
+
+\begin{verbatim}
+01000101
+--------
+10001010 - posun o jedno doleva 
+00010100 - znovu o jedno doleva (celkem o dvě místa)
+00101000 - celkový posun o tři bity doleva 
+\end{verbatim}
+
+\subsubsection{Bitový posun doprava}
+Bitový posun doprava je podobný jako operace bitový posun doleva, liší se jen ve směru posunu, tj. posouvá se na opačnou stranu.
+Příklad 1: Proveďte bitový posun doprava o tři pozice s~binárním číslem \verb@00000101@. Zapíšeme:
+\verb@(0b00000101 >> 3);@
+Výsledkem bude toto:
+\begin{verbatim}
+00000101
+--------
+00000010 - posun o jednu pozici doprava
+00000001 - posun o druhou pozici
+00000000 - posun o třetí pozici
+\end{verbatim}
+
+Příklad 2: Proveďte bitový posun o dvě pozice doprava a~potom o tři doleva s~binárním číslem \verb@11110111@. Zapíšeme:
+\verb@((0b11110111 >> 2) << 3);@
+Výsledkem bude toto:
+\begin{verbatim}
+11110111
+--------
+00111101 - posun o dvě pozice doprava
+11101000 - posun o tři pozice doleva, toto je výsledek.
+\end{verbatim}
+
+Příklad 3: Ale co když zadám číslo do proměnné v~desítkové soustavě, například \verb@189@ a~provedu bitový posun o dvě pozice doprava? Co dostanu? Dostanu snad \verb@1@? Ne, i~když jsme číslo zadali v~desítkové soustavě, v~mikrokontroléru je stejně uloženo jako jedničky a~nuly, takže číslo musíme nejprve převést do dvojkové soustavy.
+\verb@189 = 0b10111101@
+A~teď posun o dvě pozice doprava:
+
+\verb@00101111@ a~to je číslo \verb@47@.
+Takže \verb@47@ je výsledek bitového posunu čísla \verb@189@ o dvě pozice doprava.
+
+Zapíšeme takto:
+\begin{verbatim}
+uint8_t a~= 189;
+uint8_t b;
+b = (a~>> 2);
+\end{verbatim}
+No a~výsledek(tj. číslo \verb@47@ ) se uloží do proměnné \verb@b@.

@@ -1,0 +1,79 @@
+sudo: required
+
+services:
+  - docker
+
+#branches:
+# only:
+#  - master
+  
+before_install:
+# MikTeX
+#- sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D6BC243565B2087BC3F897C9277A7293F59E4889
+#- echo "deb http://miktex.org/download/ubuntu xenial universe" | sudo tee /etc/apt/sources.list.d/miktex.list
+#- sudo apt-get update
+#- sudo apt-get install miktex
+
+# TeX Live 2015
+#- sudo add-apt-repository ppa:jonathonf/texlive-2015 -y
+#- sudo apt-get update 
+#- sudo apt-get install texlive texlive-latex-extra texlive-lang-czechslovak 
+#- aptitude search texlive
+
+# make4ht
+#- sudo apt-get install latexmk
+#- sudo apt-get install pandoc
+#- git clone https://github.com/michal-h21/make4ht
+#- cd make4ht
+#- ls -la
+#- make
+
+script:
+- pwd
+- ls -la
+- mkdir output
+- ls -la
+- cd output
+- OUTPUT_DIR="$(pwd)"
+- echo "${OUTPUT_DIR}"
+- cd ..
+#- sudo docker build -t paralj-test:0.1 .
+#- sudo docker run -v "${OUTPUT_DIR}:/output"  paralj-test:0.1
+- sudo docker pull jarekparal/rb-latex-pdf-html-build:RoboticsManual
+- sudo docker run -v "${OUTPUT_DIR}:/output"  jarekparal/rb-latex-pdf-html-build:RoboticsManual
+- ls -la
+- ls -la output
+- ls -la output/_pdf
+- ls -la output/_html
+- sudo mv output/_pdf/dokumentace.pdf output/_pdf/RoboticsManual_$(date +'%Y-%m-%d_%H-%M').pdf
+
+before_deploy:
+  - git config --local user.name "RoboticsBrno"
+  - git config --local user.email "info@robotikabrno.cz"
+  - git tag "RoboticsManual_$(date +'%Y-%m-%d_%H-%M-%S')"
+
+deploy:
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    keep-history: true
+    local-dir: output/_html/
+    on:
+      branch: 
+      - master
+      - RoboticsManual
+      - RoboticsManualWithoutPdf
+  - provider: releases
+    api_key:
+      secure: $GITHUB_TOKEN
+    file_glob: true
+    file: output/_pdf/*
+    skip_cleanup: true
+    body: "**In this release, the time of build is different then the time of the commit.** The difference is two hours due to different time zone on Travis server. That is the reason why time in the name of PDF file differs."
+    on:
+      tags: false
+      branch: 
+       - master
+       - RoboticsManual
+       - RoboticsManualWithoutPdf
+       

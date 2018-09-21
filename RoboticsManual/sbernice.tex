@@ -1,0 +1,31 @@
+\section{Sběrnice}
+
+
+\textbf{Sběrnice} \index{sběrnice} neboli \textbf{(komunikační) rozhraní} jsou domluvené postupy/systémy, jak se dva čipy nebo dvě různá zařízení dorozumívají mezi sebou. 
+Sběrnice jsou různých typů, pro naše účely stačí znát \index{UART} 
+\href{https://maly.gitbooks.io/hradla-volty-jednocipy/23_seriova_komunikace/231_seriova_sbernice_spi.html}{SPI}, 
+\href{https://maly.gitbooks.io/hradla-volty-jednocipy/23_seriova_komunikace/232_seriova_sbernice_i2c.html}{I2C}  
+a \href{https://maly.gitbooks.io/hradla-volty-jednocipy/23_seriova_komunikace/235_rs-232,_uart,_serial.html}{USART/UART}
+
+\subsection{USART/UART} \label{uart}
+
+Sběrnice UART je nejjednodušší pro propojení dvou zařízení. 
+Obě zařízení musí mít společnou zem. 
+Pro přenos se používají piny \texttt{Rx} a \texttt{Tx}. 
+Přitom platí, že \texttt{Rx} prvního zařízení se musí připojit na \texttt{Tx} druhého zařízení a obráceně.  
+Na začátku se musí na obou zařízeních nastavit stejná rychost přenosu a další parametry: tzv. parita, start bit a stop bit. 
+Pokud propojujete dvě Arduino desky nebo Arduino a ESP32, mají výchozí nastavení stejné. 
+Příklad programu pro UART je v \cite[strana~144]{ard}. 
+Další příklad je v kapitole \ref{prog:lorris}.
+Pozor, pokud propojujeme zařízení na 5~V se zařízením na 3,3~V, musíme použít 
+ \hyperref[prevodnik]{Převodník napěťových úrovní}.
+
+\subsection{I2C} \label{i2c} \label{spi} \index{I2C} \index{SPI}
+
+Rozhraní \textbf{I2C}  umí pomocí dvou pinů (a společné země) připojit k čipu až 127 zařízení. Komunikovat s čipem (tzv. master) může vždy pouze jedno zařízení (tzv. slave), ostatní \uv{poslouchají} na lince, až s nimi čip zahájí komunikaci. 
+Sběrnice I2C se neosvědčila tam, kde je větší vzdálenost mezi zařízeními než desítky cm, ideální je, když jsou všechna komunikující zařízení na jedné (řídící) desce. 
+Pro větší vzdálenosti mezi zařízeními je vhodná sběrnice \textbf{SPI}. 
+Příklad programu pro I2C je v \cite[strana~152]{ard}.
+
+%\subsection{SPI}
+

@@ -1,0 +1,374 @@
+ 
+ \section{Cpp4Robots} \index{Cpp4Robots} \label{Cpp4Robots}
+ 
+ \textbf{Cpp4robots} je rozšíření programu \textit{Microsoft Visual Studio} (to není \textit{ \hyperref[vscode]{Visual Studio Code}}) určené pro programování robotů řízených \uv{Lego kostkou} EV3 v jazyce C++.
+ 
+ Instaluje se takto: 
+ 
+ \begin{itemize}
+ 	\item nainstalujte \href{https://visualstudio.microsoft.com/cs/thank-you-downloading-visual-studio/?sku=Community&rel=15}{Microsoft Visual Studio Community 2017}
+ 	\item pokud nemáte, nainstalujte \href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{Javu}
+ 	\item  \href{http://www.cpp4robots.cz/Cpp4Robots_Install_Extension.html}{nainstalujte Cpp4Robots}
+ 	\item  \href{http://www.cpp4robots.cz/Cpp4Robots_Extension_Enable.html}{zprovozněte Cpp4Robots}
+ 	\item \href{http://www.cpp4robots.cz/LegoEV3_ShowToolbar.html}{zapněte} zobrazení nástrojové lišty pro Cpp4Robots; součástí této lišty je také ikona nápovědy
+ \end{itemize}
+ 
+ Kostka EV3 se programuje pomocí USB kabelu. 
+ Aby robot fungoval autonomně i bez kabelu, musí být v kostce SD micro karta, doporučená velikost je 8~--~32~GB. 
+ 
+ 
+ 
+ 
+ 
+ \section{Lorris} \label{lorris}
+ 
+ {\bf Lorris}\footnote{\url{http://tasssadar.github.io/Lorris/cz/index.html}} \index{Lorris} je rozsáhlá sada nástrojů, které mají společný cíl -- pomáhat při vývoji, ladění a řízení zejména robotů, ale i jiných elektronických zařízení. V současnosti neexistuje jiná volně dostupná aplikace, která by umožňovala dostatečně jednoduše v téměř libovolném formátu zobrazit data přicházející z čipů nebo i data ze souborů. 
+ 
+\paragraph{ Hlavní možnosti použití: }
+
+\begin{itemize}
+	\item grafické zobrazování, přiřazování a analýza (binárních) dat z čipů
+	\item vykreslování příchozích dat v grafu 
+	\item zpracování dat z jednoho zdroje ve více modulech současně
+	\item zobrazení dat z více zdrojů na jednom místě -- ideální pro ladění komunikace mezi více zařízeními 
+	\item možnost libovolných úprav příchozích i odchozích dat pomocí skriptů v jazyce Python 
+	\item simulace chovaní plánovaného robota -- hledání a ladění strategií
+	\item simulace dat ze senzorů (zatím) neexistujícího robota pro psaní a ladění programu 
+	\item vytváření vlastních ovládacích prvků -- například ovládání robota joystickem z počítače 
+	\end{itemize}
+
+ Lorris naprogramoval Vojtěch Boček a popsal ji podrobně ve své práci SOČ:
+  \url{http://soc.nidv.cz/archiv/rocnik35/obor/18}.
+  
+ Video s krátkým představením Lorris: \url{http://www.youtube.com/watch?v=LkmFn40BbX8}.
+ 
+  \hyperref[prog:lorris]{Příklad} posílání dat pro Lorris.
+ 
+\section{\LaTeX} 
+
+\subsection{Proč používat \LaTeX} 
+
+Tento text je psán v~sázecím systému \index{LaTeX} \LaTeX [leitech]. 
+Jeho silná stránka je především matematická sazba 
+(bohužel nevyužijeme) a~snadné zpracování obsahu, rejstříků, seznamů obrázků a~tabulek a~podobně, což dramaticky urychluje přípravu dokumentu. 
+
+Čas, který vložíte do nastavení a~učení se systému, se vrátí v~rychlosti práce
+ $\rightarrow$ jedná se o řešení vhodné pro delší dokumenty, např. pro soutěž SOČ nebo dlouhodobou maturitní práci\footnote{\url{https://github.com/RoboticsBrno/Latex-slideshow-czech}.}. 
+ 
+Návody pro \LaTeX{}  lze najít na internetu,  pro úvodní zorientování 
+ doporučuji text  \bfseries \itshape  \LaTeX{} pro pragmatiky\footnote{\url{http://mirrors.nic.cz/tex-archive/info/czech/latex-pro-pragmatiky/latex-pro-pragmatiky.pdf} }\upshape \mdseries .
+
+Hodně vám také může pomoct zdrojový text \href{https://github.com/RoboticsBrno/RoboticsBrno-guides/tree/RoboticsManual/RoboticsManual}{této dokumentace}, 
+ především
+ \href{https://github.com/RoboticsBrno/RoboticsBrno-guides/blob/RoboticsManual/RoboticsManual/_dokumentace.tex}{hlavní soubor},
+ kde je nastavení podrobně komentované.  
+
+Příkazy \LaTeX{}u podobně jako C++ a~systémy typu Linux {\bf rozlišují velká a~malá písmena}. 
+ 
+
+\subsection{Instalace a editory pro \LaTeX}
+
+%\paragraph{Instalace}
+
+Podobně jako Linux, je i \LaTeX dostupný v řadě distribucí. Doporučuji buď 
+{\bf TeXLive}\footnote{\url{https://www.tug.org/texlive}} \index{TexLive}
+ nebo {\bf MiKTeX}\footnote{\url{https://miktex.org/}}. \index{MiKTeX} 
+{\bf }
+%\paragraph{Editory}
+
+Jako editory ve WinXP používám {\bf PSpad}\footnote{\url{http://www.pspad.com/}},\index{PsPad} v~linuxu {\bf TeXstudio}\footnote{\url{https://www.texstudio.org/}}. \index{TeXstudio} 
+Oba editory umí zavolat překlad do pdf pomocí klávesové zkratky, zobrazit výsledný pdf a~barevné zvýraznění syntaxe. TeXstudio má navíc velké možnosti pro zrychlení práce.  
+
+
+Další možností je tvořit latexové dokumenty online bez nutnosti instalace, například pomocí služby 
+{\bf overleaf}.\footnote{\url{https://www.overleaf.com/}} Overleaf je online služba, která vám umožňuje psát, sdílet a komentovat LaTeXové dokumenty -- ideální pro psaní SOČ. Úvod do možností služby je 
+\href{http://www.kutac.cz/blog/pocitace-a-internety/overleaf-online-latex-editor/}{zde}.  
+
+
+\subsection{\LaTeX{} a SOČ}
+
+Jarek Páral vytvořil na Overleafu LaTeXovou šablonu\footnote{Tady je k dispozici šablona, kterou si můžete na Overleafu zkopírovat jako vlastní projekt a začít tvořit: \url{https://www.overleaf.com/read/gvqvqzwgdtwk} }
+ pro SOČ, kde je řada prvků sazby už optimálně přednastavená. 
+ Šablona navíc obsahuje informace o tom, jak a co psát, o citacích a dalších věcech -- vřele doporučuji. 
+
+Pro inspiraci také doporučuji práce Vojty Bočka, Honzy Mrázka, Jarka Párala, Bédi Saida a Martina Sýkory, dostupné v archivu SOČ\footnote{\url{http://www.soc.cz/archiv-minulych-rocniku/}}, ročníky 32. - 37., kategorie informatika a elektro.
+
+\subsection{Další inspirace k SOČ}
+
+	 \paragraph{Jak na psaní SOČ:}
+		\begin{itemize}
+			\item \url{http://www.soc.cz/soc-krok-za-krokem/}
+			\item \url{http://www.jcmm.cz/cz/podpora-soc.html}		
+		\end{itemize}
+
+	\paragraph{Šablony SOČ pro Word}
+	\begin{itemize}
+		\item \url{http://www.soc.cz/dokumenty/sablona_SOC.docx}
+		\item \url{http://www.jcmm.cz/data/sablona_pro_sockare.docx}
+	\end{itemize}
+
+Doporučuji si obě šablony přečíst, i když je třeba nepoužijete -- jsou v nich zajímavé a užitečné rady.
+
+\section{Git} \index{verzování}
+
+
+\subsection{Základní pojmy}
+
+
+{\bf Git} je program, který umí uchovávat jednotlivé verze souborů, zobrazovat rozdíly mezi nimi, slučovat změny více uživatelů a tak dál. Pro vývoj softwaru pro roboty je to naprosto nezbytný nástroj. \index{git}
+
+Podrobnější představení gitu je  \href{http://www.kutac.cz/blog/pocitace-a-internety/jak-na-git-dil-0-co-proc-jak/}{zde}.
+
+{\bf Github}\footnote{\url{www.github.com}}  je v současnosti jeden z nejpoužívanějších webů pro tvorbu a~správu repozitářů.
+
+{\bf Repozitář} \index{repozitář} je skupina souborů nějakého projektu, která navíc obsahuje komentovanou historii všech změn projektu. Používá se pro zálohování programů a sdílení a společné týmové práci na rozsáhlejších projektech, především programátorských a textových. 
+
+Repozitář, ve kterém je i tato dokumentace, je na adrese 
+\url{https://github.com/RoboticsBrno/RobotikaBrno-guides/tree/RoboticsManual}.   
+
+Pro práci s repozitáři je důležitý pojem {\bf commit} \index{commit} -- je to jeden \uv{kus hotové práce}. 
+Například naprogramování  nové funkce, přidání kapitoly do textu a~podobně. 
+Ke každému commitu píšeme při vytvoření anglicky komentář, aby bylo jasné, čeho se daný commit týká.
+\index{commit} 
+
+Postup práce je následující: na webu github.com si vytvoříte repozitář. Na svůj počítač si nainstalujete git. Stáhnete k sobě na počítač aktuální verzi repozitáře, upravíte, co potřebujete, vyrobíte commit a upravené soubory nahrajete zpět na server. Podrobněji v návodech níže. 
+Neustálému komentovanému ukládání jednotlivých verzí se říká {\bf verzování}. Je to vlastně podstatně vylepšené zálohování.
+
+Verzování na web github lze provádět z příkazové řádky (terminálu) nebo s~pomocí různých programů, například prostředí \hyperref[vscode]{VSCode} -- viz dále. 
+Také lze soubory upravovat přímo na serveru github.com pomocí ikony \uv{tužka}.
+
+Návody pro github jsou například zde: 
+
+\begin{itemize}
+	\item \href{http://www.kutac.cz/blog/pocitace-a-internety/jak-na-git-dil-1/}{Github na příkazovém řádku v Linuxu -- článek o základech}
+	\item \href{https://help.github.com}{Oficiální help (EN)}
+	\item \href{https://knihy.nic.cz/files/edice/pro_git.pdf}{Podrobná knížka o gitu (CZ)}
+	\item \href{https://git-scm.com/book/cs/v1/\%C3\%9Avod}{Další knížka o gitu (CZ)}
+	\item \href{https://learngitbranching.js.org/}{Velmi názorný web a tutoriál o gitu (EN) }
+	\item \href{https://www.atlassian.com/git/tutorials/setting-up-a-repository}{Nastavení repozitáře (EN)}
+	
+	%	návod jsem si prošel a je pěkný. Ale nevím, na kolik bude pro naše lidi přínosný - soustředí se totiž jenom na tu high-level stránku věci, která mi přijde v momentě kdy mám vedle sebe obrázek intuitivní. S čím si ale myslím většina lidí zápasí předem je to, co to vlastně je commit a jak je můžu skládat na sebe a to, proč vznikají konflikty a jak se správně resolvují. Škoda, že to v tom návodu není (třeba jako třetí kapitola) 
+	%todo -- nějak dopsat?
+	
+	% https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/	
+	% https://help.github.com/articles/adding-a-remote/
+\end{itemize}
+
+
+
+
+\subsection{Instalace gitu a stažení repozitáře -- Linux} \label{instal_github}
+
+
+\begin{enumerate}
+	\item Na webu \url{https://github.com} si vytvořte účet a přihlaste se. 
+	Vpravo můžete založit nový repozitář (new repository) nebo se můžete přepnout do už existujících repozitářů. 
+	
+	\item Na svém počítači si nainstalujte git. Napište do 
+	\hyperref[terminal]{terminálu} : {\tt sudo apt-get install git}. 
+	
+	\item Vytvořte si lokální složku a stáhněte do ní repozitář.  
+	Přepněte se do složky, ve které chcete repozitář mít a napište do terminálu: 
+	{\tt git clone <cesta\_k\_repozitáři\_na\_webu> }. 
+	Git vytvoří v aktuální složce podsložku s~kopií repozitáře z webu.  
+	Cestu potřebnou pro příkaz {\tt clone} zjistíte tak, 
+	že se na webu \url{github.com} přepnete do požadovaného repozitáře a~kliknete na zelené tlačítko {\tt Clone or Download}.
+	Objeví se okno s cestou k repozitáři a také s tlačítkem {\tt Download ZIP}, které umožňuje stáhnout celý repozitář jako ZIP soubor.
+	
+	\item Pokud má repozitář více tzv. větví, přepnete se do požadované větve příkazem 
+	{\tt git checkout <nazev\_vetve>}, například {\tt git checkout RoboticsManual}.
+\end{enumerate}
+
+\subsection{Instalace gitu a stažení repozitáře -- Windows}
+
+\begin{enumerate}
+	
+	\item Na webu \url{https://github.com} si vytvořte účet a přihlaste se. 
+	Vpravo můžete založit nový repozitář (new repository) nebo se můžete přepnout do už existujících repozitářů. 
+	
+	\item Na svém počítači si nainstalujete git. Stáhnete instalační program z adresy 
+	\url{https://git-scm.com/download} a instalujete jako libovolný jiný program. 
+	
+	\item Dále stáhnete a nainstalujete program \href{https://tortoisegit.org/}{TortoiseGit}.
+	
+	\item Po restartu se v programech pro práci se soubory (například 
+	{\it Průzkumník, Total Commander, Free Commander, Altap Salamander} a~podobně) objeví 
+	v~kontextovém menu (po stisku pravého tlačítka nad zvoleným souborem nebo adresářem)  
+	nabídka pro práci s Gitem. 
+	\item Klikněte pravým tlačítkem na adresář, kam chcete stáhnout repozitář, a z nabídky vyberte {\tt Git clone...}  
+	\item Do kolonky URL zadáte cestku k repozitáři. Cestu k repozitáři zjistíte tak, 
+	že se na webu \url{github.com} přepnete do požadovaného repozitáře a~kliknete na zelené tlačítko {\tt Clone or Download}. 
+	Objeví se okno s cestou k repozitáři a také s tlačítkem {\tt Download ZIP}, které umožňuje stáhnout celý repozitář jako ZIP soubor. Kliknutím na {\tt OK} stáhnete repozitář. 
+	
+	
+\end{enumerate}
+
+\subsection{Vytvoření commitu a nahrání změn na server pomocí terminálu -- Linux}
+
+\begin{enumerate}
+	\item Změny, které chcete zahrnout do commitu,  musíte do nejprve přidat příkazem {\tt git add <vybrane\_zmeny>}. 
+	Příkaz {\tt git add .} přidá všechny nové změny.  Všimněte si, že před tečkou je 
+	v příkazu {\tt git add .} mezera. Příkaz je možné libovolně opakovat. 
+	
+	\item Pokud si nejste jistí, co vše už je nebo není přidáno, použijte příkaz {\tt git status}
+	
+	\item Příkaz {\tt git commit} vytvoří nový commit ze všech změn přidaných příkazem {\tt add}. Co nepřidáte, to v commitu nebude!
+	Protože chceme vědět, co jsme v minulosti dělali, použijeme tvar: 
+	{\tt git commit -m ``Tady je napsáno, co tento commit obsahuje.'' }  I commitů můžeme vytvořit více za sebou. Všechny zůstávají na lokálním počítači, dokud je nepošlete na server. 
+	ih
+	\item Příkaz {\tt git push} pošle všechny vytvořené a dosud neposlané commity na server. 
+	Vyžaduje přihlášení a heslo. 
+	Nezapomeňte, že v~Linuxu se heslo nezobrazuje, ani ve formě teček. 
+	
+	\item Pokud už na serveru provedl změny někdo jiný a potřebujete je stáhnout na svůj počítač, použijete {\tt git pull}.
+	
+\end{enumerate}
+
+
+\subsection{Vytvoření commitu a nahrání změn na server pomocí TortoiseGit -- Windows}
+
+\begin{enumerate}
+	\item Nové soubory nebo soubory zkopírované odjinud musíte do repozitáře ručně přidat: 
+	klikněte pravým tlačítkem na nový anebo zkopírovaný soubor a zvolte {\tt <TortoiseGit><Add...>} 
+	Úpravy existujících souborů přidávat nemusíte, TortoiseGit je přidá před commitem automaticky. 
+	Smazání souboru z repozitáře také zjistí a provede automaticky.
+	
+	\item Vytvořte commit: klikněte pravým tlačítkem na adresář s repozitářem a z nabídky zvolte {\tt Git Commit -> ''master'' ...}
+	Objeví se formulář pro commit. Do kolonky {\tt Message} zadejte komentář ke commitu. 
+	{\bf Komentář je povinný a nutný!} 
+	Je nutný pro orientaci ve změnách nejen pro vás, ale i pro další, kdo repozitář používají (spolužáci, učitel, vedoucí kroužku, ... )  a nevidí vám do hlavy!
+	
+	\item Dole ve formuláři klikněte na tlačítko {\tt Commit}. Commitů můžeme vytvořit více za sebou. Všechny zůstávají na lokálním počítači, dokud je nepošlete na server.
+	
+	\item Všechny vytvořené a dosud neposlané commity na server pošlete tak, že ve formuláři pro commit (viz předchozí bod) kliknete 
+	na šipku vedle tlačítka {\tt Commit} a z nabídky vyberete {\tt Commit \& Push}. Po přihlášení a~zadání hesla se commity odešlou na server.	
+\end{enumerate}
+
+ 
+ \subsection{Formát Markdown (*.md) } \index{*.md} \index{markdown}
+ 
+Formát \textbf{Markdown (*.md) } umožňuje velmi snadné a rychlé základní formátování textů. 
+Web Github podporuje psaní textů v tomto formátu. 
+Pokud jej použijete, zobrazí se text na webu už zformátovaný. 
+Přehled příkazů formátu *.md je například \href{https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf}{zde}.
+ Mimochodem, toto formátování podporuje i editor Visual Studio Code.
+ 
+\section{Další software}
+
+
+\subsection{Arduino IDE} \index{Arduino IDE} \label{arduino:ide}
+
+\textbf{Arduino IDE}\footnote{IDE -- Integrated Development Environment -- integrované vývojové prostředí \index{IDE}} je textový editor vhodný pro začátky v programování řídících desek klonu Arduino. Je přímo od tvůrců Arduina. Integruje všechny základní funkce a je používán u většiny tutoriálů (návodů), ovšem většinou není problém použít jiné IDE (Atom, VSCode) s danými tutoriály.
+Instaluje se \href{https://www.arduino.cc/en/Main/Software}{standardně},
+po \href{https://github.com/RoboticsBrno/ArduinoLearningKitStarter/wiki/Instalace-s-Arduino-IDE
+}{doinstalování}  zvládne i desky ESP32. 
+Jiný návod pro doinstalování ESP32 do Arduino IDE je \href{http://navody.arduino-shop.cz/navody-k-produktum/vyvojova-deska-esp32.html}{zde} nebo 
+\href{https://github.com/RoboticsBrno/Robotarna-service/blob/master/install_arduino-esp32.md}{zde}.
+
+\subsection{Atom} \index{Atom} \label{atom}
+
+ \href{https://atom.io/}{Atom} je výkonný textový editor (IDE), hodně podobný programu \hyperref[vscode]{Visual Studio Code}. 
+ Také se podobně instaluje, napřed nainstalujte samotný program a potom rozšíření 
+ \href{https://docs.platformio.org/en/latest/ide/atom.html#installation}{PlatformIO}, které je určené pro samotné programování čipů. 
+
+\subsection{Cpp4Robots} \index{Cpp4Robots} \label{Cpp4Robots}
+
+\textbf{Cpp4robots} je rozšíření programu \textit{Microsoft Visual Studio} (to není \textit{ \hyperref[vscode]{Visual Studio Code}}) určené pro programování robotů řízených \uv{Lego kostkou} EV3 v jazyce C++.
+
+Instaluje se takto: 
+
+\begin{itemize}
+	\item nainstalujte \href{https://visualstudio.microsoft.com/cs/thank-you-downloading-visual-studio/?sku=Community&rel=15}{Microsoft Visual Studio Community 2017}
+	\item pokud nemáte, nainstalujte \href{http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}{Javu}
+	\item  \href{http://www.cpp4robots.cz/Cpp4Robots_Install_Extension.html}{nainstalujte Cpp4Robots}
+	\item  \href{http://www.cpp4robots.cz/Cpp4Robots_Extension_Enable.html}{zprovozněte Cpp4Robots}
+	\item \href{http://www.cpp4robots.cz/LegoEV3_ShowToolbar.html}{zapněte} zobrazení nástrojové lišty pro Cpp4Robots; součástí této lišty je také ikona nápovědy
+\end{itemize}
+
+Kostka EV3 se programuje pomocí USB kabelu. 
+Aby robot fungoval autonomně i bez kabelu, musí být v kostce SD micro karta, doporučená velikost karty je 8~--~32~GB. 
+
+\subsection{Proficad}
+
+Proficad\footnote{Instalační soubor seženete v~kroužku nebo na webu.} 
+je software určený původně pro snadné a~rychlé kreslení elektronických schémat a~v~této oblasti je vynikající. 
+Lze jej použít i~jako jednoduchý vektorový editor obrázků. \index{Proficad}
+
+SPŠ Sokolská zakoupila plnou multilicenci pro Proficad, takže studenti i~učitelé jej mohou používat bez omezení. 
+
+Ovládání programu je velice intuitivní a~nápovědu prakticky nepotřebujete -- s~jedinou výjimkou, a~tou je nastavení rastru. 
+Po instalaci je rastr zobrazení automaticky nastaven na 2 mm. To znamená, že součástky 
+můžete umisťovat například 10 mm nebo 12 mm od kraje, ale nic mezi tím. 
+Většinou se to hodí -- součástky máte na schématu pěkně zarovnané -- ale 
+někdy je prostě potřeba rastr například vypnout neboli nastavit na nulu. 
+Nastavení rastru je schované zde:  {\it soubor/nastavení/dokument/obsah/rastr}.
+
+\subsection{Python}
+
+Programovací jazyk Python použijete, když chcete například napsat program pro počítač, který bude komunikovat s robotem. 
+Nepoužívá se pro programování čipů v robotovi. 
+Návody pro Python jsou například \href{https://www.sallyx.org/sally/python/}{zde} a  \href{http://diveintopython3.py.cz/index.html}{zde}. 
+
+
+\subsection{Linux} 
+
+Tato kapitolka není úvodem do Linuxu (materiálů na toto téma je na webu spousta).  Jsou zde poznámky, které hodí, když uživatel přechází z Windows na Linux. \index{Linux}
+
+\paragraph{Některé rozdíly Linux -- Windows}
+
+\begin{itemize}
+
+\item Linux {\bf rozlišuje velká a~malá písmena}. V terminálu, v názvech souborů, všude. 
+
+\item Když si chce uživatel nainstalovat Linux, vybírá ne operační systém, ale tzv. distribuci = operační systém + spousta předinstalovaných programů. Kritérií pro výběr je spousta, pár tipů, které používáme na Robotárně: 
+
+	\begin{itemize}
+		\item distribuce {\it Mint} má podobné rozložení grafických ovládacích prvků jak windows a je nenáročná na hardware 
+	
+		\item distribuce {\it Ubuntu} je standardní volba s velkou výbavou programů. Její odlehčená verze pro starší počítače je {\it Lubuntu}. 
+	
+	\end{itemize}  
+
+\item V Linuxu se celkově mnohem víc (a účiněji) používá příkazová řádka neboli program  {\tt terminál}. \index{terminál} Spouští se klávesovou zkratkou {\tt Ctrl+Alt+T} nebo v Lubuntu spustíte správce souborů (2. ikona dole vlevo), přepnete se do požadovaného adresáře a stisknete {\tt F4}. \label{terminal}
+
+\item Adresářová struktura Linuxu je jednotná pro všechny disky v počítači. Akce typu: {\it \uv{přepni se na disk e:} } se v terminálu provede jako {\it \uv{přepni se do adresáře /media/<uzivatel>/ ...  } }. Nebo se přepnete pomocí jiného programu, např. Správce souborů. 	
+	
+\item Některé programy fungují pod Linux i Windows, u jiných se při přechodu z Windows na linux musí na webu najít odpovídající náhrada, opět pár tipů: 
+
+	\begin{itemize}
+		\item Ve WinXP se pro prohlížení pdf souborů osvědčil Foxit Reader verze 2.3, v~linuxu Evince.  
+			
+		\item Irfan view jede i~v~Linuxu\footnote{\url{http://www.boekhoff.info/install-irfan-view-on-linux/}}.
+	
+	\end{itemize}
+
+	
+\end{itemize}
+
+
+\paragraph{Co se hodí vědět }
+
+\begin{itemize}
+	
+	
+\item Heslo v Linuxu se při zadávání v terminálu nevypisuje ani tečkami (ale počítač o něm ví!). 
+
+\item Znak zavináč se napíše {\tt AltGr+v}, znak vlna se napíše {\tt AltGr+a}.
+
+\item Anglické znaky na české klávesnici napíšete, když použijete {\tt AltGr}. 
+
+\item Drivery do tiskáren mají příponu ppd. Před jejich použitím se musí nainstalovat program cups. 
+
+\item Snímek obrazovky uložíte stiskem klávesy {\tt PrintScreen} do adresáře 
+{\tt /home/<prihlaseny uzivatel>}. 
+
+\item Znak {\tt \#} znamená řádek na terminálu (zastupuje vypsání aktuálního adresáře). 
+
+\item Zkratka {\tt Ctrl+C} v terminálu není pro kopírování, ale ukončení běžícího programu. (Mimo terminál kopírování funguje jako ve windows). Pokud chceme v terminálu kopírovat a vkládat, použijeme {\tt Ctrl+Shift+c}  {\tt Ctrl+Shift+v}.
+
+\item V nabídce Start je také tzv.  \textit{Centrum softwaru pro Ubuntu}. 
+Alternativně můžete Centrum spustit z příkazové řádky příkazem \texttt{software-center}.
+	
+\end{itemize}
+
+

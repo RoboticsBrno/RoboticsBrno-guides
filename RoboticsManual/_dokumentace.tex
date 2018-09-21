@@ -1,0 +1,174 @@
+\documentclass[12pt]{report} % report - typ/šablona dokumentu, umožňuje \chapter
+\usepackage[czech]{babel} % nastavuje české popisky např. u obsahu, referencí, tabulek, obázků 
+\usepackage[utf8]{inputenc} % použito UTF8 kvůli češtině (zvládá prakticky všechny jazyky na světě)
+
+%\usepackage{indentfirst} % odsazuje první odstavec v kapitole
+
+\usepackage{color} % balíček pro obarvování textů
+% \color{blue}
+\usepackage{xcolor}  % zapne možnost používání barev, mj. pro \definecolor
+\definecolor{mygreen}{RGB}{0,150,0} % nastavení barev odkazů 
+\definecolor{myblue}{RGB}{0,0,200} 
+\definecolor{commentgreen}{RGB}{0,100,0} % nastavení barev pro příklady z C++
+\definecolor{deepblue}{rgb}{0,0,0.7}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+
+\usepackage[T1]{fontenc} % import tučného písma typu tt pro prostředí listings
+\usepackage{listings} % balíček pro obarvování syntaxe ukázek programů v textu
+%\usepackage{listingsutf8} %nutné pro \usepackage{listings} aby to jelo v UTF-8
+\lstset{
+		extendedchars 	= false,
+		language      	= C++,
+		basicstyle      = \ttfamily,
+		keywordstyle     = \bfseries,
+		%identifierstyle = \color{brown},
+		commentstyle    = \color{commentgreen},
+		otherkeywords	= {self},             % Add keywords here
+		emphstyle		= \color{deepred},    % Custom highlighting style
+		stringstyle	 	= \color{deepgreen},		
+		keywordstyle	=\color{deepblue},
+		stringstyle     = \color{magenta},
+	} % písmo a  barvičky  by možná chtěly doladit - nějaký dobrovolník? 
+
+\lstset{literate=    %sem se musí doplnit všechny znaky s diakritikou z kódů se zvýrazněnou syntaxí
+	{á}{{a}}1 {š}{\s}1 {ř}{\r}1  } %{š}{\v s}1 -nejede {á}{{\'a}}1 - jede
+
+% \begin{lstlisting} Tady je zdrojový kód např. v C++ \end{lstlisting} - pro UTF-8 NE
+%\lstinputlisting{source_filename.py} vloží soubor z daného místa a obarví
+
+
+\usepackage{hyperref} % balíček pro hypertextové odkazy
+% \url{www.odkaz.cz}
+% \href{http://www.odkaz.cz}{Text který bude jako odkaz}
+%\hyperlink{label}{proklikávací_text} - odkaz na text 
+% \hypertarget{label}{cíl_odkazu} - cíl odkazu  
+
+
+\hypersetup{colorlinks=true, linkcolor=myblue, urlcolor=mygreen, citecolor=blue, anchorcolor = magenta,
+	 linktocpage = true, frenchlinks } % nastavení barvy odkazů 
+	% bookmarksopen=true, bookmarksnumbered=true, bookmarksopenlevel=1 - nastavuje rozbalování levého menu       
+	
+
+
+\usepackage{makeidx} % slouží pro vytváření indexů/rejstříků
+\makeindex % zapíná vytváření/ukládání indexů
+% \index{key} % ukládá index
+% \printindex % tiskné indexy/rejstřík
+% aby se rejstřík vytvořil, je nutné samostatně spustit program makeindex <hlavní soubor projektu> nebo v programu TeXstudio v menu Nástroje položku Rejstřík
+
+\usepackage{graphicx} % pro vkládání obrázků a příkaz "\includegraphics"
+%% samotné vložení obrázku
+%\begin{figure}
+%	\includegraphics[width=\textwidth]{../img/when_use_latex.png}
+%	\caption{Kdy se vyplatí použít \LaTeX} % popis, který se zobrazí pod obrázkem
+%	\label{moje_navesti} %identifikuje objekt, který lze pak referencovat
+%\end{figure}
+%% ---------------------------
+
+%% todonotes packagege -> POZOR: nepodařilo se mi je zprovoznit dohromady s htlatex/make4ht (LaTeX -> HTML) (Jarek Páral 2018-02-04)
+% alternativa -> \marginpar{Poznámka 1} nebo balíček fixme
+%\usepackage{todonotes} % vkládání poznámek
+%\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+\usepackage[author=,status=draft]{fixme} % vkládání poznámek  
+% dva módy (status): draft (poznámky se zobrazují v PDF) / final (poznámky se nezobrazují v PDF)
+\fxusetheme{color}
+%% samotné vložení poznámky - varianty (rozlišené barvou textu poznámky)
+%\fxnote{Poznámka} 		% zelená
+%\fxwarning{Poznámka}	% oranžová	
+%\fxerror{Poznámka}		% červená
+%\fxfatal{Poznámka}		% sytě červená
+%\fxnote*{Text poznámky}{text v textu, který se má zvýraznit} % potřeba mít * za fxnote
+%\listoffixmes			% zobrazí seznam poznámek 
+%%
+
+
+%opening
+%\title{}
+%\author{}
+
+% Délky a mezery pro celý dokument
+\setlength{\parskip}{0.5ex plus 0.5ex minus 0.2ex} %Nastavuje velikost vertikální mezery mezi odstavci:
+	% první číslo je mezera mezi odstavci, druhé nevím a třetí je mezera před začátkem nové kapitoly a podkapitoly
+\parindent=0pt % odstavce nebudou odsazeny zarážkou (velikost odsazení prvního řádku odstavce)
+\usepackage{enumitem} % pro příkaz \setlist
+\setlist{itemsep = -1pt, topsep=3pt} % nastavuje mezery mezi a před výčtovým prosředím (enumerate, itemize ...)
+
+%\usepackage[yyyymmdd]{datetime} % Slouží pro vkládání data
+\usepackage{datetime2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\input prvnistrana.tex
+
+\tableofcontents  \label{obsah}  % zobrazí obsah
+
+\chapter{Začínáme}
+	\input zacatek.tex
+	
+\chapter{Mechanika}
+	\input mechanika.tex
+
+\chapter{Elektronika}
+	\input soucastky.tex
+	\input veliciny.tex
+	\input mereni.tex
+	\input pajeni.tex
+	\input motory.tex
+	\input napajeni.tex
+	\input sbernice.tex %todo dodělat
+	\input osciloskop.tex	
+	
+\chapter{Software}
+	Veškerý zde popisovaný a~doporučovaný software je (minimálně pro vzdělávací účely) freeware.
+	\input onshape.tex
+	\input vscode.tex
+	\input software.tex
+
+\chapter{Programování čipů v C++}
+	\input cpp.tex
+	\input cppcipy.tex
+	\input cpppr.tex
+	\input bitybajty.tex
+
+\chapter{Přílohy}  \addcontentsline{toc}{chapter}{Přílohy}
+	\input prilohy.tex 
+		 
+ \addcontentsline{toc}{chapter}{Rejstřík} 
+
+ \printindex   
+ \label{rejstrik}
+ 
+%todo seznam úkolů
+% doplnit do rejstříku velká počáteční písmena a seřadit ho podle české abecedy 
+% vytvořit proklikávání v  rejstříku 
+% software pro videonávody?
+% udělat podrobný návod pro VSCode do gitu = verzování do VSCode 
+% doplnit sekci \section{Příkazy C++ pro čipy}
+% sepsat sekci Základní doporu£ení pro programování
+% do kapitoly Onshape doplnit fotky s popisy + \index , taky do osciloskopu
+% nepájivé kontaktní pole
+% stavový automat 
+% vývojové diagramy
+% program vlna 
+% Laser ve Lablabu - ovládání 
+% propojení čipů s mobilem 
+% součástky: tlačítko včetně zapojení, barevný senzor, měření napětí  
+% pokud nemáte hodně vývodů na desce, potřebujete nepájivé pole po rozvedení napájení (GND, 5V nebo 3V3). 
+% jak přesně funguje funkce map 
+% otestovat řízení serva a zkontrolovat piny GND a data 
+% onshape - výkresy dodělat + práce s laserem 
+% vscode - dodělat 
+% osciloskop - dodělat 
+% zdrojové kódy pro programování součástek 
+% výhledově Eagle - čtení zapojení ze souborů a orientace, ne výroba desky 
+% doplnit step-down 
+
+\end{document}
+ 
+

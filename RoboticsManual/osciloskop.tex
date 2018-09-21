@@ -1,0 +1,188 @@
+
+
+\section{Osciloskop} \label{osciloskop} \index{osciloskop}
+
+\subsection{Než začnete}
+
+%pokud někdo nastaví jako jazyk korejštinu a spol: tl Help, potom třetí tl. zleva pod obrazovkou vyvolá nabídku jazyků \rightarrow zvolím zpět angličtinu 
+
+\textbf{Osciloskop} měří velmi rychle napětí. Dokáže si napětí pamatovat, zobrazit závislost napětí na čase a v zobrazeném průběhu napětí je možné změřit řadu parametrů, např. frekvenci. 
+
+
+Máme možnost pracovat s digitálním paměťovým osciloskopem
+\href{https://www.keysight.com/en/pdx-x201837-pn-DSOX2024A/oscilloscope-200-mhz-4-analog-channels?nid=-32542.1150190\&cc=CZ\&lc=eng\&pm=ov}{Agilent/Keysight DSO-X 2024A}.
+Tento osciloskop má čtyři analogové vstupy (=kanály), takže lze současně měřit a zobrazovat čtyři signály. Každý kanál má svou barvu, se kterou se signál zobrazuje. 
+Na každém kanálu může měřit napětí až do 300 V. %(RMS -- efektivní hodnota )
+
+Dále je možnost měřit pomocí digitální sběrnice až 8 digitálních vstupů, přitom digitální vstupy umí pouze zobrazit a měřit časové parametry,  
+dekódovat digitální sběrnici umí pouze analogové vstupy. 
+
+Přitom na vodorovné ose se zobrazuje čas, na svislé ose měřené napětí. 
+
+Maximální zobrazované napětí se nastavuje pro každý kanál zvlášť, čas je pro všechny kanály vždy stejný.  
+
+Osciloskop není stavěný pro přesné měření napětí, spíše orientační, protože na vstupu je pouze 8 bitový převodník napětí, ale měří přesně časy.
+
+Všechna ovládací kolečka na osciloskopu se dají také stisknout.
+
+Když podržíte libovolné tlačítko nebo kolečko  2 sekundy, objeví se k němu podrobná nápověda (anglicky). 
+
+\textbf{Menu}  \index{menu osciloskopu} ke každému tlačítku se zobrazuje vždy dole na obrazovce a ovládá se tlačítky pod obrazovkou. 
+\label{menu:osc} 
+
+Tlačítko \texttt{Help} (dole uprostřed) zobrazí menu, které  obsahuje mimo jiné položky \texttt{Getting started} a  \texttt{Training singals}. 
+
+\textbf{Panel} \label{panel} osciloskopu je pravá část osciloskopu plná ovládacích prvků.
+
+\textbf{Vzorkovací frekvence} -- počet měření za sekundu. \index{vzorkovací frekvence}
+Lze nastavit až 2 GSa/s 
+(G -- giga, Sa -- sample = jednotlivé měření ). 
+
+Vzorkovací frekvence se doporučuje nejméně 10x analogová šířka pásma, aby se ze singálu dalo něco poznat. 
+Jinými slovy, pro měření signálu o frekvenci 50 kHz potřebuji nastavit vzorkovací frekvenci minimálně 500 kSa/s.
+
+\subsection{Sondy}
+
+\textbf{Sonda} (probe) \index{sonda osciloskopu} je měřící kabel připojený k osciloskopu. 
+
+Sondy připojujte k osciloskopu tak, aby měly stejnou barvu jako kanál, který měří (např. první kanál má žlutou barvu). 
+
+Sondy  mají klobouček s háčkem pro snadné uchopení měřeného drátu. Když se klobouček sundá, lze měřit dotekově hrotem. 
+Každá sonda má také pobočný drát zakončený \uv{krokodýlem}. 
+Ten se připojuje vždy na zem měřeného obvodu. 
+Pokud ho nepřipojíte, bude se vám na kabelu sondy indukovat šum z okolí, který často překryje vlastní signál. 
+
+Červený křížek na sondách slouží ke zkalibrování sond pomocí vestavěného otočného kondenzátoru a signálu \texttt{Probe}, který generuje osciloskop. 
+Kalibraci sond obvykle provádět nemusíte, stačí ji udělat při prvním použití sond. 
+
+Sondy jsou obvykle nastavené tak, že dělí vstupní signál 10 (sonda x 10), v osciloskopu se pak nastavuje opětovné vynásobení, 
+aby se zobrazovala správná hodnota. 
+
+Osciloskop si pamatuje poslední nastavení, takže při zapnutí není nutné sondy znovu nastavovat.  
+
+
+\subsection{Zahájení měření}
+
+Skoro všechna tlačítka v této podkapitole najdete na panelu vpravo nahoře v sekci {\tt Run Control}
+
+Tlačítko \texttt{Run/stop} -- červená neměří, zelená měří. Osciloskop ukládá naměřené hodnoty do naplnění paměti, potom nejstarší hodnoty zahazuje a přidává nejnovější. 
+Tlačítko \texttt{Single} -- žlutá svítí -- osciloskop udělá právě jednu sadu měření, kterou naplní obsah paměti a dál neměří. 
+
+Měření na sondě se zapíná a vypíná tlačítkem s číslem sondy (mezi velkým a malým otočným kolečkem na panelu dole v sekci {\tt Vertical} ).
+
+Aby se vám měřený signál správně zobrazil, potřebujete mít optimálně nastavené rozlišení jak času, tak napětí.
+Pokud si nejste jistí  nastavením osciloskopu, stiskněte tlačítko \texttt{Auto Scale} a osciloskop se pokusí rozlišení nastavit sám. 
+
+Dva signály, které nejsou ze stejných hodin (stejného čipu), se obvykle na monitoru posunují vůči sobě. V takovém případě vypněte 
+měření (tlačítko \texttt{Stop}) a změřte Off-line na obrazovce, co potřebujete. 
+
+\subsubsection{Nastavení času}
+
+Všechny ovládací prvky v této podkapitole najdete na panelu osciloskopu vlevo nahoře v sekci {\tt Horizontal}
+
+\begin{itemize}
+	\item velké kolečko -- nastavení šířky periody (hodnota pro jeden dílek mřížky se zobrazuje nahoře mírně vpravo )
+	\item malé kolečko -- posun zobrazení signálu vlevo nebo vpravo (stisk: návrat do původní polohy) 
+	\item tlačítko lupa -- hodně zvětší %todo lze nastavit zvětšení a oblast?
+	\item tlačítko \texttt{Horiz} vyvolá \hyperref[menu:osc]{menu} mimo jiné položkami:  %todo odkaz skáče jinam
+	\begin{itemize}
+		\item \texttt{Time mode} \\ 
+		volba \texttt{normal}  -- obvyklé měření
+		volba \texttt{XY} umožňuje zobrazit na ose \textit{x} napětí nebo jiné veličiny, \\
+		volba \texttt{Roll} nastavuje měření v reálném čase -- vhodné pro pomalá měření napětí (točení potenciometrem ) 
+
+		\item \texttt{Time Ref} -- počátek měření času je umístěn vlevo, na střed, vpravo
+	\end{itemize} 	
+\end{itemize}
+
+\subsubsection{Nastavení napětí}
+
+Ovládací kolečka z této podkapitoly najdete na panelu osciloskopu  dole v sekci {\tt Vertical} ).
+Logika jejich ovládání je podobná jako u měření času. 
+\begin{itemize}
+	\item velké kolečko -- zesílení signálu (hodnota pro jeden dílek mřížky se zobrazuje nahoře vlevo )
+	\item malé kolečko -- posun zobrazení signálu nahoru nebo dolů, tzv. offset \index{offset} (stisk: návrat do původní polohy) 
+	 
+\end{itemize}
+
+\subsection{Trigger} %todo pro signál cviční sinusovka to na vzestupné hraně funguje a na sestupné to dělá paseku 
+
+Nastavení, od kdy přesně má osciloskop začít měřit, je v mnoha případech klíčové. 
+
+\textbf{Trigger} -- říká: teď začni měřit. Trigger může mít pouze jeden vstup, který lze velmi různě navolit pomocí tlačítka \texttt{Trigger}.
+
+tlačítko Mode Coupling %todo doplnit
+tlačítko Force Trigger -- okamžitě zahájí měření (v normal módu) 
+
+
+\subsection{Význam některých tlačítek -- heslovitě}
+
+
+
+Lze uložit až 10 svých nastavení osciloskopu a podle potřeby se k nim vracet.  %todo  jak ? ******************
+
+ Tlačítko  \texttt{Wave  gen} -- modře svítí -- zapnuto / nesvítí vypnuto. 
+ Generátor funkcí je popsán v nápovědě osiloskopu (stiskněte \texttt{Wave  gen} a držte 2 sekundy). 
+
+ Tlačítko \texttt{Meas}  -- menu měření.
+Zde si nastavíte, co všechno chcete měřit  (až 4 veličiny zaráz).
+
+Tlačítko \texttt{Cursors}   (=pravítka, dvě vodorovná a dvě svislá)  -- lze tím měřit zcela manuálně cokoliv na obrazovce.
+Nejčastější použití -- sledování PWM a signálů na sběrnicích. 
+
+Tlačítko \texttt{Refs}  (referenční signály) -- umí si pamatovat dva signály a srovnávat s nimi aktuální průběh  %todo ************************ jak se s tím pracuje 
+
+Tlačítko \texttt{Math}  umí arit. výpočty se dvěma signály, taky umí Fourrierovu analýzu signálu. 
+
+Tlačítko  \texttt{Digital} -- nastavení měření na digitálních vstupech.
+
+Tlačítko   \texttt{Serial} -- serial decode mode  
+%Tlačítko/menu ???? \texttt{} treshold --při dekódování sběrnic $\rightarrow$ nastavím, kde končí log. O a Log. 1  
+
+
+
+\subsection{Ostatní}
+
+\subsubsection{Menu sondy} %todo jak se leze do menu sondy ??
+
+\textbf{probe}: dělička v sondě (musí se nastavit stejně jak na sondě), obvyklá hodnota je 10:1
+
+zapnu střídavou vazbu: odstraní stejnosměrnou složku signálu %todo ????
+
+\textbf{invert}: zobrazuje kladnou složku dolů místo nahoru 
+
+\textbf{BW limit} potlačuje signály nad 20 MHz (tuto hodnotu na tomto osc. nelze měnít) $\rightarrow$ redukuje šumy, které nás obvykle nezajímají 
+
+
+%--------------
+
+%Některé položky z menu:
+
+%\begin{description}
+%	\texttt{Mode}: \texttt{auto} -- čeká \uv{nějakou dobu} na signál z triggeru a pak začne měřit  
+%	\texttt{normal} -- čeká na signál z triggeru neomezeně dlouho 
+%	
+%	
+%	\item  \texttt{Coupling DC} -- měří všechno 
+%	
+%	\item  \texttt{Coupling AC} -- potlačí stejnosměrné složky signálu 
+%	
+%	\item \texttt{LF Reject} -- potlačení pomalých frekvencí 
+%	
+%	
+%\end{description} 
+
+
+%\texttt{HF Reject} -- potlačení vysokofrekvenční složky 
+
+%\texttt{Noise Rej} -- potlačení šumu   %nepoznal jsem rozdíl  - pouze na "rozumně tvrdém" signálu 
+
+%\texttt{Holdoff} -- nastavení doby, po kterou osciloskop ignoruje další signály %todo z triggeru nebo celkově? 
+
+%\texttt{treshold} -- nastavení úrovně, jejíž překročení spouští měření
+
+
+
+
+
+
