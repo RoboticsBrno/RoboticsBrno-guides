@@ -26,6 +26,7 @@ all:
 	make4ht --utf8 ${LATEX_FILE_OUT}.tex -d ${OUTPUT_HTML}
 	mv -f ${LATEX_FILE_OUT}.pdf ${OUTPUT_PDF}/${LATEX_FILE_OUT}.pdf
 	mv -f ${OUTPUT_HTML}/${LATEX_FILE_OUT}.html ${OUTPUT_HTML}/index.html
+	util/bootstrapify ${OUTPUT_HTML}/index.html
 	cat $(CUSTOMCSS) >> ${OUTPUT_HTML}/${LATEX_FILE_OUT}.css
 	ls -la ${OUTPUT_PDF}
 	ls -la ${OUTPUT_HTML}
