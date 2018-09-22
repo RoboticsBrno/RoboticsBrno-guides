@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+import re
+import sys
+
+if len(sys.argv) != 2:
+    print("Usage index_postprocess <htmlfile>")
+    sys.exit(1)
+
+page = open(sys.argv[1]).read()
+
+# Encapsulate the content in a container
+page = page.replace('<div class="center"', '<div class="body"><div class="center"')
+page = page.replace('</body>', '</div></body>')
+
+with open(sys.argv[1], "w") as outfile:
+    outfile.write(page)
