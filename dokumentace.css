@@ -318,7 +318,7 @@ dt.enumerate-enumitem{float:left; clear:left; margin-left:1em; margin-right:1em;
 
 /* Source: https://github.com/huyng/latex-simple-css */
 
-body {
+.body {
     /* Serif options */
     /*font-family: "Times New Roman", Times, serif;*/
     /*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif    */
@@ -335,12 +335,14 @@ body {
 
     padding:1em;
     font-size: 14px;
-    font-weight:300;    
+    font-weight:300;
     line-height: 20px;
     margin:10em;
-    max-width:42em;
+    max-width:80em;
     background:#fefefe;
     color:#333;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
