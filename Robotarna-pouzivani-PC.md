@@ -16,7 +16,7 @@ Na všech PC a systémech je pro uživatele připraven účet `robotika` s hesle
 ## Osobní soubory
 Všechny osobní soubory je potřeba ukládal na síťový disk `\\Robotarna\robotika`. 
 
-Na tomto disku je složka s aktuálním rokem (např. `2017-2018`) a v ní jsou složky pro jednotlivé kroužky (např. `_GameMakerUtery`, `_CppStreda`). V těchto složkách si vytvořte svoje osobní složky ve tvaru `JmenoPrijmeni` (např. `JarekParal`) a do nich si ukládejte veškeré vaše projekty.
+Na tomto disku je složka s aktuálním rokem (např. `2017-2018`) a v ní jsou složky pro jednotlivé kroužky (např. `_GameMakerUtery`, `_CppStreda`). V těchto složkách si vytvořte svoje osobní složky ve tvaru `JmenoPrijmeni` (např. `JarekParal` -> **bez hacku a carek**) a do nich si ukládejte veškeré vaše projekty.
 
 Výsledná cesta k vašim projektům na Windows tak bude vypadat následovně:   
 `\\Robotarna\robotika\2017-2018\_GameMakerUtery\JarekParal` 
