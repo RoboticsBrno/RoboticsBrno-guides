@@ -22,7 +22,7 @@
 [Jednoduchá animace smajlíků](https://makecode.microbit.org/_WKxbfp6A9b77)   
 [Přepínání smajlíků pomocí tlačítek](https://makecode.microbit.org/_V4j7qgYoFUwW)   
 [Počítadlo zmáčknutí tlačítka](https://makecode.microbit.org/_AebCimgih5ec)   
-Výpis nšjakého textu při každém druhém zmáčknutí tlačítka   
+Výpis nějakého textu při každém druhém zmáčknutí tlačítka   
 [Kalkulačka](https://makecode.microbit.org/_HoFWC26Crhht)    
 [Flappy bird](https://makecode.microbit.org/26678-71321-70574-28696)     
 [PlatformBall (Pong)](https://makecode.microbit.org/39262-98444-67770-91512)
