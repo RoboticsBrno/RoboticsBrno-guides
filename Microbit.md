@@ -25,7 +25,7 @@
 Výpis nšjakého textu při každém druhém zmáčknutí tlačítka   
 [Kalkulačka](https://makecode.microbit.org/_HoFWC26Crhht)    
 [Flappy bird](https://makecode.microbit.org/26678-71321-70574-28696)     
-Pong
+[PlatformBall (Pong)](https://makecode.microbit.org/39262-98444-67770-91512)
 
 ## Tutoriály
 [Microla - 10 + 10 dní s BBC micro:bit](http://microla.cz/pro-zaky/10-dni-s-bbc-microbit/)
