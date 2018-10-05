@@ -41,3 +41,7 @@ Výpis nějakého textu při každém druhém zmáčknutí tlačítka
 
 Pokud potřebujete aktualizovat firmware Micro:bitu, tak postupujte podle tohoto [návodu](https://support.microbit.org/support/solutions/articles/19000019131-how-to-upgrade-the-firmware-on-the-micro-bit).
 Nahrání nového firmwaru může být občas potřeba při poškození původního firmwaru.
+
+## [Kde koupit a rozšíření](http://microla.cz/kde-koupit/)
+
+[HWKitchen.cz - BBC Micro:bit](https://www.hwkitchen.cz/bbc-microbit-s-usb-kabelem-a-drzakem-baterii/?utm_campaign=100-1000&utm_content=Elektronicke+stavebnice&utm_medium=product&utm_source=heureka.cz&utm_term=ElecFreaks+BBC+micro%3Abit+s+USB+kabelem+a+drzakem+b)
