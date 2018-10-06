@@ -50,7 +50,7 @@ script:
 before_deploy:
   - git config --local user.name "RoboticsBrno"
   - git config --local user.email "info@robotikabrno.cz"
-  - git tag "RoboticsManual_$(date +'%Y-%m-%d_%H-%M-%S')"
+ # - git tag "RoboticsManual_$(date +'%Y-%m-%d_%H-%M-%S')"
 
 deploy:
   - provider: pages
@@ -71,7 +71,7 @@ deploy:
     skip_cleanup: true
     body: "**In this release, the time of build is different then the time of the commit.** The difference is two hours due to different time zone on Travis server. That is the reason why time in the name of PDF file differs."
     on:
-      tags: false
+      tags: true
       branch: 
        - master
        - RoboticsManual
