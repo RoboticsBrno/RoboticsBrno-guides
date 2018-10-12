@@ -1,4 +1,4 @@
-# IOT
+# Internet of things (IoT)
 
 ## Přednášky
 
