@@ -2,7 +2,8 @@
 
 ## Zajímavé weby
 
-### [Robomise.cz](https://robomise.cz/)
+### [Robomise.cz](https://robomise.cz/) - jednoduché ukolý při kterých se lze naučit základy programování
+- programování ve stylu [Scratche](https://scratch.mit.edu/)
 - zdarma
 - v češtině
 - [velký počet levelů](https://robomise.cz/tasks), které pokrývají většinu zákldadů v programování
