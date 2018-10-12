@@ -3,6 +3,9 @@ Guides for various topics. However, guides are written primarily in Czech. If it
 
 Průvodci/návody pro různá témata. Primárně psány v češtině. V případě angličtiny jsou označený tagem `[EN]`.
 
+## [Robotický manuál](http://doc.robotikabrno.cz) ([PDF](https://github.com/RoboticsBrno/RoboticsBrno-guides/releases/))
+Co se hodí vědět při stavbě a programování hobby robotů.
+
 ## Instalace
 
 Instalace softwaru v rámci RobotikyBrno/Robotárny řešíme v samotném repozitáři [RoboticsBrno/Robotarna-service](https://github.com/RoboticsBrno/Robotarna-service). Lze zde najít instalační skripty pro Linux i Windows (přes software [Chocolatey](https://chocolatey.org/)). Návody na zprovoznění vývojových prostředí nebo i tipy na různé problémy a jejich řešení.
