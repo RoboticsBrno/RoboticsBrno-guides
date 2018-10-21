@@ -1,8 +1,8 @@
  \section{Visual Studio Code} \label{vscode} \index{Visual~Studio~Code}
  
  \textbf{Visual Studio Code} (zkráceně VS Code) je pokročilý textový editor od Microsoftu, speciálně navržený pro programátory čehokoliv.
- Jde o program, který toho hodně umí sám a ještě mnohem víc se toho může naučit, pokud do něj doinstalujeme další rozšíření, 
- tzv. \textbf{pluginy}, \index{plugin}
+ Jde o~program, který toho hodně umí sám a ještě mnohem víc se toho může naučit, pokud do něj doinstalujeme další rozšíření, 
+ tzv.~\textbf{pluginy}, \index{plugin}
  například  \hyperref[platformio]{PlatformIO}, což je plugin speciálně zaměřený na programování \hyperref[cip]{čipů}. 
 % V této kapitole se zaměříme na na programování 
  
@@ -21,12 +21,16 @@
  
  Instalujte podobně jako každý jiný program, stahujte zde: \url{https://code.visualstudio.com/}  
  
+ \textbf{POZOR:} Pokud jméno vašeho uživatelského účtu na PC obsahuje diakritiku (čárky, háčky), speciální znaky (znaky mimo \href{https://cs.wikipedia.org/wiki/ASCII}{ASCII} tabulku) nebo i~mezery, můžete mít problémy s~používáním PlatformIO.
+ 
+ Prakticky jediné funkční řešení tohoto problému je vytvořit si na PC nový uživatelský účet a používat ho pro práci s \textbf{VS Code} a \textbf{PlatformIO}. 
+ 
  
  \subsubsection{Nainstalujte PlatformIO} \label{platformio}
  
  \index{PlatformIO} \textbf{PlatformIO} (zkráceně PIO) je ten software, který umožní program v~C++ 
  přeložit tak, aby ho čip pochopil a~taky ho do čipu umí nahrát. 
- Instalace podle návodu zde: \url{http://docs.platformio.org/en/latest/ide/vscode.html\#installation}
+ Instalace podle návodu zde: \url{http://docs.platformio.org/en/latest/ide/vscode.html#installation}
  
  \label{vsc:newproject} \subsubsection{Založte nový projekt}
  
@@ -42,11 +46,14 @@
  
  
  \begin{enumerate}
- 	\item Založte nový projekt z~ikonky \uv{domeček} -- viz \url{http://docs.platformio.org/en/latest/ide/vscode.html\#quick-start}.
- 	\item \fxnote*[author=JP]{Nevim jestli tuto část nezjednodušit. Nevím jestli je potřeba rozebírat sekce a podsekce, když stačí napsat, aby při volbě Board napsal ESP32 Dev Module a on se automaticky vybere. PS: V brzké době by mohla být v PIO i dostupná Board ALKS :-).}{ Do kolonky {\it Board} se musí vybrat správná deska.
+ 	\item Založte nový projekt z~ikonky \uv{domeček} -- viz \url{http://docs.platformio.org/en/latest/ide/vscode.html#quick-start}.
+ 	\item Do kolonky {\it Board} se musí vybrat správná deska.
  		Desek je přes 400 a~jsou rozdělené do sekcí řazených podle abecedy vyznačených šedivou barvou.
- 		V~sekcích jsou potom jednotlivé desky řazené taky abecedně.
- 		Pro čip ESP32 najdete sekci {\it Espressif32} a~v~ní položku {\it Espressif ESP32 Dev Module}.}
+ 		Vám ale stačí kliknout na kolonku Board a na klávesnici napsat:
+ 		\begin{enumerate}
+ 			\item {\it Espressif ESP32 Dev Module} a vybrat tuto desku, pokud používáte samotnou vývojovou desku ESP32 DevKitC s modulem ESP32-WROOM32
+ 			\item {\it \href{https://docs.platformio.org/en/latest/boards/espressif32/alksesp32.html}{ALKS ESP32}} a vybrat tuto desku, pokud využíváte výukový kit ALKS (viz sekce \ref{alks}) 
+ 		\end{enumerate}
  	Kolonka {\it Framework } se potom vyplní automaticky. 
  	\item  Zbývá vybrat adresář, do kterého bude projekt uložen.
  	Tento adresář si předem vytvořte, s~adresářem vytvářeným za pochodu má VS Code kdovíproč problém.
