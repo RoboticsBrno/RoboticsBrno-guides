@@ -46,4 +46,7 @@ Nahrání nového firmwaru může být občas potřeba při poškození původn�
 
 ## [Kde koupit a rozšíření](http://microla.cz/kde-koupit/)
 
-[HWKitchen.cz - BBC Micro:bit](https://www.hwkitchen.cz/bbc-microbit-s-usb-kabelem-a-drzakem-baterii/?utm_campaign=100-1000&utm_content=Elektronicke+stavebnice&utm_medium=product&utm_source=heureka.cz&utm_term=ElecFreaks+BBC+micro%3Abit+s+USB+kabelem+a+drzakem+b)
+- [HWKitchen.cz - BBC Micro:bit](https://www.hwkitchen.cz/bbc-microbit-s-usb-kabelem-a-drzakem-baterii/?utm_campaign=100-1000&utm_content=Elektronicke+stavebnice&utm_medium=product&utm_source=heureka.cz&utm_term=ElecFreaks+BBC+micro%3Abit+s+USB+kabelem+a+drzakem+b)
+- [Driver Breakout for micro:bit, drives motors and servos](https://www.seeedstudio.com/Driver-Breakout-for-micro-bit-drives-motors-and-servos-p-3218.html) - 2x DC motor, 3x servo, 5V/3A regulator 
+
+
