@@ -33,9 +33,6 @@ Akuálně ukládáme/verzujeme všechny projekty na serveru [GitHub](https://git
 
 [kvetinac_driver_firmware]()
 
-[Knihovna 3piLib](https://github.com/Tasssadar/3piLib) - knihovna základních příkazů pro robota Pololu 3pi napsána Vojtou Bočkem ([Tasssadar](https://github.com/Tasssadar/3piLib/wiki)) - [dokumentace knihovny 3piLib](https://github.com/Tasssadar/3piLib/wiki)
-
-
 ## Podpůrné aplikace
 
 [Lorris Toolbox](http://tasssadar.github.io/Lorris/cz/index.html) - grafické rozhraní napsané v Qt určené pro práci s embedded zařízeními, roboty a podobnými aplikacemi, autor Vojta Boček
@@ -55,3 +52,10 @@ Akuálně ukládáme/verzujeme všechny projekty na serveru [GitHub](https://git
 [Ponořme se do Pythonu 3](http://diveintopython3.py.cz/index.html) - vhodná kniha pro naučení programovacího jazyku Python 3
 
 [Hradla, volty, jednočipy](https://maly.gitbooks.io/hradla-volty-jednocipy/) - publikace je určena pro zájemce o elektroniku, číslicovou techniku a vlastní stavbu zařízení pro Internet věcí ([podklady ke knize](https://elektrokniha.github.io/index.html))
+
+## Pololu 3pi
+
+Knihovna pro Pololu 3pi od Vojty Bočka ([Tasssadar](https://github.com/Tasssadar/3piLib/wiki)): [3piLib](https://github.com/Tasssadar/3piLib) ([wiki - dokumentace knihovny](https://github.com/Tasssadar/3piLib/wiki))
+
+Firmware pro 3pi na jízdu po čáře: [3piControl](http://github.com/Tasssadar/3piControl)
+
