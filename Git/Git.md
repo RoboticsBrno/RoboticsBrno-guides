@@ -1,5 +1,23 @@
 # Git aneb jak na něj
 
+## Časté příkazy
+
+- `git init` - vytvoří v aktuální složce repozitář
+- `git clone URL` - naklonuje repozitář ze zadané URL adresy
+- `git status` - zobrazí aktuální stav repozitáře
+    - přidané soubory - `untracked`
+    - odebrané soubory - `deleted`
+    - pozměněné soubory - `modified`
+- `git log` - zobrazí historii commitů
+- `git log --oneline` - zobrazí zjednodušenou historii commitů (občas přehlednější)
+- `git add FILES` - přidá daný soubor/soubory do indexu pro nový commit
+- `git commit` - začne vytvářet nový commit ze souborů přidaných do indexu a zeptá se na jeho popis
+- `git commit -m "POPIS COMMITU"` - vytvoří commit s daným popisem
+- `git rm FILE` - odebere daný soubor z repozitáře i z indexu
+- `git checkout NAZEV-VETVE` - přepne repozitář na zadanou větev/branch (pokud existuje)
+- `git stash` - odloží upravené soubory do interní schránky repozitáře a zanechá repozitář ve stavu posledního commitu
+- `git stash pop` - vytáhne poslední uložený stav ze schránky a aplikuje jej na soubory v repozitáři
+
 ## Práce s branchemi a pull-requesty aneb
 ## Přidávání commitů do repozitářů se zakázaným `pushem` do `master` branche
 
@@ -116,3 +134,14 @@ Po vytvoření `pull-requestu` vám jej mohou ostatní komentovat, připomínkov
 ![](git12-github-pull-request-created.png)
 
 Kdykoliv můžete do `pull-requestu` přidávat další commity. Stačí u sebe provést dané změny, přidat přes commit do stejné branche (`git add ...; git commit ...`) a odeslat na Gitový server (`git push`) 
+
+## FAQ
+
+### Jak odebrat soubor z indexu, který jsem přidal přes `git add`?
+
+```
+git reset JMENO-SOUBORU
+```
+
+Pokud chcete odebrat všechny soubory přidané přes `git add`, stačí zadat jen `git reset`.
+
