@@ -2,7 +2,6 @@
 
 [Pěkný popis práce s Gitem v češtině v rámci Robotického manuálu.](https://roboticsbrno.github.io/RoboticsBrno-guides/#x1-1290004.6)
 
-
 ## Časté příkazy
 
 - `git init` - vytvoří v aktuální složce repozitář
@@ -153,3 +152,23 @@ git reset JMENO-SOUBORU
 
 Pokud chcete odebrat všechny soubory přidané přes `git add`, stačí zadat jen `git reset`.
 
+## FAQ - pro pokročilé
+
+**Používejte jen, když víte co a proč to děláte.**
+
+### Odstranění posledního commitu z repozitáře?
+```
+git reset --hard HEAD~1
+```
+
+Odstranění commitu i ze serveru, pokud tam byl již předtím nahrán: 
+
+```
+git push --force
+```
+
+#### Pozor: 
+
+Některé repozitáře mají zakázány `force push` do master větví (viz [Přidávání commitů do repozitářů se zakázaným pushem do master branche](#přidávání-commitů-do-repozitářů-se-zakázaným-pushem-do-master-branche)) a u nich nelze tento postup použít (co se do dané branche na server pushne, již nelze modifikovat).
+
+Zároveň i když to daná branch umožňuje, je potřeba být z používáním `force push` velmi opatrný. Pokud totiž již někdo daný commit stáhnul k sobě na PC (jako lokální kopii) a vy potom odstraníte daný commit přes `force push` tento commit ze serveru. V tomto případě bude mít dotyčný problém nahrát svoje nové commity na server a nejjednodušší cesta je si znovu naklonovat celý repozitář.

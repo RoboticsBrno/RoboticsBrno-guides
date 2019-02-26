@@ -1,6 +1,8 @@
 # Verzování
 Soupis informací k verzování projektů.
 
+[Pěkný popis práce s Gitem v češtině v rámci Robotického manuálu.   ](https://roboticsbrno.github.io/RoboticsBrno-guides/#x1-1290004.6)
+
 ## Účty lidí na Robotárně
 - Honza Mrázek: [yaqwsx@github](https://github.com/yaqwsx/), [yaqwsx_cz@bitbucket](https://bitbucket.org/yaqwsx_cz/)
 - Jarek Páral: [jarekparal@github](https://github.com/JarekParal/), [jarekp@bitbucket](https://bitbucket.org/jarekp/)
@@ -9,31 +11,22 @@ Soupis informací k verzování projektů.
 - Jirka Vácha: [vakrij@github](https://github.com/vakrij)
 
 ## Starší Robotární projekty
-Verzovací server pro HG repozitáře [trac](http://technika.tasemnice.eu/trac/browser)
+Verzovací server pro HG repozitáře [trac](http://technika.junior.cz/trac/browser).
 
 ## Repozitáře
 * Názvy repozitářů:
-  * V rámci skupinu **RoboticsBrno** by měli být psány anglicky (anglicky kompatibilni - např. RoboticsSokolska, ne RobotikaSokolska). 
+  * V rámci skupinu **RoboticsBrno** by měli být psány anglicky (anglicky kompatibilní - např. RoboticsSokolska, ne RobotikaSokolska). 
   * U osobních repozitářů (uložených pod osobním profilem - např. JarekParal) to je na zvážení vlastníka účtu (doporučení - anglicky).
 * Popisy repozitářu - stejně jako u názvů repozitářů.
 * Každý repozitář bude mít soubor `README.md`, kde bude napsán krátký popis obsahu (abstrakt), jak v češtině, tak v angličtině. Zároveň zde bude uvedeno, v jakém jazyce jsou dokumenty primárně drženy a proč (CZ/EN).
 * Spolupráce na repozitářích:
   * První věc, pokud chcete aby si někdo mohl váš repozitář prohlédnout, je nutné jej nastavit jako veřejný (public) ne soukromý (private). Potom již stačí dotyčnému poslat odkaz a on si může vše prohlédnout.
-  * Když chcete na tvorbě daného projektu s někým spolupracovat, je potřeba mu přidat oprávnění k repozitáři: `Settings -> Collaborators -> Add collaborator`. Učiňte tak u všech projektů, na kterých se mají podílet lidi z Robotárny - přidejte kokrétní účty, uvedené výše.
+  * Když chcete na tvorbě daného projektu s někým spolupracovat, je potřeba mu přidat oprávnění k repozitáři: `Settings -> Collaborators -> Add collaborator`. Učiňte tak u všech projektů, na kterých se mají podílet lidi z Robotárny - přidejte konkrétní účty, uvedené výše.
   
 
 ## Git
 
-### Pro pokročilé
+### [Základní popis git příkazů + práce s branchemi a pull-requesty](Git.md)
 
-**Používejte jen, když víte co a proč to děláte.**
 
-- Odstranění posledního commitu
-  ```
-  git reset --hard HEAD~1
-  ```
-  Odstranění commitu i ze serveru, pokud tam byl předtím nahrán
-  ```
-  git push --force
-  ```
   
