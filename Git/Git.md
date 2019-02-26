@@ -46,7 +46,7 @@ správce daného repozitáře časem vaše změny zkontroluje a buď vám napí�
 
 #### 1. otevřít si Gitovou command line 
 
-![](git01-open-Git-Bash-Here.png)
+![](Git.img/git01-open-Git-Bash-Here.png)
 
 #### 2. vytvoř novou branch
 
@@ -54,11 +54,11 @@ správce daného repozitáře časem vaše změny zkontroluje a buď vám napí�
 git checkout -b GitBranchesTutorial
 ```
 
-![](git02-create-branch.png)
+![](Git.img/git02-create-branch.png)
 
 #### 3. máte vytvořenou novou branch
 
-![](git03-branch-created.png)
+![](Git.img/git03-branch-created.png)
 
 #### 4. vytvořte commit se změnami
 
@@ -70,17 +70,17 @@ git commit -m "Git: add tutorial for working with branches"
 
 Přidání souborů do commitu:
 
-![](git04-add-files-with-changes.png)
+![](Git.img/git04-add-files-with-changes.png)
 
 *Poznámka:* `git status` zobrazí stav všech souborů v repozitáři
 
 Vytvoření commitu:
 
-![](git05-commit-changes.png)
+![](Git.img/git05-commit-changes.png)
 
 Přes příkaz `git log` si lze zobrazit seznam commitů:
 
-![](git06-logs.png)
+![](Git.img/git06-logs.png)
 
 #### 5. odešlete změny na Gitový server
 
@@ -102,7 +102,7 @@ To push the current branch and set the remote as upstream, use
     git push --set-upstream origin GitBranchesTutorial
 ```
 
-![](git07-push.png)
+![](Git.img/git07-push.png)
 
 je potřeba zkopírovat daný příkaz a zavolat jej v command line:
 
@@ -110,20 +110,20 @@ je potřeba zkopírovat daný příkaz a zavolat jej v command line:
 git push --set-upstream origin GitBranchesTutorial
 ```
 
-![](git08-push-upstream.png)
+![](Git.img/git08-push-upstream.png)
 
 Nyní by již měla být daná branch nahrána na Gitovém serveru:   
 `https://github.com/VAS-USERNAME/JMENO-REPOZITARE/commits/JMENO-VASI-NOVE-BRACHE`
 
 [https://github.com/RoboticsBrno/RoboticsBrno-guides/commits/GitBranchesTutorial](https://github.com/RoboticsBrno/RoboticsBrno-guides/commits/GitBranchesTutorial)
 
-![](git09-github-commits.png)
+![](Git.img/git09-github-commits.png)
 
 #### 7. vytvoření pull-requestu do `master` větve
 
 Pomocí tlačítka `New pull request` vedle tlačítka pro výběr aktuální větvě `Branch: GitBranchesTutorial` začnete vytvářet `pull-request` (zkontrolujte si vždy, že máte vybranou správnou větev):
 
-![](git10-github-pull-request-button-highlighted.png)
+![](Git.img/git10-github-pull-request-button-highlighted.png)
 
 Při vytváření `pull-requestu` můžete:
 - přidávat podrobnější popis
@@ -131,17 +131,17 @@ Při vytváření `pull-requestu` můžete:
 - označovat jakého je typu (`Labels` - bug, improvement...)
 - ...
 
-![](git11-github-create-pull-request.png)
+![](Git.img/git11-github-create-pull-request.png)
 
 Po vytvoření `pull-requestu` vám jej mohou ostatní komentovat, připomínkovat, opravovat a následně přijmout (`Merge`) nebo zamítnou (`Close`).
 
-![](git12-github-pull-request-created.png)
+![](Git.img/git12-github-pull-request-created.png)
 
 Kdykoliv můžete do `pull-requestu` přidávat další commity. Stačí u sebe provést dané změny, přidat přes commit do stejné branche (`git add ...; git commit ...`) a odeslat na Gitový server (`git push`) 
 
-![](git13-github-pull-request-created-log.png)
+![](Git.img/git13-github-pull-request-created-log.png)
 
-![](git14-github-pull-request_more-commit.png)
+![](Git.img/git14-github-pull-request_more-commit.png)
 
 ## FAQ
 
