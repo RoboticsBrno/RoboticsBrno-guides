@@ -21,7 +21,8 @@
 ## Práce s branchemi a pull-requesty aneb
 ## Přidávání commitů do repozitářů se zakázaným `pushem` do `master` branche
 
-Některé repozitáře mají zakázáno přímé přidávání commitů do `master` větve:   
+Některé repozitáře mají zakázáno přímé přidávání commitů do `master` větve/branche:
+
 - ArduinoLearningKitStarter
 - ArduinoLearningKitStarter-library
 - RB3201-RBControl
@@ -117,9 +118,9 @@ Nyní by již měla být daná branch nahrána na Gitovém serveru:
 
 #### 7. vytvoření pull-requestu do `master` větve
 
-Pomocí tlačítka `Compare & pull request` začnete vytvářet `pull-request`:
+Pomocí tlačítka `New pull request` vedle tlačítka pro výběr aktuální větvě `Branch: GitBranchesTutorial` začnete vytvářet `pull-request` (zkontrolujte si vždy, že máte vybranou správnou větev):
 
-![](git10-github-pull-request-button.png)
+![](git10-github-pull-request-button-highlighted.png)
 
 Při vytváření `pull-requestu` můžete:
 - přidávat podrobnější popis
@@ -134,6 +135,10 @@ Po vytvoření `pull-requestu` vám jej mohou ostatní komentovat, připomínkov
 ![](git12-github-pull-request-created.png)
 
 Kdykoliv můžete do `pull-requestu` přidávat další commity. Stačí u sebe provést dané změny, přidat přes commit do stejné branche (`git add ...; git commit ...`) a odeslat na Gitový server (`git push`) 
+
+![](git13-github-pull-request-created-log.png)
+
+![](git14-github-pull-request_more-commit.png)
 
 ## FAQ
 
