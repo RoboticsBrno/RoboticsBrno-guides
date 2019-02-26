@@ -14,7 +14,7 @@ třeba korigovat poloměr propalu laserového paprsku. Ten je zpravidla 0.1-0.2 
 Na většinu materiálů funguje korekce 0.15 mm.
 
 Pokud ji ale chceš změřit, doporučuji si stáhnout soubor
-[laserCaliber.svg](data/laserCaliber.svg) a ten na laseru vypálit. Jsou to
+[laserCaliber.svg](FabLab_Ze-SolidWorks-na-Laser.data/laserCaliber.svg) a ten na laseru vypálit. Jsou to
 šablonky, na kterých je vždy pin o šírce 5mm a drážka o šířce 5 mm. V SVG je
 jeich nekolik - každá s jinou korekcí (s krokem 5 setin milimetru). Jakmile máš
 sadu 2x vypálenou, můžeš vyzkoušet, která dvojice s příslušnou korekcí do sebe
@@ -29,23 +29,23 @@ důvod, proč díly skládat do výkresu a neskládat je až v Inkscapu - pokud 
 změníš tloušťku  materiálu a zámečky se ti přeopočítají, nemusíš ručně skládat
 díly znovu - aktualizace do výkresu proběhne automaticky.
 
-![Vstupní model](img/laser_sw/2.PNG)
+![Vstupní model](FabLab_Ze-SolidWorks-na-Laser.img/2.PNG)
 Vstupní model
 
-![Nastavení rozměru výkresu](img/laser_sw/1.PNG)
+![Nastavení rozměru výkresu](FabLab_Ze-SolidWorks-na-Laser.img/1.PNG)
 Nastavení rozměru výkresu
 
-![Ve vlastnostech výkresu změň měřítko na 1:1](img/laser_sw/3.PNG)
+![Ve vlastnostech výkresu změň měřítko na 1:1](FabLab_Ze-SolidWorks-na-Laser.img/3.PNG)
 Ve vlastnostech výkresu změň měřítko na 1:1
 
 ![Při vkládání rotačních dílů, nezapomeň smazat symbol středu - jinak se vyřeže
-taky](img/laser_sw/4.PNG) Při vkládání rotačních dílů, nezapomeň smazat symbol středu - jinak se vyřeže taky
+taky](FabLab_Ze-SolidWorks-na-Laser.img/4.PNG) Při vkládání rotačních dílů, nezapomeň smazat symbol středu - jinak se vyřeže taky
 
-![Ukázka naskládaných dílů](img/laser_sw/5.PNG)
+![Ukázka naskládaných dílů](FabLab_Ze-SolidWorks-na-Laser.img/5.PNG)
 Ukázka naskládaných dílů
 
-![Ulož výkres jako DXF (a nezapomeň si uložit original!)](img/laser_sw/6.PNG)
-[Ulož výkres jako DXF (a nezapomeň si uložit original!)
+![Ulož výkres jako DXF (a nezapomeň si uložit original!)](FabLab_Ze-SolidWorks-na-Laser.img/6.PNG)
+Ulož výkres jako DXF (a nezapomeň si uložit original!)
 
 Jakmile máš výkres naskládaný, ulož je do formátu DXF. Při importu do Inkscapu
 nezapomeň vybrat měřítko 1:1. Abys mohl aplikovat korekci propalu, je třeba dxf
@@ -53,7 +53,7 @@ ze SolidWorks "opravit". Formát DXF totiž pouze uchovává čáry a křivky, a
 neuchovává informaci o tom, jak na sebe navazují. To zmenožňuje provést odsazení
 kontur. Naštěstí je to jednoduché spravit.
 
-![Při importu do Inkscape vyber scale factor 1](img/laser_sw/7.PNG)
+![Při importu do Inkscape vyber scale factor 1](FabLab_Ze-SolidWorks-na-Laser.img/7.PNG)
 Při importu do Inkscape vyber scale factor 1
 
 Prvně vyber všechno pomocí Ctrl+A, následně stiskni Ctrl+K, což seskupí všechny
@@ -64,22 +64,22 @@ nastav výplň tvarů - měly by se korektně vyplnit díly. Pokud některé dí
 přepni mód výplně na záložce výplně. Nyní Inkscape korektně ví, co jsou tvary,
 které chceš řezat a ví tedy, kterým směrem je "dovnitř" a kterým "ven".
 
-![Importovaný výkres po stisku Ctrl + A - vše vybráno](img/laser_sw/8.PNG)
+![Importovaný výkres po stisku Ctrl + A - vše vybráno](FabLab_Ze-SolidWorks-na-Laser.img/8.PNG)
 Importovaný výkres po stisku Ctrl + A - vše vybráno
 
-![Po stisku Ctrl + K se ze všeho stane 1 křivka](img/laser_sw/9.PNG)
+![Po stisku Ctrl + K se ze všeho stane 1 křivka](FabLab_Ze-SolidWorks-na-Laser.img/9.PNG)
 Po stisku Ctrl + K se ze všeho stane 1 křivka
 
-![Po stisku F2 se přepneš do editace křivky](img/laser_sw/10.PNG)
+![Po stisku F2 se přepneš do editace křivky](FabLab_Ze-SolidWorks-na-Laser.img/10.PNG)
 Po stisku F2 se přepneš do editace křivky
 
-![Po stisku Ctrl + A vybereš všechny body a Shift + J je sloučí překrývající se](img/laser_sw/11.PNG)
+![Po stisku Ctrl + A vybereš všechny body a Shift + J je sloučí překrývající se](FabLab_Ze-SolidWorks-na-Laser.img/11.PNG)
 Po stisku Ctrl + A vybereš všechny body a Shift + J je sloučí překrývající se
 
-![Zkušební nastavení výplně - je špatně](img/laser_sw/12.PNG)
+![Zkušební nastavení výplně - je špatně](FabLab_Ze-SolidWorks-na-Laser.img/12.PNG)
 Zkušební nastavení výplně - je špatně
 
-![Opravení výplně tlačítkem vpravo](img/laser_sw/13.PNG)
+![Opravení výplně tlačítkem vpravo](FabLab_Ze-SolidWorks-na-Laser.img/13.PNG)
 Opravení výplně tlačítkem vpravo
 
 Nyní při výběru všeho stiskni Ctrl + J. To aktivuje mód dynamického odsazení.
@@ -94,19 +94,19 @@ požadovou korekci v milimetrech - tedy např. "inkscape:radisu=0.15". Když
 dokument uložíš a znovu otevřeš v Inkscapu, korekce správné velikosti bude
 aplikována.
 
-![Po stisku Ctrl + J a tažením jsme ověřili správnost směru korekcí](img/laser_sw/14.PNG)
+![Po stisku Ctrl + J a tažením jsme ověřili správnost směru korekcí](FabLab_Ze-SolidWorks-na-Laser.img/14.PNG)
 Po stisku Ctrl + J a tažením jsme ověřili správnost směru korekcí
 
-![Nastavíme červenou tenkou čáru](img/laser_sw/15.PNG)
+![Nastavíme červenou tenkou čáru](FabLab_Ze-SolidWorks-na-Laser.img/15.PNG)
 Nastavíme červenou tenkou čáru
 
-![Otevřeme uložené SVG v textovém editoru](img/laser_sw/16.PNG)
+![Otevřeme uložené SVG v textovém editoru](FabLab_Ze-SolidWorks-na-Laser.img/16.PNG)
 Otevřeme uložené SVG v textovém editoru
 
-![Provedme nahrazení řetězce pro korekci propalu](img/laser_sw/17.PNG)
+![Provedme nahrazení řetězce pro korekci propalu](FabLab_Ze-SolidWorks-na-Laser.img/17.PNG)
 Provedme nahrazení řetězce pro korekci propalu
 
-![Znovu otevřený dokument v Inkscape se správnými korekcemi](img/laser_sw/18.PNG)
+![Znovu otevřený dokument v Inkscape se správnými korekcemi](FabLab_Ze-SolidWorks-na-Laser.img/18.PNG)
 Znovu otevřený dokument v Inkscape se správnými korekcemi
 
 A nyní hurá pálit!
