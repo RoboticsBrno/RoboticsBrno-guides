@@ -1,5 +1,8 @@
 # Git aneb jak na něj
 
+[Pěkný popis práce s Gitem v češtině v rámci Robotického manuálu.](https://roboticsbrno.github.io/RoboticsBrno-guides/#x1-1290004.6)
+
+
 ## Časté příkazy
 
 - `git init` - vytvoří v aktuální složce repozitář
