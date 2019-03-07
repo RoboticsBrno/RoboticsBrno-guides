@@ -10,7 +10,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <!-- xhtml,charset=utf-8,html --> 
 <meta name="src" content="dokumentace.tex" /> 
-<meta name="date" content="2019-03-06 21:31:00" /> 
+<meta name="date" content="2019-03-07 17:10:00" /> 
 <link rel="stylesheet" type="text/css" href="dokumentace.css" /> 
 </head><body 
 ><div class="body"><div class="center" 
@@ -63,7 +63,7 @@ class="ectt-1728">dokumentace@robotikabrno.cz</span>
 </p><!--l. 79--><p class="noindent" ><span 
 class="ecbx-1728">verze 1.0</span>
 </p><!--l. 81--><p class="noindent" ><span 
-class="ectt-1728">2019-03-06 21:31:21</span>                                           
+class="ectt-1728">2019-03-07 17:10:51</span>                                           
 
                                                                           
 </p><!--l. 83--><p class="noindent" ><span 
@@ -369,12 +369,14 @@ href="#x1-2000006.4.4" id="QQ2-1-211">Napájení</a></span>
 href="#x1-2010006.4.5" id="QQ2-1-212">Expandér</a></span>
 <br />  <span class="subsectionToc" >6.4.6 <a 
 href="#x1-2020006.4.6" id="QQ2-1-213">Rozložení pinů na desce RBC a jejich vlastnosti</a></span>
+<br />  <span class="subsectionToc" >6.4.7 <a 
+href="#x1-2030006.4.7" id="QQ2-1-215">Programování a nápověda</a></span>
 <br /> <span class="sectionToc" >6.5 <a 
-href="#x1-2030006.5" id="QQ2-1-215">Řešení některých problémů</a></span>
+href="#x1-2040006.5" id="QQ2-1-216">Řešení některých problémů</a></span>
 <br />  <span class="subsectionToc" >6.5.1 <a 
-href="#x1-2040006.5.1" id="QQ2-1-216">Chyba při uploadu programu do desky Arduino nano:</a></span>
+href="#x1-2050006.5.1" id="QQ2-1-217">Chyba při uploadu programu do desky Arduino nano:</a></span>
 <br /><span class="chapterToc" > <a 
-href="#Q1-1-218">Rejstřík</a></span>
+href="#Q1-1-219">Rejstřík</a></span>
 </div><a 
  id="x1-1000doc"></a>
                                                                           
@@ -536,12 +538,12 @@ href="dokumentace4.html#fn3x1"><sup class="textsuperscript">3</sup></a></span><a
 href="#x1-1000doc">obsah</a>
       </li>
       <li class="itemize">na konci textu je <a 
-href="#x1-2060006.5.1">rejstřík</a>
+href="#x1-2070006.5.1">rejstřík</a>
       </li>
       <li class="itemize">v žádném textu o elektronice a robotice nemůže být všechno, pokud
       zde něco nenajdete, použijte např. Google; také může pomoci další
       <a 
-href="#x1-2050006.5.1">literatura</a></li></ul>
+href="#x1-2060006.5.1">literatura</a></li></ul>
 <!--l. 95--><p class="noindent" >
 </p>
 <h3 class="sectionHead"><span class="titlemark">1.5   </span> <a 
@@ -8160,31 +8162,39 @@ periférií a počet ovládaných motorů. U motorů na připojené ovládané
 RBC desce nelze použít enkodéry. Také je možné připojit k I2C místo
 5 V libovolné externí napětí do cca 30 V a provozovat I2C na tomto
 napětí.
-</p><!--l. 232--><p class="noindent" >
+</p><!--l. 232--><p class="noindent" >Drivery pro motory se dají paralelizovat (pouze po dvou na stejné desce s
+drivery), tj. zapnout paralelně dva drivery pro jeden motor a dodávají pak
+motoru dvakrát větší proud.
+</p><!--l. 235--><p class="noindent" >
 </p>
 <h4 class="subsectionHead"><span class="titlemark">6.4.4   </span> <a 
  id="x1-2000006.4.4"></a>Napájení</h4>
-<!--l. 234--><p class="noindent" >Napájení desky RBC je ideální ze dvou Li-On baterií, které dodávají
+<!--l. 237--><p class="noindent" >Napájení desky RBC je ideální ze dvou Li-On baterií, které dodávají
 asi 8 V a dostatečné proudy. K desce lze připojit napětí až do 10 V,
 připojení vyššího napětí neumožňují použité drivery pro motory. Do
 motorů je přiváděn signál PWM na napětí z baterie a 5 V napájení pro
 enkodéry.
-</p><!--l. 239--><p class="noindent" >RBC si hlídá napětí na baterii a umí ho měřit do 10 V. V ESP32 je softwarově
+</p><!--l. 242--><p class="noindent" >RBC si hlídá napětí na baterii a umí ho měřit do 10 V. V ESP32 je softwarově
 (v knihovně) nastavené napětí napájení 7,2 V, při kterém ESP32 vypne desku,
 aby nedošlo k podvybití baterie.
-</p><!--l. 242--><p class="noindent" >Napětí 5 V pro desku může tvořit buď stabilizátor 7805 nebo spínaný zdroj. Z
-těchto 5 V se tvoří 3,3V na dalším stabilizátoru na desce ESP32-DevKitC.
-Proto při napájení pouze z USB nebude fungovat rozvod 5 V na desce. Čip 7805
-dává asi 1 A, většinu spotřebuje deska sama. Spínaný zdroj může dodávat 2 A.
-Celkem je možné na desku osadit 5 spínaných zdrojů.
-</p><!--l. 249--><p class="noindent" >
-</p>
+</p><!--l. 245--><p class="noindent" >Napětí 5 V pro desku může tvořit buď stabilizátor 7805 nebo spínaný zdroj. Z
+těchto 5 V se tvoří 3,3 V na dalším stabilizátoru na desce ESP32-DevKitC.
+Proto při napájení pouze z USB nebude fungovat rozvod 5 V na desce.
+Čip 7805 dává asi 1 A, asi 0.5 V spotřebuje deska sama, zbytek mohou
+použít připojené periferie. Když zkusíte odebírat více proudu, tak se
+stabilizátor vypne, neb má v sobě pojistku. Pokud proud pro periferie
+nestačí, je možné místo 7805 použít spínaný zdroj, který může dodávat
                                                                           
 
                                                                           
+2 A.
+</p><!--l. 253--><p class="noindent" >Kromě hlavního je možné na desku osadit další 4 spínané zdroje pro napájení
+serv – viz bod č. 20 u popisu desky (kap. 6.4.6).
+</p><!--l. 257--><p class="noindent" >
+</p>
 <h4 class="subsectionHead"><span class="titlemark">6.4.5   </span> <a 
  id="x1-2010006.4.5"></a>Expandér</h4>
-<!--l. 251--><p class="noindent" ><span 
+<!--l. 259--><p class="noindent" ><span 
 class="ecbx-1200">Expand</span><span 
 class="ecbx-1200">ér pinů</span>  <a 
  id="dx1-201001"></a>je obvod, který umožňuje připojit osm vstupně-výstupních
@@ -8192,11 +8202,16 @@ class="ecbx-1200">ér pinů</span>  <a
 3,3 V, má dva porty A, B – každý port má 8 pinů, port A je pro uživatele, port B
 je pro tlačítka, LED a vypínání desky, ale uživatel může port B také
 použít.
-</p><!--l. 255--><p class="noindent" >
+</p><!--l. 262--><p class="noindent" >Expandéry jsou pomalé, proto jsou vhodné např. pro řízení motorů a pod., ale
+ne pro například modelářské servo.
+</p><!--l. 265--><p class="noindent" >Expandér pinů na tříbitovou adresu, takže jich může být připojeno 8 tohoto
+typu (expandéry jsou různých typů, včetně „rychlých“ expandérů, které zvládnou
+i ovládání modelářských serv).
+</p><!--l. 269--><p class="noindent" >
 </p>
 <h4 class="subsectionHead"><span class="titlemark">6.4.6   </span> <a 
  id="x1-2020006.4.6"></a>Rozložení pinů na desce RBC a jejich vlastnosti</h4>
-<!--l. 257--><p class="noindent" >Pro snazší orientaci si otočte desku tak, aby oblouk na desce byl vpravo. Při
+<!--l. 271--><p class="noindent" >Pro snazší orientaci si otočte desku tak, aby oblouk na desce byl vpravo. Při
 popisu budeme postupovat zleva doprava a shora dolů. Poloha jednotlivých částí
 desky je vyznačena na obrázku <a 
 href="#x1-2020011">6.1<!--tex4ht:ref: fig:rbc --></a>.
@@ -8212,7 +8227,7 @@ href="#x1-2020011">6.1<!--tex4ht:ref: fig:rbc --></a>.
 
                                                                           
 
-<!--l. 262--><p class="noindent" ><img 
+<!--l. 276--><p class="noindent" ><img 
 src="soubory/RBC_image_description.png" alt="PIC"  
  />
 <br /> </p><div class="caption" 
@@ -8222,15 +8237,15 @@ class="content">Rozložení pinů na desce RB3201-RBControl</span></div><!--tex4
 
                                                                           
 </div><hr class="endfigure" />
-<!--l. 268--><p class="noindent" >1. Svorkovnice pro připojení DC motorů
-</p><!--l. 270--><p class="noindent" >2. Piny pro připojení motorů s enkodéry. Protože ESP32 má málo pinů, je
+<!--l. 282--><p class="noindent" >1. Svorkovnice pro připojení DC motorů
+</p><!--l. 284--><p class="noindent" >2. Piny pro připojení motorů s enkodéry. Protože ESP32 má málo pinů, je
 potřeba si zjistit, které piny jsou použité pro enkodéry a nepoužívat je na něco
 jiného.
-</p><!--l. 272--><p class="noindent" >3. Výstupní piny, slouží signálovému propojení s další deskou RBC.
-</p><!--l. 274--><p class="noindent" >4. Výstupní napájení. Použije se v případě připojení další RBC desky jako
+</p><!--l. 287--><p class="noindent" >3. Výstupní piny, slouží signálovému propojení s další deskou RBC.
+</p><!--l. 289--><p class="noindent" >4. Výstupní napájení. Použije se v případě připojení další RBC desky jako
 vstupní napájení pro připojenou desku. Piny SCL, SDA, GND, 3V3 lze použít i
 samostatně jako další I2C port.
-</p><!--l. 277--><p class="noindent" >5. <a 
+</p><!--l. 292--><p class="noindent" >5. <a 
 href="#x1-270003.2.1">Drivery</a> pro DC motory. Každý driver poskytuje PWM napájení pro dva
 motory. Každý driver má vyvedený pin 5A (FAULT), kde je možné měřit, jestli
 se nenachází v chybovém stavu. Každý driver má ochranu proti přetížení i
@@ -8238,20 +8253,20 @@ přehřátí <span
 class="cmsy-10x-x-120">→ </span>při překročení mezních hodnot se vypne. Pod drivery jsou
 posuvné registry 5B, které generují signál pro motory podle pokynů z
 ESP32.
-</p><!--l. 282--><p class="noindent" >6. Vstupní piny, slouží signálovému propojení s řídící deskou RBC. Piny SCL,
+</p><!--l. 297--><p class="noindent" >6. Vstupní piny, slouží signálovému propojení s řídící deskou RBC. Piny SCL,
 SDA, GND, 3V3 lze použít i samostatně jako další I2C port.
-</p><!--l. 285--><p class="noindent" >7. Vstupní napájení z baterie nebo z řídící RBC desky.
-</p><!--l. 287--><p class="noindent" >8. Jde o čtveřici jumperů<span class="footnote-mark"><a 
+</p><!--l. 300--><p class="noindent" >7. Vstupní napájení z baterie nebo z řídící RBC desky.
+</p><!--l. 302--><p class="noindent" >8. Jde o čtveřici jumperů<span class="footnote-mark"><a 
 href="dokumentace39.html#fn2x6"><sup class="textsuperscript">2</sup></a></span><a 
  id="x1-202002f2"></a> ,
 zleva doprava při propojení provedou následující: Reset RBC, zapnutí RBC,
 vypnutí RBC, vypnutí RBC v případě, že expandér není osazen nebo
 nefunguje.
-</p><!--l. 289--><p class="noindent" >9. <a 
+</p><!--l. 304--><p class="noindent" >9. <a 
 href="#x1-320003.2.2">Stabilizátor</a> 7805 (dodává cca 1 A, většinu z tohoto proudu spotřebuje RBC
 pro svůj provoz). Místo 7805 je možné osadit spínaný zdroj, který dodává cca
 2 A.
-</p><!--l. 291--><p class="noindent" >10. Port B z expandéru. Zleva doprava jsou to piny: 5 V, GND, 2x signálový pin
+</p><!--l. 306--><p class="noindent" >10. Port B z expandéru. Zleva doprava jsou to piny: 5 V, GND, 2x signálový pin
 (ten stejný) na 3,3 V. Na tomto portu jsou také připojená tlačítka, všechny
 LED a <span 
 class="ecbx-1200">vyp</span><span 
@@ -8259,60 +8274,90 @@ class="ecbx-1200">ín</span><span
 class="ecbx-1200">án</span><span 
 class="ecbx-1200">í desky (pin B7)</span>. Pozor, ve verzi 1.2 jsou popisy pinů
 posunuté o jeden pin dolů.
-</p><!--l. 295--><p class="noindent" >11. <a 
+</p><!--l. 310--><p class="noindent" >11. <a 
 href="#x1-230003.1.5">Tranzistor</a> Q1 – zapíná desku.
-</p><!--l. 297--><p class="noindent" >12. Tranzistor Q3. Po osazení tranzistorem Q3 je deska chráněná proti
+</p><!--l. 312--><p class="noindent" >12. Tranzistor Q3. Po osazení tranzistorem Q3 je deska chráněná proti
 přepólování.
                                                                           
 
                                                                           
-</p><!--l. 299--><p class="noindent" >13. Expandér pinů. 13A jsou piny pro sledování <a 
+</p><!--l. 314--><p class="noindent" >13. Expandér pinů. 13A jsou piny pro sledování <a 
 href="#x1-1780005.4.9">přerušení</a> na portu A a portu B
 expandéru.
-</p><!--l. 302--><p class="noindent" >14. Tlačítka S1, S2, S3.
-</p><!--l. 304--><p class="noindent" >15. ESP32-DevKitC
-</p><!--l. 306--><p class="noindent" >16. Deska, která převádí signál I2C z 3,3 V na 5 V a signál pro připojení
+</p><!--l. 317--><p class="noindent" >14. Tlačítka S1, S2, S3.
+</p><!--l. 319--><p class="noindent" >15. ESP32-DevKitC
+</p><!--l. 321--><p class="noindent" >16. Deska, která převádí signál I2C z 3,3 V na 5 V a signál pro připojení
 inteligentních LED a podobně – viz č. 17 a 23.
-</p><!--l. 308--><p class="noindent" >17. 2x I2C na 5 V
-</p><!--l. 310--><p class="noindent" >18. 3x I2C na 3,3 V
-</p><!--l. 312--><p class="noindent" >19. 4x LED
-</p><!--l. 314--><p class="noindent" >20. Piny pro připojení periferií k ESP32. Součástí jsou piny portu A z
+</p><!--l. 323--><p class="noindent" >17. 2x I2C na 5 V
+</p><!--l. 325--><p class="noindent" >18. 3x I2C na 3,3 V
+</p><!--l. 327--><p class="noindent" >19. 4x LED
+</p><!--l. 329--><p class="noindent" >20. Piny pro připojení periferií k ESP32. Součástí jsou piny portu A z
 expandéru (č. 20A). Zleva doprava: 3,3 V, GND, 2x signálový pin, 5 V, GND.
 Přitom piny 5 V jsou ve výchozím nastavení připojeny na spínané zdroje
-(č.21A-D, které samozřejmě musí být osazeny). Vyjímka je spodních 8 pinů,
-které jsou připojeny přímo ke stabilizátoru nebo spínanému zdroji (č. 9). Pokud
-chceme ostatní piny připojit na zdroj č. 9, musíme propojit jumpery 22A-D.
-Přitom piny tvoří kaskádu, tj. musím nedřív propojit jumper 22A, potom 22B
+(č.21A-D, které samozřejmě musí být osazeny).
+</p><!--l. 334--><p class="noindent" >Vyjímka je spodních 8 pinů, které jsou připojeny přímo ke stabilizátoru nebo
+spínanému zdroji č. 9. To také znamená, že na pinech značených 5 V není 5 V,
+ale tolik voltů, jak je nastavený stabilizátor, který je připojený k daným pinům.
+Toto se musí ohlídat speciálně při připojování serv, jinak je můžete snadno
+spálit.
+</p><!--l. 340--><p class="noindent" >Piny IOxx na desce odpovídají pinům na ESP32, piny EXx jsou piny z
+expandéru pinů, EAx jsou volné piny, EBx jsou použité pro tlačítka a diody (viz
+popisy na desce a bod č.10) – je potřeba při jejich použití na to dát
+pozor.
+</p><!--l. 345--><p class="noindent" >Popis pinů: například vpravo nahoře: vždy dva popisky odpovídají jedné řadě,
+takže například první řada od shora patří k pinu IO35 a současně je na stejný
+pin přiveden ENC8B – enkodér pro 8. motor (každý enkodér má dva výstupy, A
+a B).
+</p><!--l. 350--><p class="noindent" >Horní dvě řady pinů jsou připojeny na spínaný zdroj 21D (první řada od shora
+je pouze vstupní), dvě řady pinů pod nimi jsou připojeny na 21C, další dvě
+řady na 21B a zbývající řady kromě spodních osmi na 21A. Pokud chceme tyto
+piny připojit na zdroj č. 9, musíme propojit jumpery 22A-D. Přitom
+piny tvoří kaskádu, tj. musím nedřív propojit jumper 22A, potom 22B
 atd.
-</p><!--l. 322--><p class="noindent" >21. Místo pro osazení spínaných zdrojů (step-down): 21A, 21B, 21C, 21D.
+</p><!--l. 357--><p class="noindent" >21. Místo pro osazení spínaných zdrojů (step-down): 21A, 21B, 21C, 21D.
 Každý zdroj má vyvedený tzv. enable-pin. Zdroje jsou ve výchozím stavu
 zapnuté a lze je vypnout tak, že na enable-pin přivedu kabelem z jiného pinu
 potřebný signál.
-</p><!--l. 326--><p class="noindent" >Na každý spínaný zdroj (step-expanderdown) je možné připojit jedno servo nebo
-dvě mikroserva. Piny jsou vyvedeny tak, aby bylo možné serva připojit přímo.
-Přitom zdroj 21D obsluhuje horní dva piny 5 V, zdroj 21C dva piny 5 V pod
-nimi, zdroj 21B opět dva piny 5 V pod nimi a zdroj 21A všechny zbývající piny
-5 V kromě spodních osmi.
-</p><!--l. 331--><p class="noindent" >22. Jumpry pro připojení spínaných zdrojů z bodu 21, písmeno vždy odpovídá:
-22A, 22B, 22C, 22D.
-</p><!--l. 333--><p class="noindent" >23. Signál pro inteligentní LED nebo podobné zařízení – piny na desce nejvíce
-vpravo (nejsou vyznačeny).
-</p>
-<h3 class="sectionHead"><span class="titlemark">6.5   </span> <a 
- id="x1-2030006.5"></a>Řešení některých problémů</h3>
                                                                           
 
                                                                           
-<!--l. 337--><p class="noindent" >
+</p><!--l. 362--><p class="noindent" >Na každý spínaný zdroj (step-expanderdown) je možné připojit jedno servo nebo
+dvě mikroserva. Piny jsou vyvedeny tak, aby bylo možné serva připojit přímo.
+Přitom zdroj 21D obsluhuje horní dva piny 5 V, zdroj 21C dva piny 5 V pod
+nimi, zdroj 21B opět dva piny 5 V pod nimi a zdroj 21A všechny zbývající piny
+5 V kromě spodních osmi.
+</p><!--l. 368--><p class="noindent" >22. Jumpry pro připojení spínaných zdrojů z bodu 21, písmeno vždy odpovídá:
+22A, 22B, 22C, 22D.
+</p><!--l. 370--><p class="noindent" >23. Signál pro inteligentní LED nebo podobné zařízení – piny na desce nejvíce
+vpravo (nejsou vyznačeny).
+</p>
+<h4 class="subsectionHead"><span class="titlemark">6.4.7   </span> <a 
+ id="x1-2030006.4.7"></a>Programování a nápověda</h4>
+<!--l. 373--><p class="noindent" >Programování desky RBC — viz <a 
+href="https://www.mickoflus.cz/guide.html" class="url" ><span 
+class="ectt-1200">https://www.mickoflus.cz/guide.html</span></a>,
+sekce programování. Stáhnout, otevřít a přeložit (build) demo projekt z
+míčkoflusu, ten si stáhne z GitHubu všechny potřebné knihovny a bude
+připraven k překladu. Příklady kódu: <a 
+href="https://rbcontrol.robotikabrno.cz" class="url" ><span 
+class="ectt-1200">https://rbcontrol.robotikabrno.cz</span></a>.
+</p><!--l. 379--><p class="noindent" >Dokumentace RBControl knihovny: <a 
+href="https://github.com/RoboticsBrno/RB3201-RBControl-library" class="url" ><span 
+class="ectt-1200">https://github.com/RoboticsBrno/RB3201-_RBControl-_library</span></a>.
+</p><!--l. 381--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">6.5   </span> <a 
+ id="x1-2040006.5"></a>Řešení některých problémů</h3>
+<!--l. 383--><p class="noindent" >
 </p>
 <h4 class="subsectionHead"><span class="titlemark">6.5.1   </span> <a 
- id="x1-2040006.5.1"></a>Chyba při uploadu programu do desky Arduino nano:</h4>
-<!--l. 339--><p class="noindent" >Chyba: <br 
+ id="x1-2050006.5.1"></a>Chyba při uploadu programu do desky Arduino nano:</h4>
+<!--l. 385--><p class="noindent" >Chyba: <br 
 class="newline" /><span 
 class="ectt-1200">Please specify &#x2019;upload_port&#x2019; environment or use global &#x2019;–upload-port&#x2019;</span>
 <span 
 class="ectt-1200">option</span>
-</p><!--l. 342--><p class="noindent" >Řešení: pomohlo spustit příkaz <span 
+</p><!--l. 388--><p class="noindent" >Řešení: pomohlo spustit příkaz <span 
 class="ectt-1200">sudo service udev restart </span>a znovu spustit VS
 code a odpojit a připojit desku.
                                                                           
@@ -8320,7 +8365,7 @@ code a odpojit a připojit desku.
                                                                           
 </p>
 <h2 class="likechapterHead"><a 
- id="x1-2050006.5.1"></a>Literatura</h2>
+ id="x1-2060006.5.1"></a>Literatura</h2>
    <div class="thebibliography">
    <p class="bibitem" ><span class="biblabel">
  [1]<span class="bibsp">   </span></span><a 
@@ -8351,12 +8396,12 @@ class="ecti-1200">www.citace.com </span>[online]
 </p>
    </div>
 <a 
- id="Q1-1-218"></a>
+ id="Q1-1-219"></a>
                                                                           
 
                                                                           
 <h2 class="likechapterHead"><a 
- id="x1-2060006.5.1"></a>Rejstřík</h2>
+ id="x1-2070006.5.1"></a>Rejstřík</h2>
 <div class="theindex"><span class="index-item">*.md, 51 <br /></span>
 <span class="index-item">čip, 12 <br /></span>
 <span class="index-item">1N4007, 85 <br /></span>
@@ -8436,7 +8481,7 @@ class="ecti-1200">www.citace.com </span>[online]
 <span class="index-item">infrasenzor <br /></span>
 <span class="index-subitem">    odrazový, 26 <br /></span>
 </p><p class="theindex">
-<span class="index-item">jumper, 88 <br /></span>
+<span class="index-item">jumper, 89 <br /></span>
 </p><p class="theindex">
 <span class="index-item">kalafuna, 19 <br /></span>
 <span class="index-item">knihovna, 66 <br /></span>
