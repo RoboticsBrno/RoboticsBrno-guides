@@ -229,6 +229,9 @@ K RBC s ESP32 je možné připojit další RBC bez ESP32 a rozšířit tak poče
 U motorů na připojené ovládané RBC desce nelze použít enkodéry. 
 Také je možné připojit k I2C místo 5~V libovolné externí napětí do cca 30~V  a provozovat I2C na tomto napětí. 
 
+Drivery pro motory se dají paralelizovat (pouze po dvou na stejné desce s drivery), tj. zapnout
+paralelně dva drivery pro jeden motor a dodávají pak motoru dvakrát větší proud.
+
 \subsection{Napájení}
 
 Napájení desky RBC je ideální ze dvou Li-On baterií, %todo odkaz na baterie
@@ -237,19 +240,30 @@ Napájení desky RBC je ideální ze dvou Li-On baterií, %todo odkaz na baterie
  Do motorů je přiváděn signál PWM na napětí z baterie a 5~V napájení pro enkodéry.  
 
 RBC si hlídá napětí na baterii a umí ho měřit do 10~V. 
-V ESP32 je softwarově (v knihovně) nastavené napětí napájení 7,2~V, při kterém ESP32 vypne desku, aby nedošlo k podvybití baterie.  
+V ESP32 je softwarově (v knihovně) nastavené napětí napájení 7,2~V, při kterém ESP32 vypne desku, aby nedošlo k podvybití baterie.     
 
-Napětí 5~V pro desku může tvořit buď stabilizátor 7805 nebo spínaný zdroj.  
-Z těchto 5~V se tvoří 3,3V na dalším stabilizátoru na desce ESP32-DevKitC. 
-Proto při napájení pouze z USB nebude fungovat rozvod 5~V na desce. 
-Čip 7805 dává asi 1~A, většinu spotřebuje deska sama. 
-Spínaný zdroj může dodávat 2~A. Celkem je možné na desku osadit 5 spínaných zdrojů.   
+Napětí 5~V pro desku může tvořit buď stabilizátor 7805 nebo spínaný zdroj.
+Z těchto 5~V se tvoří 3,3~V na dalším stabilizátoru na desce ESP32-DevKitC.
+Proto při napájení pouze z USB nebude fungovat rozvod 5~V na desce. Čip
+7805 dává asi 1~A, asi 0.5~V spotřebuje deska sama, zbytek mohou použít
+připojené periferie. Když zkusíte odebírat více proudu, tak se stabilizátor
+vypne, neb má v sobě pojistku. Pokud proud pro periferie nestačí, je možné
+místo 7805 použít spínaný zdroj, který může dodávat 2~A.
+
+Kromě hlavního je možné na desku osadit další 4 spínané zdroje pro napájení
+serv – viz bod č. 20 u popisu desky (kap. 6.4.6).
 
 
 \subsection{Expandér}
 
 \textbf{Expandér pinů} \label{expander} \index{expander}  je obvod, který umožňuje připojit osm vstupně-výstupních (I/O) pinů přes I2C sběrnici, tedy pouze pomocí dvou pinů na čipu. 
 Funguje na 3,3~V, má dva porty A, B -- každý port má 8 pinů, port A je pro uživatele, port B je pro tlačítka, LED a vypínání desky, ale uživatel může port B také použít.
+
+Expandéry jsou pomalé, proto jsou vhodné např. pro řízení motorů a pod.,
+ale ne pro například modelářské servo.
+
+Expandér pinů na tříbitovou adresu, takže jich může být připojeno 8 tohoto typu (expandéry jsou různých typů, včetně „rychlých“ expandérů, které
+zvládnou i ovládání modelářských serv).
 
 
 \subsection{Rozložení pinů na desce RBC a jejich vlastnosti}
@@ -267,7 +281,8 @@ Poloha jednotlivých částí desky je vyznačena na obrázku \ref{fig:rbc}.
 
 1. Svorkovnice pro připojení DC motorů 
 
-2.  Piny pro připojení motorů s enkodéry. Protože ESP32 má málo pinů, je potřeba si zjistit, které piny jsou použité pro enkodéry a nepoužívat je na něco jiného. 
+2.  Piny pro připojení motorů s enkodéry. 
+Protože ESP32 má málo pinů, je potřeba si zjistit, které piny jsou použité pro enkodéry a nepoužívat je na něco jiného. 
 
 3. Výstupní piny, slouží signálovému propojení s další deskou RBC. 
 
@@ -315,22 +330,53 @@ Na tomto portu jsou také připojená tlačítka, všechny LED a \textbf{vypín�
 Součástí jsou piny portu A z expandéru (č. 20A). 
 Zleva doprava: 3,3~V, GND, 2x signálový pin, 5~V, GND. 
 Přitom piny 5~V jsou ve výchozím nastavení připojeny na spínané zdroje (č.21A-D, které samozřejmě musí být osazeny). 
-Vyjímka je spodních 8 pinů, které jsou připojeny přímo ke stabilizátoru nebo spínanému zdroji (č. 9). 
-Pokud chceme ostatní piny připojit na zdroj č. 9, musíme propojit jumpery 22A-D. 
-Přitom piny tvoří kaskádu, tj. musím nedřív propojit jumper 22A, potom 22B atd. 
 
-21. Místo pro osazení spínaných zdrojů (step-down): 21A, 21B, 21C, 21D. 
-Každý zdroj má vyvedený tzv. enable-pin. 
-Zdroje jsou ve výchozím stavu zapnuté a lze je  vypnout tak, že na enable-pin přivedu kabelem z jiného pinu potřebný signál. 
+Vyjímka je spodních 8 pinů,
+které jsou připojeny přímo ke stabilizátoru nebo spínanému zdroji č. 9. To
+také znamená, že na pinech značených 5 V není 5 V, ale tolik voltů, jak
+je nastavený stabilizátor, který je připojený k daným pinům. Toto se musí
+ohlídat speciálně při připojování serv, jinak je můžete snadno spálit.
 
-Na každý spínaný zdroj (step-expanderdown) je možné připojit jedno servo nebo dvě mikroserva. 
-Piny jsou vyvedeny tak, aby bylo možné serva připojit přímo. 
-Přitom zdroj 21D obsluhuje horní dva piny 5~V, zdroj 21C dva piny 5~V pod nimi, zdroj 21B opět dva piny 5~V pod nimi a zdroj 21A všechny zbývající piny 5~V kromě spodních osmi.
+Piny IOxx na desce odpovídají pinům na ESP32, piny EXx jsou piny z expandéru pinů, 
+EAx jsou volné piny, EBx jsou použité pro tlačítka a diody
+(viz popisy na desce a bod č.10) – je potřeba při jejich použití na to dát
+pozor.
 
+Popis pinů: například vpravo nahoře: vždy dva popisky odpovídají jedné
+řadě, takže například první řada od shora patří k pinu IO35 a současně je na
+stejný pin přiveden ENC8B – enkodér pro 8. motor (každý enkodér má dva
+výstupy, A a B).
+
+Horní dvě řady pinů jsou připojeny na spínaný zdroj 21D (první řada od
+shora je pouze vstupní), dvě řady pinů pod nimi jsou připojeny na 21C,
+další dvě řady na 21B a zbývající řady kromě spodních osmi na 21A. Pokud
+chceme tyto piny připojit na zdroj č. 9, musíme propojit jumpery 22A-D.
+Přitom piny tvoří kaskádu, tj. musím nedřív propojit jumper 22A, potom
+22B atd.
+
+21. Místo pro osazení spínaných zdrojů (step-down): 21A, 21B, 21C, 21D.
+Každý zdroj má vyvedený tzv. enable-pin. Zdroje jsou ve výchozím stavu
+zapnuté a lze je vypnout tak, že na enable-pin přivedu kabelem z jiného pinu
+potřebný signál.
+
+Na každý spínaný zdroj (step-expanderdown) je možné připojit jedno servo
+nebo dvě mikroserva. Piny jsou vyvedeny tak, aby bylo možné serva připojit
+přímo. Přitom zdroj 21D obsluhuje horní dva piny 5 V, zdroj 21C dva piny
+5 V pod nimi, zdroj 21B opět dva piny 5 V pod nimi a zdroj 21A všechny
+zbývající piny 5 V kromě spodních osmi.
 
 22. Jumpry pro připojení spínaných zdrojů z bodu 21, písmeno vždy odpovídá: 22A, 22B, 22C, 22D.
 
 23. Signál pro inteligentní LED nebo podobné zařízení -- piny na desce nejvíce vpravo (nejsou vyznačeny).
+
+\subsection{Programování a nápověda}
+Programování desky RBC –-
+viz \url{https://www.mickoflus.cz/guide.html}, sekce programování. Stáhnout,
+otevřít a přeložit (build) demo projekt z míčkoflusu, ten si stáhne z GitHubu
+všechny potřebné knihovny a bude připraven k překladu.
+Příklady kódu: \url{https://rbcontrol.robotikabrno.cz}.
+
+Dokumentace RBControl knihovny: \url{https://github.com/RoboticsBrno/RB3201-RBControl-library}.
 
 \section{Řešení některých problémů}
 
