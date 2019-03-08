@@ -13,24 +13,22 @@ OUTPUT_HTML     = _html
 # Name of CSS file for better HTML output
 CUSTOMCSS       = custom.css
 
-all:
-	ls -la
+all: pdf web
+
+
+pdf:
 	mkdir -p ${OUTPUT_PDF}
+	cp -f ${LATEX_FILE_ORIG}.tex ${LATEX_FILE_OUT}.tex 
+	texfot latexmk -halt-on-error -pdf -outdir=${OUTPUT_PDF} ${LATEX_FILE_OUT}.tex
+	
+web:
 	mkdir -p ${OUTPUT_HTML}
-	ls -la
-	cp -f ${LATEX_FILE_ORIG}.tex ${LATEX_FILE_OUT}.tex
-	pdflatex -synctex=1 -interaction=nonstopmode ${LATEX_FILE_OUT}.tex
-	makeindex ${LATEX_FILE_OUT}.idx
-	pdflatex -synctex=1 -interaction=nonstopmode ${LATEX_FILE_OUT}.tex
-	pdflatex -synctex=1 -interaction=nonstopmode ${LATEX_FILE_OUT}.tex
-	make4ht --utf8 ${LATEX_FILE_OUT}.tex -d ${OUTPUT_HTML}
-	mv -f ${LATEX_FILE_OUT}.pdf ${OUTPUT_PDF}/${LATEX_FILE_OUT}.pdf
+	cp -f ${LATEX_FILE_ORIG}.tex ${LATEX_FILE_OUT}.tex 
+	texfot make4ht --utf8 ${LATEX_FILE_OUT}.tex -d ${OUTPUT_HTML}
 	mv -f ${OUTPUT_HTML}/${LATEX_FILE_OUT}.html ${OUTPUT_HTML}/index.html
 	util/index_postprocess ${OUTPUT_HTML}/index.html
 	cat $(CUSTOMCSS) >> ${OUTPUT_HTML}/${LATEX_FILE_OUT}.css
-	ls -la ${OUTPUT_PDF}
-	ls -la ${OUTPUT_HTML}
-
+	
 copy:
 	cp -r ${OUTPUT_PDF}/${LATEX_FILE_OUT}.pdf ../../output/${OUTPUT_PDF}/${LATEX_FILE_OUT}.pdf
 	cp -r ${OUTPUT_HTML}/ ../../output/
