@@ -29,7 +29,7 @@ FabLab_Ze-SolidWorks-na-Laser.img\1.PNG
 ...
 ``` 
 
-## [Robotický manuál](http://doc.robotikabrno.cz) ([PDF](https://github.com/RoboticsBrno/RoboticsBrno-guides/releases/))
+## [Robotický manuál](http://doc.robotikabrno.cz) ([PDF](http://doc.robotikabrno.cz/RoboticsManual.pdf))
 Co se hodí vědět při stavbě a programování hobby robotů.
 
 ## Instalace

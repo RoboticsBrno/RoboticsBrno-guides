@@ -45,7 +45,7 @@ script:
 - ls -la output
 - ls -la output/_pdf
 - ls -la output/_html
-- sudo mv output/_pdf/dokumentace.pdf output/_pdf/RoboticsManual_$(date +'%Y-%m-%d_%H-%M').pdf
+- sudo cp output/_pdf/dokumentace.pdf output/_html/RoboticsManual.pdf
 
 before_deploy:
   - git config --local user.name "RoboticsBrno"
@@ -61,19 +61,4 @@ deploy:
     on:
       branch: 
       - master
-      - RoboticsManual
-      - RoboticsManualWithoutPdf
-  - provider: releases
-    api_key:
-      secure: $GITHUB_TOKEN
-    file_glob: true
-    file: output/_pdf/*
-    skip_cleanup: true
-    body: "**In this release, the time of build is different then the time of the commit.** The difference is two hours due to different time zone on Travis server. That is the reason why time in the name of PDF file differs."
-    on:
-      tags: true
-      branch: 
-       - master
-       - RoboticsManual
-       - RoboticsManualWithoutPdf
        
