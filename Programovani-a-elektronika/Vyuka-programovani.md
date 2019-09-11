@@ -1,5 +1,7 @@
 # Výuka programování
 
+### [Seznam zdarma dostupných "knih" o programování](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md)
+
 ## Zajímavé weby
 
 ### [Robomise.cz](https://robomise.cz/) - jednoduché ukolý při kterých se lze naučit základy programování
