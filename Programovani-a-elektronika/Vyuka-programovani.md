@@ -28,3 +28,5 @@ Výukové materiály pro:
 Souhrn aktuálně dostupných a zajímavých metod, softwaru, hraček a dalších pomůcek pro výuku programování.
 
 <img src="https://github.com/xsuchy/programovani_pro_deti/blob/master/images/vek-infografika.png" height="840" alt="infografika">
+
+[Slajdy Aktivní učitel (PDF)](https://github.com/xsuchy/programovani_pro_deti/blob/0cca2bc8ebf568a624f8c66ab75d59d59f704ffb/AktivniUcitel.pdf) - Štěpánka Baierlová a Roman Podlena o tom kde berou inspiraci.
