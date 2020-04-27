@@ -1,5 +1,5 @@
 # Základy programování v C/C++
-**Zdroj:** převedeno z [Tracu](http://technika.tasemnice.eu/trac/wiki/cplusplus) (dokuwiki formát) do Markdownu pro [T-exkurzi 2016: Robotikem snadno a rychle](https://technika.tasemnice.eu/trac/browser/t-exkurze_robotarna_robotikem-snadno-a-rychle). 
+**Zdroj:** převedeno z [Tracu](http://technika.tasemnice.eu/trac/wiki/cplusplus) (dokuwiki formát) do Markdownu pro [T-exkurzi 2016: Robotikem snadno a rychle](https://github.com/RoboticsBrno/t-exkurze_robotikem-snadno-a-rychle). 
 
 
 V této části se seznámíme se základy programovacího jazyka C/C++. Povíme si něco o proměnných, podmínkách, cyklech atd.
