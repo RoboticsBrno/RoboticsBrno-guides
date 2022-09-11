@@ -1,6 +1,6 @@
-#include "LearningKit.h"
+#include "LearningKit.h" 
 
-void setup() 
+void setup()  
 {
     pinMode(L_Y, OUTPUT); // initialize LED digital pin as an output
     

@@ -16,8 +16,8 @@
 
 
 \usepackage[T1]{fontenc} % import tučného písma typu tt pro prostředí listings
-\usepackage{listings} % balíček pro obarvování syntaxe ukázek programů v textu
-%\usepackage{listingsutf8} %nutné pro \usepackage{listings} aby to jelo v UTF-8
+%\usepackage{listings} % balíček pro obarvování syntaxe ukázek programů v textu
+\usepackage{listingsutf8} %nutné pro \usepackage{listings} aby to jelo v UTF-8
 \lstset{
 		extendedchars 	= false,
 		language      	= C++,
@@ -31,9 +31,7 @@
 		keywordstyle	=\color{deepblue},
 		stringstyle     = \color{magenta},
 	} % písmo a  barvičky  by možná chtěly doladit - nějaký dobrovolník? 
-
-\lstset{literate=    %sem se musí doplnit všechny znaky s diakritikou z kódů se zvýrazněnou syntaxí
-	{á}{{a}}1 {š}{\s}1 {ř}{\r}1  } %{š}{\v s}1 -nejede {á}{{\'a}}1 - jede
+% volba literate= pro znaky s diakritikou z kódů se zvýrazněnou syntaxí se nesmí používat, rozbíjí překlad
 
 % \begin{lstlisting} Tady je zdrojový kód např. v C++ \end{lstlisting} - pro UTF-8 NE
 %\lstinputlisting{source_filename.py} vloží soubor z daného místa a obarví
@@ -143,13 +141,18 @@
 
  \printindex   
  \label{rejstrik}
- 
+
+	\input novinky.tex
+	\input rozcestnik.tex
+
+\end{document}
+
 %todo seznam úkolů
 % doplnit do rejstříku velká počáteční písmena a seřadit ho podle české abecedy 
 % vytvořit proklikávání v  rejstříku 
 % software pro videonávody?
 % udělat podrobný návod pro VSCode do gitu = verzování do VSCode 
-% doplnit sekci \section{Příkazy C++ pro čipy}
+% doplnit sekci section Příkazy C++ pro čipy 
 % sepsat sekci Základní doporu£ení pro programování
 % do kapitoly Onshape doplnit fotky s popisy + \index , taky do osciloskopu
 % nepájivé kontaktní pole
@@ -166,9 +169,13 @@
 % vscode - dodělat 
 % osciloskop - dodělat 
 % zdrojové kódy pro programování součástek 
-% výhledově Eagle - čtení zapojení ze souborů a orientace, ne výroba desky 
+% drawio
 % doplnit step-down 
+% doplnit checklist 
+% PCBDraw https://github.com/yaqwsx/PcbDraw
+% přednášky pro VUT  - https://moodle.fel.cvut.cz/course/view.php?id=2000
 
-\end{document}
+ V případě commitování do manuálu dejte do commit message na začátek text "RoboticsManual: VÁŠ POPIS COMMITU"
+- Pokud děláte reference v textu, nepoužívejte v nich nikdy diakritiku (viz tenhle případ) - rozbije to překlad do HTML. 
  
 
